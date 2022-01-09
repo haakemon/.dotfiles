@@ -50,7 +50,7 @@ The easiest way to add these profile settings is to include them in the powershe
 
 After the file has been created, add `. "$env:USERPROFILE\.dotfiles\powershell\profile.ps1` to it. When opening a new PowerShell terminal, you should now see `Dotfiles profile loaded` printed in the terminal. If you make changes to the profile, you can reload the profile by executing `. $profile` to avoid having to restart the terminal session to get the updated commands.
 
-### A not about Set-Current-Directory (goto) function
+### A note about Set-Current-Directory (goto) function
 
 I have some directories I often work with via command line. These are reachable through the goto function, and since my work and home computers are set up with different directory locations, I decided to utilise environment variables for this.
 

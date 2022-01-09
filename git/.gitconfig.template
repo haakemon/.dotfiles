@@ -1,0 +1,7 @@
+[core]
+  # autocrlf = true # Use this on Windows
+  # autocrlf = input # Use this on Linux/Mac
+  editor = "'C:/Program Files (x86)/Notepad++/notepad++.exe'"
+[user]
+  name =
+  email =

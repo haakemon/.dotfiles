@@ -35,7 +35,7 @@ This is mainly taken from [Scott Hanselman's blog post about oh-my-posh](https:/
   - https://github.com/ryanoasis/nerd-fonts/releases
   - I like Fira Code for VS Code, and MesloLGM for terminal
 - Install Terminal-Icons:
-  - `Import-Module -Name Terminal-Icons`
+  - `Install-Module -Name Terminal-Icons`
 - Install posh-git:
   - `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Confirm`
   - `PowerShellGet\Install-Module posh-git -Scope CurrentUser -Force`

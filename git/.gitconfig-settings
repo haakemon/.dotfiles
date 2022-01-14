@@ -41,8 +41,9 @@
   # detachedHead = false
 
 # https://github.com/dandavison/delta
-[interactive]
-  diffFilter = delta --color-only --features=interactive
+# [interactive]
+  # Some issues getting delta to work with inteactive add, so disable it for now
+  # diffFilter = delta --color-only --features=interactive
 
 [delta]
   features = decorations

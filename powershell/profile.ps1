@@ -7,6 +7,7 @@ function Initialize-Profile {
   Set-PSReadlineOption -BellStyle None # Disable beep on backspace when line is empty
   Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward # scroll through history for text that starts with current input
   Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward # scroll through history for text that starts with current input
+  Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 
   # Get a nice inline prediction on what to type based on history
   Set-PSReadLineOption -PredictionSource History

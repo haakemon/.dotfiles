@@ -1,9 +1,9 @@
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": 
+    "actions":
     [
         {
-            "command": 
+            "command":
             {
                 "action": "copy",
                 "singleLine": false
@@ -19,7 +19,7 @@
             "keys": "ctrl+v"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "splitPane",
                 "split": "auto",
@@ -31,14 +31,14 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-    "profiles": 
+    "profiles":
     {
         "defaults": {},
-        "list": 
+        "list":
         [
             {
-                "colorScheme": "Andromeda",
-                "font": 
+                "colorScheme": "Dracula",
+                "font":
                 {
                     "face": "MesloLGM NF",
                     "size": 9
@@ -56,9 +56,9 @@
                 "source": "Windows.Terminal.Wsl"
             },
             {
-                "colorScheme": "Andromeda",
+                "colorScheme": "Dracula",
                 "commandline": "C:/Program Files/Git/bin/bash.exe",
-                "font": 
+                "font":
                 {
                     "face": "Fira Code"
                 },
@@ -92,8 +92,31 @@
             }
         ]
     },
-    "schemes": 
+    "schemes":
     [
+        {
+          "name": "Dracula",
+          "black": "#000000",
+          "red": "#ff5555",
+          "green": "#50fa7b",
+          "yellow": "#f1fa8c",
+          "blue": "#bd93f9",
+          "purple": "#ff79c6",
+          "cyan": "#8be9fd",
+          "white": "#bbbbbb",
+          "brightBlack": "#555555",
+          "brightRed": "#ff5555",
+          "brightGreen": "#50fa7b",
+          "brightYellow": "#f1fa8c",
+          "brightBlue": "#bd93f9",
+          "brightPurple": "#ff79c6",
+          "brightCyan": "#8be9fd",
+          "brightWhite": "#ffffff",
+          "background": "#1e1f29",
+          "foreground": "#f8f8f2",
+          "selectionBackground": "#44475a",
+          "cursorColor": "#bbbbbb"
+        },
         {
             "background": "#262A33",
             "black": "#000000",

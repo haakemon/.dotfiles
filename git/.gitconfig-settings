@@ -1,7 +1,7 @@
 [core]
   fscache = true
   preloadindex = true
-  pager = ~/.dotfiles/bin/delta
+  pager = ~/.dotfiles/bin/delta --24-bit-color=always --paging=always
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [push]
   default = upstream

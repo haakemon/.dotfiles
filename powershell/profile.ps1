@@ -12,7 +12,6 @@ function Initialize-Profile {
   # Get a nice inline prediction on what to type based on history
   Set-PSReadLineOption -PredictionSource History
   Set-PSReadLineOption -PredictionViewStyle InlineView
-  Set-PSReadLineOption -EditMode Windows
 
   Import-Module -Name Terminal-Icons
   Import-Module posh-git

@@ -20,9 +20,8 @@ function Initialize-Profile {
   . Add-Alias
   . Initialize-Goto
 
-  if (-Not (Test-Path "$env:USERPROFILE\.dotfiles\bin\delta.exe")) {
-    Write-Host "Delta not found, starting download..."
-    . Update-Delta
+  if (-Not (Test-Path "$env:USERPROFILE\.dotfiles\bin\delta\delta.exe")) {
+    Write-Host "Delta not found, download by executing 'Update-Delta'"
   }
 
   Write-Host "Dotfiles profile loaded"

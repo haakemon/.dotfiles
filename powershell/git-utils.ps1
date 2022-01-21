@@ -32,9 +32,9 @@ function Update-Delta {
   $trimmedUrl = $rawUrl.tostring().trim()
   $downloadUrl = $trimmedUrl.substring(25, $trimmedUrl.length - 26)
 
-  $binPath = "$env:USERPROFILE\.dotfiles\bin"
+  $binPath = "$env:USERPROFILE\.dotfiles\bin\delta"
   if (-Not (Test-Path $binPath)) {
-    New-Item -Path "$env:USERPROFILE\.dotfiles" -Name "bin" -ItemType "directory" > $null
+    New-Item -Path "$env:USERPROFILE\.dotfiles\bin" -Name "delta" -ItemType "directory" > $null
   }
 
   if (-Not (Test-Path "$binPath\temp")) {

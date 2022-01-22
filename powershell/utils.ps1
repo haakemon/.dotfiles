@@ -10,16 +10,11 @@ function Add-Alias {
 
   New-Alias cat "$env:USERPROFILE\.dotfiles\bin\bat\bat.exe" -Force
 
-  New-Alias npm Write-Use-Yarn-Instead -Force
-}
-
-# Most projects I work on these days use yarn instead of npm, but its difficult to remember to use the yarn command
-function Write-Use-Yarn-Instead {
-  Write-Host -ForegroundColor Red "Use 'yarn' instead! (or '_npm' if you really need to use npm)"
+  New-Alias npm WriteUseYarnInstead -Force
 }
 
 # Starts a new pwsh instance in the current directory with administrator privileges
-function Start-Elevated-Pwsh {
+function Start-Elevated {
   [Alias("elevate")]
   Param()
 
@@ -51,7 +46,7 @@ function Use-Npm {
 }
 
 # Just in case bat causes issues, cat is available with _ prefix
-function Use-Real-Cat {
+function Use-RealCat {
   [Alias("_cat")]
   Param()
 
@@ -59,7 +54,7 @@ function Use-Real-Cat {
 }
 
 # Quick way to launch Notepad++
-function Start-Notepad-Plus-Plus {
+function Start-NotepadPlusPlus {
   [Alias("npp")]
   Param()
 
@@ -79,7 +74,15 @@ function Merge-Hashtables {
   $htnew.keys | Where-Object { $_ -notin $htold.keys } | ForEach-Object { $htold[$_] = $htnew[$_] }
 }
 
-function Test-Utils-Downloaded {
+# Helper functions, should not be called directly by user
+
+# Most projects I work on these days use yarn instead of npm, but its difficult to remember to use the yarn command
+function WriteUseYarnInstead {
+  Write-Host -ForegroundColor Red "Use 'yarn' instead! (or '_npm' if you really need to use npm)"
+}
+
+# Warn user if binaries are not found
+function TestUtilsDownloaded {
 
   if (-Not (Test-Path "$env:USERPROFILE\.dotfiles\bin\delta\delta.exe")) {
     Write-Host "Delta not found, download by executing 'Update-Delta'"

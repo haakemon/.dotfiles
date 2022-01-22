@@ -15,7 +15,7 @@ function Initialize-Goto {
     Merge-Hashtables $globalLocations $hash
   }
 
-  function Write-Invalid-Goto-Location {
+  function WriteInvalidGotoLocation {
     Param(
       [string]$Location,
       [System.Collections.Hashtable]$Locations
@@ -26,7 +26,7 @@ function Initialize-Goto {
     Write-Host ($Locations | Out-String)
   }
 
-  function Set-Current-Directory {
+  function Set-CurrentDirectory {
     [Alias("goto")]
     Param(
       [Parameter(Mandatory = $false)]
@@ -49,7 +49,7 @@ function Initialize-Goto {
       return Set-Location $globalLocations[$location]
     }
     else {
-      Write-Invalid-Goto-Location $location $globalLocations
+      WriteInvalidGotoLocation $location $globalLocations
     }
   }
 }

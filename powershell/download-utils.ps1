@@ -1,14 +1,13 @@
-
 # Replacement for cat, on steroids, aliased to cat
 function Update-Bat {
   $binFolder = "bat"
   $binPath = "$env:USERPROFILE\.dotfiles\bin\$binFolder"
 
-  New-Bin-Directory-If-Not-Exists "$binFolder"
+  NewBinDirectoryIfNotExists "$binFolder"
 
-  $ZipfileName = Get-File-From-Github https://api.github.com/repos/sharkdp/bat/releases/latest "$binPath" @("browser_download_url", "x86_64-pc-windows-msvc.zip")
+  $ZipfileName = GetFileFromGithub https://api.github.com/repos/sharkdp/bat/releases/latest "$binPath" @("browser_download_url", "x86_64-pc-windows-msvc.zip")
 
-  Expand-To-Bin-Path-And-Cleanup $binPath $ZipfileName
+  ExpandToPathAndCleanup $binPath $ZipfileName
 }
 
 # Download the latest release of Delta, which is used for prettier git diffs
@@ -16,14 +15,16 @@ function Update-Delta {
   $binFolder = "delta"
   $binPath = "$env:USERPROFILE\.dotfiles\bin\$binFolder"
 
-  New-Bin-Directory-If-Not-Exists "$binFolder"
+  NewBinDirectoryIfNotExists "$binFolder"
 
-  $Zipfile = Get-File-From-Github https://api.github.com/repos/dandavison/delta/releases/latest "$binPath" @("browser_download_url", "pc-windows.*zip")
+  $Zipfile = GetFileFromGithub https://api.github.com/repos/dandavison/delta/releases/latest "$binPath" @("browser_download_url", "pc-windows.*zip")
 
-  Expand-To-Bin-Path-And-Cleanup $binPath $Zipfile
+  ExpandToPathAndCleanup $binPath $Zipfile
 }
 
-function Expand-To-Bin-Path-And-Cleanup {
+# Helper functions, should not be called directly by user
+
+function ExpandToPathAndCleanup {
   Param(
     [Parameter(Mandatory = $true)]
     [string]$destination,
@@ -32,17 +33,17 @@ function Expand-To-Bin-Path-And-Cleanup {
     [string]$ZipfileName
   )
 
-  $AbsoluteZipPath = "$binPath\temp\$ZipfileName"
+  $AbsoluteZipPath = "$destination\temp\$ZipfileName"
 
-  Expand-Archive -LiteralPath $AbsoluteZipPath -DestinationPath "$binPath\temp"
+  Expand-Archive -LiteralPath $AbsoluteZipPath -DestinationPath "$destination\temp"
 
   $ExtractedFolderName = $AbsoluteZipPath.substring(0, $AbsoluteZipPath.length - 4)
   Move-Item -Path "$ExtractedFolderName\*" -Destination $destination -Force
 
-  Remove-Item "$binPath\temp" -Recurse
+  Remove-Item "$destination\temp" -Recurse
 }
 
-function Get-File-From-Github {
+function GetFileFromGithub {
   Param(
     [Parameter(Mandatory = $true)]
     [string]$releasesUrl,
@@ -53,7 +54,7 @@ function Get-File-From-Github {
     [Parameter(Mandatory = $true)]
     [array]$grepValues
   )
-  New-Temp-Folder-If-Not-Exists $destinationPath
+  NewTempDirectoryIfNotExists $destinationPath
 
   $rawUrl = curl -s $releasesUrl
 
@@ -73,7 +74,7 @@ function Get-File-From-Github {
   return $ZipfileName
 }
 
-function New-Bin-Directory-If-Not-Exists {
+function NewBinDirectoryIfNotExists {
   Param(
     [Parameter(Mandatory = $true)]
     [string]$dirName
@@ -85,7 +86,7 @@ function New-Bin-Directory-If-Not-Exists {
   }
 }
 
-function New-Temp-Folder-If-Not-Exists {
+function NewTempDirectoryIfNotExists {
   Param(
     [Parameter(Mandatory = $true)]
     [string]$location

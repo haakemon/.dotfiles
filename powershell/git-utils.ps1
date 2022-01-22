@@ -29,6 +29,6 @@ function Edit-Gitconfig {
   code "$env:USERPROFILE\.gitconfig"
 }
 
-function Add-Gitconfig-Settings {
+function Add-GitconfigSettings {
   git config --global --replace-all include.path "$env:USERPROFILE\.dotfiles\git\.gitconfig-settings" "$env:USERPROFILE\.dotfiles\git\.gitconfig-settings"
 }

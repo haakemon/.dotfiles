@@ -21,7 +21,7 @@ function Initialize-Profile {
   . Add-Alias
   . Initialize-Goto
 
-  Test-Utils-Downloaded
+  TestUtilsDownloaded
 
   Write-Host "Dotfiles profile loaded"
 }

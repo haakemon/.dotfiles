@@ -31,7 +31,7 @@ When the PowerShell profile is set up (below), `bat` is aliased to `cat`. The or
 
 Some aliases, and settings for git. Some of the aliases might not work in anything else than git bash (or linux) since that is what I used when I first wrote them, and some of them I rarely use anymore.
 
-These aliases can be set up by executing the `Add-Gitconfig-Settings` PowerShell script (This can be done after setting up the PowerShell profile - see Powershell further down).
+These aliases can be set up by executing the `Add-GitconfigSettings` PowerShell script (This can be done after setting up the PowerShell profile - see Powershell further down).
 
 ## PowerShell
 
@@ -54,13 +54,17 @@ This is mainly taken from [Scott Hanselman's blog post about oh-my-posh](https:/
 - Install PSReadLine if its not already installed:
   - `Install-Module PSReadLine -AllowPrerelease -Force`
 
+### Naming conventions
+
+I've tried following the naming conventions for functions, except for "helper functions" that are not meant to be discovered/used directly by users. These are breaking the naming convention, and are not using any `-` in the name.
+
 ### Include in powershell profile
 
 The easiest way to add these profile settings is to include them in the powershell profile. This is usually located in `Documents\PowerShell\Microsoft.PowerShell_profile.ps1`, but you can also check for its existence by executing `Test-Path $profile`, and execute `$profile` will give you the location. If this file does not exist, you can create it by executing `New-Item -path $profile -type file –force`.
 
 After the file has been created, add `. "$env:USERPROFILE\.dotfiles\powershell\profile.ps1` to it. When opening a new PowerShell terminal, you should now see `Dotfiles profile loaded` printed in the terminal. If you make changes to the profile, you can reload the profile by executing `. $profile` to avoid having to restart the terminal session to get the updated commands.
 
-### A note about Set-Current-Directory (goto) function
+### A note about Set-CurrentDirectory (goto) function
 
 I have some directories I often work with via command line. These are reachable through the goto function, and since my work and home computers are set up with different directory locations, I decided to utilise environment variables for this.
 

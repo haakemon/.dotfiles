@@ -1,4 +1,4 @@
-# Setup alias for which, grep and npm
+# Setup aliases
 function Add-Alias {
   if (!(Test-Path alias:which)) {
     New-Alias which Get-Command
@@ -7,6 +7,8 @@ function Add-Alias {
   if (!(Test-Path alias:grep)) {
     New-Alias grep Select-String
   }
+
+  New-Alias cat "$env:USERPROFILE\.dotfiles\bin\bat\bat.exe" -Force
 
   New-Alias npm Write-Use-Yarn-Instead -Force
 }
@@ -48,6 +50,14 @@ function Use-Npm {
   pwsh.exe -nop -c npm $args
 }
 
+# Just in case bat causes issues, cat is available with _ prefix
+function Use-Real-Cat {
+  [Alias("_cat")]
+  Param()
+
+  pwsh.exe -nop -c cat $args
+}
+
 # Quick way to launch Notepad++
 function Start-Notepad-Plus-Plus {
   [Alias("npp")]
@@ -67,4 +77,16 @@ function Merge-Hashtables {
   )
 
   $htnew.keys | Where-Object { $_ -notin $htold.keys } | ForEach-Object { $htold[$_] = $htnew[$_] }
+}
+
+function Test-Utils-Downloaded {
+
+  if (-Not (Test-Path "$env:USERPROFILE\.dotfiles\bin\delta\delta.exe")) {
+    Write-Host "Delta not found, download by executing 'Update-Delta'"
+  }
+
+  if (-Not (Test-Path "$env:USERPROFILE\.dotfiles\bin\bat\bat.exe")) {
+    Write-Host "Bat not found, download by executing 'Update-Bat'"
+  }
+
 }

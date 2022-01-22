@@ -25,34 +25,6 @@ function Write-Gitignore {
   Invoke-WebRequest -Uri "https://www.toptal.com/developers/gitignore/api/windows,linux,osx,$params" | Select-Object -ExpandProperty content | Out-File -FilePath $(Join-Path -path $pwd -ChildPath ".gitignore") -Encoding ascii
 }
 
-# Download the latest release of Delta, which is used for prettier git diffs
-# This will run automatically when profile is loaded, if Delta does not exist in the target directory
-function Update-Delta {
-  $rawUrl = curl -s https://api.github.com/repos/dandavison/delta/releases/latest | grep "browser_download_url" | grep "pc-windows.*zip"
-  $trimmedUrl = $rawUrl.tostring().trim()
-  $downloadUrl = $trimmedUrl.substring(25, $trimmedUrl.length - 26)
-
-  $binPath = "$env:USERPROFILE\.dotfiles\bin\delta"
-  if (-Not (Test-Path $binPath)) {
-    New-Item -Path "$env:USERPROFILE\.dotfiles\bin" -Name "delta" -ItemType "directory" > $null
-  }
-
-  if (-Not (Test-Path "$binPath\temp")) {
-    New-Item -Path $binPath -Name "temp" -ItemType "directory" > $null
-  }
-
-  $ZipFile = "$binPath\temp\" + $(Split-Path -Path $downloadUrl -Leaf)
-  $FolderName = $ZipFile.substring(0, $ZipFile.length - 4)
-
-  Invoke-WebRequest -Uri $downloadUrl -OutFile $ZipFile
-
-  Expand-Archive -LiteralPath $ZipFile -DestinationPath "$binPath\temp"
-
-  Move-Item -Path "$FolderName\*" -Destination $binPath -Force
-
-  Remove-Item "$binPath\temp" -Recurse
-}
-
 function Edit-Gitconfig {
   code "$env:USERPROFILE\.gitconfig"
 }

@@ -1,6 +1,7 @@
 . "$env:USERPROFILE\.dotfiles\powershell\goto.ps1"
 . "$env:USERPROFILE\.dotfiles\powershell\utils.ps1"
 . "$env:USERPROFILE\.dotfiles\powershell\git-utils.ps1"
+. "$env:USERPROFILE\.dotfiles\powershell\download-utils.ps1"
 
 function Initialize-Profile {
   Set-PSReadlineKeyHandler -Key Tab -Function Complete # bash-like completion
@@ -20,9 +21,7 @@ function Initialize-Profile {
   . Add-Alias
   . Initialize-Goto
 
-  if (-Not (Test-Path "$env:USERPROFILE\.dotfiles\bin\delta\delta.exe")) {
-    Write-Host "Delta not found, download by executing 'Update-Delta'"
-  }
+  Test-Utils-Downloaded
 
   Write-Host "Dotfiles profile loaded"
 }

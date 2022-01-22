@@ -17,6 +17,16 @@ Some useful autohotkey snippets
 
 Shortcuts to these can be placed in Windows startup folder (use Startup Folder.lnk for quick access to this folder) so they start automatically on boot.
 
+## [Bat](https://github.com/sharkdp/bat)
+
+Like `cat`, but on steroids.
+
+To use the config file, a environment variable needs to be set ([official docs](https://github.com/sharkdp/bat#configuration-file)).
+
+Add `BAT_CONFIG_PATH` with the value `C:\Users\[USER_NAME]\.dotfiles\bat\bat.conf`.
+
+When the PowerShell profile is set up (below), `bat` is aliased to `cat`. The original `cat` is available as `_cat`.
+
 ## Git
 
 Some aliases, and settings for git. Some of the aliases might not work in anything else than git bash (or linux) since that is what I used when I first wrote them, and some of them I rarely use anymore.

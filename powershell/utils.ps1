@@ -9,6 +9,7 @@ function Add-Alias {
   }
 
   New-Alias cat "$env:USERPROFILE\.dotfiles\bin\bat\bat.exe" -Force
+  New-Alias k kubectl.exe -Force
 
   New-Alias npm WriteUseYarnInstead -Force
 }
@@ -91,5 +92,4 @@ function TestUtilsDownloaded {
   if (-Not (Test-Path "$env:USERPROFILE\.dotfiles\bin\bat\bat.exe")) {
     Write-Host "Bat not found, download by executing 'Update-Bat'"
   }
-
 }

@@ -20,10 +20,11 @@ function Initialize-Goto {
       [string]$Location,
       [System.Collections.Hashtable]$Locations
     )
+    $SortedLocations = $Locations.GetEnumerator() | Sort-Object -Property name;
 
     Write-Host -ForegroundColor Red "Invalid location parameter '$Location'"
     Write-Host "Valid locations:"
-    Write-Host ($Locations | Out-String)
+    Write-Host ($SortedLocations | Out-String)
   }
 
   function Set-CurrentDirectory {

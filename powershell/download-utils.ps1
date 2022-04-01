@@ -1,9 +1,7 @@
 # Replacement for cat, on steroids, aliased to cat
 function Update-Bat {
   $binFolder = "bat"
-  $binPath = "$env:USERPROFILE\.dotfiles\bin\$binFolder"
-
-  NewBinDirectoryIfNotExists "$binFolder"
+  $binPath = CleanAndCreateBinDir "$binFolder"
 
   $ZipfileName = GetFileFromGithub https://api.github.com/repos/sharkdp/bat/releases/latest "$binPath" @("browser_download_url", "x86_64-pc-windows-msvc.zip")
 
@@ -13,9 +11,7 @@ function Update-Bat {
 # Download the latest release of Delta, which is used for prettier git diffs
 function Update-Delta {
   $binFolder = "delta"
-  $binPath = "$env:USERPROFILE\.dotfiles\bin\$binFolder"
-
-  NewBinDirectoryIfNotExists "$binFolder"
+  $binPath = CleanAndCreateBinDir "$binFolder"
 
   $Zipfile = GetFileFromGithub https://api.github.com/repos/dandavison/delta/releases/latest "$binPath" @("browser_download_url", "pc-windows.*zip")
 
@@ -74,16 +70,20 @@ function GetFileFromGithub {
   return $ZipfileName
 }
 
-function NewBinDirectoryIfNotExists {
+function CleanAndCreateBinDir {
   Param(
     [Parameter(Mandatory = $true)]
     [string]$dirName
   )
 
   $binPath = "$env:USERPROFILE\.dotfiles\bin\$dirName"
-  if (-Not (Test-Path $binPath)) {
-    New-Item -Path "$env:USERPROFILE\.dotfiles\bin" -Name "$dirName" -ItemType "directory" > $null
+  if ((Test-Path $binPath)) {
+    Remove-Item $binPath -Recurse -Force
   }
+
+  New-Item -Path "$env:USERPROFILE\.dotfiles\bin" -Name "$dirName" -ItemType "directory" > $null
+
+  return $binPath
 }
 
 function NewTempDirectoryIfNotExists {

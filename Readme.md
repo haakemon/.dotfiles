@@ -112,3 +112,7 @@ Replace `[USER_NAME]` with the correct location and replace `[DOTFILES_REPOSITOR
 ### Themes
 
 More themes can be found at https://windowsterminalthemes.dev/
+
+## Yarn
+
+I dont really like yarns pnp stuff, as I've gotten into several issues with it (prettier plugin in VS Code doesnt work, build stops working etc...), so for the time being I prefer to just disable it. I keep forgetting the files to ignore, and I forget to disable pnp for new projects. By adding an .yarnrc.yml in the users directory which disables pnp by default, at least it will install the way I prefer for new projects.

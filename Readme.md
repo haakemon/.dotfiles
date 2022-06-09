@@ -12,7 +12,6 @@ I have setup some export templates that I have lost too many times after wiping 
 
 Some useful autohotkey snippets
 
-- window-on-top.ahk - Toggles always on top for the current window
 - hotkeys.ahk - Maps some media controls and brackets, enable google highlighted text
 
 Shortcuts to these can be placed in Windows startup folder (use Startup Folder.lnk for quick access to this folder) so they start automatically on boot.

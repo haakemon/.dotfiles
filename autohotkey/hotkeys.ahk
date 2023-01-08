@@ -69,3 +69,17 @@ AppsKey::LWin
 
 ; Remap key on numpad to Tab
 NumpadHome::Tab
+
+
+; Remap ctrl v to win v to get paste history - not working as expected..
+; <^v::Send, #v
+
+
+; Remap to "mac style" @ key, and need to add back shift modifier to keep asterisk working
+'::@
++'::*
+
+
+
+
+

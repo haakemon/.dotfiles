@@ -4,20 +4,20 @@
     "actions": 
     [
         {
-            "command": 
-            {
-                "action": "copy",
-                "singleLine": false
-            },
-            "keys": "ctrl+c"
+            "command": "paste",
+            "keys": "ctrl+v"
         },
         {
             "command": "find",
             "keys": "ctrl+shift+f"
         },
         {
-            "command": "paste",
-            "keys": "ctrl+v"
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "keys": "ctrl+c"
         },
         {
             "command": 
@@ -94,6 +94,17 @@
                 "hidden": true,
                 "name": "Developer Command Prompt for VS 2017",
                 "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "colorScheme": "Dracula",
+                "font": 
+                {
+                    "face": "MesloLGM NF"
+                },
+                "guid": "{aab79973-318f-43b6-a9bc-b4096493753f}",
+                "hidden": false,
+                "name": "Nushell",
+                "source": "nu"
             }
         ]
     },

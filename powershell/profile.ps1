@@ -16,7 +16,7 @@ function Initialize-Profile {
 
   Import-Module -Name Terminal-Icons
   Import-Module posh-git
-  oh-my-posh --init --shell pwsh --config "$env:USERPROFILE\.dotfiles\powershell\.mytheme.omp.json" | Invoke-Expression
+  oh-my-posh --init --shell pwsh --config "$env:USERPROFILE\.dotfiles\oh-my-posh\.mytheme.omp.json" | Invoke-Expression
 
   . Add-Alias
   . Initialize-Goto

@@ -27,3 +27,5 @@ function Initialize-Profile {
 }
 
 . Initialize-Profile
+
+fnm env --use-on-cd | Out-String | Invoke-Expression

@@ -1,4 +1,5 @@
 . "$env:USERPROFILE\.dotfiles\powershell\goto.ps1"
+. "$env:USERPROFILE\.dotfiles\powershell\fnm.ps1"
 . "$env:USERPROFILE\.dotfiles\powershell\utils.ps1"
 . "$env:USERPROFILE\.dotfiles\powershell\git-utils.ps1"
 . "$env:USERPROFILE\.dotfiles\powershell\download-utils.ps1"

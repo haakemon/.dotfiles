@@ -1,0 +1,7 @@
+$env:FNM_LOGLEVEL = "info"
+$env:FNM_MULTISHELL_PATH = "$env:USERPROFILE\AppData\Local\fnm_multishells\26224_1676036300096"
+$env:FNM_DIR = "$env:USERPROFILE\AppData\Roaming\fnm"
+$env:FNM_NODE_DIST_MIRROR = "https://nodejs.org/dist"
+$env:FNM_VERSION_FILE_STRATEGY = "local"
+$env:FNM_ARCH = "x64"
+$env:PATH = "$env:FNM_MULTISHELL_PATH;$env:PATH"

@@ -11,20 +11,21 @@
 # Merge and diff
 [merge]
   #tool = vscode
-  tool = smerge
+  tool = smerge.exe
 [diff]
   #tool = vscode
-  tool = smerge
+  tool = smerge.exe
   compactionHeuristic = true
 [mergetool]
   keepBackup = false
-[mergetool "smerge"]
-  cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+[mergetool "smerge.exe"]
+  cmd = smerge.exe mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
   trustExitCode = true
+  keepBackup = false
 [mergetool "vscode"]
   cmd = code -n --wait $MERGED
-[difftool "smerge"]
-  cmd = smerge \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+[difftool "smerge.exe"]
+  cmd = smerge.exe \"$BASE\" \"$LOCAL\" \"$REMOTE\"
 [difftool "vscode"]
   prompt = false
   cmd = code -n --wait --diff $LOCAL $REMOTE

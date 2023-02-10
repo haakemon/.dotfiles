@@ -11,7 +11,7 @@ function Add-Alias {
   New-Alias cat "$env:USERPROFILE\.dotfiles\bin\bat\bat.exe" -Force
   New-Alias k kubectl.exe -Force
 
-  New-Alias npm WriteUseYarnInstead -Force
+  New-Alias npm WriteDontUseNpm -Force
 }
 
 # Starts a new pwsh instance in the current directory with administrator privileges
@@ -77,9 +77,9 @@ function Merge-Hashtables {
 
 # Helper functions, should not be called directly by user
 
-# Most projects I work on these days use yarn instead of npm, but its difficult to remember to use the yarn command
-function WriteUseYarnInstead {
-  Write-Host -ForegroundColor Red "Use 'yarn' instead! (or '_npm' if you really need to use npm)"
+# Ive experienced too many issues with npm to rely on it, but my hands keep forgetting to not type it
+function WriteDontUseNpm {
+  Write-Host -ForegroundColor Red "Use 'pnpm' or 'yarn' instead! (or '_npm' if you really need to use npm)"
 }
 
 # Warn user if binaries are not found

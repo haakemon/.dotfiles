@@ -5,9 +5,6 @@
 
 source ~/zsh/zsh-snap/znap.zsh  # Start Znap
 
-# `znap prompt` makes your prompt visible in just 15-40ms!
-znap prompt sindresorhus/pure
-
 # `znap source` automatically downloads and starts your plugins.
 # znap source marlonrichert/zsh-autocomplete
 znap source zsh-users/zsh-autosuggestions

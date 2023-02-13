@@ -8,48 +8,33 @@ IfExist, %I_Icon%
 Menu, Tray, Icon, %I_Icon%
 Menu, Tray, Tip, AHK Hotkeys
 
-; Modifier keys list
-; # is windows key
-; ! is alt
-; ^ is ctrl
-; >^ is rctrl
-; <^ is lctrl
-; + is shift
-; <^>! is altgr
-
-; Programming keys
-; altgr +, = {
-<^>!,::{
-
-; altgr + . = }
-<^>!.::}
-
-; altgr+right shift +, = (
-<^>!+,::
-    Send (
-return
-
-; altgr+right shift + . = )
-<^>!+.::
-    Send )
-return
-
-; altgr+right ctrl +, = [
-<^>!>^,::
-    Send [
-return
-
-; altgr+right ctrl + . = ]
-<^>!>^.::
-    Send ]
-return
+<^>!7::
+{
+  Send |
+  Return
+}
+<^>!+7::
+{
+  Send \
+  Return
+}
+<^>!+8::
+{
+  Send {{} ; Sends {
+  Return
+}
+<^>!+9::
+{
+  Send {}} ; Sends }
+  Return
+}
 
 ; ctrl+shift+c - Quick google highlighted text
 ^+c::
     {
         Send, ^c
         Sleep 50
-        Run, http://www.google.com/search?q=%clipboard%
+        Run, https://www.google.com/search?q=%clipboard%
     Return
 }
 
@@ -78,8 +63,17 @@ NumpadHome::Tab
 ; Remap to "mac style" @ key, and need to add back shift modifier to keep asterisk working
 '::@
 +'::*
+<^>!2::
+{
+  Send '
+  Return
+}
 
-
-
-
-
+; Modifier keys list
+; # is windows key
+; ! is alt
+; ^ is ctrl
+; >^ is rctrl
+; <^ is lctrl
+; + is shift
+; <^>! is altgr

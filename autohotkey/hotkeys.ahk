@@ -62,7 +62,15 @@ NumpadHome::Tab
 
 ; Remap to "mac style" @ key, and need to add back shift modifier to keep asterisk working
 '::@
+
 +'::*
+
++4::
+{
+  Send $
+  Return
+}
+
 <^>!2::
 {
   Send '

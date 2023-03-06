@@ -6,7 +6,6 @@
   editor = code --wait
   autocrlf = false
   eol = lf
-  mergeoptions = --no-edit
 [push]
   default = upstream
 [fetch]

@@ -58,6 +58,7 @@
                   }; f"
 
   # merge/diff
+  men = merge --no-edit # MErgeNoedit
   conflicts = diff --name-only --diff-filter=U
   dt = difftool
   mt = mergetool

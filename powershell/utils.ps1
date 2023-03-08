@@ -12,6 +12,8 @@ function Add-Alias {
   New-Alias k kubectl.exe -Force
 
   New-Alias npm WriteDontUseNpm -Force
+
+  New-Alias lla ls
 }
 
 # Starts a new pwsh instance in the current directory with administrator privileges

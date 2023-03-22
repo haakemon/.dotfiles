@@ -4,6 +4,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 unsetopt beep
 
+source $HOME/.dotfiles/zsh/wsl.zsh
 source $HOME/.dotfiles/zsh/keybindings.zsh
 source $HOME/.dotfiles/zsh/znap.zsh
 source $HOME/.dotfiles/zsh/pnpm.zsh

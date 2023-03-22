@@ -11,3 +11,4 @@ alias gitroot="cd $(git rev-parse --show-toplevel)"
 # alias with sudo privileges
 alias fixports="sudo sysctl -w net.ipv4.ip_unprivileged_port_start=443"
 alias synctime="sudo ntpdate time.windows.com"
+alias ctop="sudo docker run --rm -ti -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest"

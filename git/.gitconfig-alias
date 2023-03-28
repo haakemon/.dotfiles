@@ -22,7 +22,7 @@
   # rebase
   pfwl = "!f() { git cherry -v | grep WIP; if [ $? == 0 ]; then echo -e \"\\033[1;31m [pfwl] Commit message contains 'WIP'. Consider rewriting commit message, or use 'git push --force-with-lease' to bypass \\033[0m\"; else echo -e \"\\033[1;32m [pfwl] Pushing force-with-lease \\033[0m\"; git push --force-with-lease; fi; }; f"  # Force push with lease (and only if no WIP commit messages)
   preb = pull --rebase
-  rc = rebase --continue
+  rc = -c core.editor=true rebase --continue
   ri = rebase --interactive
   amend = commit --amend --no-edit
   rms = "!f() { : git branch ; if [[ -z $(git status --porcelain) ]]; \

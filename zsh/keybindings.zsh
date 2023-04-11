@@ -19,3 +19,9 @@ bindkey '^H' backward-kill-word
 
 # [Ctrl-Delete] - delete whole word forwards
 bindkey '^[[3;5~' kill-word
+
+
+# Enables arrow up/down to cycle through partial history
+zle-line-init() {}
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward

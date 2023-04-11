@@ -35,3 +35,8 @@ zinit light zsh-users/zsh-syntax-highlighting
 # exectue kubeon | kubeoff to toggle display of kube context in prompt
 zinit light jonmosco/kube-ps1
 PROMPT='$(kube_ps1)'$PROMPT
+
+# requires fzf - brew install fzf
+# ctrl+r for history lookup
+zinit ice lucid wait'0'
+zinit light joshskidmore/zsh-fzf-history-search

@@ -31,3 +31,7 @@ zinit ice as"command" from"gh-r" \
 zinit light starship/starship
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
+
+# exectue kubeon | kubeoff to toggle display of kube context in prompt
+zinit light jonmosco/kube-ps1
+PROMPT='$(kube_ps1)'$PROMPT

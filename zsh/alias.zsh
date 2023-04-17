@@ -7,6 +7,7 @@ alias cat=bat
 alias _npm='command npm'
 alias npm="echo Use pnpm or yarn instead \(or _npm if you really need to use npm\)"
 alias docker="echo Use podman \(or _docker if you really need to use docker\)"
+alias k=kubectl
 
 # alias with sudo privileges
 alias _docker='command sudo docker'

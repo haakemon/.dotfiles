@@ -1,6 +1,7 @@
+#!/usr/bin/env zsh
 
 # alias
-alias lla="exa --all --long --header --git --icons"
+alias lla="exa --all --long --header --git --icons --group-directories-first"
 alias print-path='echo -e ${PATH//:/\\n}'
 alias _cat='command cat'
 alias cat=bat

@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # WSL specific utility helpers
 
 ACTUAL_HOST_IP=$(ipconfig.exe | grep IPv4 | head -1 | rev | awk '{print $1}' | rev | tr -d '\r')

@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 
 # fnm
 export FNM_DIR="$HOME/.local/share/fnm"

@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"

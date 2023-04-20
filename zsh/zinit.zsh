@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 export STARSHIP_CONFIG=$HOME/.dotfiles/starship/starship.toml
 
 ### Added by Zinit's installer

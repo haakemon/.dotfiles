@@ -15,5 +15,4 @@ source $HOME/.dotfiles/zsh/alias.zsh
 # Set PATH, MANPATH, etc., for Homebrew.
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# oh-my-posh
-# eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/oh-my-posh/.mytheme.omp.json)"
+fastfetch

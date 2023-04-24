@@ -11,6 +11,7 @@ alias docker="echo Use podman \(or _docker if you really need to use docker\)"
 alias k=kubectl
 alias gf="git fuzzy"
 alias g=git
+alias fastfetch="fastfetch --set ImageInstanceName=$IMAGE_INSTANCE_NAME"
 
 # alias with sudo privileges
 alias _docker='command sudo docker'

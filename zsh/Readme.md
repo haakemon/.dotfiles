@@ -18,6 +18,8 @@ add `source $HOME/.dotfiles/zsh/.zshrc` to `~/.zshrc` to enable all zsh features
 `brew install exa`
 `brew install viu`
 `brew install bat`
+`brew install git-delta`
+
 
 ## WSL
 

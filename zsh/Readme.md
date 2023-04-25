@@ -15,7 +15,9 @@ add `source $HOME/.dotfiles/zsh/.zshrc` to `~/.zshrc` to enable all zsh features
 
 `brew install fnm`
 `brew install fzf`
-
+`brew install exa`
+`brew install viu`
+`brew install bat`
 
 ## WSL
 

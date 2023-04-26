@@ -6,6 +6,8 @@ Prepare the terminal, by installing a nerd font (https://www.nerdfonts.com/), f.
 
 Install brew, execute: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 
+`brew analytics off`
+
 ### Install packages:
 
 `brew install zsh`
@@ -13,12 +15,9 @@ create a `.zshrc` in `~`, and add `eval "$(/home/linuxbrew/.linuxbrew/bin/brew s
 set zsh as default shell, execute `chsh -s /home/linuxbrew/.linuxbrew/bin/zsh`, add `/home/linuxbrew/.linuxbrew/bin/zsh` to `/etc/shells` if you get an error saying its not valid as a shell
 add `source $HOME/.dotfiles/zsh/.zshrc` to `~/.zshrc` to enable all zsh features from this repo
 
-`brew install fnm`
-`brew install fzf`
-`brew install exa`
-`brew install viu`
-`brew install bat`
-`brew install git-delta`
+`brew install fnm fzf exa viu bat git-delta grc kube-ps1 kubectx kubernetes-cli lego podman podman-compose k9s`
+
+
 
 
 ## WSL

@@ -42,3 +42,7 @@ PROMPT='$(kube_ps1)'$PROMPT
 # ctrl+r for history lookup
 zinit ice lucid wait'0'
 zinit light joshskidmore/zsh-fzf-history-search
+
+# https://github.com/bigH/git-fuzzy
+zinit ice as"program" pick"bin/git-fuzzy"
+zinit light bigH/git-fuzzy

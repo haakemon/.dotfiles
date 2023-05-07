@@ -6,3 +6,6 @@
   name =
   email =
   signingkey = path-to-id_rsa.pub
+
+[gpg "ssh"]
+  allowedSignersFile = path-to-allowed_signers

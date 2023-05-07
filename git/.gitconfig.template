@@ -5,3 +5,4 @@
 [user]
   name =
   email =
+  signingkey = path-to-id_rsa.pub

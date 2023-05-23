@@ -8,15 +8,12 @@ $os\
 $username\
 [](bg:#DA627D fg:#9A348E)\
 $directory\
-[](fg:#DA627D bg:#3C8577)\
+[](fg:#DA627D)\
 $git_branch\
 $git_status\
-[](fg:#3C8577)\
 \n[ ](fg:#33658A)\
 """
 
-
-# [](fg:#33658A)\
 right_format = """
 $nodejs\
 $container\
@@ -24,7 +21,6 @@ $kubernetes\
 $docker_context\
 $time\
 """
-# [](fg:#33658A)\
 
 [line_break]
 disabled = false
@@ -72,11 +68,11 @@ format = '[ $symbol $context ]($style) $path'
 [git_branch]
 symbol = ""
 style = "bg:#3C8577"
-format = '[ $symbol $branch ]($style)'
+format = ' [](#3C8577)[ $symbol $branch ]($style)'
 
 [git_status]
 style = "bg:#3C8577"
-format = '[$all_status$ahead_behind ]($style)'
+format = '[$all_status$ahead_behind ]($style)[](fg:#3C8577)'
 
 [nodejs]
 symbol = ""

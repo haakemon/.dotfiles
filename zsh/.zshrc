@@ -28,5 +28,6 @@ source $HOME/.dotfiles/zsh/alias.zsh
 
 # Set PATH, MANPATH, etc., for Homebrew.
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(starship init zsh)"
 
-ff
+ff # see alias.zsh

@@ -8,22 +8,19 @@ $os\
 $username\
 [](bg:#DA627D fg:#9A348E)\
 $directory\
-[](fg:#DA627D bg:#3C8577)\
+[](fg:#DA627D)\
 $git_branch\
 $git_status\
-[](fg:#3C8577 bg:#86BBD8)\
-$nodejs\
-$container\
-$kubernetes\
-[](fg:#86BBD8 bg:#06969A)\
-$docker_context\
-[](fg:#06969A bg:#33658A)\
-[ ](fg:#33658A)\
 \n[ ](fg:#33658A)\
 """
 
-
-right_format = """ [](fg:#33658A)$time[](fg:#33658A) """
+right_format = """
+$nodejs\
+$container\
+$kubernetes\
+$docker_context\
+$time\
+"""
 
 [line_break]
 disabled = false
@@ -63,36 +60,39 @@ truncation_length = 10
 # So either put "Important Documents" before "Documents" or use the substituted version:
 # "Important  " = "  "
 
-[docker_context]
-symbol = " "
-style = "bg:#06969A"
-format = '[ $symbol $context ]($style) $path'
-
 [git_branch]
 symbol = ""
 style = "bg:#3C8577"
-format = '[ $symbol $branch ]($style)'
+format = ' [](#3C8577)[ $symbol $branch ]($style)'
 
 [git_status]
 style = "bg:#3C8577"
-format = '[$all_status$ahead_behind ]($style)'
+format = '[$all_status$ahead_behind ]($style)[](fg:#3C8577)'
 
 [nodejs]
 symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#036E01"
+format = ' [](fg:#036E01)[ $symbol ($version) ]($style)[](fg:#036E01)'
+
+[docker_context]
+symbol = ""
+style = "bg:#003f8c"
+format = '[ $symbol $context ]($style) $path'
 
 [time]
 disabled = false
 time_format = "%T"
 style = "bg:#33658A"
-format = '[ $time ]($style)'
+format = ' [](fg:#33658A)[ $time ]($style)[](fg:#33658A)'
+
+
+
 
 [kubernetes]
 # format = '[⛵ ($user) | ($cluster) | $context:$namespace]($style) '
 
-style = "bg:#33658A"
-format = '[](fg:#86BBD8 bg:#33658A)[ $symbol($cluster)|$context:$namespace]($style)'
+style = "bg:#316CE6"
+format = '[](fg:#86BBD8 bg:#316CE6)[ $symbol($cluster)|$context:$namespace]($style)'
 disabled = false
 detect_files = ['k8s'] # only show when these files are present in the directory
 [kubernetes.context_aliases]

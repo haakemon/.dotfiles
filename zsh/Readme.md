@@ -1,13 +1,19 @@
-# Setting up ZSH
+# Setting up
 
-1. `sudo apt update`
-2. `sudo apt install zsh`
-3. Execute `zsh`, and skip the welcome screen
-4. Edit `~./zshrc`, and add `source ~/.dotfiles/zsh/.zshrc`
-5. Make zsh default shell `chsh -s /bin/zsh [username]`
-6. Install brew `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+Prepare the terminal, by installing a nerd font (https://www.nerdfonts.com/), f.ex `MesloLGM Nerd Font Mono` and set the terminal to use that.
 
+Execute `_setup.sh` to install homebrew and some packages, and setup zsh.
 
-To run zsh-newuser-install, execute:
-`autoload -Uz zsh-newuser-install`
-`zsh-newuser-install -f`
+## WSL
+
+Add this to `/etc/wsl.conf`, to set the default user
+```
+[user]
+default=USERNAME
+```
+
+Add this to `/etc/wsl.conf`, if you need systemd
+```
+[boot]
+systemd=true
+```

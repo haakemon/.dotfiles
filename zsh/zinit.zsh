@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-export STARSHIP_CONFIG=$HOME/.dotfiles/starship/starship.toml
-
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -26,11 +24,6 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 
-zinit ice as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
-
-zinit light starship/starship
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 

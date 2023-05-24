@@ -1,7 +1,7 @@
 [core]
   fscache = true
   preloadindex = true
-  pager = ~/.dotfiles/bin/delta/delta --24-bit-color=always --paging=always
+  pager = delta --24-bit-color=always --paging=always
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
   editor = code --wait
   autocrlf = false
@@ -68,3 +68,10 @@
   hunk-header-file-style = red
   hunk-header-line-number-style = "#067a00"
   hunk-header-style = file line-number syntax
+
+[gpg]
+  format = ssh
+[commit]
+  gpgsign = true
+[tag]
+  gpgsign = true

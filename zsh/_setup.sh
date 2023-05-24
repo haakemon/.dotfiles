@@ -63,7 +63,6 @@ brew install zsh \
              gh \
              fastfetch \
              romkatv/powerlevel10k/powerlevel10k \
-             #  starship \
 
 chsh -s /home/linuxbrew/.linuxbrew/bin/zsh
 

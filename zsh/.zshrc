@@ -13,7 +13,6 @@ SAVEHIST=10000
 unsetopt beep
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-# export STARSHIP_CONFIG=$HOME/.dotfiles/starship/starship.toml
 
 if [[ "$(uname -r)" =~ microsoft ]]; then
   if [[ -e "$HOME/.dotfiles/zsh/_wsl-instance-name.zsh" ]]; then

@@ -15,9 +15,9 @@ if [ -e "$HOME/.zshrc" ]; then
 fi
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-echo "eval \"\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)\"" > $HOME/.zshrc
-echo "source \$HOME/.dotfiles/zsh/.zshrc" >> $HOME/.zshrc
+echo "source \$HOME/.dotfiles/zsh/.zshrc" > $HOME/.zshrc
 
 
 function add-zsh-to-shells {

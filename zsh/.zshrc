@@ -17,14 +17,6 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 if [[ "$(uname -r)" =~ microsoft ]]; then
   if [[ -e "$HOME/.dotfiles/zsh/_wsl-instance-name.zsh" ]]; then
     source $HOME/.dotfiles/zsh/_wsl-instance-name.zsh
-  else
-    echo "Missing WSL instance name."
-    read "iiname?Enter WSL instance name: "
-
-    echo "#!/usr/bin/env zsh" > $HOME/.dotfiles/zsh/_wsl-instance-name.zsh
-    echo WSL_INSTANCE_NAME=${iiname//[^a-zA-Z0-9]/_} >> $HOME/.dotfiles/zsh/_wsl-instance-name.zsh
-
-    source $HOME/.dotfiles/zsh/_wsl-instance-name.zsh
   fi
 
   source $HOME/.dotfiles/zsh/wsl.zsh

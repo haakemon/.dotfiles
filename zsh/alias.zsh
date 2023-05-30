@@ -13,6 +13,10 @@ alias gf="git fuzzy"
 alias g=git
 alias ff="fastfetch --set WSLInstanceName=$WSL_INSTANCE_NAME --load-config $HOME/.dotfiles/fastfetch/config.conf"
 
+alias ssh-gen-rsa="ssh-keygen -t rsa -b 4096 -a 100"
+alias ssh-gen-ed="ssh-keygen -t ed25519 -a 100"
+alias start-ssh-agent="eval \"$(ssh-agent -s)\" && ssh-add"
+
 # alias with sudo privileges
 alias _docker='command sudo docker'
 alias openports="sudo sysctl -w net.ipv4.ip_unprivileged_port_start=443"

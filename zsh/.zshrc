@@ -31,3 +31,4 @@ source $HOME/.dotfiles/zsh/fnm.zsh
 source $HOME/.dotfiles/zsh/alias.zsh
 
 ff # see alias.zsh
+start-ssh-agent # see alias.zsh

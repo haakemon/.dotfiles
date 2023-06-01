@@ -15,7 +15,6 @@ alias ff="fastfetch --set WSLInstanceName=$WSL_INSTANCE_NAME --load-config $HOME
 
 alias ssh-gen-rsa="ssh-keygen -t rsa -b 4096 -a 100"
 alias ssh-gen-ed="ssh-keygen -t ed25519 -a 100"
-alias start-ssh-agent="eval \"$(ssh-agent -s)\" && ssh-add"
 
 # alias with sudo privileges
 alias _docker='command sudo docker'
@@ -44,5 +43,27 @@ function goto {
     for key in "${(@k)globalLocations}"; do
       printf "%-10s %s\n" "  $key:" "${globalLocations[$key]}"
     done
+  fi
+}
+
+function start-ssh-agent {
+  function load-ssh-keys {
+    echo "${YELLOW_COLOR}loading ssh keys...${RESET_COLOR}"
+    ssh-add -t 7d # add default keys, valid for 7 days
+
+    if [ -e "$HOME/.ssh/id_ed25519--git" ]; then
+      ssh-add -t 7d "$HOME/.ssh/id_ed25519--git" # add git signing key if exists, valid for 7 days
+    fi
+  }
+
+  ssh-add -l &>/dev/null
+  local exit_code=$?
+
+  if [ $exit_code -eq 2 ]; then
+    echo "${YELLOW_COLOR}ssh agent not running, starting ...${RESET_COLOR}"
+    eval "$(ssh-agent -s)"
+    load-ssh-keys
+  else
+    load-ssh-keys
   fi
 }

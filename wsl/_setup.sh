@@ -1,17 +1,24 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ -e "/etc/wsl.conf" ]; then
-    echo "/etc/wsl.conf already exists."
-    echo "You can add the content:"
-    echo "[user]"
-    echo "default=USERNAME"
-    echo "to the file manually, then restart the wsl instance (wsl --terminate INSTANCE_NAME)."
+    echo "/etc/wsl.conf already exists, aborting."
     exit 1
 else
-    read -p "Enter username (the user needs to already exist): " username
+    read -p "Enter default WSL username (the user needs to already exist): " username
+    read -p "Enter current Windows hostname (case sensitive): " winhostname
+    read -p "Enter desired WSL hostname: " hostname
 
-    echo "[user]" > /etc/wsl.conf
-    echo "default=$username" >> /etc/wsl.conf
+    sudo tee -a /etc/wsl.conf > /dev/null <<EOF
+[user]
+default=${username}
 
-    echo "You should now restart the wsl instance (wsl --terminate INSTANCE_NAME), and when logging in again you should now be logged in as $username."
+[network]
+generateHosts=false
+hostname=${hostname}
+EOF
+
+    sudo cp /etc/hosts /etc/hosts.pre-dotfiles-setup
+    sudo sed -i "s/${winhostname}/${hostname}/g" /etc/hosts
+
+    echo "You should now restart the wsl instance (wsl --terminate INSTANCE_NAME)."
 fi

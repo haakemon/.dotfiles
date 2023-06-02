@@ -39,15 +39,6 @@ function add-zsh-to-shells {
   fi
 }
 
-if [[ "$(uname -r)" =~ microsoft ]]; then
-  read -p "Enter instance name: " InstanceName
-
-  echo "#!/usr/bin/env zsh" >"${HOME}/.dotfiles/zsh/_wsl-instance-name.zsh"
-  echo WSL_INSTANCE_NAME="${InstanceName//[^a-zA-Z0-9]/_}" >>"${HOME}/.dotfiles/zsh/_wsl-instance-name.zsh"
-fi
-
-add-zsh-to-shells
-
 function brewinstall-basics {
   brew install zsh \
     fzf \
@@ -76,6 +67,7 @@ function brewinstall-kube-tools {
     lego
 }
 
+add-zsh-to-shells
 brew analytics off
 brewinstall-basics
 

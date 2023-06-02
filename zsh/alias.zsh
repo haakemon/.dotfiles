@@ -11,7 +11,7 @@ alias docker="echo ${YELLOW_COLOR}Use podman \(or _docker if you really need to 
 alias k="kubectl"
 alias gf="git fuzzy"
 alias g="git"
-alias ff="fastfetch --set WSLInstanceName=${WSL_INSTANCE_NAME} --load-config ${HOME}/.dotfiles/fastfetch/config.conf"
+alias ff="fastfetch --load-config ${HOME}/.dotfiles/fastfetch/config.conf"
 
 alias ssh-gen-rsa="ssh-keygen -t rsa -b 4096 -a 100"
 alias ssh-gen-ed="ssh-keygen -t ed25519 -a 100"

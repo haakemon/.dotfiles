@@ -79,7 +79,7 @@ echo # newline
 
 # Execute the script for installing container tools if applicable
 if [[ $container_response =~ ^[Yy]$ ]]; then
-    ./brewinstall-container-tools
+  ./brewinstall-container-tools
 fi
 
 # Prompt for Kubernetes tools installation
@@ -88,9 +88,8 @@ echo # newline
 
 # Execute the script for installing Kubernetes tools if applicable
 if [[ $kube_response =~ ^[Yy]$ ]]; then
-    ./brewinstall-kube-tools
+  ./brewinstall-kube-tools
 fi
-
 
 chsh -s /home/linuxbrew/.linuxbrew/bin/zsh
 

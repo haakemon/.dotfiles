@@ -8,7 +8,7 @@ ACTUAL_HOST_IP=$(ipconfig.exe | grep IPv4 | head -1 | rev | awk '{print $1}' | r
 check_ip() {
   local MACHINE_ACTUAL_IP=$(hostname -I | xargs | awk '{print $1}') # Pipe to xargs to trim value
 
-  if [[ -z "$MACHINE_EXPECTED_IP" ]]; then
+  if [[ -z "${MACHINE_EXPECTED_IP}" ]]; then
     echo "${YELLOW_COLOR}MACHINE_EXPECTED_IP is not set${RESET_COLOR}"
   else
     if [[ $MACHINE_EXPECTED_IP != $MACHINE_ACTUAL_IP ]]; then

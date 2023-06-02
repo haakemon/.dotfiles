@@ -9,34 +9,34 @@ if [[ $EUID -eq 0 ]]; then
 fi
 
 
-if [ -e "$HOME/.zshrc" ]; then
-  echo "The file $HOME/.zshrc already exists. Remove it before continuing."
+if [ -e "${HOME}/.zshrc" ]; then
+  echo "The file ${HOME}/.zshrc already exists. Remove it before continuing."
   exit 2
 fi
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-echo "source \$HOME/.dotfiles/zsh/.zshrc" > $HOME/.zshrc
+echo "source \$HOME/.dotfiles/zsh/.zshrc" > "${HOME}/.zshrc"
 
 
 function add-zsh-to-shells {
   zsh_shell_path="/home/linuxbrew/.linuxbrew/bin/zsh"
 
   # Check if the shell already exists in /etc/shells
-  if grep -Fxq "$zsh_shell_path" /etc/shells; then
-    echo "The shell '$zsh_shell_path' already exists in /etc/shells."
+  if grep -Fxq "${zsh_shell_path}" /etc/shells; then
+    echo "The shell '${zsh_shell_path}' already exists in /etc/shells."
     return 0
   fi
 
   # Append the new shell path to /etc/shells using echo and sudo
-  sudo bash -c "echo '$zsh_shell_path' >> /etc/shells"
+  sudo bash -c "echo '${zsh_shell_path}' >> /etc/shells"
 
   # Verify if the shell path was successfully added
-  if grep -Fxq "$zsh_shell_path" /etc/shells; then
-    echo "The shell '$zsh_shell_path' was added to /etc/shells."
+  if grep -Fxq "${zsh_shell_path}" /etc/shells; then
+    echo "The shell '${zsh_shell_path}' was added to /etc/shells."
   else
-    echo "Failed to add the shell '$zsh_shell_path' to /etc/shells."
+    echo "Failed to add the shell '${zsh_shell_path}' to /etc/shells."
     exit 1
   fi
 }
@@ -44,8 +44,8 @@ function add-zsh-to-shells {
 if [[ "$(uname -r)" =~ microsoft ]]; then
   read -p "Enter instance name: " InstanceName
 
-  echo "#!/usr/bin/env zsh" > $HOME/.dotfiles/zsh/_wsl-instance-name.zsh
-  echo WSL_INSTANCE_NAME=${InstanceName//[^a-zA-Z0-9]/_} >> $HOME/.dotfiles/zsh/_wsl-instance-name.zsh
+  echo "#!/usr/bin/env zsh" > "${HOME}/.dotfiles/zsh/_wsl-instance-name.zsh"
+  echo WSL_INSTANCE_NAME="${InstanceName//[^a-zA-Z0-9]/_}" >> "${HOME}/.dotfiles/zsh/_wsl-instance-name.zsh"
 fi
 
 add-zsh-to-shells
@@ -75,4 +75,4 @@ chsh -s /home/linuxbrew/.linuxbrew/bin/zsh
 
 zsh
 
-source $HOME/.zshrc
+source "${HOME}/.zshrc"

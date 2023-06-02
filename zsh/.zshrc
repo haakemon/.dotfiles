@@ -26,4 +26,6 @@ source "${HOME}/.dotfiles/zsh/fnm.zsh"
 source "${HOME}/.dotfiles/zsh/alias.zsh"
 
 ff # see alias.zsh
-start-ssh-agent # see alias.zsh
+
+# 10080 minutes = 7 days
+eval `keychain --agents ssh --timeout 10080 --eval --quiet`

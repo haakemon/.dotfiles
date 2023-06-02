@@ -51,7 +51,8 @@ function brewinstall-basics {
     fastfetch \
     romkatv/powerlevel10k/powerlevel10k \
     bc \
-    gh
+    gh \
+    keychain
 }
 
 function brewinstall-container-tools {

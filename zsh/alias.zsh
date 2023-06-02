@@ -54,16 +54,3 @@ function load-ssh-keys {
     ssh-add -t 7d "${HOME}/.ssh/id_ed25519--git" # add git signing key if exists, valid for 7 days
   fi
 }
-
-function start-ssh-agent {
-  ssh-add -l &>/dev/null
-  local exit_code=$?
-
-  if [ $exit_code -eq 2 ]; then
-    echo "${YELLOW_COLOR}ssh agent not running, starting ...${RESET_COLOR}"
-    eval "$(ssh-agent -s)"
-    load-ssh-keys
-  else
-    load-ssh-keys
-  fi
-}

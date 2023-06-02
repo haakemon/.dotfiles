@@ -14,7 +14,7 @@ unsetopt beep
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-source "${HOME}/.dotfiles/zsh/color.zsh"
+source "${HOME}/.dotfiles/zsh/colors.zsh"
 
 if [[ "$(uname -r)" =~ microsoft ]]; then
   if [[ -e "${HOME}/.dotfiles/zsh/_wsl-instance-name.zsh" ]]; then

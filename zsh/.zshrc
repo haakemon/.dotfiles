@@ -7,22 +7,17 @@ unsetopt beep
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-source "${HOME}/.dotfiles/zsh/colors.zsh"
-
-if [[ "$(uname -r)" =~ microsoft ]]; then
-  if [[ -e "${HOME}/.dotfiles/zsh/_wsl-instance-name.zsh" ]]; then
-    source "${HOME}/.dotfiles/zsh/_wsl-instance-name.zsh"
-  fi
-
-  source "${HOME}/.dotfiles/zsh/wsl.zsh"
-fi
-
 source "$(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme"
+source "${HOME}/.dotfiles/zsh/colors.zsh"
 source "${HOME}/.dotfiles/zsh/p10k.zsh"
 source "${HOME}/.dotfiles/zsh/zinit.zsh"
 source "${HOME}/.dotfiles/zsh/keybindings.zsh"
 source "${HOME}/.dotfiles/zsh/fnm.zsh"
 source "${HOME}/.dotfiles/zsh/alias.zsh"
+
+if [[ "$(uname -r)" =~ microsoft ]]; then
+  source "${HOME}/.dotfiles/zsh/wsl.zsh"
+fi
 
 ff # see alias.zsh
 

@@ -16,10 +16,9 @@ alias ff="fastfetch --load-config ${HOME}/.dotfiles/fastfetch/config.conf"
 alias ssh-gen-rsa="ssh-keygen -t rsa -b 4096 -a 100"
 alias ssh-gen-ed="ssh-keygen -t ed25519 -a 100"
 alias prepare-git-ssh="touch ~/.ssh/id_ed25519--git && \
-  chmod 600 ~/.ssh/id_ed25519--git && \
   touch ~/.ssh/id_ed25519--git.pub && \
-  chmod 644 ~/.ssh/id_ed25519--git.pub && \
-  touch ~/.ssh/allowed_signers"
+  touch ~/.ssh/allowed_signers && \
+  chmod 600 ~/.ssh/*"
 
 # alias with sudo privileges
 alias _docker="command sudo docker"

@@ -18,7 +18,8 @@ alias ssh-gen-ed="ssh-keygen -t ed25519 -a 100"
 alias prepare-git-ssh="touch ~/.ssh/id_ed25519--git && \
   chmod 600 ~/.ssh/id_ed25519--git && \
   touch ~/.ssh/id_ed25519--git.pub && \
-  chmod 644 ~/.ssh/id_ed25519--git.pub"
+  chmod 644 ~/.ssh/id_ed25519--git.pub && \
+  touch ~/.ssh/allowed_signers"
 
 # alias with sudo privileges
 alias _docker="command sudo docker"

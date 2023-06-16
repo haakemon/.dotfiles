@@ -21,3 +21,6 @@ bindkey '^H' backward-kill-word
 
 # [Ctrl-Delete] - delete whole word forwards
 bindkey '^[[3;5~' kill-word
+
+# [Delete] - delete char
+bindkey '^[[3~' delete-char

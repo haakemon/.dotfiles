@@ -11,7 +11,7 @@ alias explorer="/mnt/c/Windows/explorer.exe"
 
 # Useful to notify that IP of WSL instance has changed, add the expected ip to MACHINE_EXPECTED_IP, and execute check_ip to check
 check_ip() {
-  local MACHINE_ACTUAL_IP=$(curl -s "ifconfig.me/ip")
+  local MACHINE_ACTUAL_IP=$(hostname -I | xargs | awk '{print $1}') # Pipe to xargs to trim value
 
   if [[ -z "${MACHINE_EXPECTED_IP}" ]]; then
     echo "${YELLOW_COLOR}MACHINE_EXPECTED_IP is not set${RESET_COLOR}"

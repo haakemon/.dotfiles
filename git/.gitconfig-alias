@@ -121,3 +121,4 @@
   # misc
   ignored = ls-files --others --i --exclude-standard
   todo = grep -i -n -e TODO -e FIXME -e OPTIMIZE
+  resign = "!re() { git rebase --exec 'git commit --amend --no-edit -n -S' -i $1; }; re" # Recommit commits up to (excluding) $1, and sign them

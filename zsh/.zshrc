@@ -19,6 +19,13 @@ if [[ "$(uname -r)" =~ microsoft ]]; then
   source "${HOME}/.dotfiles/zsh/wsl.zsh"
 fi
 
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
 ff # see alias.zsh
 
 # 10080 minutes = 7 days

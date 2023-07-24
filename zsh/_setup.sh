@@ -41,6 +41,7 @@ function add-zsh-to-shells {
 
 function brewinstall-basics {
   brew install zsh \
+    zsh-completions \
     pnpm \
     fnm \
     fzf \

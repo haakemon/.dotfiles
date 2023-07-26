@@ -5,9 +5,10 @@
 # Since we dont have access to Windows PATH elements (see /etc/wsl.conf interop section), add some tools that is common to use from WSL
 alias explorer="/mnt/c/Windows/explorer.exe"
 
-# VS Code should be started on the Windows side, but install location differs, and is commonly placed in the user folder.
-# This should be added to ~/.zshrc instead, after sourcing ~/.dotfiles/zsh/.zshrc
-# alias code="/mnt/c/Users/{windows-username}/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code"
+# Some other tools, like VS Code or sublime merge should be started on the Windows side, but install location differs, and is commonly placed in the user folder.
+# These should be added to ~/.zshrc instead, after sourcing ~/.dotfiles/zsh/.zshrc
+# export PATH=$PATH:"/mnt/c/Program Files/Sublime Merge"
+# export PATH=$PATH:"/mnt/c/Users/n652053/AppData/Local/Programs/Microsoft VS Code/bin"
 
 # Useful to notify that IP of WSL instance has changed, add the expected ip to MACHINE_EXPECTED_IP, and execute check_ip to check
 check_ip() {

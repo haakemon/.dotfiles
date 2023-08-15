@@ -19,7 +19,7 @@ alias ssh-gen-ed="ssh-keygen -t ed25519 -a 100"
 # alias with sudo privileges
 alias _docker="command sudo docker"
 alias openports="sudo sysctl -w net.ipv4.ip_unprivileged_port_start=443"
-alias synctime="sudo ntpdate time.windows.com"
+alias synctime="sudo ntpdate pool.ntp.org"
 alias ctop="sudo docker run --rm -ti -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest"
 alias dpsa="sudo docker ps -a --format \"table {{.ID}}\t{{.Names}}\t{{.State}}\t{{.Status}}\t{{.Image}}\""
 

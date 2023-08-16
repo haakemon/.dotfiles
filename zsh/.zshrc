@@ -33,5 +33,5 @@ eval `keychain --agents ssh --timeout 10080 --eval --quiet`
 
 isSSHKeysNotLoaded=$(keychain -l)
 if [[ "$isSSHKeysNotLoaded" == "The agent has no identities." ]]; then
-    load-ssh-keys
+    echo "SSH keys not loaded, execute 'load-ssh-keys'"
 fi

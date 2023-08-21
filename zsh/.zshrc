@@ -1,14 +1,11 @@
 #!/usr/bin/env zsh
 
-HISTFILE="${HOME}/.zsh-history"
-HISTSIZE=10000
-SAVEHIST=10000
 unsetopt beep
+source "${HOME}/.dotfiles/zsh/env.zsh"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 source "$(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme"
-source "${HOME}/.dotfiles/zsh/colors.zsh"
 source "${HOME}/.dotfiles/zsh/p10k.zsh"
 source "${HOME}/.dotfiles/zsh/zinit.zsh"
 source "${HOME}/.dotfiles/zsh/keybindings.zsh"

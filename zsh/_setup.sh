@@ -10,14 +10,14 @@ if [[ $EUID -eq 0 ]]; then
 fi
 
 if [ -e "${HOME}/.zshrc" ]; then
-  echo "The file ${HOME}/.zshrc already exists. Remove it before continuing."
-  exit 2
+  echo "The file ${HOME}/.zshrc already exists. Backup created as ${HOME}/.zshrc.pre-dotfiles-setup."
+  cp ${HOME}/.zshrc ${HOME}/.zshrc.pre-dotfiles-setup
 fi
+
+echo "source \$HOME/.dotfiles/zsh/.zshrc" >"${HOME}/.zshrc"
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-echo "source \$HOME/.dotfiles/zsh/.zshrc" >"${HOME}/.zshrc"
 
 function add-zsh-to-shells {
   zsh_shell_path="/home/linuxbrew/.linuxbrew/bin/zsh"

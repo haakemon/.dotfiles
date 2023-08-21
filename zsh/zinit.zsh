@@ -28,8 +28,9 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 
 # exectue kubeon | kubeoff to toggle display of kube context in prompt
-zinit light jonmosco/kube-ps1
-PROMPT='$(kube_ps1)'$PROMPT
+# Not sure if this is needed since the transition to p10k? Disable for now, reenable later if needed
+# zinit light jonmosco/kube-ps1
+# PROMPT='$(kube_ps1)'$PROMPT
 
 # requires fzf - brew install fzf
 # ctrl+r for history lookup

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 sudo apt update
-sudo apt install build-essential procps curl file git  -y # https://docs.brew.sh/Homebrew-on-Linux#requirements
-sudo apt install ntpdate # needed to sync time
+sudo apt install build-essential procps curl file git -y # https://docs.brew.sh/Homebrew-on-Linux#requirements
+sudo apt install ntpdate                                 # needed to sync time
 
 if [[ $EUID -eq 0 ]]; then
   echo "This script should not be run as the root user. Aborting."

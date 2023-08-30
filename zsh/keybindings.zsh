@@ -6,10 +6,10 @@
 bindkey -e
 
 # [Home] - Go to beginning of line
-bindkey  "^[[H"   beginning-of-line
+bindkey "^[[H" beginning-of-line
 
 # [End] - Go to end of line
-bindkey  "^[[F"   end-of-line
+bindkey "^[[F" end-of-line
 
 # [Ctrl-LeftArrow] - move backward one word
 bindkey '^[[1;5D' backward-word

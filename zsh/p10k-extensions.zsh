@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 function isSSHKeysLoaded() {
   local keychainOutput=$(keychain -l)
 

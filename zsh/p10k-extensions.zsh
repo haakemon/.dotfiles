@@ -13,8 +13,8 @@ function isSSHKeysLoaded() {
 function prompt_my_keychain_status() {
   # Nerd font icons: https://www.nerdfonts.com/cheat-sheet
   if isSSHKeysLoaded; then
-    p10k segment -b 0 -f 1 -t $'\Uf030b'
+    p10k segment -b 0 -f 1 -t $'\Uf030b '
   else
-    p10k segment -b 0 -f 2 -t $'\Uf030b'
+    p10k segment -b 0 -f 2 -t $'\Uf030b '
   fi
 }

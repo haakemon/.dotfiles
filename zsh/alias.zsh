@@ -52,24 +52,3 @@ function load-ssh-keys {
     ssh-add -t 7d "${HOME}/.ssh/id_ed25519--git" # add git signing key if exists, valid for 7 days
   fi
 }
-
-function open-ports {
-  config_value="net.ipv4.ip_unprivileged_port_start=443"
-
-  # Check if the value already exists in /etc/sysctl.conf
-  if grep -Fxq "${config_value}" /etc/sysctl.conf; then
-    return 0
-  fi
-
-  # Append the new value path to /etc/sysctl.conf using echo and sudo
-  echo "Trying to add '${config_value}' to /etc/sysctl.conf."
-  sudo bash -c "echo '${config_value}' >> /etc/sysctl.conf"
-
-  # Verify if the value path was successfully added
-  if grep -Fxq "${config_value}" /etc/sysctl.conf; then
-    echo "The value '${config_value}' was added to /etc/sysctl.conf."
-  else
-    echo "Failed to add the value '${config_value}' to /etc/sysctl.conf."
-    exit 1
-  fi
-}

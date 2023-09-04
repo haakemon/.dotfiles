@@ -24,8 +24,6 @@ if type brew &>/dev/null; then
   compinit
 fi
 
-open-ports
-
 ff # see alias.zsh
 
 # 10080 minutes = 7 days

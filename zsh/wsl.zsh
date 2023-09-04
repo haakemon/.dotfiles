@@ -24,3 +24,26 @@ check_ip() {
     fi
   fi
 }
+
+# Many tools/dev envs require binding to either 80 or 443. To avoid fighting with sudo and ports, just allow any process to bind from port 80 and upwards
+# instead of the default 1024 and upwards.
+function open_ports {
+  config_value="net.ipv4.ip_unprivileged_port_start=80"
+
+  # Check if the value already exists in /etc/sysctl.conf
+  if grep -Fxq "${config_value}" /etc/sysctl.conf; then
+    return 0
+  fi
+
+  # Append the new value path to /etc/sysctl.conf using echo and sudo
+  echo "Trying to add '${config_value}' to /etc/sysctl.conf."
+  sudo bash -c "echo '${config_value}' >> /etc/sysctl.conf"
+
+  # Verify if the value path was successfully added
+  if grep -Fxq "${config_value}" /etc/sysctl.conf; then
+    echo "The value '${config_value}' was added to /etc/sysctl.conf."
+  else
+    echo "Failed to add the value '${config_value}' to /etc/sysctl.conf."
+    exit 1
+  fi
+}

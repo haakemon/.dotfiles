@@ -12,6 +12,7 @@ alias gf="git fuzzy"
 alias g="git"
 alias ff="fastfetch --load-config ${HOME}/.dotfiles/fastfetch/config.conf"
 alias hist="fc -li"
+alias port-listeners="sudo lsof -i -P -n | grep LISTEN"
 
 alias ssh-gen-rsa="ssh-keygen -t rsa -b 4096 -a 100"
 alias ssh-gen-ed="ssh-keygen -t ed25519 -a 100"

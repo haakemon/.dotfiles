@@ -28,3 +28,13 @@ ff # see alias.zsh
 
 # 10080 minutes = 7 days
 eval $(keychain --agents ssh --timeout 10080 --eval --quiet)
+
+function do-ls {
+  # Make sure to use emulate -L zsh or
+  # your shell settings and a directory
+  # named 'rm' could be deadly
+  emulate -L zsh
+  lla
+}
+
+add-zsh-hook chpwd do-ls

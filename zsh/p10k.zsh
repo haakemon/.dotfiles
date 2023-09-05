@@ -110,7 +110,8 @@
     # time                    # current time
     # =========================[ Line #2 ]=========================
     newline
-    my_local_context
+    my_location_context
+    my_project_context
     context                 # user@hostname
     # ip                    # ip address and bandwidth usage for a specified network interface
     # public_ip             # public IP address

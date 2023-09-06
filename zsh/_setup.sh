@@ -99,3 +99,6 @@ chsh -s /home/linuxbrew/.linuxbrew/bin/zsh
 zsh
 
 source "${HOME}/.zshrc"
+
+# Symlink tmux config
+ln -s ~/.dotfiles/zsh/.tmux.conf ~/.tmux.conf

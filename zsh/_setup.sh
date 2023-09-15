@@ -60,16 +60,14 @@ function brewinstall-basics {
 
 function brewinstall-container-tools {
   brew install podman \
-    podman-compose \
-    lego
+    podman-compose
 }
 
 function brewinstall-kube-tools {
   brew install kube-ps1 \
     kubectx \
     kubernetes-cli \
-    k9s \
-    lego
+    k9s
 }
 
 add-zsh-to-shells

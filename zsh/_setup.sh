@@ -41,6 +41,8 @@ function add-zsh-to-shells {
 }
 
 function brewinstall-basics {
+  brew tap oven-sh/bun
+
   brew install zsh \
     zsh-completions \
     pnpm \
@@ -55,7 +57,8 @@ function brewinstall-basics {
     romkatv/powerlevel10k/powerlevel10k \
     bc \
     gh \
-    keychain
+    keychain \
+    bun
 }
 
 function brewinstall-container-tools {

@@ -103,5 +103,5 @@ zsh
 source "${HOME}/.zshrc"
 
 # Symlink tmux config
-ln -s ~/.dotfiles/zsh/.tmux.conf ~/.tmux.conf
-ln -s ~/.dotfiles/zsh/.tmux-powerlinerc ~/.tmux-powerlinerc
+ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
+ln -s ~/.dotfiles/tmux/.tmux-powerlinerc ~/.tmux-powerlinerc

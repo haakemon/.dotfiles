@@ -7,9 +7,11 @@ bindkey -e
 
 # [Home] - Go to beginning of line
 bindkey "^[[H" beginning-of-line
+bindkey "^[[1~" beginning-of-line # tmux
 
 # [End] - Go to end of line
 bindkey "^[[F" end-of-line
+bindkey "^[[4~" end-of-line # tmux
 
 # [Ctrl-LeftArrow] - move backward one word
 bindkey '^[[1;5D' backward-word

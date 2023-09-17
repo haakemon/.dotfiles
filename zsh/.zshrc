@@ -24,8 +24,6 @@ if type brew &>/dev/null; then
   compinit
 fi
 
-ff # see alias.zsh
-
 # 10080 minutes = 7 days
 eval $(keychain --agents ssh --timeout 10080 --eval --quiet)
 
@@ -38,3 +36,10 @@ function do-ls {
 }
 
 add-zsh-hook chpwd do-ls
+
+# Start/Attach to main tmux session by default
+if [[ -z "$TMUX" ]]; then
+  tmx
+fi
+
+ff # see alias.zsh

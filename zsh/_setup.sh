@@ -58,6 +58,7 @@ function brewinstall-basics {
     bc \
     gh \
     keychain \
+    tmux \
     bun
 }
 
@@ -103,3 +104,4 @@ source "${HOME}/.zshrc"
 
 # Symlink tmux config
 ln -s ~/.dotfiles/zsh/.tmux.conf ~/.tmux.conf
+ln -s ~/.dotfiles/zsh/.tmux-powerlinerc ~/.tmux-powerlinerc

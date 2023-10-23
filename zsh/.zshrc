@@ -1,11 +1,13 @@
 #!/usr/bin/env zsh
 
+setxkbmap -layout no -variant nodeadkeys
 unsetopt beep
 source "${HOME}/.dotfiles/zsh/env.zsh"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-source "$(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme"
+# source "$(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme"
+source "/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
 source "${HOME}/.dotfiles/zsh/p10k.zsh"
 source "${HOME}/.dotfiles/zsh/p10k-extensions.zsh"
 source "${HOME}/.dotfiles/zsh/zinit.zsh"

@@ -9,6 +9,7 @@ keymap:
     remap:
       KEY_BACKSLASH: KEY_RIGHTALT-KEY_2 # *' -> "@"
       KEY_RIGHTALT-KEY_2: KEY_BACKSLASH # ALT_GR+2 -> "'"
+      KEY_RIGHTSHIFT-KEY_4: KEY_RIGHTALT-KEY_4 # Shift+4 -> $
 
       C-M-a: KEY_PREVIOUSSONG
       C-M-s: KEY_PLAYPAUSE

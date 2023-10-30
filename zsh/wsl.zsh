@@ -47,3 +47,12 @@ function open_ports {
     exit 1
   fi
 }
+
+# Sometimes you get "Exec format error" when trying to execute an executable from Windows within WSL. This function will fix it.
+# See https://github.com/microsoft/WSL/issues/8952#issuecomment-1568212651
+function fixExecFormatError {
+  sudo sh -c 'echo :WSLInterop:M::MZ::/init:PF > /usr/lib/binfmt.d/WSLInterop.conf'
+  sudo systemctl unmask systemd-binfmt.service
+  sudo systemctl restart systemd-binfmt
+  sudo systemctl mask systemd-binfmt.service
+}

@@ -1,0 +1,52 @@
+// ~/.config/fastfetch/config.jsonc
+// See https://github.com/fastfetch-cli/fastfetch/wiki/Configuration for more details
+// See *.jsonc in https://github.com/fastfetch-cli/fastfetch/tree/dev/presets/examples for more examples
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+      "padding": {
+          "top": 2
+      }
+  },
+  "modules": [
+      "title",
+      "uptime",
+      "break",
+
+      "os",
+      "kernel",
+      "break",
+
+      "packages",
+      "shell",
+      "de",
+      "wm",
+      "wmtheme",
+      // "theme",
+      // "icons",
+      // "font",
+      // "cursor",
+      // "terminal",
+      // "terminalfont",
+
+
+      "break",
+
+      "cpu",
+      "cpuusage",
+      "gpu",
+      "memory",
+      "disk",
+      "bluetooth",
+      "display",
+      "break",
+
+      "publicip",
+      "localip",
+      "break"
+
+      // "battery",
+      // "poweradapter",
+      // "locale",
+  ]
+}

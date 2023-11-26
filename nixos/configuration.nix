@@ -11,13 +11,47 @@
     ];
 
   # Bootloader.
-  boot.loader.timeout = 8;
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 5;
-  boot.loader.systemd-boot.consoleMode = "auto";
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.loader.timeout = 8;
+  #boot.loader.systemd-boot.enable = true;
+  #boot.loader.systemd-boot.configurationLimit = 5;
+  #boot.loader.systemd-boot.consoleMode = "auto";
+  #boot.loader.efi.canTouchEfiVariables = true;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.initrd.kernelModules = [ "amdgpu" ];
+
+
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+      # assuming /boot is the mount point of the  EFI partition in NixOS (as the installation section recommends).
+      efiSysMountPoint = "/boot";
+    };
+    grub = {
+      # despite what the configuration.nix manpage seems to indicate,
+      # as of release 17.09, setting device to "nodev" will still call
+      # `grub-install` if efiSupport is true
+      # (the devices list is not used by the EFI grub install,
+      # but must be set to some value in order to pass an assert in grub.nix)
+      devices = [ "nodev" ];
+      efiSupport = true;
+      enable = true;
+      useOSProber = true;
+
+      # set $FS_UUID to the UUID of the EFI partition
+     # extraEntries = ''
+     #   menuentry "Windows" {
+     #     insmod part_gpt
+     #     insmod fat
+     #     insmod search_fs_uuid
+     #     insmod chain
+     #     search --fs-uuid --set=root $FS_UUID
+     #     chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+     #   }
+     # '';
+     # version = 2;
+    };
+  };
+
 
   networking.hostName = "${hostname}"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -58,9 +92,9 @@
   services.xserver = {
     layout = "no";
     xkbVariant = "";
-    # videoDrivers = [
-    #   "amdgpu"
-    # ];
+    videoDrivers = [
+      "amdgpu"
+    ];
   };
 
   # Configure console keymap
@@ -179,7 +213,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
 
 

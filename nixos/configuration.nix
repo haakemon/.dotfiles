@@ -10,65 +10,30 @@
       ./hardware-configuration.nix
     ];
 
-  # Bootloader.
-  #boot.loader.timeout = 8;
-  #boot.loader.systemd-boot.enable = true;
-  #boot.loader.systemd-boot.configurationLimit = 5;
-  #boot.loader.systemd-boot.consoleMode = "auto";
-  #boot.loader.efi.canTouchEfiVariables = true;
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
-  # boot.initrd.kernelModules = [ "amdgpu" ];
-
-
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.loader = {
+    timeout = 8;
     efi = {
       canTouchEfiVariables = true;
-      # assuming /boot is the mount point of the  EFI partition in NixOS (as the installation section recommends).
       efiSysMountPoint = "/boot";
     };
     grub = {
-      # despite what the configuration.nix manpage seems to indicate,
-      # as of release 17.09, setting device to "nodev" will still call
-      # `grub-install` if efiSupport is true
-      # (the devices list is not used by the EFI grub install,
-      # but must be set to some value in order to pass an assert in grub.nix)
       devices = [ "nodev" ];
       efiSupport = true;
       enable = true;
       useOSProber = true;
-
-      # set $FS_UUID to the UUID of the EFI partition
-     # extraEntries = ''
-     #   menuentry "Windows" {
-     #     insmod part_gpt
-     #     insmod fat
-     #     insmod search_fs_uuid
-     #     insmod chain
-     #     search --fs-uuid --set=root $FS_UUID
-     #     chainloader /EFI/Microsoft/Boot/bootmgfw.efi
-     #   }
-     # '';
-     # version = 2;
+      configurationLimit = 10;
     };
   };
 
+  networking = {
+    hostName = "${hostname}";
+    networkmanager.enable = true;
+  };
 
-  networking.hostName = "${hostname}"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Set your time zone.
   time.timeZone = "${timezone}";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "${defaultLocale}";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "${extraLocale}";
     LC_IDENTIFICATION = "${extraLocale}";
@@ -87,6 +52,8 @@
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.displayManager.sddm.wayland.enable = true;
+  services.xserver.displayManager.defaultSession = "plasmawayland";
 
   # Configure keymap in X11
   services.xserver = {
@@ -119,6 +86,22 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  hardware = {
+    enableRedistributableFirmware = true;
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+      extraPackages = [
+        pkgs.amdvlk
+      ];
+      extraPackages32 = [
+        pkgs.driversi686Linux.amdvlk
+      ];
+    };
+  };
+
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -165,6 +148,7 @@
   #  wget
     usbutils
     pciutils
+    vulkan-tools
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -197,15 +181,14 @@
   #   };
   # };
 
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+
+  system = {
+    autoUpgrade.enable = true;
+    autoUpgrade.allowReboot = true;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -214,45 +197,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
-
-
-
-  # Enable OpenGL
-  # hardware.opengl = {
-  #   enable = true;
-  #   driSupport = true;
-  #   driSupport32Bit = true;
-  # };
-
-  # # Load nvidia driver for Xorg and Wayland
-  # services.xserver.videoDrivers = ["nvidia"];
-
-  # hardware.nvidia = {
-
-  #   # Modesetting is required.
-  #   modesetting.enable = true;
-
-  #   # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-  #   powerManagement.enable = false;
-  #   # Fine-grained power management. Turns off GPU when not in use.
-  #   # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-  #   powerManagement.finegrained = false;
-
-  #   # Use the NVidia open source kernel module (not to be confused with the
-  #   # independent third-party "nouveau" open source driver).
-  #   # Support is limited to the Turing and later architectures. Full list of
-  #   # supported GPUs is at:
-  #   # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
-  #   # Only available from driver 515.43.04+
-  #   # Currently alpha-quality/buggy, so false is currently the recommended setting.
-  #   open = false;
-
-  #   # Enable the Nvidia settings menu,
-  #   # accessible via `nvidia-settings`.
-  #   nvidiaSettings = true;
-
-  #   # Optionally, you may need to select the appropriate driver version for your specific GPU.
-  #   package = config.boot.kernelPackages.nvidiaPackages.stable;
-  # };
 }

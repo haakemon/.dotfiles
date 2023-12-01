@@ -67,6 +67,9 @@
   # Configure console keymap
   console.keyMap = "no";
 
+  services.fwupd.enable = true;
+
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -149,10 +152,13 @@
     usbutils
     pciutils
     vulkan-tools
+    clinfo
+    glxinfo
+    wayland-utils
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
   programs.zsh.enable = true;
+  programs.xwayland.enable = true;
 
   # started in user sessions.
   # programs.mtr.enable = true;

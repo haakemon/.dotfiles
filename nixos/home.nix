@@ -36,24 +36,31 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     firefox
-    kate
     vivaldi
+
+    keychain
     bitwarden
-    vscode
+
     fastfetch
-    steam
-    prusa-slicer
-    telegram-desktop
-    discord
-    heroic
-    spotify
-    freetube
-    obs-studio
-    softmaker-office
+    eza
+    zsh-powerlevel10k
+
+    vscode
     notepadqq
     fnm
-    eza
     # distrobox
+
+    steam
+    heroic
+
+    obs-studio
+    prusa-slicer
+    spotify
+    freetube
+    softmaker-office
+
+    telegram-desktop
+    discord
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -149,25 +156,17 @@
       history = {
         ignoreAllDups = true;
       };
-      initExtra = ''
+      initExtraFirst = ''
+# initExtraFirst
 
+source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
 
-RED_COLOR=$(tput setaf 1)
-YELLOW_COLOR=$(tput setaf 3)
-RESET_COLOR=$(tput sgr0)
+source "''${HOME}/.dotfiles/zsh/p10k.zsh"
+source "''${HOME}/.dotfiles/zsh/p10k-extensions.zsh"
+source "''${HOME}/.dotfiles/zsh/env.zsh"
+source "''${HOME}/.dotfiles/zsh/ssh.zsh"
 
-
-# 10080 minutes = 7 days
-eval $(keychain --agents ssh --timeout 10080 --eval --quiet)
-
-function load-ssh-keys {
-  echo "''${YELLOW_COLOR}loading ssh keys...''${RESET_COLOR}"
-  ssh-add -t 7d # add default keys, valid for 7 days
-
-  if [ -e "''${HOME}/.ssh/id_ed25519--git" ]; then
-    ssh-add -t 7d "''${HOME}/.ssh/id_ed25519--git" # add git signing key if exists, valid for 7 days
-  fi
-}
+fastfetch
 
       '';
     };

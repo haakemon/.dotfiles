@@ -45,12 +45,3 @@ function goto {
     done
   fi
 }
-
-function load-ssh-keys {
-  echo "${YELLOW_COLOR}loading ssh keys...${RESET_COLOR}"
-  ssh-add -t 7d # add default keys, valid for 7 days
-
-  if [ -e "${HOME}/.ssh/id_ed25519--git" ]; then
-    ssh-add -t 7d "${HOME}/.ssh/id_ed25519--git" # add git signing key if exists, valid for 7 days
-  fi
-}

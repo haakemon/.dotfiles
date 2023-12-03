@@ -117,7 +117,11 @@
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+    ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       # firefox
@@ -213,7 +217,10 @@
     autoUpgrade.allowReboot = true;
   };
 
-  # virtualisation.waydroid.enable = true;
+  virtualisation = {
+    # waydroid.enable = true;
+    libvirtd.enable = true;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

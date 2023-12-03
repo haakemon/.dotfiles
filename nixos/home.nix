@@ -97,6 +97,14 @@
     "..." = "cd ../..";
   };
 
+  # Settings for virt-manager https://nixos.wiki/wiki/Virt-manager
+  dconf.settings = {
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
+    };
+  };
+
 
   nixpkgs.config = {
     allowUnfree = true;

@@ -123,15 +123,6 @@
       "libvirtd"
     ];
     shell = pkgs.zsh;
-    packages = with pkgs; [
-      # firefox
-      # kate
-      # git
-      # vivaldi
-      # bitwarden
-      # vscode
-    #  thunderbird
-    ];
   };
 
   # Allow unfree packages

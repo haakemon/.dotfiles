@@ -77,7 +77,7 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
 
-    ".config/fastfetch/config.jsonc".source = ./fastfetch/config.jsonc;
+    ".config/fastfetch/config.jsonc".source = ../fastfetch/config.jsonc;
   };
 
   # You can also manage environment variables but you will have to manually

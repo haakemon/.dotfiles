@@ -141,15 +141,13 @@
     package = pkgs.nixFlakes;
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
-      # auto-optimise-store = true;
+      auto-optimise-store = true;
     };
-    # extraOptions = "experimental-features = nix-command flakes";
-  #   settings.auto-optimise-store = true;
-  #   gc = {
-  #     automatic = true;
-  #     dates = "weekly";
-  #     options = "--delete-older-than 14d";
-  #   }
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 14d";
+    };
   };
 
   # List packages installed in system profile. To search, run:

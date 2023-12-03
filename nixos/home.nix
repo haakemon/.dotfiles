@@ -44,6 +44,7 @@
     fastfetch
     eza
     zsh-powerlevel10k
+    (nerdfonts.override { fonts = [ "VictorMono" ]; })
 
     vscode
     notepadqq
@@ -112,6 +113,7 @@
     };
   };
 
+  fonts.fontconfig.enable = true;
 
   nixpkgs.config = {
     allowUnfree = true;

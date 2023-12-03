@@ -49,6 +49,7 @@
     vscode
     notepadqq
     fnm
+    wezterm
     # distrobox
 
     steam
@@ -79,6 +80,7 @@
     # '';
 
     ".config/fastfetch/config.jsonc".source = ../fastfetch/config.jsonc;
+    ".wezterm.lua".source = ../wezterm/.wezterm.lua;
   };
 
   # You can also manage environment variables but you will have to manually

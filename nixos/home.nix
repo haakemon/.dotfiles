@@ -42,6 +42,18 @@
     vscode
     fastfetch
     steam
+    prusa-slicer
+    telegram-desktop
+    discord
+    heroic
+    spotify
+    freetube
+    obs-studio
+    softmaker-office
+    notepadqq
+    fnm
+    eza
+    # distrobox
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -75,6 +87,16 @@
   #   FOO = "Hello";
   #   BAR = "${config.home.sessionVariables.FOO} World!";
   # };
+
+  home.shellAliases = {
+    g = "git";
+    lla = "eza --all --long --header --git --icons --group-directories-first";
+    nixrebuild = "sudo nixos-rebuild --upgrade switch --flake .";
+    nixrebuild-nocache = "sudo nixos-rebuild --upgrade --option eval-cache false switch --flake .";
+    ".." = "cd ..";
+    "..." = "cd ../..";
+  };
+
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -115,13 +137,10 @@
     };
     zsh = {
       enable = true;
-      shellAliases = {
-          g = "git";
-          ".." = "cd ..";
-          "..." = "cd ../..";
+      enableCompletion = true;
+      history = {
+        ignoreAllDups = true;
       };
     };
-    # steam.enable = true;
-    # gamemode.enable = true;
   };
 }

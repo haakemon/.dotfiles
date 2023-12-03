@@ -48,7 +48,7 @@ function brewinstall-basics {
     pnpm \
     fnm \
     fzf \
-    exa \
+    eza \
     viu \
     bat \
     git-delta \

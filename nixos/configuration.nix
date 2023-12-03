@@ -30,6 +30,10 @@
   networking = {
     hostName = "${hostname}";
     networkmanager.enable = true;
+    nameservers = [
+      "192.168.2.9"
+      "9.9.9.9"
+    ];
   };
 
   time.timeZone = "${timezone}";
@@ -151,14 +155,27 @@
   #  wget
     usbutils
     pciutils
-    vulkan-tools
-    clinfo
-    glxinfo
-    wayland-utils
+    vulkan-tools # graphics info
+    clinfo # graphics info
+    glxinfo # graphics info
+    wayland-utils # graphics info
+    libvirt # virtualization
   ];
 
-  programs.zsh.enable = true;
-  programs.xwayland.enable = true;
+  programs = {
+    bash = {
+      enableCompletion = true;
+    };
+    zsh = {
+      enable = true;
+      enableBashCompletion = true;
+    };
+    xwayland.enable = true;
+    virt-manager.enable = true;
+    fzf.fuzzyCompletion = true;
+  };
+
+
 
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -195,6 +212,8 @@
     autoUpgrade.enable = true;
     autoUpgrade.allowReboot = true;
   };
+
+  # virtualisation.waydroid.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

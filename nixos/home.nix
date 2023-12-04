@@ -64,6 +64,7 @@
     spotify
     freetube
     softmaker-office
+    vlc
 
     telegram-desktop
     discord
@@ -150,9 +151,53 @@
     zsh = {
       enable = true;
       enableCompletion = true;
+      enableAutosuggestions = true;
       history = {
         ignoreAllDups = true;
       };
+
+      plugins = [
+        {
+          name = "zsh-autosuggestions";
+          src = pkgs.fetchFromGitHub {
+            owner = "zsh-users";
+            repo = "zsh-autosuggestions";
+            rev = "v0.7.0";
+            hash = "sha256-KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w=";
+          };
+        }
+        {
+          name = "zsh-syntax-highlighting";
+          file = "zsh-syntax-highlighting.zsh";
+          src = pkgs.fetchFromGitHub {
+            owner = "zsh-users";
+            repo = "zsh-syntax-highlighting";
+            rev = "0.7.1";
+            hash = "sha256-gOG0NLlaJfotJfs+SUhGgLTNOnGLjoqnUp54V9aFJg8=";
+          };
+        }
+        {
+          name = "zsh-fzf-history-search";
+          file = "zsh-fzf-history-search.zsh";
+          src = pkgs.fetchFromGitHub {
+            owner = "joshskidmore";
+            repo = "zsh-fzf-history-search";
+            rev = "d1aae98ccd6ce153c97a5401d79fd36418cd2958";
+            hash = "sha256-4Dp2ehZLO83NhdBOKV0BhYFIvieaZPqiZZZtxsXWRaQ=";
+          };
+        }
+        # { # This plugin wont work properly because of how it resolves its own path, and tries to import files
+        #   name = "git-fuzzy";
+        #   file = "bin/git-fuzzy";
+        #   src = pkgs.fetchFromGitHub {
+        #     owner = "bigH";
+        #     repo = "git-fuzzy";
+        #     rev = "41b7691a837e23e36cec44e8ea2c071161727dfa";
+        #     hash = "sha256-fexv5aesUakrgaz4HE9Nt954OoBEF06qZb6VSMvuZhw=";
+        #   };
+        # }
+      ];
+
       initExtraFirst = ''
 #region initExtraFirst
 

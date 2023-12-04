@@ -45,6 +45,7 @@
     eza
     zsh-powerlevel10k
     (nerdfonts.override { fonts = [ "VictorMono" ]; })
+    bat
 
     vscode
     notepadqq
@@ -97,15 +98,6 @@
   #   FOO = "Hello";
   #   BAR = "${config.home.sessionVariables.FOO} World!";
   # };
-
-  home.shellAliases = {
-    g = "git";
-    lla = "eza --all --long --header --git --icons --group-directories-first";
-    nixrebuild = "sudo nixos-rebuild --upgrade switch --flake .";
-    nixrebuild-nocache = "sudo nixos-rebuild --upgrade --option eval-cache false switch --flake .";
-    ".." = "cd ..";
-    "..." = "cd ../..";
-  };
 
   # Settings for virt-manager https://nixos.wiki/wiki/Virt-manager
   dconf.settings = {
@@ -161,17 +153,26 @@
         ignoreAllDups = true;
       };
       initExtraFirst = ''
-# initExtraFirst
+#region initExtraFirst
 
 source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-
 source "''${HOME}/.dotfiles/zsh/p10k.zsh"
 source "''${HOME}/.dotfiles/zsh/p10k-extensions.zsh"
-source "''${HOME}/.dotfiles/zsh/env.zsh"
-source "''${HOME}/.dotfiles/zsh/ssh.zsh"
 
 fastfetch
 
+#endregion initExtraFirst
+      '';
+
+      initExtra = ''
+#region initExtra
+
+source "''${HOME}/.dotfiles/zsh/env.zsh"
+source "''${HOME}/.dotfiles/zsh/alias.zsh"
+source "''${HOME}/.dotfiles/zsh/ssh.zsh"
+source "''${HOME}/.dotfiles/zsh/zsh-hooks.zsh"
+
+#endregion initExtra
       '';
     };
   };

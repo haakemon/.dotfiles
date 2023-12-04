@@ -134,8 +134,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
     usbutils
     pciutils
     vulkan-tools # graphics info
@@ -143,6 +143,7 @@
     glxinfo # graphics info
     wayland-utils # graphics info
     libvirt # virtualization
+    nixpkgs-fmt # formatting .nix files
   ];
 
   programs = {

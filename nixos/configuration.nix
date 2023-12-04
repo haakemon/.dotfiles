@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -23,7 +24,6 @@
       efiSupport = true;
       enable = true;
       useOSProber = true;
-      configurationLimit = 10;
     };
   };
 
@@ -59,13 +59,9 @@
   services.xserver.displayManager.sddm.wayland.enable = true;
   services.xserver.displayManager.defaultSession = "plasmawayland";
 
-  # Configure keymap in X11
   services.xserver = {
     layout = "no";
     xkbVariant = "";
-    videoDrivers = [
-      "amdgpu"
-    ];
   };
 
   # Configure console keymap
@@ -100,12 +96,6 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages = [
-        pkgs.amdvlk
-      ];
-      extraPackages32 = [
-        pkgs.driversi686Linux.amdvlk
-      ];
     };
   };
 

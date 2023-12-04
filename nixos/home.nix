@@ -46,11 +46,14 @@
     zsh-powerlevel10k
     (nerdfonts.override { fonts = [ "VictorMono" ]; })
     bat
+    fzf # fuzzy find
+    grc # generic text colorizer
 
     vscode
     notepadqq
     fnm
     wezterm
+    nodePackages.pnpm
     # distrobox
 
     steam
@@ -112,8 +115,6 @@
   nixpkgs.config = {
     allowUnfree = true;
   };
-
-  # fonts.fontconfig.enable = true; # TODO: investigate
 
   editorconfig = {
     enable = true;

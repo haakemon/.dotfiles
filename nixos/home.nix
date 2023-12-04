@@ -106,8 +106,8 @@
   # Settings for virt-manager https://nixos.wiki/wiki/Virt-manager
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
-      autoconnect = ["qemu:///system"];
-      uris = ["qemu:///system"];
+      autoconnect = [ "qemu:///system" ];
+      uris = [ "qemu:///system" ];
     };
   };
 
@@ -199,26 +199,26 @@
       ];
 
       initExtraFirst = ''
-#region initExtraFirst
+        #region initExtraFirst
 
-source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-source "''${HOME}/.dotfiles/zsh/p10k.zsh"
-source "''${HOME}/.dotfiles/zsh/p10k-extensions.zsh"
+        source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+        source "''${HOME}/.dotfiles/zsh/p10k.zsh"
+        source "''${HOME}/.dotfiles/zsh/p10k-extensions.zsh"
 
-fastfetch
+        fastfetch
 
-#endregion initExtraFirst
+        #endregion initExtraFirst
       '';
 
       initExtra = ''
-#region initExtra
+        #region initExtra
 
-source "''${HOME}/.dotfiles/zsh/env.zsh"
-source "''${HOME}/.dotfiles/zsh/alias.zsh"
-source "''${HOME}/.dotfiles/zsh/ssh.zsh"
-source "''${HOME}/.dotfiles/zsh/zsh-hooks.zsh"
+        source "''${HOME}/.dotfiles/zsh/env.zsh"
+        source "''${HOME}/.dotfiles/zsh/alias.zsh"
+        source "''${HOME}/.dotfiles/zsh/ssh.zsh"
+        source "''${HOME}/.dotfiles/zsh/zsh-hooks.zsh"
 
-#endregion initExtra
+        #endregion initExtra
       '';
     };
   };

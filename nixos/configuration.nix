@@ -54,18 +54,20 @@
     };
   };
 
-  services.xserver = {
-    enable = true;
-    layout = "no";
+  services = {
     fwupd.enable = true;
-    desktopManager.plasma5.enable = true;
-    displayManager = {
-      sddm = {
-        enable = true;
-        wayland.enable = true;
-        autoNumlock = true;
+    xserver = {
+      enable = true;
+      layout = "no";
+      desktopManager.plasma5.enable = true;
+      displayManager = {
+        sddm = {
+          enable = true;
+          wayland.enable = true;
+          autoNumlock = true;
+        };
+        defaultSession = "plasmawayland";
       };
-      defaultSession = "plasmawayland";
     };
     printing = {
       enable = true;

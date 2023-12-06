@@ -7,36 +7,10 @@
 {
   imports =
     [
-      # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./boot.nix
+      ./networking.nix
     ];
-
-  boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
-    initrd.kernelModules = [ "amdgpu" ];
-    loader = {
-      timeout = 5;
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot";
-      };
-      grub = {
-        devices = [ "nodev" ];
-        efiSupport = true;
-        enable = true;
-        useOSProber = true;
-      };
-    };
-  };
-
-  networking = {
-    hostName = "${hostname}";
-    networkmanager.enable = true;
-    nameservers = [
-      "192.168.2.9"
-      "9.9.9.9"
-    ];
-  };
 
   time.timeZone = "${timezone}";
   i18n = {
@@ -91,6 +65,10 @@
       enable = true;
       nssmdns = true;
     };
+    hardware.openrgb = {
+      enable = true;
+      motherboard  = "amd";
+    };
   };
 
   console.keyMap = "no";
@@ -114,6 +92,7 @@
     };
     sane.enable = true; # Scanning
     pulseaudio.enable = false;
+    bluetooth.enable = true;
   };
 
   # Adding this (environment.variables.VK_ICD_FILENAMES) stops Portal RTX from working

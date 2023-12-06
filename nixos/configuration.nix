@@ -11,19 +11,21 @@
       ./hardware-configuration.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.loader = {
-    timeout = 8;
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";
-    };
-    grub = {
-      devices = [ "nodev" ];
-      efiSupport = true;
-      enable = true;
-      useOSProber = true;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    initrd.kernelModules = [ "amdgpu" ];
+    loader = {
+      timeout = 5;
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+      };
+      grub = {
+        devices = [ "nodev" ];
+        efiSupport = true;
+        enable = true;
+        useOSProber = true;
+      };
     };
   };
 
@@ -37,22 +39,26 @@
   };
 
   time.timeZone = "${timezone}";
-  i18n.defaultLocale = "${defaultLocale}";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "${extraLocale}";
-    LC_IDENTIFICATION = "${extraLocale}";
-    LC_MEASUREMENT = "${extraLocale}";
-    LC_MONETARY = "${extraLocale}";
-    LC_NAME = "${extraLocale}";
-    LC_NUMERIC = "${extraLocale}";
-    LC_PAPER = "${extraLocale}";
-    LC_TELEPHONE = "${extraLocale}";
-    LC_TIME = "${extraLocale}";
+  i18n = {
+    defaultLocale = "${defaultLocale}";
+    extraLocaleSettings = {
+      LC_ADDRESS = "${extraLocale}";
+      LC_IDENTIFICATION = "${extraLocale}";
+      LC_MEASUREMENT = "${extraLocale}";
+      LC_MONETARY = "${extraLocale}";
+      LC_NAME = "${extraLocale}";
+      LC_NUMERIC = "${extraLocale}";
+      LC_PAPER = "${extraLocale}";
+      LC_TELEPHONE = "${extraLocale}";
+      LC_TIME = "${extraLocale}";
+    };
   };
 
   services.xserver = {
     enable = true;
     layout = "no";
+    fwupd.enable = true;
+    desktopManager.plasma5.enable = true;
     displayManager = {
       sddm = {
         enable = true;
@@ -61,41 +67,34 @@
       };
       defaultSession = "plasmawayland";
     };
-    desktopManager.plasma5.enable = true;
-  };
-
-  # Configure console keymap
-  console.keyMap = "no";
-
-  services.fwupd.enable = true;
-  services.printing.enable = true;
-  services.printing.cups-pdf.enable = true;
-  services.printing.drivers = [ pkgs.gutenprint ];
-  services.printing.cups-pdf.instances = {
-    pdf = {
-      settings = {
-        Out = "\${HOME}/Documents";
+    printing = {
+      enable = true;
+      cups-pdf.enable = true;
+      drivers = [ pkgs.gutenprint ];
+      cups-pdf.instances = {
+        pdf = {
+          settings = {
+            Out = "\${HOME}/Documents";
+          };
+        };
       };
+    };
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+    avahi = {
+      enable = true;
+      nssmdns = true;
     };
   };
 
-  hardware.sane.enable = true;
+  console.keyMap = "no";
 
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
-  services.avahi = {
-    enable = true;
-    nssmdns = true;
-  };
 
   hardware = {
     enableRedistributableFirmware = true;
@@ -111,6 +110,8 @@
         pkgs.driversi686Linux.amdvlk
       ];
     };
+    sane.enable = true; # Scanning
+    pulseaudio.enable = false;
   };
 
   # Adding this (environment.variables.VK_ICD_FILENAMES) stops Portal RTX from working
@@ -172,9 +173,10 @@
     xwayland.enable = true;
     virt-manager.enable = true;
     fzf.fuzzyCompletion = true;
-
-    hyprland.enable = true;
-    hyprland.xwayland.enable = true;
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
 
     # Need to add "gamemoderun %command%" to each Steam game,
     # or start Steam with gamemoderun steam-runtime to apply to all games

@@ -64,33 +64,37 @@
     desktopManager.plasma5.enable = true;
   };
 
-  programs.hyprland.enable = true;
-  programs.hyprland.xwayland.enable = true;
-
   # Configure console keymap
   console.keyMap = "no";
 
   services.fwupd.enable = true;
-
-
-  # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.cups-pdf.enable = true;
+  services.printing.drivers = [ pkgs.gutenprint ];
+  services.printing.cups-pdf.instances = {
+    pdf = {
+      settings = {
+        Out = "\${HOME}/Documents";
+      };
+    };
+  };
 
-  # Enable sound with pipewire.
+  hardware.sane.enable = true;
+
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+  };
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
   };
 
   hardware = {
@@ -114,17 +118,10 @@
   environment.variables.VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json:/run/opengl-driver/share/vulkan/icd.d/amd_icd64.json";
   environment.variables.AMD_VULKAN_ICD = "RADV";
 
-
-
   systemd.tmpfiles.rules = [
     "L+ /opt/rocm/hip - - - - ${pkgs.rocmPackages.clr}"
   ];
 
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
@@ -138,7 +135,6 @@
     shell = pkgs.zsh;
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   nix = {
@@ -154,11 +150,7 @@
     };
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
     usbutils
     pciutils
     vulkan-tools # graphics info
@@ -180,40 +172,15 @@
     xwayland.enable = true;
     virt-manager.enable = true;
     fzf.fuzzyCompletion = true;
+
+    hyprland.enable = true;
+    hyprland.xwayland.enable = true;
+
+    # Need to add "gamemoderun %command%" to each Steam game,
+    # or start Steam with gamemoderun steam-runtime to apply to all games
+    # downside is that gamemode will run as long as Steam is running
+    gamemode.enable = true;
   };
-
-
-
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-  # programs.steam.enable = true;
-  # programs.gamemode.enable = true;
-
-  # List services that you want to enable:
-
-  # services = {
-  #   printing = {
-  #     enable = true;
-
-  #   };
-  #   avahi = {
-  #     enable = true;
-  #     # nssmdns = true;
-  #     publish = {
-  #       enable = true;
-  #       addresses = true;
-  #       userSerices = true;
-  #     };
-  #   };
-  # };
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
 
   system = {
     autoUpgrade.enable = true;

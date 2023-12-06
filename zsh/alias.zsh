@@ -13,6 +13,7 @@ alias k="kubectl"
 alias gf="git fuzzy"
 alias g="git"
 alias port-listeners="sudo lsof -i -P -n | grep LISTEN"
+alias scan="scanimage --device 'escl:https://192.168.2.20:443' --mode Color --resolution 1200dpi --format=png --output-file ${HOME}/scan-$(uuidgen).png --progress"
 
 alias ssh-gen-rsa="ssh-keygen -t rsa -b 4096 -a 100"
 alias ssh-gen-ed="ssh-keygen -t ed25519 -a 100"

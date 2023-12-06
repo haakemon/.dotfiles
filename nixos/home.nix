@@ -63,7 +63,7 @@
     prusa-slicer
     spotify
     freetube
-    softmaker-office
+    freeoffice
     vlc
 
     telegram-desktop

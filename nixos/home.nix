@@ -54,7 +54,7 @@
     discord
 
     # kvantum theming
-    qt6Packages.qtstyleplugin-kvantum
+    # qt6Packages.qtstyleplugin-kvantum
     libsForQt5.qtstyleplugin-kvantum
 
     # Hyprland experimental stuff
@@ -63,7 +63,8 @@
     dolphin
     libsForQt5.polkit-kde-agent
     libsForQt5.qt5.qtwayland
-    qt6.qtwayland
+    libsForQt5.qt5ct
+    # qt6.qtwayland
     xdg-desktop-portal-hyprland
     xdg-desktop-portal-gtk
   ];

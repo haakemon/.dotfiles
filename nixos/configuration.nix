@@ -28,7 +28,11 @@
     };
   };
 
-  qt.style = "kvantum";
+  qt = {
+    enable = true;
+    style = "kvantum";
+    # platformTheme = "qt5tc";
+  };
 
   services = {
     fwupd.enable = true;

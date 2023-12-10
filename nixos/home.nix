@@ -48,6 +48,7 @@
     freetube
     freeoffice
     vlc
+    solaar # Logitech devices
 
     telegram-desktop
     discord

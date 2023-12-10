@@ -39,6 +39,7 @@
           enable = true;
           wayland.enable = true;
           autoNumlock = true;
+          theme = "sugar-dark";
         };
         defaultSession = "plasmawayland";
       };
@@ -136,15 +137,20 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    usbutils
-    pciutils
-    vulkan-tools # graphics info
-    clinfo # graphics info
-    glxinfo # graphics info
-    wayland-utils # graphics info
-    libvirt # virtualization
-    nixpkgs-fmt # formatting .nix files
+  environment.systemPackages = let themes = pkgs.callPackage ./sddm-themes.nix {}; in [
+    pkgs.usbutils
+    pkgs.pciutils
+    pkgs.vulkan-tools # graphics info
+    pkgs.clinfo # graphics info
+    pkgs.glxinfo # graphics info
+    pkgs.wayland-utils # graphics info
+    pkgs.libvirt # virtualization
+    pkgs.nixpkgs-fmt # formatting .nix files
+    pkgs.kdeconnect
+    pkgs.sddm-kcm # sddm gui settings
+
+    themes.sddm-sugar-dark
+    themes.sddm-vivid-dark
   ];
 
   programs = {

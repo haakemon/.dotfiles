@@ -69,6 +69,7 @@
 
     ".config/fastfetch/config.jsonc".source = ../fastfetch/config.jsonc;
     ".wezterm.lua".source = ../wezterm/.wezterm.lua;
+    ".face.icon".source = ../sddm/.face.icon;
   };
 
   # You can also manage environment variables but you will have to manually

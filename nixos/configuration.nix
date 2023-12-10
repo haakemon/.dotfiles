@@ -170,6 +170,7 @@
       enable = true;
       xwayland.enable = true;
     };
+    waybar.enable = true;
 
     # Need to add "gamemoderun %command%" to each Steam game,
     # or start Steam with gamemoderun steam-runtime to apply to all games

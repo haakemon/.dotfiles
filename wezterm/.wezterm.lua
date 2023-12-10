@@ -17,5 +17,8 @@ end
 config.color_scheme = 'Dracula'
 config.font = wezterm.font 'VictorMono Nerd Font'
 
+-- https://github.com/wez/wezterm/issues/4483#issuecomment-1835619115
+config.enable_wayland = false
+
 -- and finally, return the configuration to wezterm
 return config

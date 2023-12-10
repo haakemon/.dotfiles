@@ -52,6 +52,11 @@
 
     telegram-desktop
     discord
+
+    # kvantum theming
+    qt6Packages.qtstyleplugin-kvantum
+    libsForQt5.qtstyleplugin-kvantum
+
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

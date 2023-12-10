@@ -93,6 +93,10 @@
     sane.enable = true; # Scanning
     pulseaudio.enable = false;
     bluetooth.enable = true;
+    logitech.wireless = {
+      enable = true;
+      enableGraphical = true;
+    };
   };
 
   # Adding this (environment.variables.VK_ICD_FILENAMES) stops Portal RTX from working

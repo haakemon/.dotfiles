@@ -28,6 +28,8 @@
     };
   };
 
+  qt.style = "kvantum";
+
   services = {
     fwupd.enable = true;
     xserver = {

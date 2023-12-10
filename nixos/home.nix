@@ -57,6 +57,15 @@
     qt6Packages.qtstyleplugin-kvantum
     libsForQt5.qtstyleplugin-kvantum
 
+    # Hyprland experimental stuff
+    wofi
+    mako
+    dolphin
+    libsForQt5.polkit-kde-agent
+    libsForQt5.qt5.qtwayland
+    qt6.qtwayland
+    xdg-desktop-portal-hyprland
+    xdg-desktop-portal-gtk
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

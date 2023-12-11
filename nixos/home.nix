@@ -34,7 +34,7 @@
 
     vscode
     notepadqq
-    fnm
+    nodejs_20
     wezterm
     nodePackages.pnpm
     # distrobox

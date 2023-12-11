@@ -37,7 +37,9 @@
     nodejs_20
     wezterm
     nodePackages.pnpm
-    # distrobox
+
+    podman-compose
+    distrobox
 
     steam
     heroic

@@ -68,7 +68,7 @@
     };
     hardware.openrgb = {
       enable = true;
-      motherboard  = "amd";
+      motherboard = "amd";
     };
   };
 
@@ -137,7 +137,7 @@
     };
   };
 
-  environment.systemPackages = let themes = pkgs.callPackage ./sddm-themes.nix {}; in [
+  environment.systemPackages = let themes = pkgs.callPackage ./sddm-themes.nix { }; in [
     pkgs.usbutils
     pkgs.pciutils
     pkgs.vulkan-tools # graphics info
@@ -179,6 +179,14 @@
   virtualisation = {
     # waydroid.enable = true;
     libvirtd.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+    oci-containers = {
+      backend = "podman";
+    };
   };
 
   # This value determines the NixOS release from which the default

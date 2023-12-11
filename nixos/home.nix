@@ -31,6 +31,7 @@
     bat
     fzf # fuzzy find
     grc # generic text colorizer
+    cinnamon.nemo-with-extensions # file manager
 
     vscode
     notepadqq

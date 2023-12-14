@@ -17,6 +17,8 @@ end
 config.color_scheme = 'Dracula'
 config.font = wezterm.font 'VictorMono Nerd Font'
 
+config.window_background_opacity = 0.85
+
 -- https://github.com/wez/wezterm/issues/4483#issuecomment-1835619115
 config.enable_wayland = false
 

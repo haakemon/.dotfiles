@@ -64,7 +64,7 @@
     };
     avahi = {
       enable = true;
-      nssmdns = true;
+      nssmdns4 = true;
     };
     hardware.openrgb = {
       enable = true;

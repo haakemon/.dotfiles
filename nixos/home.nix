@@ -129,6 +129,12 @@
       delta = {
         enable = true;
       };
+      extraConfig = {
+        user = {
+          name = "Håkon Bogsrud";
+          email = "2082481+haakemon@users.noreply.github.com";
+        };
+      };
       includes = [
         { path = "~/.dotfiles/git/.gitconfig-alias"; }
         { path = "~/.dotfiles/git/.gitconfig-color"; }

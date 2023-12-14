@@ -109,6 +109,15 @@
     "L+ /opt/rocm/hip - - - - ${pkgs.rocmPackages.clr}"
   ];
 
+  systemd.user.services.jotta = {
+    wantedBy = [ "default.target" ];
+    serviceConfig = {
+      Type = "exec";
+      ExecStart = "${pkgs.jotta-cli}/bin/jottad";
+    };
+  };
+
+
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
@@ -148,6 +157,8 @@
     pkgs.nixpkgs-fmt # formatting .nix files
     pkgs.kdeconnect
     pkgs.sddm-kcm # sddm gui settings
+
+    pkgs.jotta-cli
 
     themes.sddm-sugar-dark
     themes.sddm-vivid-dark

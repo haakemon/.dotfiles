@@ -38,8 +38,8 @@ function do-ls {
 add-zsh-hook chpwd do-ls
 
 # Start/Attach to main tmux session by default
-if [[ -z "$TMUX" ]]; then
-  tmx
-fi
+# if [[ -z "$TMUX" ]]; then
+#   tmx
+# fi
 
 ff # see alias.zsh

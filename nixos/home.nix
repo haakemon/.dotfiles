@@ -31,8 +31,9 @@
     bat
     fzf # fuzzy find
     grc # generic text colorizer
-    cinnamon.nemo-with-extensions # file manager
+    #cinnamon.nemo-with-extensions # file manager
 
+    blender
     vscode
     notepadqq
     nodejs_20
@@ -52,7 +53,7 @@
     freetube
     freeoffice
     vlc
-    solaar # Logitech devices
+    headsetcontrol # Set options for headsets
 
     telegram-desktop
     discord

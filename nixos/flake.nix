@@ -19,7 +19,7 @@
     in
     {
       nixosConfigurations = {
-        "${hostname}" = lib.nixosSystem {
+        nixos = lib.nixosSystem {
           inherit system;
           specialArgs = { inherit hostname username timezone defaultLocale extraLocale; };
           modules = [

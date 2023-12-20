@@ -70,6 +70,7 @@
       enable = true;
       motherboard = "amd";
     };
+    spice-vdagentd.enable = true; # pass-thru-for-virtualization
   };
 
   console.keyMap = "no";
@@ -139,6 +140,7 @@
       experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = true;
     };
+    optimise.automatic = true;
     gc = {
       automatic = true;
       dates = "weekly";
@@ -158,10 +160,18 @@
     pkgs.kdeconnect
     pkgs.sddm-kcm # sddm gui settings
 
-    pkgs.jotta-cli
-
+    # Custom SDDM themes
     themes.sddm-sugar-dark
     themes.sddm-vivid-dark
+
+    # Needed for virtualization
+    pkgs.virt-viewer
+    pkgs.spice
+    pkgs.spice-gtk
+    pkgs.spice-protocol
+    pkgs.win-virtio
+    pkgs.win-spice
+    pkgs.gnome.adwaita-icon-theme
   ];
 
   programs = {
@@ -189,7 +199,15 @@
 
   virtualisation = {
     # waydroid.enable = true;
-    libvirtd.enable = true;
+    libvirtd = {
+      enable = true;
+      qemu = {
+        swtpm.enable = true;
+        ovmf.enable = true;
+        ovmf.packages = [ pkgs.OVMFFull.fd ];
+      };
+    };
+    spiceUSBRedirection.enable = true;
     podman = {
       enable = true;
       dockerCompat = true;

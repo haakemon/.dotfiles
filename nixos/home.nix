@@ -24,6 +24,7 @@
     keychain
     bitwarden
 
+    jotta-cli
     fastfetch
     eza
     zsh-powerlevel10k

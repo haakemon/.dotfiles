@@ -23,8 +23,11 @@ alias ssh-gen-ed="ssh-keygen -t ed25519 -a 100"
 alias synctime="sudo ntpdate pool.ntp.org"
 alias ctop="sudo docker run --rm -ti -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest"
 alias dpsa="sudo docker ps -a --format \"table {{.ID}}\t{{.Names}}\t{{.State}}\t{{.Status}}\t{{.Image}}\""
+
+# nix specific stuff
 alias nixrebuild="sudo nixos-rebuild --upgrade switch --flake ${HOME}/.dotfiles/nixos"
 alias nixrebuild-nocache="sudo nixos-rebuild --upgrade --option eval-cache false switch --flake ${HOME}/.dotfiles/nixos"
+alias nixflakeupdate="nix flake update --flake ${HOME}/.dotfiles/nixos"
 
 hash -d dotfiles=~/.dotfiles
 hash -d code=~/Code

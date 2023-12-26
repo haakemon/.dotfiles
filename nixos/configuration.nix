@@ -161,6 +161,7 @@
   ];
 
   programs = {
+    partition-manager.enable = true; # KDE Partition Manager
     bash = {
       enableCompletion = true;
     };

@@ -24,6 +24,8 @@
     keychain
     bitwarden
 
+    wget
+    gparted
     jotta-cli
     fastfetch
     eza

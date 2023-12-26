@@ -25,6 +25,12 @@
       fsType = "vfat";
     };
 
+  fileSystems."/home/haakemon" =
+    {
+      device = "/dev/disk/by-label/home-haakemon";
+      fsType = "ext4";
+    };
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

@@ -24,6 +24,12 @@
     keychain
     bitwarden
 
+    lutris
+    wineWowPackages.fonts
+    wineWowPackages.waylandFull
+    winetricks
+
+    mqttmultimeter
     wget
     gparted
     jotta-cli

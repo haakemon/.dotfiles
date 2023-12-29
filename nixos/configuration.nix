@@ -12,6 +12,7 @@
       ./i18n.nix
       ./networking.nix
       ./virtualization.nix
+      ./local/local.nix
     ];
 
   services = {
@@ -64,18 +65,12 @@
   security.rtkit.enable = true;
 
   hardware = {
+    # spacenavd.enable = true; # 3D mouse support, not working?
     enableRedistributableFirmware = true;
     opengl = {
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages = [
-        pkgs.rocmPackages.clr.icd
-        pkgs.amdvlk
-      ];
-      extraPackages32 = [
-        pkgs.driversi686Linux.amdvlk
-      ];
     };
     sane.enable = true; # Scanning
     pulseaudio.enable = false;
@@ -85,15 +80,6 @@
       enableGraphical = true;
     };
   };
-
-  # Adding this (environment.variables.VK_ICD_FILENAMES) stops Portal RTX from working
-  # Workaround: Add "VK_ICD_FILENAMES="" %command%" to launch options
-  environment.variables.VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json:/run/opengl-driver/share/vulkan/icd.d/amd_icd64.json";
-  environment.variables.AMD_VULKAN_ICD = "RADV";
-
-  systemd.tmpfiles.rules = [
-    "L+ /opt/rocm/hip - - - - ${pkgs.rocmPackages.clr}"
-  ];
 
   systemd.user.services.jotta = {
     wantedBy = [ "default.target" ];

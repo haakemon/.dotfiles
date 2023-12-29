@@ -3,7 +3,6 @@
 {
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    initrd.kernelModules = [ "amdgpu" ];
     loader = {
       timeout = 5;
       efi = {

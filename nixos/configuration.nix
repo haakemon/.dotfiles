@@ -12,7 +12,7 @@
       ./i18n.nix
       ./networking.nix
       ./virtualization.nix
-      ./local/local.nix
+      ./gpu-amd.nix
     ];
 
   services = {

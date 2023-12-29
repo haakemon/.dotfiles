@@ -11,8 +11,8 @@
       ./boot.nix
       ./i18n.nix
       ./networking.nix
+      ./virtualization.nix
     ];
-
 
   services = {
     fwupd.enable = true;
@@ -56,7 +56,6 @@
       enable = true;
       motherboard = "amd";
     };
-    spice-vdagentd.enable = true; # pass-thru-for-virtualization
   };
 
   console.keyMap = "no";
@@ -149,15 +148,6 @@
     # Custom SDDM themes
     themes.sddm-sugar-dark
     themes.sddm-vivid-dark
-
-    # Needed for virtualization
-    pkgs.virt-viewer
-    pkgs.spice
-    pkgs.spice-gtk
-    pkgs.spice-protocol
-    pkgs.win-virtio
-    pkgs.win-spice
-    pkgs.gnome.adwaita-icon-theme
   ];
 
   programs = {
@@ -170,7 +160,6 @@
       enableBashCompletion = true;
     };
     xwayland.enable = true;
-    virt-manager.enable = true;
     fzf.fuzzyCompletion = true;
 
     # Need to add "gamemoderun %command%" to each Steam game,
@@ -182,27 +171,6 @@
   system = {
     autoUpgrade.enable = true;
     autoUpgrade.allowReboot = true;
-  };
-
-  virtualisation = {
-    # waydroid.enable = true;
-    libvirtd = {
-      enable = true;
-      qemu = {
-        swtpm.enable = true;
-        ovmf.enable = true;
-        ovmf.packages = [ pkgs.OVMFFull.fd ];
-      };
-    };
-    spiceUSBRedirection.enable = true;
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
-    oci-containers = {
-      backend = "podman";
-    };
   };
 
   # This value determines the NixOS release from which the default

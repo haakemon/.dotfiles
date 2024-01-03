@@ -34,6 +34,8 @@
     };
     printing = {
       enable = true;
+      startWhenNeeded = true;
+      webInterface = false;
       cups-pdf.enable = true;
       drivers = [ pkgs.gutenprint ];
       cups-pdf.instances = {
@@ -49,6 +51,10 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      socketActivation = true;
+      wireplumber = {
+        enable = true;
+      };
     };
     avahi = {
       enable = true;

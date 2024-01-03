@@ -15,9 +15,12 @@
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+    (pkgs.writeShellScriptBin "steam-stream" ''
+      killall steam
+      sleep 3
+      gamescope -W 1920 -H 1080 -w 1920 -h 1080 -e -- gamemoderun steam -tenfoot
+    '')
+
     firefox
     vivaldi
 
@@ -29,6 +32,7 @@
     wineWowPackages.waylandFull
     winetricks
 
+    killall
     mqttmultimeter
     wget
     gparted
@@ -53,7 +57,6 @@
     podman-compose
     distrobox
 
-    steam
     heroic
 
     obs-studio

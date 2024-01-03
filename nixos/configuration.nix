@@ -13,6 +13,7 @@
       ./networking.nix
       ./virtualization.nix
       ./gpu-amd.nix
+      ./gaming.nix
     ];
 
   services = {
@@ -58,6 +59,8 @@
       motherboard = "amd";
     };
   };
+
+  xdg.portal.wlr.enable = true;
 
   console.keyMap = "no";
 
@@ -130,6 +133,7 @@
     pkgs.nixpkgs-fmt # formatting .nix files
     pkgs.kdeconnect
     pkgs.sddm-kcm # sddm gui settings
+    pkgs.libnotify
 
     # Custom SDDM themes
     themes.sddm-sugar-dark
@@ -147,11 +151,6 @@
     };
     xwayland.enable = true;
     fzf.fuzzyCompletion = true;
-
-    # Need to add "gamemoderun %command%" to each Steam game,
-    # or start Steam with gamemoderun steam-runtime to apply to all games
-    # downside is that gamemode will run as long as Steam is running
-    gamemode.enable = true;
   };
 
   system = {

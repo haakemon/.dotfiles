@@ -57,10 +57,18 @@
       # Vulkan
       # vkbasalt
       libnotify
+
+      luxtorpeda
+      proton-ge-custom
     ];
     variables = {
       DXVK_HDR = "1";
       ENABLE_GAMESCOPE_WSI = "1";
     };
   };
+
+  chaotic.steam.extraCompatPackages = with pkgs; [
+    luxtorpeda
+    proton-ge-custom
+  ];
 }

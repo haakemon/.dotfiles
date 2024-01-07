@@ -31,6 +31,8 @@ nix flake lock --update-input nixpkgs .
 
 nix flake update .
 
+Convert WSL image to img that can be mounted: `qemu-img convert -f vhdx -O raw ext4.vhdx ext4.img`
+
 
 # Waydroid
 

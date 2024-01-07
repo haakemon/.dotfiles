@@ -137,11 +137,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1703838268,
-        "narHash": "sha256-SRg5nXcdPnrsQR2MTAp7en0NyJnQ2wB1ivmsgEbvN+o=",
+        "lastModified": 1704498488,
+        "narHash": "sha256-yINKdShHrtjdiJhov+q0s3Y3B830ujRoSbHduUNyKag=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2aff324cf65f5f98f89d878c056b779466b17db8",
+        "rev": "51e44a13acea71b36245e8bd8c7db53e0a3e61ee",
         "type": "github"
       },
       "original": {
@@ -252,11 +252,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1703637592,
-        "narHash": "sha256-8MXjxU0RfFfzl57Zy3OfXCITS0qWDNLzlBAdwxGZwfY=",
+        "lastModified": 1704194953,
+        "narHash": "sha256-RtDKd8Mynhe5CFnVT8s0/0yqtWFMM9LmCzXv/YKxnq4=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "cfc3698c31b1fb9cdcf10f36c9643460264d0ca8",
+        "rev": "bd645e8668ec6612439a9ee7e71f7eac4099d4f6",
         "type": "github"
       },
       "original": {
@@ -437,16 +437,16 @@
     "xremap": {
       "flake": false,
       "locked": {
-        "lastModified": 1701234505,
-        "narHash": "sha256-7k6GsKDUBvhKL9JU/QkWO+IHvhaty1udOYP8fXKr9QY=",
+        "lastModified": 1704342045,
+        "narHash": "sha256-hErjvNZNjsWNeeRVPdEfOQxJPtJCDLvCm8V7SHzXHws=",
         "owner": "k0kubun",
         "repo": "xremap",
-        "rev": "97268d1d92d94609daddff1230c4ca77d54a84dd",
+        "rev": "fa6290e2ace4583c65565e81cbd24954cc657e92",
         "type": "github"
       },
       "original": {
         "owner": "k0kubun",
-        "ref": "v0.8.12",
+        "ref": "v0.8.13",
         "repo": "xremap",
         "type": "github"
       }
@@ -462,11 +462,11 @@
         "xremap": "xremap"
       },
       "locked": {
-        "lastModified": 1701816620,
-        "narHash": "sha256-axgWrKpoV1T7KVbbT+3H/Q6mcBdUKylIz6ClFCMRxlA=",
+        "lastModified": 1704399687,
+        "narHash": "sha256-G5BRjXqNMfRUicWJ1Xq8v/UDSL+1KSXOWgnTi2PTs8U=",
         "owner": "xremap",
         "repo": "nix-flake",
-        "rev": "5b264392686e6caee50c9b12cb290b7d0f23cf93",
+        "rev": "c8307a03099f4e07937ec781303f30f0909d29bb",
         "type": "github"
       },
       "original": {

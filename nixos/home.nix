@@ -195,16 +195,6 @@
             hash = "sha256-4Dp2ehZLO83NhdBOKV0BhYFIvieaZPqiZZZtxsXWRaQ=";
           };
         }
-        # { # This plugin wont work properly because of how it resolves its own path, and tries to import files
-        #   name = "git-fuzzy";
-        #   file = "bin/git-fuzzy";
-        #   src = pkgs.fetchFromGitHub {
-        #     owner = "bigH";
-        #     repo = "git-fuzzy";
-        #     rev = "41b7691a837e23e36cec44e8ea2c071161727dfa";
-        #     hash = "sha256-fexv5aesUakrgaz4HE9Nt954OoBEF06qZb6VSMvuZhw=";
-        #   };
-        # }
       ];
 
       initExtraFirst = ''

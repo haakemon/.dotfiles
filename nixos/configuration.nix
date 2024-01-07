@@ -70,7 +70,10 @@
     # };
   };
 
-  xdg.portal.wlr.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
 
   console.keyMap = "no";
 
@@ -80,11 +83,6 @@
   hardware = {
     # spacenavd.enable = true; # 3D mouse support, not working?
     enableRedistributableFirmware = true;
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
     sane.enable = true; # Scanning
     pulseaudio.enable = false;
     bluetooth.enable = true;
@@ -135,11 +133,6 @@
   environment.systemPackages = let themes = pkgs.callPackage ./sddm-themes.nix { }; in [
     pkgs.usbutils
     pkgs.pciutils
-    pkgs.vulkan-tools # graphics info
-    pkgs.clinfo # graphics info
-    pkgs.glxinfo # graphics info
-    pkgs.wayland-utils # graphics info
-    pkgs.libvirt # virtualization
     pkgs.nixpkgs-fmt # formatting .nix files
     pkgs.kdeconnect
     pkgs.sddm-kcm # sddm gui settings

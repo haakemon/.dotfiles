@@ -13,6 +13,7 @@
     win-virtio
     win-spice
     gnome.adwaita-icon-theme
+    pkgs.libvirt
   ];
 
   programs = {

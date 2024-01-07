@@ -9,11 +9,7 @@
     opengl = {
       extraPackages = [
         pkgs.rocmPackages.clr.icd
-        # pkgs.amdvlk
       ];
-      # extraPackages32 = [
-      #   pkgs.driversi686Linux.amdvlk
-      # ];
     };
   };
 

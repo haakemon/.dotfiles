@@ -64,6 +64,10 @@
       enable = true;
       motherboard = "amd";
     };
+    # fstrim = {
+    #   enable = true;
+    #   interval = "weekly";
+    # };
   };
 
   xdg.portal.wlr.enable = true;

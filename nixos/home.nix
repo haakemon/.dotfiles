@@ -15,11 +15,12 @@
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
-    (pkgs.writeShellScriptBin "steam-stream" ''
+    (pkgs.writeShellScriptBin "stream-steam" ''
       killall steam
       sleep 3
-      gamescope -W 1920 -H 1080 -w 1920 -h 1080 -e -- gamemoderun steam -tenfoot
+      gamescope -e -- steam -tenfoot
     '')
+      # gamescope -W 1920 -H 1080 -w 1920 -h 1080 -e -- gamemoderun steam -tenfoot
 
     firefox
     vivaldi

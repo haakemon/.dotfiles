@@ -5,13 +5,6 @@
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
-      gamescopeSession = {
-        enable = true;
-        args = [
-          "--hdr-enabled"
-        ];
-      };
-      # dedicatedServer.openFirewall = true;
     };
 
     # Need to add "gamemoderun %command%" to each Steam game,
@@ -21,10 +14,10 @@
       enable = true;
       settings = {
         # General Configuration
-        # general = {
-        #   renice = 0; # 0
-        #   ioprio = 0; #
-        # };
+        general = {
+          renice = 0; # 0
+          ioprio = 0; #
+        };
 
         # GPU Configuration
         # gpu = {
@@ -36,7 +29,7 @@
         # Custom Script Configuration
         custom = {
           start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
-          end   = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+          end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
         };
       };
     };
@@ -50,8 +43,8 @@
   environment = {
     systemPackages = with pkgs; [
       # SDL2
-      SDL2
-      SDL2_image
+      # SDL2
+      # SDL2_image
       # Gamemode
       gamemode
       # Vulkan
@@ -61,10 +54,10 @@
       luxtorpeda
       proton-ge-custom
     ];
-    variables = {
-      DXVK_HDR = "1";
-      ENABLE_GAMESCOPE_WSI = "1";
-    };
+    # variables = {
+    #   DXVK_HDR = "1";
+    #   ENABLE_GAMESCOPE_WSI = "1";
+    # };
   };
 
   chaotic.steam.extraCompatPackages = with pkgs; [

@@ -28,10 +28,10 @@
     keychain
     bitwarden
 
-    lutris
-    wineWowPackages.fonts
-    wineWowPackages.waylandFull
-    winetricks
+    # lutris
+    # wineWowPackages.fonts
+    # wineWowPackages.waylandFull
+    # winetricks
 
     killall
     mqttmultimeter

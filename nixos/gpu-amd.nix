@@ -35,6 +35,5 @@
     wayland-utils # graphics info
   ];
 
-  chaotic.hdr.enable = true;
   chaotic.mesa-git.enable = true;
 }

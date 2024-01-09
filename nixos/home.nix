@@ -50,9 +50,7 @@
     blender
     vscode
     notepadqq
-    nodejs_20
     wezterm
-    nodePackages.pnpm
     bruno
 
     podman-compose

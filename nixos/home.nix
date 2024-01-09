@@ -140,6 +140,7 @@
 
   programs = {
     home-manager.enable = true;
+    direnv.enable = true;
     git = {
       enable = true;
       delta = {

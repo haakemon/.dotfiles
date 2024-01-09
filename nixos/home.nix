@@ -52,6 +52,9 @@
     notepadqq
     wezterm
     bruno
+    steam-run
+    unzip
+    rbw # https://crates.io/crates/rbw
 
     podman-compose
     distrobox

@@ -87,9 +87,9 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
 
-    ".config/fastfetch/config.jsonc".source = ../fastfetch/config.jsonc;
-    ".wezterm.lua".source = ../wezterm/.wezterm.lua;
-    ".face.icon".source = ../sddm/.face.icon;
+   ".config/fastfetch/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink /home/${username}/.dotfiles/fastfetch/config.jsonc;
+   ".wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink /home/${username}/.dotfiles/wezterm/.wezterm.lua;
+   ".face.icon".source = config.lib.file.mkOutOfStoreSymlink /home/${username}/.dotfiles/sddm/.face.icon;
   };
 
   # You can also manage environment variables but you will have to manually

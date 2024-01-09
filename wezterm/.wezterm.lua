@@ -15,7 +15,7 @@ end
 -- For example, changing the color scheme:
 -- config.color_scheme = 'Darcula (base16)'
 config.color_scheme = 'Dracula'
-config.font = wezterm.font 'VictorMono Nerd Font'
+config.font = wezterm.font 'Victor Mono'
 
 config.window_background_opacity = 0.85
 

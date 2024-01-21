@@ -1,19 +1,20 @@
 #!/usr/bin/env zsh
 
 # alias
-alias lla="exa --all --long --header --git --icons --group-directories-first"
-alias print-path="echo -e ${PATH//:/\\n}"
+alias ,,='cd $(git rev-parse --show-toplevel)' # cd to git root
+alias ..='cd ..'
+alias ...='cd ../..'
+alias lla="eza --all --long --group --header --git --icons --group-directories-first"
 alias _cat="command cat"
 alias cat="bat"
 alias _npm="command npm"
-alias npm="echo ${YELLOW_COLOR}Use pnpm or yarn instead \(or _npm if you really need to use npm\)${RESET_COLOR}"
+alias npm="echo ${YELLOW_COLOR}Use pnpm \(or _npm if you really need npm\)${RESET_COLOR}"
 alias k="kubectl"
 alias gf="git fuzzy"
 alias g="git"
-alias ff="fastfetch --load-config ${HOME}/.dotfiles/fastfetch/config.conf"
-alias hist="fc -li"
 alias port-listeners="sudo lsof -i -P -n | grep LISTEN"
-alias tmx="tmux new-session -A -s main"
+alias scan="scanimage --device 'escl:https://192.168.2.20:443' --mode Color --resolution 1200dpi --format=png --output-file ${HOME}/scan-$(uuidgen).png --progress"
+alias ppsa="podman ps -a --format \"table {{.ID}}\t{{.Names}}\t{{.State}}\t{{.Status}}\t{{.Image}}\""
 
 alias ssh-gen-rsa="ssh-keygen -t rsa -b 4096 -a 100"
 alias ssh-gen-ed="ssh-keygen -t ed25519 -a 100"
@@ -23,34 +24,11 @@ alias synctime="sudo ntpdate pool.ntp.org"
 alias ctop="sudo docker run --rm -ti -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest"
 alias dpsa="sudo docker ps -a --format \"table {{.ID}}\t{{.Names}}\t{{.State}}\t{{.Status}}\t{{.Image}}\""
 
-function goto {
-  typeset -A globalLocations=(
-    gitroot 'Root of git repository'
-    dotfiles "${HOME}/.dotfiles"
-    home $HOME
-    code "${HOME}/Code"
-    temp "${HOME}/temp"
-  )
+# nix specific stuff
+alias nixrebuild="sudo nixos-rebuild --upgrade switch --flake ${HOME}/.dotfiles/nixos"
+alias nixrebuild-nocache="sudo nixos-rebuild --upgrade --option eval-cache false switch --flake ${HOME}/.dotfiles/nixos"
+alias nixflakeupdate="nix flake update --flake ${HOME}/.dotfiles/nixos"
 
-  if [[ "$1" == 'gitroot' ]]; then
-    local gitroot=$(git rev-parse --show-toplevel)
-    cd "$gitroot" || return
-  elif [[ -n "${globalLocations[$1]}" ]]; then
-    cd "${globalLocations[$1]}" || return
-  else
-    echo "Invalid location parameter '$1'"
-    echo "Valid locations:"
-    for key in "${(@k)globalLocations}"; do
-      printf "%-10s %s\n" "  $key:" "${globalLocations[$key]}"
-    done
-  fi
-}
-
-function load-ssh-keys {
-  echo "${YELLOW_COLOR}loading ssh keys...${RESET_COLOR}"
-  ssh-add -t 7d # add default keys, valid for 7 days
-
-  if [ -e "${HOME}/.ssh/id_ed25519--git" ]; then
-    ssh-add -t 7d "${HOME}/.ssh/id_ed25519--git" # add git signing key if exists, valid for 7 days
-  fi
-}
+hash -d dotfiles=~/.dotfiles
+hash -d code=~/Code
+hash -d temp=~/Temp

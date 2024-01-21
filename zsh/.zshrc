@@ -12,6 +12,8 @@ source "${HOME}/.dotfiles/zsh/zinit.zsh"
 source "${HOME}/.dotfiles/zsh/keybindings.zsh"
 source "${HOME}/.dotfiles/zsh/fnm.zsh"
 source "${HOME}/.dotfiles/zsh/alias.zsh"
+source "${HOME}/.dotfiles/zsh/ssh.zsh"
+source "${HOME}/.dotfiles/zsh/zsh-hooks.zsh"
 
 if [[ "$(uname -r)" =~ microsoft ]]; then
   source "${HOME}/.dotfiles/zsh/wsl.zsh"
@@ -23,19 +25,6 @@ if type brew &>/dev/null; then
   autoload -Uz compinit
   compinit
 fi
-
-# 10080 minutes = 7 days
-eval $(keychain --agents ssh --timeout 10080 --eval --quiet)
-
-function do-ls {
-  # Make sure to use emulate -L zsh or
-  # your shell settings and a directory
-  # named 'rm' could be deadly
-  emulate -L zsh
-  lla
-}
-
-add-zsh-hook chpwd do-ls
 
 # Start/Attach to main tmux session by default
 # if [[ -z "$TMUX" ]]; then

@@ -6,33 +6,17 @@
   # home.enableDebugInfo = true;
 
   home.packages = with pkgs; [
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    (pkgs.writeShellScriptBin "stream-steam" ''
-      killall steam
-      sleep 3
-      gamescope -e -- steam -tenfoot
-    '')
-      # gamescope -W 1920 -H 1080 -w 1920 -h 1080 -e -- gamemoderun steam -tenfoot
-
+    # Browsers
     firefox
     vivaldi
 
+    # Password management
     keychain
     bitwarden
+    rbw # https://crates.io/crates/rbw unofficial bitwarden CLI
+    pinentry # dependency for rbw
 
-    # lutris
-    # wineWowPackages.fonts
-    # wineWowPackages.waylandFull
-    # winetricks
-
+    # Utils
     killall
     mqttmultimeter
     wget
@@ -42,39 +26,41 @@
     eza
     zsh-powerlevel10k
     (nerdfonts.override { fonts = [ "VictorMono" ]; })
+    victor-mono
     bat
     fzf # fuzzy find
     grc # generic text colorizer
-    #cinnamon.nemo-with-extensions # file manager
+    steam-run
+    unzip
+    headsetcontrol # Set options for headsets
 
+    # Tools
     blender
     vscode
     notepadqq
     wezterm
     bruno
-    steam-run
-    unzip
-    rbw # https://crates.io/crates/rbw
+    obs-studio
+    prusa-slicer
+    freeoffice
 
+    # Virtualization
     podman-compose
     distrobox
 
+    # Gaming
     heroic
 
-    obs-studio
-    prusa-slicer
+    # Music / video
     spotify
     freetube
-    freeoffice
     vlc
-    headsetcontrol # Set options for headsets
 
+    # Chat
     telegram-desktop
     discord
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a

@@ -14,6 +14,7 @@
       ./virtualization.nix
       ./gpu-amd.nix
       ./gaming.nix
+      ./sddm-theme
     ];
 
   services = {
@@ -28,7 +29,6 @@
           enable = true;
           wayland.enable = true;
           autoNumlock = true;
-          theme = "sugar-dark";
         };
         defaultSession = "plasmawayland";
       };
@@ -132,17 +132,13 @@
     };
   };
 
-  environment.systemPackages = let themes = pkgs.callPackage ./sddm-themes.nix { }; in [
-    pkgs.usbutils
-    pkgs.pciutils
-    pkgs.nixpkgs-fmt # formatting .nix files
-    pkgs.kdeconnect
-    pkgs.sddm-kcm # sddm gui settings
-    pkgs.libnotify
-
-    # Custom SDDM themes
-    themes.sddm-sugar-dark
-    themes.sddm-vivid-dark
+  environment.systemPackages = with pkgs; [
+    usbutils
+    pciutils
+    nixpkgs-fmt # formatting .nix files
+    kdeconnect
+    sddm-kcm # sddm gui settings
+    libnotify
   ];
 
   programs = {

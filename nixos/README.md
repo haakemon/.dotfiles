@@ -1,12 +1,6 @@
+# [NixOS](https://nixos.org)
 
-# Installing
-
->[!IMPORTANT]
->`$` is used for commands that should be executed by a regular user <br>
->`#` is used for commands that should be executed by a root user <br>
->`--` are comments and should not be executed <br>
-
-## First steps
+## Installing
 
 1. Disable Secure Boot in BIOS.
 
@@ -33,8 +27,7 @@ nix flake update .
 
 Convert WSL image to img that can be mounted: `qemu-img convert -f vhdx -O raw ext4.vhdx ext4.img`
 
-
-# Waydroid
+## Waydroid
 
 After uninstall, manual cleanup:
 

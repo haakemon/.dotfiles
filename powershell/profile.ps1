@@ -1,8 +1,4 @@
-. "$env:USERPROFILE\.dotfiles\powershell\goto.ps1"
-. "$env:USERPROFILE\.dotfiles\powershell\fnm.ps1"
 . "$env:USERPROFILE\.dotfiles\powershell\utils.ps1"
-. "$env:USERPROFILE\.dotfiles\powershell\git-utils.ps1"
-. "$env:USERPROFILE\.dotfiles\powershell\download-utils.ps1"
 
 function Initialize-Profile {
   Set-PSReadlineKeyHandler -Key Tab -Function Complete # bash-like completion
@@ -16,13 +12,8 @@ function Initialize-Profile {
   Set-PSReadLineOption -PredictionViewStyle InlineView
 
   Import-Module -Name Terminal-Icons
-  Import-Module posh-git
-  oh-my-posh --init --shell pwsh --config "$env:USERPROFILE\.dotfiles\oh-my-posh\.mytheme.omp.json" | Invoke-Expression
 
   . Add-Alias
-  . Initialize-Goto
-
-  TestUtilsDownloaded
 
   Write-Host "Dotfiles profile loaded"
 }

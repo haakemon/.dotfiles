@@ -23,13 +23,28 @@
   rm-tags = "!f() { git tag | xargs git tag -d; }; f"
 
   # Push only if no WIP commit messages
-  psh = "!f() { git cherry -v | grep WIP >/dev/null; if [ $? -eq 0 ]; then echo '\\033[1;31m [psh] Commit message contains ''WIP''. Consider rewriting commit message, or use ''git push'' to bypass \\033[0m'; else echo '\\033[1;32m [psh] Pushing \\033[0m'; git push; fi; }; f"
+  psh = "!f() { git cherry -v | grep WIP >/dev/null; \
+          if [ $? -eq 0 ]; \
+            then \
+              printf '\\033[1;31m [psh] Commit message contains ''WIP''. Consider rewriting commit message, or use ''git push'' to bypass \n\\033[0m'; \
+            else \
+              printf '\\033[1;32m [psh] Pushing \n\\033[0m'; \
+              git push; \
+          fi; }; f"
 
   # CheckOut Latest Tag
   colt = "!git checkout $(git describe --abbrev=0 --tags)"
 
   # rebase
-  pfwl = "!f() { git cherry -v | grep WIP >/dev/null; if [ $? -eq 0 ]; then echo '\\033[1;31m [pfwl] Commit message contains ''WIP''. Consider rewriting commit message, or use ''git push --force-with-lease'' to bypass \\033[0m'; else echo '\\033[1;32m [pfwl] Pushing force-with-lease \\033[0m'; git push --force-with-lease; fi; }; f"
+  pfwl = "!f() { git cherry -v | grep WIP >/dev/null; \
+            if [ $? -eq 0 ]; \
+              then \
+                printf '\\033[1;31m [pfwl] Commit message contains ''WIP''. Consider rewriting commit message, or use ''git push --force-with-lease'' to bypass \n\\033[0m'; \
+              else \
+                printf '\\033[1;32m [pfwl] Pushing force-with-lease \n\\033[0m'; \
+                git push --force-with-lease; \
+            fi; }; f"
+
   preb = pull --rebase
   rc = -c core.editor=true rebase --continue
   ri = rebase --interactive

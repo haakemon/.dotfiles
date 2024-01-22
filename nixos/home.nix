@@ -28,6 +28,7 @@
     # Browsers
     firefox
     vivaldi
+    ungoogled-chromium
 
     # Password management
     keychain
@@ -62,6 +63,8 @@
     obs-studio
     prusa-slicer
     freeoffice
+    kooha # screen recorder
+    jq
 
     # Virtualization
     podman-compose

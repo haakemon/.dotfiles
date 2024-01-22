@@ -173,7 +173,15 @@
       enableAutosuggestions = true;
       history = {
         ignoreAllDups = true;
+        # path = "${config.xdg.dataHome}/zsh/zsh_history";
       };
+      # dirHashes = {
+      #   code = "$HOME/code";
+      #   dl = "$HOME/dl";
+      #   dotfiles = "$HOME/.dotfiles";
+      #   flake = "$HOME/flake";
+      # };
+      # dotDir = "$XDG_CONFIG_HOME/zsh";
 
       plugins = [
         {

@@ -14,6 +14,7 @@
       ./virtualization.nix
       ./gpu-amd.nix
       ./gaming.nix
+      ./keyd.nix
       ./sddm-theme
     ];
 

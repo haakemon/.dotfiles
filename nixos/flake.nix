@@ -1,7 +1,7 @@
 {
   description = "A very basic flake";
 
-  outputs = { self, nixpkgs, chaotic, home-manager, xremap-flake }:
+  outputs = { self, nixpkgs, chaotic, home-manager }:
     let
       system = "x86_64-linux";
       hostname = "nixos";
@@ -21,11 +21,10 @@
       nixosConfigurations = {
         nixos = lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit hostname username timezone defaultLocale extraLocale xremap-flake; };
+          specialArgs = { inherit hostname username timezone defaultLocale extraLocale; };
           modules = [
             chaotic.nixosModules.default
             ./configuration.nix
-            ./xremap.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = { inherit hostname username; };
@@ -48,7 +47,6 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    xremap-flake.url = "github:xremap/nix-flake";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 }

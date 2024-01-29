@@ -100,21 +100,6 @@
    ".face.icon".source = config.lib.file.mkOutOfStoreSymlink /home/${username}/.dotfiles/sddm/.face.icon;
   };
 
-  # You can also manage environment variables but you will have to manually
-  # source
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/haakemon/etc/profile.d/hm-session-vars.sh
-  #
-  # if you don't want to manage your shell through Home Manager.
-  # home.sessionVariables = {
-  #   FOO = "Hello";
-  #   BAR = "${config.home.sessionVariables.FOO} World!";
-  # };
-
   # Settings for virt-manager https://nixos.wiki/wiki/Virt-manager
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {

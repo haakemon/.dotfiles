@@ -81,6 +81,17 @@
     # Chat
     telegram-desktop
     discord
+
+    (
+      let base = pkgs.appimageTools.defaultFhsEnvArgs; in
+      pkgs.buildFHSUserEnv (base // {
+        name = "fhs";
+        targetPkgs = pkgs: (base.targetPkgs pkgs) ++ [ pkgs.pkg-config ];
+        profile = "export FHS=1";
+        runScript = "zsh";
+        extraOutputsToInstall = [ "dev" ];
+      })
+    )
   ];
 
   home.file = {
@@ -95,9 +106,9 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
 
-   ".config/fastfetch/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink /home/${username}/.dotfiles/fastfetch/config.jsonc;
-   ".wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink /home/${username}/.dotfiles/wezterm/.wezterm.lua;
-   ".face.icon".source = config.lib.file.mkOutOfStoreSymlink /home/${username}/.dotfiles/sddm/.face.icon;
+    ".config/fastfetch/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink /home/${username}/.dotfiles/fastfetch/config.jsonc;
+    ".wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink /home/${username}/.dotfiles/wezterm/.wezterm.lua;
+    ".face.icon".source = config.lib.file.mkOutOfStoreSymlink /home/${username}/.dotfiles/sddm/.face.icon;
   };
 
   # Settings for virt-manager https://nixos.wiki/wiki/Virt-manager

@@ -20,6 +20,7 @@
 
         shellHook = ''
           clear
+          export DEVENV=1
 
           tput setaf 5
           printf "Dotnet: "

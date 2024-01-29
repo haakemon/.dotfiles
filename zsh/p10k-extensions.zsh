@@ -18,3 +18,15 @@ function prompt_my_keychain_status() {
     p10k segment -b 0 -f 2 -t $'\Uf030b '
   fi
 }
+
+function prompt_my_fhs() {
+  if [ "$FHS" = "1" ]; then
+    p10k segment -b 0 -f 1 -t FHS
+  fi
+}
+
+function prompt_my_devenv() {
+  if [ "$DEVENV" = "1" ]; then
+    p10k segment -b 0 -f 1 -t DEVENV
+  fi
+}

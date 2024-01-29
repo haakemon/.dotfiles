@@ -21,6 +21,8 @@
 
         shellHook = ''
           clear
+          export DEVENV=1
+
           tput setaf 5
           printf "Node: "
           ${nodepkg.legacyPackages.${system}.nodejs}/bin/node --version

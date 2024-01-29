@@ -27,8 +27,35 @@ alias dpsa="sudo docker ps -a --format \"table {{.ID}}\t{{.Names}}\t{{.State}}\t
 # nix specific stuff
 alias nixrebuild="sudo nixos-rebuild --upgrade switch --flake ${HOME}/.dotfiles/nixos"
 alias nixrebuild-nocache="sudo nixos-rebuild --upgrade --option eval-cache false switch --flake ${HOME}/.dotfiles/nixos"
-alias nixflakeupdate="nix flake update --flake ${HOME}/.dotfiles/nixos"
+alias nixflakeupdate="nix flake update ${HOME}/.dotfiles/nixos"
 
-hash -d dotfiles=~/.dotfiles
-hash -d code=~/Code
-hash -d temp=~/Temp
+get_supported_envs() {
+  local dotfiles_path="$HOME/.dotfiles/nixos/devenv"
+
+  if [ ! -d "$dotfiles_path" ]; then
+    echo "Error: $dotfiles_path not found."
+    return 1
+  fi
+
+  local supported_envs=()
+
+  # Populate supported_envs with existing directories in $dotfiles_path
+  while IFS= read -r -d '' directory; do
+    supported_envs+=("$(basename "$directory")")
+  done < <(find "$dotfiles_path" -mindepth 1 -maxdepth 1 -type d -print0)
+
+  echo "${supported_envs[@]}"
+}
+
+devenv() {
+  local supported_envs=$(get_supported_envs)
+  local argument=$1
+
+  if [[ ! " $supported_envs " =~ " $argument " ]]; then
+    echo "Invalid argument. Supported values: $supported_envs"
+    return -1
+  fi
+
+  cd "$HOME/.dotfiles/nixos/devenv/$argument"
+  nix develop
+}

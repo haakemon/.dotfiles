@@ -25,12 +25,12 @@ alias ctop="sudo docker run --rm -ti -v /var/run/docker.sock:/var/run/docker.soc
 alias dpsa="sudo docker ps -a --format \"table {{.ID}}\t{{.Names}}\t{{.State}}\t{{.Status}}\t{{.Image}}\""
 
 # nix specific stuff
-alias nixrebuild="sudo nixos-rebuild --upgrade switch --flake ${HOME}/.dotfiles/nixos"
-alias nixrebuild-nocache="sudo nixos-rebuild --upgrade --option eval-cache false switch --flake ${HOME}/.dotfiles/nixos"
-alias nixflakeupdate="nix flake update ${HOME}/.dotfiles/nixos"
+alias nixrebuild="sudo nixos-rebuild --upgrade switch --flake ${HOME}/.dotfiles/nix/os"
+alias nixrebuild-nocache="sudo nixos-rebuild --upgrade --option eval-cache false switch --flake ${HOME}/.dotfiles/nix/os"
+alias nixflakeupdate="nix flake update ${HOME}/.dotfiles/nix/os"
 
 get_supported_envs() {
-  local dotfiles_path="$HOME/.dotfiles/nixos/devenv"
+  local dotfiles_path="$HOME/.dotfiles/nix/devenv"
 
   if [ ! -d "$dotfiles_path" ]; then
     echo "Error: $dotfiles_path not found."
@@ -56,6 +56,6 @@ devenv() {
     return -1
   fi
 
-  cd "$HOME/.dotfiles/nixos/devenv/$argument"
+  cd "$HOME/.dotfiles/nix/devenv/$argument"
   nix develop
 }

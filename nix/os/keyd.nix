@@ -1,6 +1,7 @@
 { config, ... }:
 # keys https://github.com/rvaiya/keyd/blob/2338f11b1ddd81eaddd957de720a3b4279222da0/t/keys.py#L18
 # force terminate: <backspace>+<escape>+<enter>
+# nix-shell -p keyd && sudo keyd monitor
 {
   services.keyd = {
     enable = true;
@@ -35,10 +36,15 @@
             "9" = "G-0"; # }
           };
           "nav" = {
+            "u" = "home";
+            "o" = "end";
             "i" = "up";
             "k" = "down";
             "j" = "left";
             "l" = "right";
+            "p" = "pageup";
+            ";" = "pagedown"; # ;=ø
+            "space" = "delete";
           };
         };
       };

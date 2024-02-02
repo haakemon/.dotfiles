@@ -11,6 +11,7 @@
           main = {
             "\\" = "G-2"; # @
             compose = "noop";
+            capslock = "overload(nav, esc)";
           };
           "shift" = {
             "4" = "G-4"; # $
@@ -32,6 +33,12 @@
             "7" = "`"; # |
             "8" = "G-7"; # {
             "9" = "G-0"; # }
+          };
+          "nav" = {
+            "i" = "up";
+            "k" = "down";
+            "j" = "left";
+            "l" = "right";
           };
         };
       };

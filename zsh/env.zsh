@@ -11,4 +11,6 @@ BLUE_COLOR=$(tput setaf 4)
 MAGENTA_COLOR=$(tput setaf 5)
 RESET_COLOR=$(tput sgr0)
 
+DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 export BAT_CONFIG_PATH="${HOME}/.dotfiles/bat/bat.conf"

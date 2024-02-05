@@ -18,17 +18,17 @@
     },
     "nodepkg": {
       "locked": {
-        "lastModified": 1705204527,
-        "narHash": "sha256-WVz9WdaFBhAwO/7A+HlW8HPJ4VQ8QnpCD1WZAcAPneo=",
+        "lastModified": 1700230496,
+        "narHash": "sha256-pl8PLUQLigZgFZrafIXs2djne5kboimK6MYsZN8Ywtg=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "dd5621df6dcb90122b50da5ec31c411a0de3e538",
+        "rev": "a71323f68d4377d12c04a5410e214495ec598d4c",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "dd5621df6dcb90122b50da5ec31c411a0de3e538",
+        "rev": "a71323f68d4377d12c04a5410e214495ec598d4c",
         "type": "github"
       }
     },

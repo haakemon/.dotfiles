@@ -22,6 +22,8 @@
 
     NUGET_PACKAGES = "${config.home.sessionVariables.XDG_CACHE_HOME}/NuGetPackages";
     DOTNET_CLI_HOME = "${config.home.sessionVariables.XDG_CONFIG_HOME}/.dotnet";
+
+    NIX_CONFIG_HOME="${config.home.homeDirectory}/.dotfiles/nix/os";
   };
 
   home.packages = with pkgs; [

@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nodepkg.url = "github:nixos/nixpkgs/dd5621df6dcb90122b50da5ec31c411a0de3e538"; # nodejs_20.10.0 https://www.nixhub.io/packages/nodejs
+    nodepkg.url = "github:nixos/nixpkgs/a71323f68d4377d12c04a5410e214495ec598d4c"; # nodejs_18.18.2 https://www.nixhub.io/packages/nodejs
   };
 
   outputs = { self, nixpkgs, nodepkg, ... }:

@@ -3,10 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    oldPkgs.url = "github:nixos/nixpkgs/dd5621df6dcb90122b50da5ec31c411a0de3e538"; # nodejs_20.10.0 https://www.nixhub.io/packages/nodejs
   };
 
-  outputs = { self, nixpkgs, oldPkgs, ... }:
+  outputs = { self, nixpkgs, ... }:
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
@@ -15,8 +14,7 @@
     devShells."${system}".default = pkgs.mkShell
       {
         nativeBuildInputs = with pkgs; [
-          oldPkgs.legacyPackages.${system}.nodejs
-          oldPkgs.legacyPackages.${system}.corepack
+          nixpkgs.legacyPackages.${system}.dotnet-sdk_7
         ];
 
         shellHook = ''
@@ -24,11 +22,8 @@
           export DEVENV=1
 
           tput setaf 5
-          printf "Node: "
-          ${oldPkgs.legacyPackages.${system}.nodejs}/bin/node --version
-
-          printf "pnpm: "
-          ${oldPkgs.legacyPackages.${system}.corepack}/bin/pnpm --version
+          printf "Dotnet: "
+          ${nixpkgs.legacyPackages.${system}.dotnet-sdk_7}/bin/dotnet --version
           tput sgr0
 
           cd ~/code

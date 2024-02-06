@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nodepkg.url = "github:nixos/nixpkgs/921fb3319c2a296fc65048272d22f3db889d7292"; # https://www.nixhub.io/packages/dotnet-sdk_8
   };
 
   outputs = { self, nixpkgs, ... }:

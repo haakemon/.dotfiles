@@ -54,6 +54,7 @@
     grc # generic text colorizer
     steam-run
     unzip
+    libsForQt5.kruler
     headsetcontrol # Set options for headsets
 
     # Tools

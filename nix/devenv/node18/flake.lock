@@ -16,7 +16,7 @@
         "type": "github"
       }
     },
-    "nodepkg": {
+    "oldPkgs": {
       "locked": {
         "lastModified": 1700230496,
         "narHash": "sha256-pl8PLUQLigZgFZrafIXs2djne5kboimK6MYsZN8Ywtg=",
@@ -35,7 +35,7 @@
     "root": {
       "inputs": {
         "nixpkgs": "nixpkgs",
-        "nodepkg": "nodepkg"
+        "oldPkgs": "oldPkgs"
       }
     }
   },

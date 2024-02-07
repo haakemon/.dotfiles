@@ -20,13 +20,14 @@
         shellHook = ''
           clear
           export DEVENV=1
+          cd "''${DEVENV_START_DIR:-$HOME}"
+          DEVENV_START_DIR=""
 
           tput setaf 5
           printf "Dotnet: "
           ${nixpkgs.legacyPackages.${system}.dotnet-sdk_7}/bin/dotnet --version
           tput sgr0
 
-          cd ~/code
           exec zsh
         '';
       };

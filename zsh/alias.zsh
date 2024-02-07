@@ -50,6 +50,7 @@ get_supported_envs() {
 devenv() {
   local supported_envs=$(get_supported_envs)
   local argument=$1
+  export DEVENV_START_DIR=$(pwd)
 
   if [[ ! " $supported_envs " =~ " $argument " ]]; then
     echo "Invalid argument. Supported values: $supported_envs"

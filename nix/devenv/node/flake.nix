@@ -22,6 +22,8 @@
         shellHook = ''
           clear
           export DEVENV=1
+          cd "''${DEVENV_START_DIR:-$HOME}"
+          DEVENV_START_DIR=""
 
           tput setaf 5
           printf "Node: "
@@ -31,7 +33,6 @@
           ${oldPkgs.legacyPackages.${system}.corepack}/bin/pnpm --version
           tput sgr0
 
-          cd ~/code
           exec zsh
         '';
       };

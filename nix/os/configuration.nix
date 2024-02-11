@@ -24,7 +24,7 @@
     flatpak.enable = true;
     xserver = {
       enable = true;
-      layout = "no";
+      xkb.layout = "no";
       desktopManager.plasma5.enable = true;
       displayManager = {
         sddm = {
@@ -114,6 +114,7 @@
       "libvirtd"
       "video"
       "render"
+      "plugdev"
     ];
     shell = pkgs.zsh;
   };

@@ -24,6 +24,7 @@
     DOTNET_CLI_HOME = "${config.home.sessionVariables.XDG_CONFIG_HOME}/.dotnet";
 
     NIX_CONFIG_HOME="${config.home.homeDirectory}/.dotfiles/nix/os";
+    NIX_CONFIG_FLAKE_PART="#nixos";
   };
 
   home.packages = with pkgs; [

@@ -13,7 +13,9 @@
     win-virtio
     win-spice
     gnome.adwaita-icon-theme
-    pkgs.libvirt
+    libvirt
+    podman-compose
+    distrobox
   ];
 
   programs = {

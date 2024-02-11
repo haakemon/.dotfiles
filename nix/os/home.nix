@@ -41,7 +41,6 @@
 
     # Utils
     killall
-    mqttmultimeter
     wget
     gparted
     jotta-cli
@@ -57,8 +56,10 @@
     unzip
     libsForQt5.kruler
     headsetcontrol # Set options for headsets
+    jq
 
     # Tools
+    mqttmultimeter
     blender
     vscode
     notepadqq
@@ -68,11 +69,8 @@
     prusa-slicer
     freeoffice
     kooha # screen recorder
-    jq
-
-    # Virtualization
-    podman-compose
-    distrobox
+    protonvpn-gui
+    keymapp
 
     # Gaming
     heroic

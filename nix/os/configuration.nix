@@ -16,6 +16,7 @@
       ./gaming.nix
       ./keyd.nix
       ./sddm-theme
+      ./zsa.nix
     ];
 
   services = {

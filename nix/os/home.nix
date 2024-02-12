@@ -38,6 +38,7 @@
     bitwarden
     rbw # https://crates.io/crates/rbw unofficial bitwarden CLI
     pinentry # dependency for rbw
+    keepassxc
 
     # Utils
     killall

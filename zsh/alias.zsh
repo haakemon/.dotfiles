@@ -25,9 +25,9 @@ alias ctop="sudo docker run --rm -ti -v /var/run/docker.sock:/var/run/docker.soc
 alias dpsa="sudo docker ps -a --format \"table {{.ID}}\t{{.Names}}\t{{.State}}\t{{.Status}}\t{{.Image}}\""
 
 # nix specific stuff
-alias nixrebuild="sudo nixos-rebuild --upgrade switch --flake ${NIX_CONFIG_HOME}${NIX_CONFIG_FLAKE_PART}"
-alias nixrebuild-nocache="sudo nixos-rebuild --upgrade --option eval-cache false switch --flake ${NIX_CONFIG_HOME}${NIX_CONFIG_FLAKE_PART}"
-alias nixflakeupdate="nix flake update ${NIX_CONFIG_HOME}"
+alias nixrebuild="sudo nixos-rebuild --upgrade switch --flake path:${NIX_CONFIG_HOME}${NIX_CONFIG_FLAKE_PART}"
+alias nixrebuild-nocache="sudo nixos-rebuild --upgrade --option eval-cache false switch --flake path:${NIX_CONFIG_HOME}${NIX_CONFIG_FLAKE_PART}"
+alias nixflakeupdate="nix flake update path:${NIX_CONFIG_HOME}"
 
 get_supported_envs() {
   local dotfiles_path="$HOME/.dotfiles/nix/devenv"

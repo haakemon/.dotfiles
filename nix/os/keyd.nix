@@ -7,7 +7,10 @@
     enable = true;
     keyboards = {
       default = {
-        ids = [ "17ef:6116" ];
+        ids = [
+          "17ef:6116"
+          "0fac:0ade"
+        ];
         settings = {
           main = {
             "\\" = "G-2"; # @

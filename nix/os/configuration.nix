@@ -114,7 +114,6 @@
       "libvirtd"
       "video"
       "render"
-      "plugdev"
     ];
     shell = pkgs.zsh;
   };

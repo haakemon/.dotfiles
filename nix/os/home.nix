@@ -72,6 +72,7 @@
     kooha # screen recorder
     protonvpn-gui
     keymapp
+    sublime-merge
 
     # Gaming
     heroic

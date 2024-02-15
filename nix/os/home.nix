@@ -110,6 +110,10 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
 
+    ".config/nixpkgs/config.nix".text = ''
+    { allowUnfree = true; }
+    '';
+
     ".config/fastfetch/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink /home/${username}/.dotfiles/fastfetch/config.jsonc;
     ".wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink /home/${username}/.dotfiles/wezterm/.wezterm.lua;
     ".face.icon".source = config.lib.file.mkOutOfStoreSymlink /home/${username}/.dotfiles/sddm/.face.icon;

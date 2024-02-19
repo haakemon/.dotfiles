@@ -1,15 +1,15 @@
 {
   description = "A very basic flake";
 
-  outputs = { self, nixpkgs, chaotic, home-manager }:
+  outputs = inputs @ { self, nixpkgs, chaotic, home-manager }:
     let
-      system = "x86_64-linux";
-      hostname = "nixos";
-      timezone = "Europe/Oslo";
-      defaultLocale = "en_US.UTF-8";
-      extraLocale = "nb_NO.UTF-8";
-
-      username = "haakemon";
+      inherit (import ./options.nix)
+        username
+        hostname
+        system
+        timezone
+        defaultLocale
+        extraLocale;
 
       lib = nixpkgs.lib;
       pkgs = import nixpkgs {
@@ -21,13 +21,11 @@
       nixosConfigurations = {
         nixos = lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit hostname username timezone defaultLocale extraLocale; };
           modules = [
             chaotic.nixosModules.default
             ./configuration.nix
             home-manager.nixosModules.home-manager
             {
-              home-manager.extraSpecialArgs = { inherit hostname username; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users."${username}" = {

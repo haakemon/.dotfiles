@@ -1,8 +1,13 @@
-{ timezone, defaultLocale, extraLocale, ... }:
-
+{ ... }:
+let
+  inherit (import ./options.nix)
+    timezone
+    defaultLocale
+    extraLocale;
+in
 {
   time.timeZone = "${timezone}";
-    i18n = {
+  i18n = {
     defaultLocale = "${defaultLocale}";
     extraLocaleSettings = {
       LC_ADDRESS = "${extraLocale}";

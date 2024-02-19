@@ -1,8 +1,17 @@
-{ config, pkgs, username, hostname, ... }:
-
+{ config, pkgs, ... }:
+let
+  inherit (import ./options.nix)
+    gitUsername
+    gitEmail
+    userHome
+    username
+    hostname
+    flakeDir
+    flakeHash;
+in
 {
   home.username = "${username}";
-  home.homeDirectory = "/home/${username}";
+  home.homeDirectory = "${userHome}";
   # home.enableDebugInfo = true;
 
   home.sessionVariables = {
@@ -22,9 +31,6 @@
 
     NUGET_PACKAGES = "${config.home.sessionVariables.XDG_CACHE_HOME}/NuGetPackages";
     DOTNET_CLI_HOME = "${config.home.sessionVariables.XDG_CONFIG_HOME}/.dotnet";
-
-    NIX_CONFIG_HOME="${config.home.homeDirectory}/.dotfiles/nix/os";
-    NIX_CONFIG_FLAKE_PART="#nixos";
   };
 
   home.packages = with pkgs; [
@@ -160,8 +166,8 @@
       };
       extraConfig = {
         user = {
-          name = "Håkon Bogsrud";
-          email = "2082481+haakemon@users.noreply.github.com";
+          name = "${gitUsername}";
+          email = "${gitEmail}";
         };
       };
       includes = [
@@ -175,6 +181,8 @@
       enable = true;
       enableCompletion = true;
       enableAutosuggestions = true;
+      syntaxHighlighting.enable = true;
+
       history = {
         ignoreAllDups = true;
         # path = "${config.xdg.dataHome}/zsh/zsh_history";
@@ -233,7 +241,11 @@
 
       initExtra = ''
         #region initExtra
+        autoload -Uz compinit
+        compinit
+        unsetopt beep
 
+        source "''${HOME}/.dotfiles/zsh/keybindings.zsh"
         source "''${HOME}/.dotfiles/zsh/env.zsh"
         source "''${HOME}/.dotfiles/zsh/alias.zsh"
         source "''${HOME}/.dotfiles/zsh/ssh.zsh"
@@ -242,6 +254,15 @@
 
         #endregion initExtra
       '';
+
+
+      shellAliases = {
+        nixrebuild = "sudo nixos-rebuild --upgrade switch --flake path:${flakeDir}#${flakeHash}";
+        nixrebuild-boot = "sudo nixos-rebuild boot --flake path:${flakeDir}#${flakeHash}";
+        nixflake-update = "sudo nix flake update path:${flakeDir}";
+        gcCleanup = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+      };
+
     };
   };
 

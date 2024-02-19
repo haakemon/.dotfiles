@@ -3,8 +3,9 @@
 {
   programs = {
     steam = {
-      enable = true;
+      enable = false; # installed via flatpak for better compatibility
       remotePlay.openFirewall = true;
+      gamescopeSession.enable = true;
     };
 
     # Need to add "gamemoderun %command%" to each Steam game,

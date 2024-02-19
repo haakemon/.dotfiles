@@ -2,8 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, hostname, username, timezone, defaultLocale, extraLocale, ... }:
-
+{ config, pkgs, ... }:
+let
+  inherit (import ./options.nix)
+    gpuType
+    username;
+in
 {
   imports =
     [
@@ -73,11 +77,21 @@
     # };
   };
 
-  # xdg.portal = {
-  #   enable = true;
-  #   wlr.enable = true;
-  #   xdgOpenUsePortal = true;
-  # };
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal
+    ];
+    configPackages = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal
+    ];
+
+  };
 
   console.keyMap = "no";
 
@@ -90,6 +104,7 @@
     sane.enable = true; # Scanning
     pulseaudio.enable = false;
     bluetooth.enable = true;
+    bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
     logitech.wireless = {
       enable = true;
       enableGraphical = true;
@@ -154,6 +169,7 @@
     };
     xwayland.enable = true;
     fzf.fuzzyCompletion = true;
+    dconf.enable = true;
   };
 
   system = {

@@ -1,6 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
+let
+  inherit (import ./options.nix)
+    gpuType;
+in
+lib.mkIf ("${gpuType}" == "amd") {
 
-{
   boot = {
     initrd.kernelModules = [ "amdgpu" ];
   };
@@ -8,12 +12,22 @@
   hardware = {
     opengl = {
       enable = true;
+
+      # ## amdvlk: an open-source Vulkan driver from AMD
+      # extraPackages = [ pkgs.amdvlk ];
+      # extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
+
       driSupport = true;
       driSupport32Bit = true;
       extraPackages = [
         pkgs.rocmPackages.clr.icd
       ];
     };
+  };
+
+  services.xserver = {
+    enable = true;
+    videoDrivers = [ "amdgpu" ];
   };
 
   environment.variables = {

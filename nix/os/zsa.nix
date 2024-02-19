@@ -1,5 +1,8 @@
-{ config, username, ... }:
-
+{ ... }:
+let
+  inherit (import ./options.nix)
+    username;
+in
 {
   hardware.keyboard.zsa.enable = true;
 

@@ -15,4 +15,11 @@ in
     #   "127.0.0.1" = [	"local.dev" ];
     # };
   };
+
+  services = {
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+    };
+  };
 }

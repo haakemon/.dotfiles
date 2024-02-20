@@ -21,6 +21,7 @@ in
       ./keyd.nix
       ./sddm-theme
       ./zsa.nix
+      ./users.nix
     ];
 
   services = {
@@ -62,10 +63,6 @@ in
       wireplumber = {
         enable = true;
       };
-    };
-    avahi = {
-      enable = true;
-      nssmdns4 = true;
     };
     hardware.openrgb = {
       enable = true;
@@ -109,28 +106,6 @@ in
       enable = true;
       enableGraphical = true;
     };
-  };
-
-  systemd.user.services.jotta = {
-    wantedBy = [ "default.target" ];
-    serviceConfig = {
-      Type = "exec";
-      ExecStart = "${pkgs.jotta-cli}/bin/jottad";
-    };
-  };
-
-
-  users.users.${username} = {
-    isNormalUser = true;
-    description = "${username}";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "libvirtd"
-      "video"
-      "render"
-    ];
-    shell = pkgs.zsh;
   };
 
   nixpkgs.config.allowUnfree = true;

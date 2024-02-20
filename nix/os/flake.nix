@@ -30,7 +30,7 @@
               home-manager.useUserPackages = true;
               home-manager.users."${username}" = {
                 imports = [
-                  ./home.nix
+                  ./home-manager/home.nix
                 ];
               };
             }

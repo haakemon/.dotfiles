@@ -4,7 +4,6 @@ let
     gpuType;
 in
 lib.mkIf ("${gpuType}" == "amd") {
-
   boot = {
     initrd.kernelModules = [ "amdgpu" ];
   };

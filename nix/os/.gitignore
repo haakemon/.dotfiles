@@ -1,1 +1,5 @@
 *-local.nix
+*.local.nix
+*-local/
+*.local/
+hosts/

@@ -12,7 +12,10 @@ let
     cpuType
     gpuType
     flakeDir
-    flakeHash;
+    flakeHash
+    gpuIntelBusId
+    gpuNvidiaBusId
+    ;
 in
 {
   username = "${username}";
@@ -28,4 +31,6 @@ in
   gpuType = "${gpuType}";
   flakeDir = "${flakeDir}";
   flakeHash = "${flakeHash}";
+  gpuIntelBusId = "${gpuIntelBusId}";
+  gpuNvidiaBusId = "${gpuNvidiaBusId}";
 }

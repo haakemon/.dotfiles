@@ -1,15 +1,22 @@
 { config, ... }:
 # keys https://github.com/rvaiya/keyd/blob/2338f11b1ddd81eaddd957de720a3b4279222da0/t/keys.py#L18
 # force terminate: <backspace>+<escape>+<enter>
-# nix-shell -p keyd && sudo keyd monitor
+# nix shell nixpkgs#keyd
+# sudo keyd monitor
+let
+  homeKeyboard = "17ef:6116";
+  workKeyboard = "0fac:0ade";
+  workLaptop = "0001:0001";
+in
 {
   services.keyd = {
     enable = true;
     keyboards = {
       default = {
         ids = [
-          "17ef:6116"
-          "0fac:0ade"
+          homeKeyboard
+          workKeyboard
+          workLaptop
         ];
         settings = {
           main = {

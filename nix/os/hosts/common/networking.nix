@@ -1,11 +1,8 @@
-{ ... }:
-let
-  inherit (import ./options.nix)
-    hostname;
-in
+{  config, ... }:
+
 {
   networking = {
-    hostName = "${hostname}";
+    hostName = "${config.configOptions.hostname}";
     networkmanager.enable = true;
     nameservers = [
       "192.168.2.9"

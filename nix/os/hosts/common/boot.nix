@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   boot = {
@@ -13,7 +13,7 @@
         devices = [ "nodev" ];
         efiSupport = true;
         enable = true;
-        useOSProber = mkDefault true;
+        useOSProber = lib.mkDefault true;
         configurationLimit = 20;
       };
     };

@@ -1,9 +1,6 @@
-{ pkgs, lib, ... }:
-let
-  inherit (import ./options.nix)
-    gpuType;
-in
-lib.mkIf ("${gpuType}" == "amd") {
+{ pkgs, ... }:
+
+{
   boot = {
     initrd.kernelModules = [ "amdgpu" ];
   };
@@ -38,14 +35,14 @@ lib.mkIf ("${gpuType}" == "amd") {
     "L+ /opt/rocm/hip - - - - ${pkgs.rocmPackages.clr}"
   ];
 
-  environment.systemPackages = with pkgs; [
-    vulkan-tools # graphics info
-    vulkan-headers
-    vulkan-loader
-    vulkan-validation-layers
-    clinfo # graphics info
-    glxinfo # graphics info
-    wayland-utils # graphics info
+  environment.systemPackages = [
+    pkgs.vulkan-tools # graphics info
+    pkgs.vulkan-headers
+    pkgs.vulkan-loader
+    pkgs.vulkan-validation-layers
+    pkgs.clinfo # graphics info
+    pkgs.glxinfo # graphics info
+    pkgs.wayland-utils # graphics info
   ];
 
   chaotic.mesa-git.enable = true;

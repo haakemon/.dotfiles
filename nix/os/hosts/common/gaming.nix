@@ -3,7 +3,7 @@
 {
   programs = {
     steam = {
-      enable = false; # installed via flatpak for better compatibility
+      enable = true;
       remotePlay.openFirewall = true;
       gamescopeSession.enable = true;
     };
@@ -42,27 +42,24 @@
   };
 
   environment = {
-    systemPackages = with pkgs; [
-      # SDL2
-      # SDL2
-      # SDL2_image
-      # Gamemode
-      gamemode
-      # Vulkan
-      # vkbasalt
-      libnotify
+    systemPackages = [
+      pkgs.SDL2
+      pkgs.SDL2
+      pkgs.SDL2_image
+      pkgs.vkbasalt
+      pkgs.libnotify
 
-      luxtorpeda
-      proton-ge-custom
+      pkgs.luxtorpeda
+      pkgs.proton-ge-custom
     ];
-    # variables = {
-    #   DXVK_HDR = "1";
-    #   ENABLE_GAMESCOPE_WSI = "1";
-    # };
+    variables = {
+      DXVK_HDR = "1";
+      ENABLE_GAMESCOPE_WSI = "1";
+    };
   };
 
-  chaotic.steam.extraCompatPackages = with pkgs; [
-    luxtorpeda
-    proton-ge-custom
+  chaotic.steam.extraCompatPackages = [
+    pkgs.luxtorpeda
+    pkgs.proton-ge-custom
   ];
 }

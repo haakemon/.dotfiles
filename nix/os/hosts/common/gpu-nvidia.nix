@@ -1,11 +1,11 @@
 { config, lib, ... }:
-let
-  inherit (import ./options.nix)
-    gpuType
-    gpuIntelBusId
-    gpuNvidiaBusId;
-in
-lib.mkIf ("${gpuType}" == "nvidia") {
+# let
+#   inherit (import ./options-local.nix)
+#     gpuType
+#     gpuIntelBusId
+#     gpuNvidiaBusId;
+# in
+{
   hardware = {
     opengl = {
       enable = true;

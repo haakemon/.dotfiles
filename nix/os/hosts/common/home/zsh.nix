@@ -1,32 +1,25 @@
-{ config, pkgs, ... }:
-let
-  inherit (import ../options.nix)
-    userHome
-    flakeDir
-    username
-    flakeHash;
-in
+{ config, pkgs, lib, ... }:
+
 {
-  home.packages = with pkgs; [
-    killall
-    wget
-    fastfetch
-    eza
-    zsh-powerlevel10k
-    (nerdfonts.override { fonts = [ "VictorMono" ]; })
-    victor-mono
-    bat
-    fzf # fuzzy find
-    grc # generic text colorizer
-    jq
+  home.packages = [
+    pkgs.killall
+    pkgs.wget
+    pkgs.fastfetch
+    pkgs.eza
+    pkgs.zsh-powerlevel10k
+    (pkgs.nerdfonts.override { fonts = [ "VictorMono" ]; })
+    pkgs.victor-mono
+    pkgs.bat
+    pkgs.fzf # fuzzy find
+    pkgs.grc # generic text colorizer
+    pkgs.jq
   ];
 
   home.file = {
-    ".config/fastfetch/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink "${userHome}/.dotfiles/fastfetch/config.jsonc";
+    ".config/fastfetch/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/fastfetch/config.jsonc";
   };
 
   programs = {
-    home-manager.enable = true;
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -35,13 +28,13 @@ in
 
       history = {
         ignoreAllDups = true;
-        path = ".local/share/zsh/zsh_history";
+        path = "${config.configOptions.userHome}/.local/share/zsh/zsh_history";
       };
       dirHashes = {
-        code = "${userHome}/code";
-        dl = "${userHome}/Downloads";
-        dots = "${userHome}/.dotfiles";
-        flake = "${flakeDir}";
+        code = "${config.configOptions.userHome}/code";
+        dl = "${config.configOptions.userHome}/Downloads";
+        dots = "${config.configOptions.userHome}/.dotfiles";
+        flake = "${config.configOptions.flake.dir}";
       };
       dotDir = ".config/zsh";
 
@@ -90,6 +83,7 @@ in
         source "''${HOME}/.dotfiles/zsh/env.zsh"
         source "''${HOME}/.dotfiles/zsh/alias.zsh"
         source "''${HOME}/.dotfiles/zsh/zsh-hooks.zsh"
+
         #endregion initExtraFirst
       '';
 
@@ -99,11 +93,10 @@ in
         #endregion initExtra
       '';
 
-
       shellAliases = {
-        nixrebuild = "sudo nixos-rebuild --upgrade switch --flake path:${flakeDir}#${flakeHash}";
-        nixrebuild-boot = "sudo nixos-rebuild boot --flake path:${flakeDir}#${flakeHash}";
-        nixflake-update = "sudo nix flake update path:${flakeDir}";
+        nixrebuild = "sudo nixos-rebuild --upgrade switch --flake path:${config.configOptions.flake.dir}#${config.configOptions.flake.hash}";
+        nixrebuild-boot = "sudo nixos-rebuild boot --flake path:${config.configOptions.flake.dir}#${config.configOptions.flake.hash}";
+        nixflake-update = "sudo nix flake update path:${config.configOptions.flake.dir}";
         gcCleanup = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       };
 

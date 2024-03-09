@@ -1,36 +1,32 @@
 {
   description = "A very basic flake";
 
-  outputs = inputs @ { self, nixpkgs, chaotic, home-manager }:
+  outputs =
+    { self
+    , nixpkgs
+    , chaotic
+    , home-manager
+    } @ inputs:
     let
-      inherit (import ./options.nix)
-        username
-        hostname
-        system
-        timezone
-        defaultLocale
-        extraLocale;
-
-      lib = nixpkgs.lib;
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
+      odin = import ./hosts/odin/variables-local.nix {
+        lib = nixpkgs.lib;
       };
     in
     {
       nixosConfigurations = {
-        nixos = lib.nixosSystem {
-          inherit system;
+        odin = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
           modules = [
+            ./hosts/odin/configuration.nix
             chaotic.nixosModules.default
-            ./configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users."${username}" = {
+              home-manager.users."${odin.config.configOptions.username}" = {
                 imports = [
-                  ./home-manager/home.nix
+                  ./hosts/odin/variables-local.nix
+                  ./hosts/odin/home/default.nix
                 ];
               };
             }

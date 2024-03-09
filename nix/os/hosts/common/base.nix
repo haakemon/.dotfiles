@@ -1,0 +1,128 @@
+{ config, pkgs, lib, ... }:
+
+{
+
+  services = lib.mkMerge [
+    {
+      fwupd.enable = true;
+    }
+
+    (lib.mkIf (!config.configOptions.headless) {
+      xserver = {
+        enable = true;
+        xkb.layout = "no";
+        desktopManager.plasma5.enable = true;
+        displayManager = {
+          sddm = {
+            enable = true;
+            wayland.enable = true;
+            autoNumlock = true;
+          };
+          defaultSession = "plasmawayland";
+        };
+      };
+      printing = {
+        enable = true;
+        startWhenNeeded = true;
+        webInterface = false;
+        cups-pdf.enable = true;
+        drivers = [ pkgs.gutenprint ];
+        cups-pdf.instances = {
+          pdf = {
+            settings = {
+              Out = "\${HOME}/Documents";
+            };
+          };
+        };
+      };
+      pipewire = {
+        enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+        pulse.enable = true;
+        socketActivation = true;
+        wireplumber = {
+          enable = true;
+        };
+      };
+      scrutiny = {
+        enable = true;
+        collector.enable = true;
+      };
+    })
+  ];
+
+  xdg.portal = lib.mkIf (!config.configOptions.headless) {
+    enable = true;
+    wlr.enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal
+    ];
+    configPackages = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal
+    ];
+  };
+
+  sound.enable = true;
+
+  console.keyMap = "${config.configOptions.consoleKeymap}";
+  security.rtkit.enable = true;
+
+  hardware = {
+    enableRedistributableFirmware = true;
+    pulseaudio.enable = false;
+    bluetooth.enable = true;
+    bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  };
+
+  nixpkgs.config.allowUnfree = true;
+
+  nix = {
+    package = pkgs.nixFlakes;
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      auto-optimise-store = true;
+    };
+    optimise.automatic = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 14d";
+    };
+  };
+
+  environment.systemPackages = [
+    pkgs.usbutils
+    pkgs.pciutils
+    pkgs.nixpkgs-fmt # formatting .nix files
+  ] ++ lib.optionals (!config.configOptions.headless) [
+    pkgs.sddm-kcm # sddm gui settings
+    pkgs.kdeconnect
+    pkgs.libnotify
+    pkgs.victor-mono # font
+    pkgs.aha # ANSI HTML Adapter
+  ];
+
+  programs = lib.mkMerge [
+    {
+      bash = {
+        enableCompletion = true;
+      };
+      zsh = {
+        enable = true;
+        enableBashCompletion = true;
+      };
+      xwayland.enable = true;
+      fzf.fuzzyCompletion = true;
+      dconf.enable = true;
+    }
+
+    (lib.mkIf (!config.configOptions.headless) {
+      partition-manager.enable = true; # KDE Partition Manager
+    })
+  ];
+}

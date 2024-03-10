@@ -46,6 +46,18 @@
     pkgs.gparted
   ];
 
+  xdg.desktopEntries = lib.mkIf (!config.configOptions.headless) {
+    vivaldi = {
+      name = "Vivaldi";
+      genericName = "Web Browser";
+      exec = "vivaldi --disable-features=AllowQt %U"; # workaround for Plasma 6 - https://github.com/NixOS/nixpkgs/pull/292148#issuecomment-1986827860
+      terminal = false;
+      categories = [ "Application" "Network" "WebBrowser" ];
+      mimeType = [ "text/html" "text/xml" ];
+      icon = "${pkgs.vivaldi}/opt/vivaldi/product_logo_256.png";
+    };
+  };
+
   # Settings for virt-manager https://nixos.wiki/wiki/Virt-manager
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {

@@ -11,6 +11,9 @@
       odin = import ./hosts/odin/variables-local.nix {
         lib = nixpkgs.lib;
       };
+      delling = import ./hosts/delling/variables-local.nix {
+        lib = nixpkgs.lib;
+      };
     in
     {
       nixosConfigurations = {
@@ -27,6 +30,25 @@
                 imports = [
                   ./hosts/odin/variables-local.nix
                   ./hosts/odin/home/default.nix
+                ];
+              };
+            }
+          ];
+        };
+
+        delling = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/delling/configuration.nix
+            chaotic.nixosModules.default
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users."${delling.config.configOptions.username}" = {
+                imports = [
+                  ./hosts/delling/variables-local.nix
+                  ./hosts/delling/home/default.nix
                 ];
               };
             }

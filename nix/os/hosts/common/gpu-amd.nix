@@ -1,20 +1,19 @@
 { pkgs, ... }:
 
 {
+  imports =
+    [
+      ./gpu-common.nix
+    ];
   boot = {
     initrd.kernelModules = [ "amdgpu" ];
   };
 
   hardware = {
     opengl = {
-      enable = true;
-
       # ## amdvlk: an open-source Vulkan driver from AMD
       # extraPackages = [ pkgs.amdvlk ];
       # extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
-
-      driSupport = true;
-      driSupport32Bit = true;
       extraPackages = [
         pkgs.rocmPackages.clr.icd
       ];
@@ -33,16 +32,6 @@
 
   systemd.tmpfiles.rules = [
     "L+ /opt/rocm/hip - - - - ${pkgs.rocmPackages.clr}"
-  ];
-
-  environment.systemPackages = [
-    pkgs.vulkan-tools # graphics info
-    pkgs.vulkan-headers
-    pkgs.vulkan-loader
-    pkgs.vulkan-validation-layers
-    pkgs.clinfo # graphics info
-    pkgs.glxinfo # graphics info
-    pkgs.wayland-utils # graphics info
   ];
 
   chaotic.mesa-git.enable = true;

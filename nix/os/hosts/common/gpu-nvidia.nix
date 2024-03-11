@@ -1,17 +1,17 @@
 { config, lib, ... }:
-# let
-#   inherit (import ./options-local.nix)
-#     gpuType
-#     gpuIntelBusId
-#     gpuNvidiaBusId;
-# in
+
 {
-  hardware = {
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+  imports =
+    [
+      ./gpu-common.nix
+    ];
+  services = {
+    xserver = {
+      videoDrivers = [ "nvidia" ];
     };
+  };
+
+  hardware = {
     nvidia = {
       modesetting.enable = true;
 
@@ -42,15 +42,12 @@
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
       package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-
       prime = {
         # offload = { # sync.enable needs to be false if this is activated
         #   enable = true;
         #   enableOffloadCmd = true;
         # };
         sync.enable = true;
-        intelBusId = "${gpuIntelBusId}";
-        nvidiaBusId = "${gpuNvidiaBusId}";
       };
     };
   };

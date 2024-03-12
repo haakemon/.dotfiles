@@ -52,6 +52,16 @@
     ".face.icon".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/sddm/.face.icon";
   };
 
+  programs = {
+    zsh = {
+      initExtra = ''
+        #region default initExtra
+        source "''${HOME}/work/env.zsh"
+        #endregion default initExtra
+      '';
+    };
+  };
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.

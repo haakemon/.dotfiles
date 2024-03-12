@@ -100,7 +100,7 @@
     pkgs.pciutils
     pkgs.nixpkgs-fmt # formatting .nix files
   ] ++ lib.optionals (!config.configOptions.headless) [
-    pkgs.sddm-kcm # sddm gui settings
+    pkgs.kdePackages.sddm-kcm # sddm gui settings
     pkgs.kdeconnect
     pkgs.libnotify
     pkgs.victor-mono # font

@@ -38,7 +38,9 @@ printf "${GREEN}%-${width1}s ${RED}%-${width2}s ${BLUE}%-${width3}s ${YELLOW}%-$
 format_string="%(objectname:short)@%(refname:short)@%(committerdate:relative)"
 IFS=$'\n'
 
-for branchdata in $(git for-each-ref --sort=-authordate --format="$format_string" refs/heads/ --no-merged); do
+branches=$(git for-each-ref --sort=-authordate --format="$format_string" refs/heads/ --no-merged | head -n 15)
+
+for branchdata in $branches; do
     sha=$(echo "$branchdata" | cut -d '@' -f1)
     branch=$(echo "$branchdata" | cut -d '@' -f2)
     time=$(echo "$branchdata" | cut -d '@' -f3)

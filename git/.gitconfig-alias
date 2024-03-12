@@ -3,7 +3,7 @@
   # common shortcuts
   co = checkout
   ci = commit
-  br = branch
+  br = !$HOME/.dotfiles/git/scripts/branch-list.sh
   sh = stash
   cp = cherry-pick
   st = status

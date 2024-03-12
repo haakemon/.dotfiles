@@ -31,11 +31,6 @@
     };
   };
 
-  system = {
-    autoUpgrade.enable = true;
-    autoUpgrade.allowReboot = true;
-  };
-
   services = {
     hardware.bolt.enable = true; # enable thunderbolt/dock capabilities
   };

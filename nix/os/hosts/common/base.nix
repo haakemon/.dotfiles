@@ -107,6 +107,11 @@
     pkgs.aha # ANSI HTML Adapter
   ];
 
+  system = {
+    autoUpgrade.enable = true;
+    autoUpgrade.allowReboot = true;
+  };
+
   programs = lib.mkMerge [
     {
       bash = {

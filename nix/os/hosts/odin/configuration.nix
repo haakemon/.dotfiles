@@ -43,11 +43,6 @@
   #   pkgs.unigine-superposition # benchmarking tool
   # ];
 
-  system = {
-    autoUpgrade.enable = true;
-    autoUpgrade.allowReboot = true;
-  };
-
   systemd.user.services.jotta = {
     wantedBy = [ "default.target" ];
     serviceConfig = {

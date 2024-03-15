@@ -19,6 +19,7 @@
     pkgs.kooha # screen recorder
     pkgs.orca # screen reader
     pkgs.ffmpeg
+    pkgs.kdePackages.kcolorchooser
     # pkgs.android-studio
   ];
 

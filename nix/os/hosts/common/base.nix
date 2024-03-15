@@ -10,10 +10,11 @@
     }
 
     (lib.mkIf (!config.configOptions.headless) {
+      desktopManager.plasma6.enable = true;
+
       xserver = {
         enable = true;
         xkb.layout = "no";
-        desktopManager.plasma6.enable = true;
         displayManager = {
           sddm = {
             enable = true;

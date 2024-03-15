@@ -4,6 +4,8 @@
 
   services = lib.mkMerge [
     {
+      # execute to update:
+      # fwupdmgr refresh && fwupdmgr update
       fwupd.enable = true;
     }
 

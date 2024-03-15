@@ -53,6 +53,15 @@
       initExtra = ''
         #region development initExtra
         source "''${HOME}/.dotfiles/nix/devenv/nix.devenv.zsh"
+
+        c() {
+          if [ "$#" -eq 0 ]; then
+            code .
+          else
+            code "$@"
+          fi
+        }
+
         #endregion development initExtra
       '';
     };

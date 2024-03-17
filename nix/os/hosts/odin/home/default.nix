@@ -24,6 +24,7 @@
     # pkgs.blender
     pkgs.obs-studio
     pkgs.prusa-slicer
+    pkgs.plasticity
 
     # Gaming
     pkgs.heroic

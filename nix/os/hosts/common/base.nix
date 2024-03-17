@@ -1,6 +1,11 @@
 { config, pkgs, lib, ... }:
 
 {
+  nixpkgs.overlays = [
+    (self: super: {
+      plasticity = super.callPackage ../../apps/plasticity.nix { };
+    })
+  ];
 
   services = lib.mkMerge [
     {

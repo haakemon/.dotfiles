@@ -12,6 +12,8 @@
     (lib.mkIf (!config.configOptions.headless) {
       desktopManager.plasma6.enable = true;
 
+      gnome.at-spi2-core.enable = true; # requirement for orca screen reader
+
       xserver = {
         enable = true;
         xkb.layout = "no";

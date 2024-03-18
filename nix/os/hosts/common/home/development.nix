@@ -20,6 +20,7 @@
     pkgs.orca # screen reader
     pkgs.ffmpeg
     pkgs.kdePackages.kcolorchooser
+    pkgs.flyctl
     # pkgs.android-studio
   ];
 

@@ -8,7 +8,8 @@
 
     # Tools
     pkgs.mqttmultimeter
-    pkgs.vscode
+    # pkgs.vscode
+    pkgs.vscode-fhs
     pkgs.wezterm
     pkgs.bruno
     pkgs.sublime-merge

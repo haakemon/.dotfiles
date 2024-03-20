@@ -110,6 +110,7 @@
     pkgs.pciutils
     pkgs.nixpkgs-fmt # formatting .nix files
   ] ++ lib.optionals (!config.configOptions.headless) [
+    pkgs.kdePackages.kimageformats
     pkgs.kdePackages.sddm-kcm # sddm gui settings
     pkgs.kdeconnect
     pkgs.libnotify
@@ -138,6 +139,7 @@
 
     (lib.mkIf (!config.configOptions.headless) {
       partition-manager.enable = true; # KDE Partition Manager
+      corectrl.enable = true;
     })
   ];
 }

@@ -36,6 +36,7 @@
   home.packages = [
     pkgs.unzip
   ] ++ lib.optionals (!config.configOptions.headless) [
+    pkgs.kdenlive
     pkgs.vivaldi
     pkgs.wezterm
     pkgs.freeoffice
@@ -49,12 +50,22 @@
   xdg.desktopEntries = lib.mkIf (!config.configOptions.headless) {
     vivaldi = {
       name = "Vivaldi";
-      genericName = "Web Browser";
-      exec = "vivaldi --disable-features=AllowQt %U"; # workaround for Plasma 6 - https://github.com/NixOS/nixpkgs/pull/292148#issuecomment-1986827860
+      genericName = "";
+      exec = "${pkgs.vivaldi}/bin/vivaldi --disable-features=AllowQt %U"; # workaround for Plasma 6 - https://github.com/NixOS/nixpkgs/pull/292148#issuecomment-1986827860
       terminal = false;
       categories = [ "Application" "Network" "WebBrowser" ];
       mimeType = [ "text/html" "text/xml" ];
       icon = "${pkgs.vivaldi}/opt/vivaldi/product_logo_256.png";
+      type = "Application";
+    };
+
+    wezterm = {
+      name = "WezTerm";
+      genericName = "";
+      exec = "${pkgs.wezterm}/bin/wezterm"; # workaround for https://github.com/wez/wezterm/issues/2933
+      terminal = false;
+      icon = "${pkgs.wezterm}/share/icons/hicolor/128x128/apps/org.wezfurlong.wezterm.png";
+      type = "Application";
     };
   };
 

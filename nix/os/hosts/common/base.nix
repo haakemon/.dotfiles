@@ -112,7 +112,6 @@
   ] ++ lib.optionals (!config.configOptions.headless) [
     pkgs.kdePackages.kimageformats
     pkgs.kdePackages.sddm-kcm # sddm gui settings
-    pkgs.kdeconnect
     pkgs.libnotify
     pkgs.victor-mono # font
     pkgs.aha # ANSI HTML Adapter
@@ -140,6 +139,7 @@
     (lib.mkIf (!config.configOptions.headless) {
       partition-manager.enable = true; # KDE Partition Manager
       corectrl.enable = true;
+      kdeconnect.enable = true;
     })
   ];
 }

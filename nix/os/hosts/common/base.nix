@@ -51,9 +51,7 @@
         alsa.support32Bit = true;
         pulse.enable = true;
         socketActivation = true;
-        wireplumber = {
-          enable = true;
-        };
+        wireplumber.enable = true;
       };
       scrutiny = {
         enable = true;

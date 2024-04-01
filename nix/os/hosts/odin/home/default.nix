@@ -12,10 +12,12 @@
 
   programs = {
     home-manager.enable = true;
+    # niri.settings = {
+    #     outputs."eDP-1".scale = 2.0;
+    #   };
   };
 
   home.packages = [
-
     # Utils
     pkgs.jotta-cli
     pkgs.headsetcontrol # Set options for headsets

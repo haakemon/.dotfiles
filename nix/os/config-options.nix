@@ -1,5 +1,3 @@
-# rename to variables-local.nix and change the options accordingly
-
 { lib, ... }:
 
 {

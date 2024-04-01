@@ -51,6 +51,8 @@
 
       pkgs.luxtorpeda
       pkgs.proton-ge-custom
+
+      pkgs.alvr
     ];
     variables = {
       DXVK_HDR = "1";

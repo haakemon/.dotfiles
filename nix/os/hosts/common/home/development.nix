@@ -22,6 +22,7 @@
     pkgs.ffmpeg
     pkgs.kdePackages.kcolorchooser
     pkgs.flyctl
+    pkgs.beekeeper-studio
     # pkgs.android-studio
   ];
 

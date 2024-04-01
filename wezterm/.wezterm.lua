@@ -39,6 +39,10 @@ config.inactive_pane_hsb = {
 }
 config.hide_mouse_cursor_when_typing = false
 config.window_background_opacity = 0.85
+
+config.window_close_confirmation = "NeverPrompt"
+
+
 config.initial_cols = 156
 config.initial_rows = 36
 

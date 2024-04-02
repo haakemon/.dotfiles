@@ -3,7 +3,8 @@
 {
   nixpkgs.overlays = [
     (self: super: {
-      plasticity = super.callPackage ../../apps/plasticity.nix { };
+      gitbutler = super.callPackage ../../apps/gitbutler/package.nix { };
+      gitbutler-ui = super.callPackage ../../apps/gitbutler-ui/package.nix { };
     })
   ];
 

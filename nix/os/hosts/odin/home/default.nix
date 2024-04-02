@@ -27,6 +27,7 @@
     pkgs.obs-studio
     pkgs.prusa-slicer
     pkgs.plasticity
+    pkgs.gitbutler
 
     # Gaming
     pkgs.heroic

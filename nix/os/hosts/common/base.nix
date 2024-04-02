@@ -56,6 +56,7 @@
       scrutiny = {
         enable = true;
         collector.enable = true;
+        settings.web.listen.port = 8999;
       };
     })
   ];

@@ -106,17 +106,17 @@ config.keys = {
 
 wezterm.on('gui-startup', function()
   local first_tab, first_pane, window = wezterm.mux.spawn_window {}
-  local _, second_pane, _ = window:spawn_tab {}
-  local _, third_pane, _ = window:spawn_tab {}
+  -- local _, second_pane, _ = window:spawn_tab {}
+  -- local _, third_pane, _ = window:spawn_tab {}
 
   first_tab:activate()
   -- first_pane:send_text 'devenv dotnet7\nasdf\n'
 end)
 
-config.unix_domains = { {
-  name = 'unix'
-} }
+-- config.unix_domains = { {
+--   name = 'unix'
+-- } }
 
-config.default_gui_startup_args = { 'connect', 'unix' }
+-- config.default_gui_startup_args = { 'connect', 'unix' }
 
 return config

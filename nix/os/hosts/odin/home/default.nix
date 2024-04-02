@@ -39,7 +39,7 @@
 
     # Chat
     pkgs.telegram-desktop
-    pkgs.discord
+    pkgs.vesktop
 
     (
       let base = pkgs.appimageTools.defaultFhsEnvArgs; in

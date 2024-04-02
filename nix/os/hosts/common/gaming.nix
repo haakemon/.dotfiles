@@ -5,7 +5,14 @@
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
-      gamescopeSession.enable = true;
+      # gamescopeSession.enable = true;
+      package = pkgs.steam.override {
+        extraPkgs = pkgs: with pkgs; [
+          libkrb5
+          keyutils
+        ];
+      };
+
     };
 
     # Need to add "gamemoderun %command%" to each Steam game,

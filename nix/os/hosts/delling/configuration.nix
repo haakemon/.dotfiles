@@ -33,6 +33,11 @@
 
   services = {
     hardware.bolt.enable = true; # enable thunderbolt/dock capabilities
+
+    ollama = {
+      enable = true;
+      acceleration = "cuda";
+    };
   };
 
   # This value determines the NixOS release from which the default

@@ -1,0 +1,27 @@
+name: Nix Check
+
+on: [pull_request]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.1.1
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v26
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Run Statix Lint
+        run: nix run nixpkgs#statix check ./nix/
+
+      - name: Nix Flake Checker
+        uses: DeterminateSystems/flake-checker-action@v5
+        with:
+          flake-lock-path: ./nix/os/flake.lock
+          ignore-missing-flake-lock: false
+          fail-mode: true
+          send-statistics: false

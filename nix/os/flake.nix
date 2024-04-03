@@ -9,10 +9,10 @@
     } @ inputs:
     let
       odin = import ./hosts/odin/variables-local.nix {
-        lib = nixpkgs.lib;
+        inherit (nixpkgs.lib);
       };
       delling = import ./hosts/delling/variables-local.nix {
-        lib = nixpkgs.lib;
+        inherit (nixpkgs.lib);
       };
     in
     {
@@ -24,13 +24,15 @@
             chaotic.nixosModules.default
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users."${odin.config.configOptions.username}" = {
-                imports = [
-                  ./hosts/odin/variables-local.nix
-                  ./hosts/odin/home/default.nix
-                ];
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users."${odin.config.configOptions.username}" = {
+                  imports = [
+                    ./hosts/odin/variables-local.nix
+                    ./hosts/odin/home/default.nix
+                  ];
+                };
               };
             }
           ];
@@ -43,13 +45,15 @@
             chaotic.nixosModules.default
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users."${delling.config.configOptions.username}" = {
-                imports = [
-                  ./hosts/delling/variables-local.nix
-                  ./hosts/delling/home/default.nix
-                ];
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users."${delling.config.configOptions.username}" = {
+                  imports = [
+                    ./hosts/delling/variables-local.nix
+                    ./hosts/delling/home/default.nix
+                  ];
+                };
               };
             }
           ];

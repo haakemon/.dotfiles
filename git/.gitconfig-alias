@@ -17,8 +17,8 @@
   ds = diff --staged
 
   gc = !git maintenance run --task=gc
-  ms = !git maintenance start
-  mt = !git maintenance stop
+  mstart = !git maintenance start
+  mstop = !git maintenance stop
 
   # list branches sorted by last modified
   b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"

@@ -23,6 +23,18 @@ in
             "\\" = "G-2"; # @
             compose = "noop";
             capslock = "overload(nav, esc)";
+            # tab = "C-S-7";
+            # tab = "overloadt(macro(C-S-7), tab, 200)";
+            # tab = "overloadt(macro(C+S-7), tab, 200)";
+
+            "a" = "overloadt(meta, a, 200)";
+            "s" = "overloadt(alt, s, 200)";
+            "d" = "overloadt(shift, d, 200)";
+            "f" = "overloadt(control, f, 200)";
+            "j" = "overloadt(control, j, 200)";
+            "k" = "overloadt(shift, k, 200)";
+            "l" = "overloadt(alt, l, 200)";
+            ";" = "overloadt(meta, ;, 200)";
           };
           "shift" = {
             "4" = "G-4"; # $

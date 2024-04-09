@@ -28,6 +28,7 @@
   environment.variables = {
     VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";
     AMD_VULKAN_ICD = "RADV";
+    # DISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1=1;
   };
 
   systemd.tmpfiles.rules = [

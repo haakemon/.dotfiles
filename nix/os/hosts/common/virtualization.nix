@@ -22,7 +22,7 @@
     virt-manager.enable = true;
   };
 
-  boot.kernelParams = [ "amd_iommu=on" ];
+  # boot.kernelParams = [ "amd_iommu=on" ];
 
   virtualisation = {
     # waydroid.enable = true;

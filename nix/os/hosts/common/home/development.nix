@@ -23,6 +23,11 @@
     pkgs.kdePackages.kcolorchooser
     pkgs.flyctl
     pkgs.beekeeper-studio
+    pkgs.pre-commit
+    pkgs.gcc # requirement for pre-commit nixpkgs-fmt
+    pkgs.rustup # requirement for pre-commit nixpkgs-fmt
+    pkgs.nodejs
+    pkgs.corepack
     # pkgs.android-studio
   ];
 

@@ -7,3 +7,5 @@ My collection of dotfiles
 
 > [!WARNING]
 > Some parts of these files and scripts may expect the repo to be cloned to `~/.dotfiles`. Cloning it anywhere else could lead to some stuff not working as expected.
+
+This repo is setup with [`pre-commit`](https://pre-commit.com/#intro), so to ensure hooks are correctly set up, you should execute `pre-commit install`.

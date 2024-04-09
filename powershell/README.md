@@ -5,9 +5,9 @@ This is mainly taken from [Scott Hanselman's blog post about oh-my-posh](https:/
 - Install PowerShell (pwsh):
   - `winget install Microsoft.PowerShell`
 - Install Windows Terminal:
-  - https://github.com/microsoft/terminal/releases
+  - <https://github.com/microsoft/terminal/releases>
 - Install a nerd font:
-  - https://github.com/ryanoasis/nerd-fonts/releases
+  - <https://github.com/ryanoasis/nerd-fonts/releases>
   - I like Fira Code for VS Code, and MesloLGM for terminal
 - Install Terminal-Icons:
   - `Install-Module -Name Terminal-Icons`
@@ -20,11 +20,11 @@ This is mainly taken from [Scott Hanselman's blog post about oh-my-posh](https:/
   - `Install-Module PSReadLine -AllowPrerelease -Force`
 - Install Bat and add it to PATH
 
-### Naming conventions
+## Naming conventions
 
 I've tried following the naming conventions for functions, except for "helper functions" that are not meant to be discovered/used directly by users. These are breaking the naming convention, and are not using any `-` in the name.
 
-### Include in powershell profile
+## Include in powershell profile
 
 The easiest way to add these profile settings is to include them in the powershell profile. This is usually located in `Documents\PowerShell\Microsoft.PowerShell_profile.ps1`, but you can also check for its existence by executing `Test-Path $profile`, and execute `$profile` will give you the location. If this file does not exist, you can create it by executing `New-Item -path $profile -type file –force`.
 

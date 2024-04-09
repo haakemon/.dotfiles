@@ -1,6 +1,6 @@
 # [NixOS](https://nixos.org)
 
-I prefer to keep some "secrets" locally, and not part of the git history. I am relying on using `path:` prefix for the flakes to allow this (see https://github.com/NixOS/nix/issues/7107#issuecomment-1366095373). From what I understand this means that the entire flake directory is copied to the nix store, so any "secrets" would be readable there. For me that is not a problem, I just dont want them present in my git history (encrypted or not).
+I prefer to keep some "secrets" locally, and not part of the git history. I am relying on using `path:` prefix for the flakes to allow this (see <https://github.com/NixOS/nix/issues/7107#issuecomment-1366095373>). From what I understand this means that the entire flake directory is copied to the nix store, so any "secrets" would be readable there. For me that is not a problem, I just dont want them present in my git history (encrypted or not).
 
 ## Installing
 

@@ -2,7 +2,7 @@
 
 ## Bootstrapping new instances
 
-To quickly bootstrap new WSL instances, execute the scripts in this gist: https://gist.github.com/haakemon/31028cd0b479ce8546c7809f6f0a7400
+To quickly bootstrap new WSL instances, execute the scripts in this gist: <https://gist.github.com/haakemon/31028cd0b479ce8546c7809f6f0a7400>
 
 ## Images and instances
 

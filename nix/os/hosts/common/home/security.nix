@@ -1,9 +1,11 @@
 { config, pkgs, lib, ... }:
 let
-  sshKeysToLoad = lib.attrsets.foldlAttrs(acc: key: value: ''
-  ${acc}
-  { sleep .3; rbw get "SSH Keys" --field "${value}"; } | script -q /dev/null -c 'ssh-add -t 7d "''${HOME}/.ssh/${key}"'
-  ''  ) "" config.configOptions.sshKeys;
+  sshKeysToLoad = lib.attrsets.foldlAttrs
+    (acc: key: value: ''
+      ${acc}
+      { sleep .3; rbw get "SSH Keys" --field "${value}"; } | script -q /dev/null -c 'ssh-add -t 7d "''${HOME}/.ssh/${key}"'
+    '') ""
+    config.configOptions.sshKeys;
 in
 {
   home.packages = [

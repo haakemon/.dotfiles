@@ -96,19 +96,19 @@ stdenv.mkDerivation rec  {
     "TD_DbEntities.tx"
     "TD_DbIO.tx"
     "WipeOut.tx"
-   ];
+  ];
 
-installPhase = ''
-  runHook preInstall
+  installPhase = ''
+    runHook preInstall
 
-  mkdir $out
-  cd $out
-  rpmextract $src
-  mv $out/usr/* $out
-  rm -r $out/usr
+    mkdir $out
+    cd $out
+    rpmextract $src
+    mv $out/usr/* $out
+    rm -r $out/usr
 
-  runHook postInstall
-'';
+    runHook postInstall
+  '';
 
   #--use-gl=desktop for it to use hardware rendering it seems. Otherwise there are terrible framerates
   postInstall = ''

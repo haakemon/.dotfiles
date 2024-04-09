@@ -15,6 +15,9 @@
       delling = import ./hosts/delling/variables-local.nix {
         lib = nixpkgs.lib;
       };
+      heimdall = import ./hosts/heimdall/variables-local.nix {
+        lib = nixpkgs.lib;
+      };
     in
     {
       nixosConfigurations = {
@@ -54,6 +57,26 @@
                   imports = [
                     ./hosts/delling/variables-local.nix
                     ./hosts/delling/home/default.nix
+                  ];
+                };
+              };
+            }
+          ];
+        };
+
+        heimdall = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/heimdall/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users."${heimdall.config.configOptions.username}" = {
+                  imports = [
+                    ./hosts/heimdall/variables-local.nix
+                    ./hosts/heimdall/home/default.nix
                   ];
                 };
               };

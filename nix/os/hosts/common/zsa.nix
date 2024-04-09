@@ -8,6 +8,7 @@
       "plugdev"
     ];
     packages = [
+    ] ++ lib.optionals (!config.configOptions.headless) [
       pkgs.keymapp
     ];
   };

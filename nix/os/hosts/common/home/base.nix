@@ -72,7 +72,7 @@
   };
 
   # Settings for virt-manager https://nixos.wiki/wiki/Virt-manager
-  dconf.settings = {
+  dconf.settings = lib.mkIf (!config.configOptions.headless) {
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = [ "qemu:///system" ];
       uris = [ "qemu:///system" ];

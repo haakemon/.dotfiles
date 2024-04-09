@@ -14,8 +14,8 @@ in
     pkgs.bitwarden
     pkgs.rbw # https://crates.io/crates/rbw unofficial bitwarden CLI
     pkgs.pinentry # dependency for rbw
-    pkgs.keepassxc
   ] ++ lib.optionals (!config.configOptions.headless) [
+    pkgs.keepassxc
     pkgs.protonvpn-gui
   ];
 

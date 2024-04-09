@@ -1,11 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  services = {
-    spice-vdagentd.enable = true;
-  };
-
   environment.systemPackages = [
+    pkgs.podman-compose
+    pkgs.distrobox
+  ] ++ lib.optionals (!config.configOptions.headless) [
     pkgs.virt-viewer
     pkgs.spice
     pkgs.spice-gtk
@@ -14,34 +13,41 @@
     pkgs.win-spice
     pkgs.libvirt
     pkgs.libguestfs-with-appliance
-    pkgs.podman-compose
-    pkgs.distrobox
   ];
 
-  programs = {
+  programs = lib.mkIf (!config.configOptions.headless) {
     virt-manager.enable = true;
+  };
+
+  services = lib.mkIf (!config.configOptions.headless) {
+    spice-vdagentd.enable = true;
   };
 
   # boot.kernelParams = [ "amd_iommu=on" ];
 
-  virtualisation = {
-    # waydroid.enable = true;
-    libvirtd = {
-      enable = true;
-      qemu = {
-        swtpm.enable = true;
-        ovmf.enable = true;
-        ovmf.packages = [ pkgs.OVMFFull.fd ];
+  virtualisation = lib.mkMerge [
+    {
+      podman = {
+        enable = true;
+        dockerCompat = true;
+        defaultNetwork.settings.dns_enabled = true;
       };
-    };
-    spiceUSBRedirection.enable = true;
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
-    oci-containers = {
-      backend = "podman";
-    };
-  };
+      oci-containers = {
+        backend = "podman";
+      };
+    }
+
+    (lib.mkIf (!config.configOptions.headless) {
+      # waydroid.enable = true;
+      libvirtd = {
+        enable = true;
+        qemu = {
+          swtpm.enable = true;
+          ovmf.enable = true;
+          ovmf.packages = [ pkgs.OVMFFull.fd ];
+        };
+      };
+      spiceUSBRedirection.enable = true;
+    })
+  ];
 }

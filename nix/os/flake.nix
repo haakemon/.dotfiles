@@ -6,13 +6,14 @@
     , nixpkgs
     , chaotic
     , home-manager
+    , niri
     } @ inputs:
     let
       odin = import ./hosts/odin/variables-local.nix {
-        inherit (nixpkgs.lib);
+        lib = nixpkgs.lib;
       };
       delling = import ./hosts/delling/variables-local.nix {
-        inherit (nixpkgs.lib);
+        lib = nixpkgs.lib;
       };
     in
     {
@@ -22,6 +23,7 @@
           modules = [
             ./hosts/odin/configuration.nix
             chaotic.nixosModules.default
+            niri.nixosModules.niri
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -68,5 +70,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    niri.url = "github:sodiboo/niri-flake";
   };
 }

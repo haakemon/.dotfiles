@@ -18,6 +18,9 @@
       ../common/users.nix
     ];
 
+
+  programs.niri.enable = true;
+
   services = {
     flatpak.enable = true;
     hardware.openrgb = {

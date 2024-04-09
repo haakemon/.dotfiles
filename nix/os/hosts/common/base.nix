@@ -119,7 +119,7 @@
 
   system = {
     autoUpgrade.enable = true;
-    autoUpgrade.allowReboot = true;
+    autoUpgrade.allowReboot = false;
   };
 
   programs = lib.mkMerge [

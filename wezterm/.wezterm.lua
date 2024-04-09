@@ -80,6 +80,15 @@ config.keys = {
               else
                 wezterm.log_info('id = ' .. id)
                 wezterm.log_info('label = ' .. label)
+
+
+  -- local first_tab, first_pane, window = wezterm.mux.spawn_window {}
+  -- local _, second_pane, _ = window:spawn_tab {}
+
+
+  -- first_tab:activate()
+
+  -- first_pane:send_text 'asdfffffffffffff'
                 inner_window:perform_action(
                   act.SwitchToWorkspace {
                     name = label,

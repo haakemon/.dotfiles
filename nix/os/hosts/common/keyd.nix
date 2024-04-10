@@ -23,10 +23,19 @@ in
             "\\" = "G-2"; # @
             compose = "noop";
             capslock = "overload(nav, esc)";
+
+            # convenience overloads - not working...
+            # "r" = "overloadt(control+r, r, 200)";
+            # "t" = "overloadt(control+t, t, 200)";
             # tab = "C-S-7";
             # tab = "overloadt(macro(C-S-7), tab, 200)";
             # tab = "overloadt(macro(C+S-7), tab, 200)";
 
+            # copy/paste - not working...
+            # "c" = "overloadt(control+insert, c, 200)";
+            # "v" = "overloadt(shift+insert, v, 200)";
+
+            # home row mods
             "a" = "overloadt(meta, a, 200)";
             "s" = "overloadt(alt, s, 200)";
             "d" = "overloadt(shift, d, 200)";

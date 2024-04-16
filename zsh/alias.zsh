@@ -6,6 +6,7 @@ alias ,,='cd $(git rev-parse --show-toplevel)' # cd to git root
 alias ..='cd ..'
 alias ...='cd ../..'
 alias lla="eza --all --long --group --header --git --icons --group-directories-first --links"
+alias tree="eza --all --long --group --header --git --icons --group-directories-first --links --tree"
 alias _cat="command cat"
 alias cat="bat"
 alias _npm="command npm"

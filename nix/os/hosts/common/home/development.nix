@@ -28,6 +28,7 @@
     pkgs.rustup # requirement for pre-commit nixpkgs-fmt
     pkgs.nodejs
     pkgs.corepack
+    pkgs.nmap
     # pkgs.android-studio
   ];
 

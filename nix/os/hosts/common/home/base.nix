@@ -42,6 +42,7 @@
 
     packages = [
       pkgs.unzip
+      pkgs.z-lua
     ] ++ lib.optionals (!config.configOptions.headless) [
       pkgs.kdenlive
       pkgs.vivaldi

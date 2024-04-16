@@ -7,6 +7,7 @@
     pkgs.fastfetch
     pkgs.eza
     pkgs.zsh-powerlevel10k
+    pkgs.entr
     (pkgs.nerdfonts.override { fonts = [ "VictorMono" ]; })
     pkgs.victor-mono
     pkgs.bat

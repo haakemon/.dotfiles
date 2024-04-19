@@ -43,7 +43,11 @@
     packages = [
       pkgs.unzip
     ] ++ lib.optionals (!config.configOptions.headless) [
-      pkgs.kdenlive
+      pkgs.kdePackages.kdenlive
+      pkgs.openshot-qt
+      pkgs.shotcut
+      pkgs.clipgrab
+      pkgs.parabolic
       pkgs.vivaldi
       pkgs.wezterm
       pkgs.freeoffice
@@ -52,6 +56,12 @@
       (pkgs.nerdfonts.override { fonts = [ "VictorMono" ]; })
       pkgs.victor-mono
       pkgs.gparted
+      pkgs.standardnotes
+      pkgs.manuskript
+      pkgs.rawtherapee
+      pkgs.nomacs # image viewer
+      pkgs.kdePackages.ghostwriter
+      pkgs.marktext
     ];
   };
 

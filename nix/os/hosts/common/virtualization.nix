@@ -13,6 +13,7 @@
     pkgs.win-spice
     pkgs.libvirt
     pkgs.libguestfs-with-appliance
+    pkgs.pods
   ];
 
   programs = lib.mkIf (!config.configOptions.headless) {

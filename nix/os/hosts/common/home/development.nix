@@ -29,6 +29,8 @@
     pkgs.nodejs
     pkgs.corepack
     pkgs.nmap
+    pkgs.termius
+    pkgs.mitmproxy
     # pkgs.android-studio
   ];
 

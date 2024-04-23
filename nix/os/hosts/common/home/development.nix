@@ -8,6 +8,7 @@
 
     # Tools
     pkgs.mqttmultimeter
+    pkgs.vhs
     # pkgs.vscode
     pkgs.vscode-fhs
     pkgs.wezterm
@@ -31,6 +32,7 @@
     pkgs.nmap
     pkgs.termius
     pkgs.mitmproxy
+    pkgs.arduino-ide
     # pkgs.android-studio
   ];
 

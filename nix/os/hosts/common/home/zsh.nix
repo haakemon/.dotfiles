@@ -14,6 +14,12 @@
     pkgs.fzf # fuzzy find
     pkgs.grc # generic text colorizer
     pkgs.jq
+    pkgs.zoxide
+    pkgs.ripgrep
+    pkgs.onefetch # fastfetch for git repos
+    pkgs.navi
+    pkgs.duf # disk space utility
+    pkgs.glow # cli markdown viewer
   ];
 
   home.file = {
@@ -76,6 +82,8 @@
         autoload -Uz compinit
         compinit
         unsetopt beep
+
+        eval "$(zoxide init --cmd cd zsh)"
 
         source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
         source "''${HOME}/.dotfiles/zsh/p10k.zsh"

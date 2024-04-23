@@ -42,6 +42,7 @@
 
     packages = [
       pkgs.unzip
+      pkgs.croc
     ] ++ lib.optionals (!config.configOptions.headless) [
       pkgs.kdePackages.kdenlive
       pkgs.openshot-qt
@@ -62,6 +63,7 @@
       pkgs.nomacs # image viewer
       pkgs.kdePackages.ghostwriter
       pkgs.marktext
+      pkgs.scrcpy
     ];
   };
 

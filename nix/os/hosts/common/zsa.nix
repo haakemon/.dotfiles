@@ -7,8 +7,7 @@
     extraGroups = [
       "plugdev"
     ];
-    packages = [
-    ] ++ lib.optionals (!config.configOptions.headless) [
+    packages = lib.mkIf (!config.configOptions.headless) [
       pkgs.keymapp
     ];
   };

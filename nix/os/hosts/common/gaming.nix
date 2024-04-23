@@ -60,6 +60,12 @@
       pkgs.proton-ge-custom
 
       pkgs.alvr
+
+      # games
+      pkgs.pingus
+      # pkgs.openrw
+      pkgs.openra
+      # pkgs.openrct2
     ];
     variables = {
       DXVK_HDR = "1";

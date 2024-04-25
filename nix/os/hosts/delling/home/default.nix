@@ -36,6 +36,11 @@
       pkgs.freetube
       pkgs.vlc
 
+      # Devtools
+      pkgs.azure-cli
+      pkgs.kubectl
+      pkgs.kubectx
+
       # Chat
       pkgs.telegram-desktop
       pkgs.slack

@@ -65,6 +65,7 @@
       pkgs.pingus
       # pkgs.openrw
       pkgs.openra
+      pkgs.airshipper # https://www.veloren.net/
       # pkgs.openrct2
     ];
     variables = {

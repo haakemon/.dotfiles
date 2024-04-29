@@ -10,6 +10,8 @@
       "libvirtd"
       "video"
       "render"
+      "dialout"
+      "tty"
     ];
     shell = pkgs.zsh;
     packages = [

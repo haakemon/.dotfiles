@@ -13,7 +13,7 @@
       ../common/gpu-amd.nix
       ../common/gaming.nix
       ../common/keyd.nix
-      ../common/sddm-theme
+      # ../common/sddm-theme
       ../common/zsa.nix
       ../common/users.nix
     ];

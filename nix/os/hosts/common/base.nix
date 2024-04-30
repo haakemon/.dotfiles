@@ -130,7 +130,10 @@
         enableBashCompletion = true;
       };
       xwayland.enable = true;
-      fzf.fuzzyCompletion = true;
+      fzf = {
+        fuzzyCompletion = true;
+        keybindings = true;
+      };
       dconf.enable = true;
     }
 

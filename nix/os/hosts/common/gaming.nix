@@ -66,6 +66,7 @@
       # pkgs.openrw
       pkgs.openra
       pkgs.airshipper # https://www.veloren.net/
+      pkgs.superTuxKart
       # pkgs.openrct2
     ];
     variables = {

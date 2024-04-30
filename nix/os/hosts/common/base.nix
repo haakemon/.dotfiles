@@ -18,17 +18,17 @@
     (lib.mkIf (!config.configOptions.headless) {
       desktopManager.plasma6.enable = true;
       gnome.at-spi2-core.enable = true; # requirement for orca screen reader
+      displayManager = {
+        sddm = {
+          enable = true;
+          wayland.enable = true;
+          autoNumlock = true;
+        };
+        defaultSession = "plasma";
+      };
       xserver = {
         enable = true;
         xkb.layout = "no";
-        displayManager = {
-          sddm = {
-            enable = true;
-            wayland.enable = true;
-            autoNumlock = true;
-          };
-          defaultSession = "plasma";
-        };
       };
       printing = {
         enable = true;

@@ -14,6 +14,7 @@
     pkgs.wezterm
     pkgs.bruno
     pkgs.sublime-merge
+    pkgs.meld
     pkgs.gh # github cli
     pkgs.simple-http-server
     pkgs.zettlr

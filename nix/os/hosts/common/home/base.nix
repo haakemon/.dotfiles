@@ -47,8 +47,6 @@
       pkgs.kdePackages.kdenlive
       pkgs.openshot-qt
       pkgs.shotcut
-      pkgs.clipgrab
-      pkgs.parabolic
       pkgs.vivaldi
       pkgs.wezterm
       pkgs.freeoffice
@@ -64,6 +62,8 @@
       pkgs.kdePackages.ghostwriter
       pkgs.marktext
       pkgs.scrcpy
+      pkgs.slides # terminal markdown slides
+      pkgs.krusader
     ];
   };
 

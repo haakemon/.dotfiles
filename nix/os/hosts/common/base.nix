@@ -113,6 +113,9 @@
     pkgs.libnotify
     pkgs.victor-mono # font
     pkgs.aha # ANSI HTML Adapter
+    pkgs.wlogout
+    pkgs.dunst # desktop notifications
+    pkgs.waybar
   ];
 
   system = {

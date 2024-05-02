@@ -10,10 +10,7 @@
       ../common/i18n.nix
       ../common/networking.nix
       ../common/virtualization.nix
-      # ../common/gpu-amd.nix
-      # ../common/gaming.nix
       ../common/keyd.nix
-      # ../common/sddm-theme
       ../common/zsa.nix
       ../common/users.nix
     ];

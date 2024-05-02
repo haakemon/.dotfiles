@@ -35,5 +35,5 @@
     "custom/exit"
   ],
 
-  "include": ["~/.dotfiles/waybar/modules.jsonc"]
+  "include": ["~/.dotfiles/waybar/modules.jsonc", "~/.dotfiles/waybar/modules-custom.jsonc"]
 }

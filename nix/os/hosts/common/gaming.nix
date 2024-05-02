@@ -5,7 +5,7 @@
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
-      # gamescopeSession.enable = true;
+      gamescopeSession.enable = true;
       package = pkgs.steam.override {
         extraPkgs = pkgs: with pkgs; [
           libkrb5
@@ -58,6 +58,8 @@
 
       pkgs.luxtorpeda
       pkgs.proton-ge-custom
+      pkgs.protonup
+      pkgs.mangohud
 
       pkgs.alvr
 

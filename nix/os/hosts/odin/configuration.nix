@@ -14,8 +14,9 @@
       ../common/gaming.nix
       ../common/keyd.nix
       # ../common/sddm-theme
-      ../common/zsa.nix
       ../common/users.nix
+
+      ../../modules/zsa.nix
     ];
 
 

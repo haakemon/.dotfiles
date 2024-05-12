@@ -63,6 +63,21 @@
         };
         description = "An attribute set of SSH keys. The key value should be the ssh key filename, and the value should be the field name to lookup the passphrase in Bitwarden";
       };
+
+      acme = {
+        domain = lib.mkOption {
+          type = lib.types.str;
+          description = "domain name";
+        };
+        email = lib.mkOption {
+          type = lib.types.str;
+          description = "acme email";
+        };
+      };
+      wireguardPort = lib.mkOption {
+        type = lib.types.number;
+        description = "port number for wireguard";
+      };
     };
   };
 }

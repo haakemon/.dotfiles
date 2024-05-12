@@ -11,8 +11,14 @@
       ../common/networking.nix
       ../common/virtualization.nix
       ../common/keyd.nix
-      ../common/zsa.nix
       ../common/users.nix
+
+      ../../modules/zsa.nix
+      ../../modules/wireguard.nix
+      ../../modules/cockpit.nix
+      ../../modules/ssh.nix
+      ../../modules/traefik.nix
+      ../../modules/adguard.nix
     ];
 
   services = {
@@ -20,6 +26,109 @@
     #   enable = true;
     #   interval = "weekly";
     # };
+
+    traefik.dynamicConfigOptions.http = {
+      services = {
+        homarr.loadBalancer.servers = [{ url = "http://127.0.0.1:7575"; }];
+        cockpit.loadBalancer.servers = [{ url = "http://127.0.0.1:9090"; }];
+        octoprint.loadBalancer.servers = [{ url = "http://192.168.2.10"; }];
+        valetudo.loadBalancer.servers = [{ url = "http://192.168.2.11"; }];
+        zigbee2mqtt.loadBalancer.servers = [{ url = "http://127.0.0.1:8089"; }];
+        zwavejs2mqtt.loadBalancer.servers = [{ url = "http://127.0.0.1:8091"; }];
+        hass.loadBalancer.servers = [{ url = "http://127.0.0.1:8123"; }];
+        memories.loadBalancer.servers = [{ url = "http://127.0.0.1:2342"; }];
+        teslamate.loadBalancer.servers = [{ url = "http://127.0.0.1:4000"; }];
+        "teslamate-stats".loadBalancer.servers = [{ url = "http://127.0.0.1:4001"; }];
+        adguard.loadBalancer.servers = [{ url = "http://127.0.0.1:3050"; }];
+        status.loadBalancer.servers = [{ url = "http://127.0.0.1:3001"; }];
+      };
+
+      routers = {
+        homarr = {
+          rule = "Host(`${config.configOptions.acme.domain}`)";
+          entryPoints = [ "websecure" ];
+          service = "homarr";
+        };
+
+        traefik = {
+          rule = "Host(`traefik.${config.configOptions.acme.domain}`)";
+          entryPoints = [ "websecure" ];
+          service = "api@internal";
+        };
+
+        cockpit = {
+          rule = "Host(`cockpit.${config.configOptions.acme.domain}`)";
+          entryPoints = [ "websecure" ];
+          service = "cockpit";
+        };
+
+        octoprint = {
+          rule = "Host(`octoprint.${config.configOptions.acme.domain}`)";
+          entryPoints = [ "websecure" ];
+          service = "octoprint";
+        };
+
+        valetudo = {
+          rule = "Host(`valetudo.${config.configOptions.acme.domain}`)";
+          entryPoints = [ "websecure" ];
+          service = "valetudo";
+        };
+
+        zigbee2mqtt = {
+          rule = "Host(`zigbee2mqtt.${config.configOptions.acme.domain}`)";
+          entryPoints = [ "websecure" ];
+          service = "zigbee2mqtt";
+        };
+
+        zwavejs2mqtt = {
+          rule = "Host(`zwavejs2mqtt.${config.configOptions.acme.domain}`)";
+          entryPoints = [ "websecure" ];
+          service = "zwavejs2mqtt";
+        };
+
+        hass = {
+          rule = "Host(`hass.${config.configOptions.acme.domain}`)";
+          entryPoints = [ "websecure" ];
+          service = "hass";
+        };
+
+        photoprism = {
+          rule = "Host(`photoprism.${config.configOptions.acme.domain}`)";
+          entryPoints = [ "websecure" ];
+          service = "memories";
+        };
+
+        memories = {
+          rule = "Host(`memories.${config.configOptions.acme.domain}`)";
+          entryPoints = [ "websecure" ];
+          service = "memories";
+        };
+
+        teslamate = {
+          rule = "Host(`tesla.${config.configOptions.acme.domain}`)";
+          entryPoints = [ "websecure" ];
+          service = "teslamate";
+        };
+
+        "teslamate-stats" = {
+          rule = "Host(`tesla-stats.${config.configOptions.acme.domain}`)";
+          entryPoints = [ "websecure" ];
+          service = "teslamate-stats";
+        };
+
+        adguard = {
+          rule = "Host(`adguard.${config.configOptions.acme.domain}`)";
+          entryPoints = [ "websecure" ];
+          service = "adguard";
+        };
+
+        status = {
+          rule = "Host(`status.${config.configOptions.acme.domain}`)";
+          entryPoints = [ "websecure" ];
+          service = "status";
+        };
+      };
+    };
   };
 
   # systemd.user.services.jotta = {

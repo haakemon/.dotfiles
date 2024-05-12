@@ -12,6 +12,7 @@
       dnsPropagationCheck = true;
       domain = "${config.configOptions.acme.domain}";
       extraDomainNames = [ "*.${config.configOptions.acme.domain}" ];
+      group = "traefik";
     };
   };
 

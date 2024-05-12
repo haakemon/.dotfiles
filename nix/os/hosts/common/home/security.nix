@@ -13,7 +13,7 @@ in
     pkgs.keychain
     pkgs.bitwarden
     pkgs.rbw # https://crates.io/crates/rbw unofficial bitwarden CLI
-    pkgs.pinentry # dependency for rbw
+    pkgs.pinentry-tty # dependency for rbw
   ] ++ lib.optionals (!config.configOptions.headless) [
     pkgs.keepassxc
     pkgs.protonvpn-gui

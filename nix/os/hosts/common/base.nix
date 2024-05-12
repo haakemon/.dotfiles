@@ -138,6 +138,7 @@
         keybindings = true;
       };
       dconf.enable = true;
+      nix-ld.enable = true;
     }
 
     (lib.mkIf (!config.configOptions.headless) {

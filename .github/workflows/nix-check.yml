@@ -23,7 +23,7 @@ jobs:
         run: nix run nixpkgs#statix check ./nix/
 
       - name: Nix Flake Checker
-        uses: DeterminateSystems/flake-checker-action@v5
+        uses: DeterminateSystems/flake-checker-action@v6
         with:
           flake-lock-path: ./nix/os/flake.lock
           ignore-missing-flake-lock: false

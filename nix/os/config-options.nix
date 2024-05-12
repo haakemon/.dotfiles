@@ -35,11 +35,6 @@
         description = "Language to be used for LC_ADDRESS, LC_IDENTIFICATION, LC_MEASUREMENT, LC_MONETARY, LC_NAME, LC_NUMERIC, LC_PAPER, LC_TELEPHONE and LC_TIME";
         default = "nb_NO.UTF-8";
       };
-      consoleKeymap = lib.mkOption {
-        type = lib.types.str;
-        description = "Language to be used for console.keyMap";
-        default = "no";
-      };
       git = {
         username = lib.mkOption {
           type = lib.types.str;

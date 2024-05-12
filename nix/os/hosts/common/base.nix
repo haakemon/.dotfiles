@@ -77,7 +77,7 @@
 
   sound.enable = true;
 
-  console.keyMap = "${config.configOptions.consoleKeymap}";
+  console.keyMap = "no";
   security.rtkit.enable = true;
 
   hardware = {

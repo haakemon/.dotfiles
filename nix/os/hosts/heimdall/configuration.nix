@@ -41,6 +41,7 @@
         "teslamate-stats".loadBalancer.servers = [{ url = "http://127.0.0.1:4001"; }];
         adguard.loadBalancer.servers = [{ url = "http://127.0.0.1:3050"; }];
         status.loadBalancer.servers = [{ url = "http://127.0.0.1:3001"; }];
+        tracks.loadBalancer.servers = [{ url = "http://127.0.0.1:3005"; }];
       };
 
       routers = {
@@ -126,6 +127,12 @@
           rule = "Host(`status.${config.configOptions.acme.domain}`)";
           entryPoints = [ "websecure" ];
           service = "status";
+        };
+
+        tracks = {
+          rule = "Host(`tracks.${config.configOptions.acme.domain}`)";
+          entryPoints = [ "websecure" ];
+          service = "tracks";
         };
       };
     };

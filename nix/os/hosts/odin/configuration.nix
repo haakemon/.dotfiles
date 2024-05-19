@@ -49,6 +49,13 @@
     };
   };
 
+  networking = {
+    nameservers = [
+      "192.168.2.9" # TODO:_Remove this after router is updated
+      # "9.9.9.9"
+    ];
+  };
+
   # environment.systemPackages = [
   #   pkgs.unigine-superposition # benchmarking tool
   # ];

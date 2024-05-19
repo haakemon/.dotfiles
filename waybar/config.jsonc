@@ -1,7 +1,8 @@
 {
   "layer": "top", // Waybar at top layer
   // "position": "bottom", // Waybar position (top|bottom|left|right)
-  "height": 30, // Waybar height (to be removed for auto height)
+  "height": 47, // Waybar height (to be removed for auto height)
+  "reload_style_on_change": true,
   // "width": 1280, // Waybar width
   "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
@@ -10,28 +11,28 @@
   // "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "hyprland/language", "battery", "battery#bat2", "clock", "tray"],
   "modules-left": [
     "custom/applauncher",
-    "custom/term",
-    "hyprland/workspaces",
-    "hyprland/mode",
-    "hyprland/scratchpad",
-    "custom/media"
+    "custom/term"
+    // "hyprland/workspaces",
+    // "hyprland/mode",
+    // "hyprland/scratchpad",
+    // "custom/media"
   ],
   "modules-center": ["hyprland/window"],
   "modules-right": [
-    "mpd",
-    "pulseaudio",
-    "idle_inhibitor",
+    // "mpd",
+    // "pulseaudio",
+    // "idle_inhibitor",
     "network",
-    "cpu",
-    "memory",
-    "temperature",
-    "backlight",
+    "group/hardware",
+    // "temperature",
+    // "backlight",
     "keyboard-state",
-    "hyprland/language",
-    "battery",
-    "battery#bat2",
-    "clock",
+    // "hyprland/language",
+    // "battery",
+    // "battery#bat2",
+    "bluetooth",
     "tray",
+    "clock",
     "custom/exit"
   ],
 

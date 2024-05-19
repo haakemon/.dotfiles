@@ -16,6 +16,15 @@
       "default": ""
     }
   },
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "", // an empty format will hide the module
+    "format-connected": " {num_connections} connected",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "blueman-manager" // or blueberry?
+  },
   "keyboard-state": {
     "numlock": true,
     "capslock": true,
@@ -77,9 +86,23 @@
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d}"
   },
+  // "cpu": {
+  //   "format": "{usage}% ",
+  //   "tooltip": false
+  // },
   "cpu": {
-    "format": "{usage}% ",
-    "tooltip": false
+    "interval": 1,
+    "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}",
+    "format-icons": [
+      "<span color='#69ff94'>▁</span>", // green
+      "<span color='#2aa9ff'>▂</span>", // blue
+      "<span color='#f8f8f2'>▃</span>", // white
+      "<span color='#f8f8f2'>▄</span>", // white
+      "<span color='#ffffa5'>▅</span>", // yellow
+      "<span color='#ffffa5'>▆</span>", // yellow
+      "<span color='#ff9977'>▇</span>", // orange
+      "<span color='#dd532e'>█</span>" // red
+    ]
   },
   "memory": {
     "format": "{}% "
@@ -111,9 +134,6 @@
     // "format-full": "",
     "format-icons": ["", "", "", "", ""]
   },
-  "battery#bat2": {
-    "bat": "BAT2"
-  },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
     "format-wifi": "{essid} ({signalStrength}%) ",
@@ -141,5 +161,9 @@
       "default": ["", "", ""]
     },
     "on-click": "pavucontrol"
+  },
+  "group/hardware": {
+    "orientation": "horizontal",
+    "modules": ["disk", "cpu", "memory"]
   }
 }

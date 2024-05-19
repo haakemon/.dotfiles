@@ -20,6 +20,18 @@
     ];
 
 
+  # qt = {
+  #   enable = true;
+  #   style = "kvantum";
+  #   # platformTheme = "qt5tc";
+  # };
+
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
   programs.niri.enable = true;
 
   services = {

@@ -12,6 +12,7 @@
       "render"
       "dialout"
       "tty"
+      "input"
     ];
     shell = pkgs.zsh;
     packages = [

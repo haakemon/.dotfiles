@@ -23,6 +23,7 @@
   programs.niri.enable = true;
 
   services = {
+    blueman.enable = true;
     flatpak.enable = true;
     hardware.openrgb = {
       enable = true;

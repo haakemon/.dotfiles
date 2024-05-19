@@ -38,7 +38,7 @@ config.inactive_pane_hsb = {
   brightness = 0.9,
 }
 config.hide_mouse_cursor_when_typing = false
-config.window_background_opacity = 0.85
+config.window_background_opacity = 0.97
 
 config.window_close_confirmation = "NeverPrompt"
 

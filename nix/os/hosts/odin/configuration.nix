@@ -42,10 +42,10 @@
       motherboard = "amd";
     };
 
-    ollama = {
-      enable = true;
-      acceleration = "rocm";
-    };
+    # ollama = {
+    #   enable = true;
+    #   acceleration = "rocm";
+    # };
     # fstrim = {
     #   enable = true;
     #   interval = "weekly";

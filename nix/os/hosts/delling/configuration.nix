@@ -5,6 +5,7 @@
     [
       ./variables-local.nix
       ./hardware-configuration.nix
+      ./traefik.nix
       ../common/base.nix
       ../common/boot.nix
       ../common/i18n.nix
@@ -34,10 +35,10 @@
   services = {
     hardware.bolt.enable = true; # enable thunderbolt/dock capabilities
 
-    ollama = {
-      enable = true;
-      acceleration = "cuda";
-    };
+    # ollama = {
+    #   enable = true;
+    #   acceleration = "cuda";
+    # };
   };
 
   # This value determines the NixOS release from which the default

@@ -36,6 +36,7 @@
     xwayland.enable = true;
   };
 
+  #programs.seahorse.enable = true;
   programs.niri.enable = true;
   security.polkit.enable = true;
   security.pam.services.swaylock = {
@@ -49,6 +50,8 @@
       enable = true;
       motherboard = "amd";
     };
+
+    gnome.gnome-keyring.enable = true;
 
     # ollama = {
     #   enable = true;

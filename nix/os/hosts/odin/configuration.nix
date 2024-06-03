@@ -13,7 +13,6 @@
       ../common/gpu-amd.nix
       ../common/gaming.nix
       ../common/keyd.nix
-      # ../common/sddm-theme
       ../common/users.nix
 
       ../../modules/zsa.nix

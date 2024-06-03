@@ -13,7 +13,6 @@
       ../common/virtualization.nix
       ../common/gpu-nvidia.nix
       ../common/keyd.nix
-      ../common/sddm-theme
       ../common/users.nix
       ./configuration-local.nix
       ../../modules/zsa.nix

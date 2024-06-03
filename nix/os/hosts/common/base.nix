@@ -3,8 +3,9 @@
 {
   nixpkgs.overlays = [
     (self: super: {
-      gitbutler = super.callPackage ../../apps/gitbutler/package.nix { };
-      gitbutler-ui = super.callPackage ../../apps/gitbutler-ui/package.nix { };
+      #  gitbutler = super.callPackage ../../apps/gitbutler/package.nix { };
+      #  gitbutler-ui = super.callPackage ../../apps/gitbutler-ui/package.nix { };
+      xwayland-satellite = super.callPackage ../../apps/xwayland-satellite/package.nix { };
     })
   ];
 

@@ -28,7 +28,7 @@
       pkgs.obs-studio
       pkgs.prusa-slicer
       pkgs.plasticity
-      pkgs.gitbutler
+      # pkgs.gitbutler
       pkgs.fuzzel
 
       # Gaming

@@ -7,6 +7,7 @@
     , chaotic
     , home-manager
     , niri
+    , ...
     } @ inputs:
     let
       odin = import ./hosts/odin/variables-local.nix {
@@ -27,6 +28,7 @@
             ./hosts/odin/configuration.nix
             chaotic.nixosModules.default
             niri.nixosModules.niri
+            # inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -95,5 +97,6 @@
     };
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     niri.url = "github:sodiboo/niri-flake";
+    #stylix.url = "github:danth/stylix";
   };
 }

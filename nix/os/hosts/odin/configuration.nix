@@ -25,6 +25,11 @@
   #   # platformTheme = "qt5tc";
   # };
 
+  environment.systemPackages = [
+    pkgs.xwayland-satellite
+    pkgs.swaybg
+    pkgs.swayidle
+  ];
 
   programs.hyprland = {
     enable = true;
@@ -32,6 +37,10 @@
   };
 
   programs.niri.enable = true;
+  security.polkit.enable = true;
+  security.pam.services.swaylock = {
+    text = "auth include login";
+  };
 
   services = {
     blueman.enable = true;

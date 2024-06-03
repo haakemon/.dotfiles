@@ -31,6 +31,7 @@
       NPM_CONFIG_TMP = "${config.home.sessionVariables.XDG_CACHE_HOME}/npm_tmp";
 
       STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${config.home.homeDirectory}/.steam/root/compatibilitytools.d";
+      NIXOS_OZONE_WL = 1;
     };
 
     file = {

@@ -66,6 +66,7 @@
       pkgs.slides # terminal markdown slides
       pkgs.krusader
       pkgs.grim # screenshot tool
+      pkgs.fuzzel
     ];
   };
 

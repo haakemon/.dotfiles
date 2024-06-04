@@ -112,7 +112,6 @@
       pkgs.prusa-slicer
       pkgs.plasticity
       # pkgs.gitbutler
-      pkgs.fuzzel
 
       # Gaming
       pkgs.heroic

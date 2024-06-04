@@ -29,10 +29,11 @@ in
         eval $(keychain --agents ssh --timeout 10080 --eval --quiet)
 
         function load-ssh-keys {
-          rbw unlock
-          echo "''${YELLOW_COLOR}loading ssh keys...''${RESET_COLOR}"
-          ${sshKeysToLoad}
-          rbw lock
+          #rbw unlock
+          #echo "''${YELLOW_COLOR}loading ssh keys...''${RESET_COLOR}"
+          #rbw lock
+
+          echo "ssh keys not loaded"
         }
 
         isSSHKeysNotLoaded=$(keychain -l)

@@ -73,6 +73,14 @@
           type = lib.types.str;
           description = "acme email";
         };
+        provider = lib.mkOption {
+          type = lib.types.str;
+          description = "acme provider";
+        };
+        credentialsFile = lib.mkOption {
+          type = lib.types.str;
+          description = "path to credentials file";
+        };
       };
       wireguardPort = lib.mkOption {
         type = lib.types.number;

@@ -4,8 +4,9 @@
   imports =
     [
       ./variables-local.nix
+      ./configuration-local.nix
+
       ./hardware-configuration.nix
-      ./traefik.nix
       ../common/base.nix
       ../common/boot.nix
       ../common/i18n.nix
@@ -14,8 +15,10 @@
       ../common/gpu-nvidia.nix
       ../common/keyd.nix
       ../common/users.nix
-      ./configuration-local.nix
+
       ../../modules/zsa.nix
+      ../../modules/acme.nix
+      ../../modules/traefik.nix
     ];
 
   hardware = {

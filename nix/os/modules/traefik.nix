@@ -1,21 +1,6 @@
 { config, ... }:
 
 {
-  security.acme = {
-    acceptTerms = true;
-    preliminarySelfsigned = false;
-    defaults.email = "${config.configOptions.acme.email}";
-    certs."${config.configOptions.acme.domain}" = {
-      dnsProvider = "cloudflare";
-      dnsResolver = "1.1.1.1:53";
-      credentialsFile = "${config.configOptions.userHome}/secrets/cloudflare";
-      dnsPropagationCheck = true;
-      domain = "${config.configOptions.acme.domain}";
-      extraDomainNames = [ "*.${config.configOptions.acme.domain}" ];
-      group = "traefik";
-    };
-  };
-
   services = {
     traefik = {
       enable = true;
@@ -28,14 +13,6 @@
           sendAnonymousUsage = false;
         };
         entryPoints = {
-          web = {
-            address = ":80";
-            http.redirections.entryPoint = {
-              to = "websecure";
-              scheme = "https";
-              permanent = true;
-            };
-          };
           websecure = {
             address = ":443";
             http.tls.certResolver = "letsencrypt";
@@ -72,6 +49,23 @@
           ];
         };
       };
+
+
+      # http = {
+      #   services = {
+      #     localhost3000.loadBalancer.servers = [{ url = "http://localhost:3000"; }];
+      #   };
+
+      #   routers = {
+      #     localhost3000 = {
+      #       rule = "Host(`localhost3000.${config.configOptions.acme.domain}`)";
+      #       entryPoints = [ "websecure" ];
+      #       service = "localhost3000";
+      #       tls.certresolver = "letsencrypt";
+      #     };
+      #   };
+      # };
+
     };
   };
 

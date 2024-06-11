@@ -47,7 +47,7 @@ config.initial_cols = 156
 config.initial_rows = 36
 
 -- https://github.com/wez/wezterm/issues/4483#issuecomment-1835619115
-config.enable_wayland = false
+-- config.enable_wayland = false
 
 
 wezterm.on('update-status', function(window, pane)

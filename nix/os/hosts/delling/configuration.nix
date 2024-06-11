@@ -5,8 +5,9 @@
     [
       ./variables-local.nix
       ./configuration-local.nix
-
       ./hardware-configuration.nix
+      ./traefik.nix
+      
       ../common/base.nix
       ../common/boot.nix
       ../common/i18n.nix
@@ -19,6 +20,8 @@
       ../../modules/zsa.nix
       ../../modules/acme.nix
       ../../modules/traefik.nix
+      ../../modules/sddm.nix
+      ../../modules/plasma.nix
     ];
 
   hardware = {

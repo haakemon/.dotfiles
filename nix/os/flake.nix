@@ -24,14 +24,16 @@
       nixosConfigurations = {
         odin = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
           modules = [
             ./hosts/odin/configuration.nix
             chaotic.nixosModules.default
             niri.nixosModules.niri
-            # inputs.stylix.nixosModules.stylix
+            inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
+                extraSpecialArgs = { inherit inputs; };
                 backupFileExtension = "backup";
                 useGlobalPkgs = true;
                 useUserPackages = true;
@@ -97,6 +99,8 @@
     };
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     niri.url = "github:sodiboo/niri-flake";
-    #stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix";
+
+    ags.url = "github:Aylur/ags";
   };
 }

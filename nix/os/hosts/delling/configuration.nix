@@ -15,7 +15,10 @@
       ../common/keyd.nix
       ../common/users.nix
       ./configuration-local.nix
+
       ../../modules/zsa.nix
+      ../../modules/sddm.nix
+      ../../modules/plasma.nix
     ];
 
   hardware = {

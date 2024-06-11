@@ -5,7 +5,6 @@
     (self: super: {
       #  gitbutler = super.callPackage ../../apps/gitbutler/package.nix { };
       #  gitbutler-ui = super.callPackage ../../apps/gitbutler-ui/package.nix { };
-      xwayland-satellite = super.callPackage ../../apps/xwayland-satellite/package.nix { };
     })
   ];
 
@@ -17,16 +16,6 @@
     }
 
     (lib.mkIf (!config.configOptions.headless) {
-      desktopManager.plasma6.enable = true;
-      gnome.at-spi2-core.enable = true; # requirement for orca screen reader
-      displayManager = {
-        sddm = {
-          enable = true;
-          wayland.enable = true;
-          autoNumlock = true;
-        };
-        defaultSession = "plasma";
-      };
       xserver = {
         enable = true;
         xkb.layout = "no";
@@ -66,15 +55,13 @@
     wlr.enable = true;
     xdgOpenUsePortal = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-kde
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal
     ];
     configPackages = [
-      pkgs.xdg-desktop-portal-kde
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-hyprland
+      #pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal
     ];
@@ -113,8 +100,6 @@
     pkgs.pciutils
     pkgs.nixpkgs-fmt # formatting .nix files
   ] ++ lib.optionals (!config.configOptions.headless) [
-    pkgs.kdePackages.kimageformats
-    pkgs.kdePackages.sddm-kcm # sddm gui settings
     pkgs.libnotify
     pkgs.victor-mono # font
     pkgs.aha # ANSI HTML Adapter
@@ -136,7 +121,6 @@
         enable = true;
         enableBashCompletion = true;
       };
-      xwayland.enable = true;
       fzf = {
         fuzzyCompletion = true;
         keybindings = true;
@@ -146,9 +130,7 @@
     }
 
     (lib.mkIf (!config.configOptions.headless) {
-      partition-manager.enable = true; # KDE Partition Manager
       corectrl.enable = true;
-      kdeconnect.enable = true;
     })
   ];
 }

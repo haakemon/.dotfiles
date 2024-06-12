@@ -9,41 +9,72 @@
 
   programs = {
     niri.enable = true;
-    # xwayland.enable = true; # TODO: is this needed?
   };
 
   environment.systemPackages = [
     pkgs.xwayland-satellite
-    pkgs.swaybg
+    # pkgs.swaybg
     pkgs.swayidle
   ];
 
-  security.polkit.enable = true;
-  security.pam.services.swaylock = {
-    text = "auth include login";
-  };
-
   services = {
     blueman.enable = true;
-    gnome.gnome-keyring.enable = true;
   };
 
-
-  # TODO: Is any of this needed?
   xdg.portal = {
     enable = true;
     wlr.enable = true;
     xdgOpenUsePortal = true;
-    extraPortals = [
-      # pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-gnome
-      # pkgs.xdg-desktop-portal
-    ];
-    configPackages = [
-      # pkgs.xdg-desktop-portal-gtk
-      #pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gnome
-      # pkgs.xdg-desktop-portal
-    ];
+  };
+
+  home-manager.users.${config.configOptions.username} = {
+    imports =
+      [
+        ./home-manager/ags.nix
+        ./home-manager/swaylock.nix
+      ];
+    programs = {
+      niri.config = null;
+
+      wlogout = {
+        enable = true;
+        layout = [
+          {
+            label = "shutdown";
+            action = "systemctl poweroff";
+            text = "Shutdown";
+            keybind = "s";
+          }
+          {
+            label = "reboot";
+            action = "systemctl reboot";
+            text = "Reboot";
+            keybind = "r";
+          }
+          {
+            label = "logout";
+            action = "sleep 1; niri msg action quit";
+            text = "Logout";
+            keybind = "l";
+          }
+        ];
+      };
+    };
+
+    services = {
+      swayidle = {
+        enable = true;
+        events = [
+          { event = "before-sleep"; command = "${pkgs.swaylock-effects}/bin/swaylock -f"; }
+          { event = "lock"; command = "lock"; }
+        ];
+        timeouts = [
+          { timeout = 300; command = "${pkgs.niri}/bin/niri msg action power-off-monitors"; }
+          { timeout = 3600; command = "${pkgs.swaylock-effects}/bin/swaylock -f"; }
+          { timeout = 7200; command = "${pkgs.systemd}/bin/systemctl suspend"; }
+        ];
+      };
+    };
+
   };
 }

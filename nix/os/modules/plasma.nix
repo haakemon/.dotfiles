@@ -3,11 +3,14 @@
 
 {
   services.desktopManager.plasma6.enable = true;
-  gnome.at-spi2-core.enable = true; # requirement for orca screen reader
+  services.gnome.at-spi2-core.enable = true; # requirement for orca screen reader
 
   environment.systemPackages = [
     pkgs.kdePackages.kimageformats
     pkgs.kdePackages.sddm-kcm # sddm gui settings
+    pkgs.kdePackages.kcolorchooser
+    pkgs.kdePackages.ghostwriter
+    pkgs.kdePackages.kdenlive
     pkgs.aha # ANSI HTML Adapter
   ];
 

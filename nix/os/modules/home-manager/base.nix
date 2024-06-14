@@ -46,7 +46,6 @@
       pkgs.unzip
       pkgs.croc
     ] ++ lib.optionals (!config.configOptions.headless) [
-      pkgs.kdePackages.kdenlive
       pkgs.openshot-qt
       pkgs.shotcut
       pkgs.vivaldi
@@ -61,7 +60,6 @@
       pkgs.manuskript
       pkgs.rawtherapee
       pkgs.nomacs # image viewer
-      pkgs.kdePackages.ghostwriter
       pkgs.marktext
       pkgs.scrcpy
       pkgs.slides # terminal markdown slides

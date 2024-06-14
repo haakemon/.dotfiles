@@ -22,7 +22,6 @@
     pkgs.kooha # screen recorder
     pkgs.orca # screen reader
     pkgs.ffmpeg
-    pkgs.kdePackages.kcolorchooser
     pkgs.flyctl
     pkgs.beekeeper-studio
     pkgs.pre-commit

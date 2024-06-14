@@ -8,12 +8,12 @@
       ./hardware-configuration.nix
       ./traefik.nix
       
-      ../common/base.nix
-      ../common/networking.nix
-      ../common/virtualization.nix
-      ../common/gpu-nvidia.nix
-      ../common/users.nix
-
+      ../../modules/base.nix
+      ../../modules/networking.nix
+      ../../modules/virtualization.nix
+      ../../modules/gpu-nvidia.nix
+      ../../modules/users.nix
+      
       ../../modules/keyd.nix
       ../../modules/zsa.nix
       ../../modules/acme.nix

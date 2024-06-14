@@ -5,10 +5,10 @@
     [
       ./variables-local.nix
       ./hardware-configuration.nix
-      ../common/base.nix
-      ../common/networking.nix
-      ../common/virtualization.nix
-      ../common/users.nix
+      ../../modules/base.nix
+      ../../modules/networking.nix
+      ../../modules/virtualization.nix
+      ../../modules/users.nix
 
       ../../modules/keyd.nix
       ../../modules/zsa.nix

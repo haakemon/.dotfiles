@@ -27,7 +27,7 @@
     xdgOpenUsePortal = true;
   };
 
-  home-manager.users.${config.configOptions.username} = {
+  home-manager.users.${config.configOptions.username} = { config, pkgs, ... }: {
     imports =
       [
         ./home-manager/ags.nix
@@ -58,6 +58,12 @@
             keybind = "l";
           }
         ];
+      };
+    };
+
+    home = {
+      file = {
+        ".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/niri/config.kdl";
       };
     };
 

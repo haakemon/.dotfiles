@@ -9,15 +9,16 @@
       ../common/networking.nix
       ../common/virtualization.nix
       ../common/gpu-amd.nix
-      ../common/gaming.nix
-      ../common/keyd.nix
       ../common/users.nix
 
+      ../../modules/keyd.nix
+      ../../modules/gaming.nix
       ../../modules/zsa.nix
       ../../modules/stylix.nix
       ../../modules/sddm.nix
       ../../modules/niri.nix
       ../../modules/grub.nix
+      ../../modules/zsh.nix
       #../../modules/plasma.nix
     ];
 

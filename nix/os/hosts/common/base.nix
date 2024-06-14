@@ -117,14 +117,6 @@
       bash = {
         enableCompletion = true;
       };
-      zsh = {
-        enable = true;
-        enableBashCompletion = true;
-      };
-      fzf = {
-        fuzzyCompletion = true;
-        keybindings = true;
-      };
       dconf.enable = true;
       nix-ld.enable = true;
     }

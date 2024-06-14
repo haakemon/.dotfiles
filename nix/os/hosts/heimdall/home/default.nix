@@ -6,7 +6,6 @@
       ../../common/home/base.nix
       ../../common/home/git.nix
       ../../common/home/security.nix
-      ../../common/home/zsh.nix
       # ../../common/home/development.nix
     ];
 

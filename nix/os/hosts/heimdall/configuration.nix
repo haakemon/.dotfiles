@@ -8,9 +8,9 @@
       ../common/base.nix
       ../common/networking.nix
       ../common/virtualization.nix
-      ../common/keyd.nix
       ../common/users.nix
 
+      ../../modules/keyd.nix
       ../../modules/zsa.nix
       ../../modules/wireguard.nix
       ../../modules/cockpit.nix
@@ -18,6 +18,7 @@
       ../../modules/traefik.nix
       ../../modules/adguard.nix
       ../../modules/grub.nix
+      ../../modules/zsh.nix
     ];
 
   services = {

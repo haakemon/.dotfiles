@@ -12,15 +12,16 @@
       ../common/networking.nix
       ../common/virtualization.nix
       ../common/gpu-nvidia.nix
-      ../common/keyd.nix
       ../common/users.nix
 
+      ../../modules/keyd.nix
       ../../modules/zsa.nix
       ../../modules/acme.nix
       ../../modules/traefik.nix
       ../../modules/sddm.nix
       ../../modules/plasma.nix
       ../../modules/grub.nix
+      ../../modules/zsh.nix
     ];
 
   hardware = {

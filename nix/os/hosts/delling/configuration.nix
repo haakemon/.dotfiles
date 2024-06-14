@@ -9,7 +9,6 @@
       ./traefik.nix
       
       ../common/base.nix
-      ../common/boot.nix
       ../common/networking.nix
       ../common/virtualization.nix
       ../common/gpu-nvidia.nix
@@ -21,6 +20,7 @@
       ../../modules/traefik.nix
       ../../modules/sddm.nix
       ../../modules/plasma.nix
+      ../../modules/grub.nix
     ];
 
   hardware = {

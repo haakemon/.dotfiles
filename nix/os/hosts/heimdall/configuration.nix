@@ -6,7 +6,6 @@
       ./variables-local.nix
       ./hardware-configuration.nix
       ../common/base.nix
-      ../common/boot.nix
       ../common/networking.nix
       ../common/virtualization.nix
       ../common/keyd.nix
@@ -18,6 +17,7 @@
       ../../modules/ssh.nix
       ../../modules/traefik.nix
       ../../modules/adguard.nix
+      ../../modules/grub.nix
     ];
 
   services = {

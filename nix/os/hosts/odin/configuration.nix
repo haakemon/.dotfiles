@@ -6,7 +6,6 @@
       ./variables-local.nix
       ./hardware-configuration.nix
       ../common/base.nix
-      ../common/boot.nix
       ../common/networking.nix
       ../common/virtualization.nix
       ../common/gpu-amd.nix
@@ -18,6 +17,7 @@
       ../../modules/stylix.nix
       ../../modules/sddm.nix
       ../../modules/niri.nix
+      ../../modules/grub.nix
       #../../modules/plasma.nix
     ];
 

@@ -20,21 +20,6 @@
         description = "Some configuration will not be applied on a headless system";
         default = false;
       };
-      timezone = lib.mkOption {
-        type = lib.types.str;
-        description = "Timezone";
-        default = "Europe/Oslo";
-      };
-      defaultLocale = lib.mkOption {
-        type = lib.types.str;
-        description = "Language to be used for LANG, LC_CTYPE, LC_COLLATE and LC_MESSAGES";
-        default = "en_US.UTF-8";
-      };
-      extraLocale = lib.mkOption {
-        type = lib.types.str;
-        description = "Language to be used for LC_ADDRESS, LC_IDENTIFICATION, LC_MEASUREMENT, LC_MONETARY, LC_NAME, LC_NUMERIC, LC_PAPER, LC_TELEPHONE and LC_TIME";
-        default = "nb_NO.UTF-8";
-      };
       git = {
         username = lib.mkOption {
           type = lib.types.str;

@@ -7,7 +7,6 @@
       ./hardware-configuration.nix
       ../common/base.nix
       ../common/boot.nix
-      ../common/i18n.nix
       ../common/networking.nix
       ../common/virtualization.nix
       ../common/keyd.nix

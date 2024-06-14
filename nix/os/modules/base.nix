@@ -115,7 +115,7 @@
   programs = lib.mkMerge [
     {
       bash = {
-        enableCompletion = true;
+        completion.enable = true;
       };
       dconf.enable = true;
       nix-ld.enable = true;

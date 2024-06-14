@@ -40,6 +40,7 @@
       pkgs.azure-cli
       pkgs.kubectl
       pkgs.kubectx
+      pkgs.vault
 
       # Chat
       pkgs.telegram-desktop

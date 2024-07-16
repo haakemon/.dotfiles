@@ -67,8 +67,6 @@
     ];
   };
 
-  sound.enable = true;
-
   console.keyMap = "no";
   security.rtkit.enable = true;
 

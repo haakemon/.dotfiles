@@ -14,12 +14,13 @@
       ../../modules/keyd.nix
       ../../modules/gaming.nix
       ../../modules/zsa.nix
-      ../../modules/stylix.nix
+      # ../../modules/stylix.nix
       ../../modules/sddm.nix
       ../../modules/niri.nix
       ../../modules/grub.nix
       ../../modules/zsh.nix
-      #../../modules/plasma.nix
+      ../../modules/plasma.nix
+      ../../modules/thunar.nix
     ];
 
   # qt = {

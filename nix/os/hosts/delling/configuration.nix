@@ -7,21 +7,23 @@
       ./configuration-local.nix
       ./hardware-configuration.nix
       ./traefik.nix
-      
+
       ../../modules/base.nix
       ../../modules/networking.nix
       ../../modules/virtualization.nix
       ../../modules/gpu-nvidia.nix
       ../../modules/users.nix
-      
+
       ../../modules/keyd.nix
       ../../modules/zsa.nix
       ../../modules/acme.nix
-      ../../modules/traefik.nix
+      # ../../modules/traefik.nix # conflicts with the local variant - should be modularized
       ../../modules/sddm.nix
       ../../modules/plasma.nix
+      ../../modules/niri.nix
       ../../modules/grub.nix
       ../../modules/zsh.nix
+      ../../modules/thunar.nix
     ];
 
   hardware = {

@@ -57,6 +57,25 @@ wezterm.on('update-status', function(window, pane)
   }))
 end)
 
+
+-- config.mouse_bindings = {
+--   -- Change the default click behavior so that it only selects
+--   -- text and doesn't open hyperlinks
+--   {
+--     event={Up={streak=1, button="Left"}},
+--     mods="NONE",
+--     action="CompleteSelection",
+--   },
+
+--   -- and make CTRL-Click open hyperlinks
+--   {
+--     event={Up={streak=1, button="Left"}},
+--     mods="CTRL",
+--     action="OpenLinkAtMouseCursor",
+--   },
+-- }
+
+
 config.keys = {
   {
     key = 'e',

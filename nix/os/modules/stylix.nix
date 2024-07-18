@@ -25,7 +25,7 @@
     base0F = "d65d0e";
   };
 
-  stylix.enable = true;
+  # stylix.enable = true;
 
   # stylix.targets.niri.enable = false;
 

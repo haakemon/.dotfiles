@@ -62,6 +62,7 @@
 
     file = {
       ".face.icon".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/sddm/.face.icon";
+      ".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/niri/config-delling.kdl";
     };
 
     # This value determines the Home Manager release that your configuration is

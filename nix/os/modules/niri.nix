@@ -61,11 +61,11 @@
       };
     };
 
-    home = {
-      file = {
-        ".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/niri/config.kdl";
-      };
-    };
+    # home = {
+    #   file = {
+    #     ".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/niri/config.kdl";
+    #   };
+    # };
 
     services = {
       swayidle = {

@@ -1,6 +1,6 @@
 import {NotificationPopups} from './notificationPopups.js';
 
-Utils.timeout(100, () =>
+Utils.timeout(1000, () =>
   Utils.notify({
     summary: 'Notification Popup Example',
     iconName: 'info-symbolic',

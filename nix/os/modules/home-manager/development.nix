@@ -7,7 +7,7 @@
     pkgs.ungoogled-chromium
 
     # Tools
-    pkgs.mqttmultimeter
+    # pkgs.mqttmultimeter # broken?
     pkgs.vhs
     # pkgs.vscode
     pkgs.vscode-fhs

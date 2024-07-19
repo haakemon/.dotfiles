@@ -70,6 +70,7 @@
 
   console.keyMap = "no";
   security.rtkit.enable = true;
+  security.pam.services.ags = { }; # TODO: merge with home-manager ags
 
   hardware = {
     enableRedistributableFirmware = true;

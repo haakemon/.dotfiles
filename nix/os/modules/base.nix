@@ -68,6 +68,8 @@
     ];
   };
 
+  xdg.icons.enable = true;
+
   console.keyMap = "no";
   security.rtkit.enable = true;
   security.pam.services.ags = { }; # TODO: merge with home-manager ags
@@ -103,7 +105,7 @@
     pkgs.libnotify
     pkgs.victor-mono # font
     pkgs.aha # ANSI HTML Adapter
-    pkgs.mako # desktop notifications
+    # pkgs.mako # desktop notifications
     pkgs.waybar
   ];
 

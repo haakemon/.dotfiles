@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2022"],
+    "allowJs": true,
+    "checkJs": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "noImplicitAny": false,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "useUnknownInCatchVariables": false,
+    "verbatimModuleSyntax": true,
+    "baseUrl": ".",
+    "typeRoots": ["node_modules/@types"],
+    "skipLibCheck": true,
+    "outDir": "./dist"
+  },
+  "include": ["./main.ts", "./types/**/*.d.ts"]
+}

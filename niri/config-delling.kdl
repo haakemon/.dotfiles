@@ -80,14 +80,18 @@ input {
     position x=1280 y=0
 }
 
-output "DP-1" {
-  position x=1440 y=310
-  // mode "2560x1440@239.901"
+output "DP-5" {
+  position x=1440 y=625
 }
 
-output "DP-2" {
+output "DP-3" {
   transform "90"
   position x=0 y=0
+}
+
+output "eDP-1" {
+  position x=4000 y=625
+  scale 2.0
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -200,6 +204,7 @@ layout {
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
+// spawn-at-startup "alacritty" "-e" "fish"
 spawn-at-startup "~/.dotfiles/ags/start.sh"
 spawn-at-startup "~/.dotfiles/waybar/start.sh"
 // spawn-at-startup "xwayland-satellite"
@@ -359,8 +364,8 @@ binds {
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
-    // Mod+U              { focus-workspace-down; }
-    // Mod+I              { focus-workspace-up; }
+    Mod+U              { focus-workspace-down; }
+    Mod+I              { focus-workspace-up; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+U         { move-column-to-workspace-down; }

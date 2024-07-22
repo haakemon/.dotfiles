@@ -11,11 +11,12 @@ in
   home.packages = [
     # Password management
     pkgs.keychain
-    pkgs.bitwarden
+    pkgs.bitwarden-cli
     pkgs.rbw # https://crates.io/crates/rbw unofficial bitwarden CLI
     pkgs.pinentry # dependency for rbw
     # pkgs.pinentry-tty # dependency for rbw
   ] ++ lib.optionals (!config.configOptions.headless) [
+    pkgs.bitwarden-desktop
     pkgs.keepassxc
     pkgs.protonvpn-gui
   ];

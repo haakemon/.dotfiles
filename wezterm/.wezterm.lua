@@ -47,7 +47,7 @@ config.initial_cols = 156
 config.initial_rows = 36
 
 -- https://github.com/wez/wezterm/issues/4483#issuecomment-1835619115
-config.enable_wayland = false
+-- config.enable_wayland = false
 
 
 wezterm.on('update-status', function(window, pane)
@@ -56,6 +56,25 @@ wezterm.on('update-status', function(window, pane)
     { Text = window:active_workspace() .. "  " },
   }))
 end)
+
+
+-- config.mouse_bindings = {
+--   -- Change the default click behavior so that it only selects
+--   -- text and doesn't open hyperlinks
+--   {
+--     event={Up={streak=1, button="Left"}},
+--     mods="NONE",
+--     action="CompleteSelection",
+--   },
+
+--   -- and make CTRL-Click open hyperlinks
+--   {
+--     event={Up={streak=1, button="Left"}},
+--     mods="CTRL",
+--     action="OpenLinkAtMouseCursor",
+--   },
+-- }
+
 
 config.keys = {
   {

@@ -3,11 +3,10 @@
 {
   imports =
     [
-      ../../common/home/base.nix
-      ../../common/home/git.nix
-      ../../common/home/security.nix
-      ../../common/home/zsh.nix
-      # ../../common/home/development.nix
+      ../../../modules/home-manager/base.nix
+      ../../../modules/home-manager/git.nix
+      ../../../modules/home-manager/security.nix
+      # ../../../modules/home-manager/development.nix
     ];
 
   programs = {

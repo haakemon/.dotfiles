@@ -5,20 +5,20 @@
     [
       ./variables-local.nix
       ./hardware-configuration.nix
-      ../common/base.nix
-      ../common/boot.nix
-      ../common/i18n.nix
-      ../common/networking.nix
-      ../common/virtualization.nix
-      ../common/keyd.nix
-      ../common/users.nix
+      ../../modules/base.nix
+      ../../modules/networking.nix
+      ../../modules/virtualization.nix
+      ../../modules/users.nix
 
+      ../../modules/keyd.nix
       ../../modules/zsa.nix
       ../../modules/wireguard.nix
       ../../modules/cockpit.nix
       ../../modules/ssh.nix
       ../../modules/traefik.nix
       ../../modules/adguard.nix
+      ../../modules/grub.nix
+      ../../modules/zsh.nix
     ];
 
   services = {

@@ -3,11 +3,10 @@
 {
   imports =
     [
-      ../../common/home/base.nix
-      ../../common/home/git.nix
-      ../../common/home/security.nix
-      ../../common/home/zsh.nix
-      ../../common/home/development.nix
+      ../../../modules/home-manager/base.nix
+      ../../../modules/home-manager/git.nix
+      ../../../modules/home-manager/security.nix
+      ../../../modules/home-manager/development.nix
     ];
 
   programs = {
@@ -63,6 +62,7 @@
 
     file = {
       ".face.icon".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/sddm/.face.icon";
+      ".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/niri/config-delling.kdl";
     };
 
     # This value determines the Home Manager release that your configuration is

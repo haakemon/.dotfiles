@@ -5,20 +5,25 @@
     [
       ./variables-local.nix
       ./configuration-local.nix
-
       ./hardware-configuration.nix
-      ../common/base.nix
-      ../common/boot.nix
-      ../common/i18n.nix
-      ../common/networking.nix
-      ../common/virtualization.nix
-      ../common/gpu-nvidia.nix
-      ../common/keyd.nix
-      ../common/users.nix
+      ./traefik.nix
 
+      ../../modules/base.nix
+      ../../modules/networking.nix
+      ../../modules/virtualization.nix
+      ../../modules/gpu-nvidia.nix
+      ../../modules/users.nix
+
+      ../../modules/keyd.nix
       ../../modules/zsa.nix
       ../../modules/acme.nix
-      ../../modules/traefik.nix
+      # ../../modules/traefik.nix # conflicts with the local variant - should be modularized
+      ../../modules/sddm.nix
+      ../../modules/plasma.nix
+      ../../modules/niri.nix
+      ../../modules/grub.nix
+      ../../modules/zsh.nix
+      ../../modules/thunar.nix
     ];
 
   hardware = {

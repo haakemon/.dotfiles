@@ -5,7 +5,6 @@
     (self: super: {
       #  gitbutler = super.callPackage ../../apps/gitbutler/package.nix { };
       #  gitbutler-ui = super.callPackage ../../apps/gitbutler-ui/package.nix { };
-      xwayland-satellite = super.callPackage ../../apps/xwayland-satellite/package.nix { };
     })
   ];
 
@@ -17,16 +16,6 @@
     }
 
     (lib.mkIf (!config.configOptions.headless) {
-      desktopManager.plasma6.enable = true;
-      gnome.at-spi2-core.enable = true; # requirement for orca screen reader
-      displayManager = {
-        sddm = {
-          enable = true;
-          wayland.enable = true;
-          autoNumlock = true;
-        };
-        defaultSession = "plasma";
-      };
       xserver = {
         enable = true;
         xkb.layout = "no";
@@ -58,6 +47,8 @@
         collector.enable = true;
         settings.web.listen.port = 8999;
       };
+      gvfs.enable = true; # Mount, trash, and other functionalities
+      playerctld.enable = true;
     })
   ];
 
@@ -66,24 +57,23 @@
     wlr.enable = true;
     xdgOpenUsePortal = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-kde
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal
     ];
     configPackages = [
-      pkgs.xdg-desktop-portal-kde
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-hyprland
+      #pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal
     ];
   };
 
-  sound.enable = true;
+  xdg.icons.enable = true;
 
   console.keyMap = "no";
   security.rtkit.enable = true;
+  security.pam.services.ags = { }; # TODO: merge with home-manager ags
 
   hardware = {
     enableRedistributableFirmware = true;
@@ -113,12 +103,10 @@
     pkgs.pciutils
     pkgs.nixpkgs-fmt # formatting .nix files
   ] ++ lib.optionals (!config.configOptions.headless) [
-    pkgs.kdePackages.kimageformats
-    pkgs.kdePackages.sddm-kcm # sddm gui settings
     pkgs.libnotify
     pkgs.victor-mono # font
     pkgs.aha # ANSI HTML Adapter
-    pkgs.mako # desktop notifications
+    # pkgs.mako # desktop notifications
     pkgs.waybar
   ];
 
@@ -130,25 +118,34 @@
   programs = lib.mkMerge [
     {
       bash = {
-        enableCompletion = true;
-      };
-      zsh = {
-        enable = true;
-        enableBashCompletion = true;
-      };
-      xwayland.enable = true;
-      fzf = {
-        fuzzyCompletion = true;
-        keybindings = true;
+        completion.enable = true;
       };
       dconf.enable = true;
       nix-ld.enable = true;
     }
 
     (lib.mkIf (!config.configOptions.headless) {
-      partition-manager.enable = true; # KDE Partition Manager
       corectrl.enable = true;
-      kdeconnect.enable = true;
     })
   ];
+
+  time.timeZone = "Europe/Oslo";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_CTYPE = "en_US.UTF-8";
+      LC_COLLATE = "en_US.UTF-8";
+      LC_MESSAGES = "en_US.UTF-8";
+
+      LC_ADDRESS = "nb_NO.UTF-8";
+      LC_IDENTIFICATION = "nb_NO.UTF-8";
+      LC_MEASUREMENT = "nb_NO.UTF-8";
+      LC_MONETARY = "nb_NO.UTF-8";
+      LC_NAME = "nb_NO.UTF-8";
+      LC_NUMERIC = "nb_NO.UTF-8";
+      LC_PAPER = "nb_NO.UTF-8";
+      LC_TELEPHONE = "nb_NO.UTF-8";
+      LC_TIME = "nb_NO.UTF-8";
+    };
+  };
 }

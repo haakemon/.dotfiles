@@ -1,7 +1,6 @@
 const notifications = await Service.import('notifications');
 
-/** @param {import('resource:///com/github/Aylur/ags/service/notifications.js').Notification} n */
-function NotificationIcon({app_entry, app_icon, image}) {
+function NotificationIcon({ app_entry, app_icon, image }) {
   if (image) {
     return Widget.Box({
       css:
@@ -22,7 +21,6 @@ function NotificationIcon({app_entry, app_icon, image}) {
   });
 }
 
-/** @param {import('resource:///com/github/Aylur/ags/service/notifications.js').Notification} n */
 function Notification(n) {
   const icon = Widget.Box({
     vpack: 'start',
@@ -54,7 +52,7 @@ function Notification(n) {
 
   const actions = Widget.Box({
     class_name: 'actions',
-    children: n.actions.map(({id, label}) =>
+    children: n.actions.map(({ id, label }) =>
       Widget.Button({
         class_name: 'action-button',
         on_clicked: () => {
@@ -69,7 +67,7 @@ function Notification(n) {
 
   return Widget.EventBox(
     {
-      attribute: {id: n.id},
+      attribute: { id: n.id },
       on_primary_click: n.dismiss,
     },
     Widget.Box(
@@ -77,13 +75,13 @@ function Notification(n) {
         class_name: `notification ${n.urgency}`,
         vertical: true,
       },
-      Widget.Box([icon, Widget.Box({vertical: true}, title, body)]),
+      Widget.Box([icon, Widget.Box({ vertical: true }, title, body)]),
       actions,
     ),
   );
 }
 
-export function NotificationPopups(monitor = 0) {
+export function NotificationPopups({ monitor = undefined }: { monitor?: number } = {}) {
   const list = Widget.Box({
     vertical: true,
     children: notifications.popups.map(Notification),

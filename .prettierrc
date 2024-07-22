@@ -7,7 +7,7 @@
   "printWidth": 120,
   "quoteProps": "as-needed",
   "jsxSingleQuote": false,
-  "bracketSpacing": false,
+  "bracketSpacing": true,
   "bracketSameLine": true,
   "arrowParens": "always",
   "endOfLine": "lf"

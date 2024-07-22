@@ -1,14 +1,13 @@
-const {query} = await Service.import('applications');
+const { query } = await Service.import('applications');
 const WINDOW_NAME = 'applauncher';
 
-/** @param {import('resource:///com/github/Aylur/ags/service/applications.js').Application} app */
 const AppItem = (app) =>
   Widget.Button({
     on_clicked: () => {
       App.closeWindow(WINDOW_NAME);
       app.launch();
     },
-    attribute: {app},
+    attribute: { app },
     child: Widget.Box({
       children: [
         Widget.Icon({
@@ -26,7 +25,7 @@ const AppItem = (app) =>
     }),
   });
 
-const Applauncher = ({width = 500, height = 500, spacing = 12}) => {
+const Applauncher = ({ width = 500, height = 500, spacing = 12 }) => {
   // list of application buttons
   let applications = query('').map(AppItem);
 
@@ -59,7 +58,7 @@ const Applauncher = ({width = 500, height = 500, spacing = 12}) => {
     },
 
     // filter out the list
-    on_change: ({text}) =>
+    on_change: ({ text }) =>
       applications.forEach((item) => {
         item.visible = item.attribute.app.match(text ?? '');
       }),

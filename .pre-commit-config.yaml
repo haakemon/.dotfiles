@@ -1,5 +1,5 @@
 # https://pre-commit.com/hooks.html
-exclude: '\.lock$'
+exclude: '\.lock$|pnpm-lock\.ya?ml$'
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0

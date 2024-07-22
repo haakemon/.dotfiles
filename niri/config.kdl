@@ -82,6 +82,7 @@ input {
 
 output "DP-1" {
   position x=1440 y=310
+  // mode "2560x1440@239.901"
 }
 
 output "DP-2" {

@@ -48,6 +48,7 @@
         settings.web.listen.port = 8999;
       };
       gvfs.enable = true; # Mount, trash, and other functionalities
+      playerctld.enable = true;
     })
   ];
 

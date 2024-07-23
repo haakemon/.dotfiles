@@ -1,5 +1,7 @@
 # Dotfiles
 
+This branch contains additional stuff that is only useful on Windows
+
 My collection of dotfiles
 
 > [!NOTE]

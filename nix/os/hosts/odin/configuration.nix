@@ -29,6 +29,9 @@
   #   # platformTheme = "qt5tc";
   # };
 
+  programs.plotinus.enable = true;
+  gtk.iconCache.enable = true;
+
   stylix.image = ./transparent.png;
 
   #programs.seahorse.enable = true;

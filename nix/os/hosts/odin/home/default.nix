@@ -13,6 +13,17 @@
     home-manager.enable = true;
   };
 
+  gtk.enable = true;
+  gtk.cursorTheme.name = "Banana";
+  gtk.cursorTheme.size = 36;
+  # gtk.cursorTheme = {
+  #     package = pkgs.banana-cursor;
+  #     name = "Banana";
+  #     size = 36;
+  #   };
+
+  gtk.iconTheme.name = "Dracula";
+
   home = {
     packages = [
       # Utils
@@ -53,6 +64,9 @@
     file = {
       ".face.icon".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/sddm/.face.icon";
       ".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/niri/config.kdl";
+
+      ".icons/Banana".source = config.lib.file.mkOutOfStoreSymlink "${pkgs.banana-cursor}/share/icons/Banana";
+      ".icons/Dracula".source = config.lib.file.mkOutOfStoreSymlink "${pkgs.dracula-icon-theme}/share/icons/Dracula";
     };
 
     # This value determines the Home Manager release that your configuration is

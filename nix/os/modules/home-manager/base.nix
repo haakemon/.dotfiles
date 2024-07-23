@@ -1,5 +1,12 @@
 { config, pkgs, lib, ... }:
-
+let
+  cus_vivaldi = pkgs.vivaldi.overrideAttrs
+    (oldAttrs: {
+      dontWrapQtApps = false;
+      dontPatchELF = true;
+      nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.kdePackages.wrapQtAppsHook ];
+    });
+in
 {
   home = {
     username = "${config.configOptions.username}";
@@ -31,9 +38,8 @@
       NPM_CONFIG_TMP = "${config.home.sessionVariables.XDG_CACHE_HOME}/npm_tmp";
 
       STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${config.home.homeDirectory}/.steam/root/compatibilitytools.d";
-      ELECTRON_OZONE_PLATFORM_HINT = "auto"; # or  "wayland" ?
-      # MOZ_ENABLE_WAYLAND = 1;
-      # NIXOS_OZONE_WL = 1; # do I still need this?
+      # ELECTRON_OZONE_PLATFORM_HINT = "auto"; # or  "wayland" ? # breaks vivaldi even with workaround in plasma?
+      # NIXOS_OZONE_WL = 1; # do I still need this? # breaks vscode in plasma?
     };
 
     file = {
@@ -49,7 +55,9 @@
     ] ++ lib.optionals (!config.configOptions.headless) [
       pkgs.openshot-qt
       pkgs.shotcut
-      pkgs.vivaldi
+      # pkgs.vivaldi
+
+      cus_vivaldi
       pkgs.wezterm
       pkgs.freeoffice
       pkgs.kooha # screen recorder
@@ -69,28 +77,6 @@
       pkgs.fuzzel
     ];
   };
-
-  # xdg.desktopEntries = lib.mkIf (!config.configOptions.headless) {
-  #   vivaldi = {
-  #     name = "Vivaldi";
-  #     genericName = "";
-  #     exec = "${pkgs.vivaldi}/bin/vivaldi --disable-features=AllowQt %U"; # workaround for Plasma 6 - https://github.com/NixOS/nixpkgs/pull/292148#issuecomment-1986827860
-  #     terminal = false;
-  #     categories = [ "Application" "Network" "WebBrowser" ];
-  #     mimeType = [ "text/html" "text/xml" ];
-  #     icon = "${pkgs.vivaldi}/opt/vivaldi/product_logo_256.png";
-  #     type = "Application";
-  #   };
-
-  #   wezterm = {
-  #     name = "WezTerm";
-  #     genericName = "";
-  #     exec = "${pkgs.wezterm}/bin/wezterm"; # workaround for https://github.com/wez/wezterm/issues/2933
-  #     terminal = false;
-  #     icon = "${pkgs.wezterm}/share/icons/hicolor/128x128/apps/org.wezfurlong.wezterm.png";
-  #     type = "Application";
-  #   };
-  # };
 
   # Settings for virt-manager https://nixos.wiki/wiki/Virt-manager
   dconf.settings = lib.mkIf (!config.configOptions.headless) {

@@ -1,3 +1,4 @@
+import { Bar } from './modules/bar/main.js';
 import { applauncher } from './modules/applauncher/main.js';
 import { NotificationPopups } from './modules/notification-popups/notificationPopups.js';
 
@@ -14,5 +15,5 @@ Utils.timeout(100, () =>
 
 App.config({
   style: `${App.configDir}/style.css`,
-  windows: [applauncher, NotificationPopups({ monitor: 0 }), NotificationPopups({ monitor: 1 })],
+  windows: [Bar(0), Bar(1), applauncher, NotificationPopups({ monitor: 0 }), NotificationPopups({ monitor: 1 })],
 });

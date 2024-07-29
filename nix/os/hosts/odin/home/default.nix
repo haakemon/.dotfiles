@@ -13,17 +13,32 @@
     home-manager.enable = true;
   };
 
-  gtk.enable = true;
-  gtk.theme.name = "adw-gtk3-dark";
-  gtk.cursorTheme.name = "Banana";
-  gtk.cursorTheme.size = 36;
-  # gtk.cursorTheme = {
-  #     package = pkgs.banana-cursor;
-  #     name = "Banana";
-  #     size = 36;
-  #   };
+  # home.sessionVariables.GTK_THEME = "adw-gtk3-dark";
 
-  gtk.iconTheme.name = "Dracula";
+  gtk = {
+    enable = true;
+    theme.package = pkgs.adw-gtk3;
+    theme.name = "Adwaita-dark";
+    cursorTheme.name = "Banana";
+    cursorTheme.size = 36;
+    iconTheme.name = "Dracula";
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+    # gtk.cursorTheme = {
+    #     package = pkgs.banana-cursor;
+  };
+
+
+  # qt = {
+  #   enable = true;
+  #   platformTheme = "gnome";
+  #   style = "adw-gtk3-dark";
+  # };
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {

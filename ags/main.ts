@@ -13,8 +13,15 @@ Utils.timeout(100, () =>
   }),
 );
 
+Utils.monitorFile(`${App.configDir}/styles`, () => {
+  const css = `${App.configDir}/styles/main.css`;
+
+  App.resetCss();
+  App.applyCss(css);
+});
+
 App.config({
-  style: `${App.configDir}/style.css`,
+  style: `${App.configDir}/styles/main.css`,
   closeWindowDelay: {
     'window-name': 500, // milliseconds
   },

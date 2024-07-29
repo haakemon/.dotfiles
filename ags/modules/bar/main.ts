@@ -1,3 +1,5 @@
+const { query } = await Service.import('applications');
+
 const mpris = await Service.import('mpris');
 const audio = await Service.import('audio');
 const battery = await Service.import('battery');
@@ -108,12 +110,19 @@ function SysTray() {
 }
 
 // layout of the bar
-// function Left() {
-//   return Widget.Box({
-//     spacing: 8,
-//     children: [ClientTitle()],
-//   });
-// }
+function Left() {
+  return Widget.Box({
+    spacing: 8,
+    children: [
+      Widget.Button({
+        class_name: 'bar-app',
+        on_primary_click: () => query('wezterm')[0].launch(),
+        child: Widget.Icon({ icon: 'utilities-terminal-symbolic' }),
+        tooltip_markup: 'WezTerm',
+      }),
+    ],
+  });
+}
 
 function Center() {
   return Widget.Box({
@@ -138,7 +147,7 @@ export function Bar(monitor = 0) {
     anchor: ['top', 'left', 'right'],
     exclusivity: 'exclusive',
     child: Widget.CenterBox({
-      // start_widget: Left(),
+      start_widget: Left(),
       center_widget: Center(),
       end_widget: Right(),
     }),

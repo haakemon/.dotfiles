@@ -14,6 +14,7 @@
   };
 
   gtk.enable = true;
+  gtk.theme.name = "adw-gtk3-dark";
   gtk.cursorTheme.name = "Banana";
   gtk.cursorTheme.size = 36;
   # gtk.cursorTheme = {
@@ -23,6 +24,12 @@
   #   };
 
   gtk.iconTheme.name = "Dracula";
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
 
   home = {
     packages = [

@@ -15,5 +15,8 @@ Utils.timeout(100, () =>
 
 App.config({
   style: `${App.configDir}/style.css`,
+  closeWindowDelay: {
+    'window-name': 500, // milliseconds
+  },
   windows: [Bar(0), Bar(1), applauncher, NotificationPopups({ monitor: 0 }), NotificationPopups({ monitor: 1 })],
 });

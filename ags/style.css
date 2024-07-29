@@ -61,6 +61,10 @@ window.bar {
   color: @theme_fg_color;
 }
 
+.clock {
+  padding: 0 1em;
+}
+
 button {
   min-width: 0;
   padding-top: 0;

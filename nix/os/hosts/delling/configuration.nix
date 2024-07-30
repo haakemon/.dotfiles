@@ -38,7 +38,6 @@
       # ../../modules/traefik.nix # conflicts with the local variant - should be modularized
       ../../modules/sddm.nix
       ../../modules/plasma.nix
-      ../../modules/niri.nix
       ../../modules/grub.nix
       ../../modules/zsh.nix
       ../../modules/thunar.nix

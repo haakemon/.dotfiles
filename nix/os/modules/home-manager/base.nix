@@ -78,11 +78,44 @@ in
     ];
   };
 
-  # Settings for virt-manager https://nixos.wiki/wiki/Virt-manager
+  gtk = {
+    enable = true;
+    theme.package = pkgs.adw-gtk3;
+    theme.name = "Adwaita-dark";
+    cursorTheme.name = "Banana";
+    cursorTheme.size = 36;
+    iconTheme.name = "Dracula";
+
+    gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+    gtk2.extraConfig = "gtk-application-prefer-dark-theme = 1";
+
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+    # gtk.cursorTheme = {
+    #     package = pkgs.banana-cursor;
+  };
+
+
+  # qt = {
+  #   enable = true;
+  #   platformTheme = "gnome";
+  #   style = "adw-gtk3-dark";
+  # };
+
   dconf.settings = lib.mkIf (!config.configOptions.headless) {
+    # Settings for virt-manager https://nixos.wiki/wiki/Virt-manager
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = [ "qemu:///system" ];
       uris = [ "qemu:///system" ];
+    };
+
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
     };
   };
 

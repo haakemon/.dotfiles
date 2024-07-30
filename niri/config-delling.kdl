@@ -204,9 +204,8 @@ layout {
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
-// spawn-at-startup "alacritty" "-e" "fish"
 spawn-at-startup "~/.dotfiles/ags/start.sh"
-spawn-at-startup "~/.dotfiles/waybar/start.sh"
+// spawn-at-startup "~/.dotfiles/waybar/start.sh"
 // spawn-at-startup "xwayland-satellite"
 spawn-at-startup "xwayland-satellite" ":0"
 // spawn-at-startup "mako"
@@ -364,8 +363,8 @@ binds {
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
+    // Mod+U              { focus-workspace-down; }
+    // Mod+I              { focus-workspace-up; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+U         { move-column-to-workspace-down; }

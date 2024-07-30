@@ -4,6 +4,7 @@
   # TODO: This is currently niri-specific - should be moved to niri.nix if it gets enabled
   services.greetd = {
     enable = true;
+    vt = 2;
     settings = {
       default_session = {
         command = ''

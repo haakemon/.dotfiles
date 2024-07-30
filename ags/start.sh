@@ -3,6 +3,7 @@
 ags --quit
 
 cd ~/.dotfiles/ags
+pnpm i
 pnpm run build
 
 ags --config ~/.dotfiles/ags/entry.js

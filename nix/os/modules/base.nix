@@ -16,6 +16,7 @@
     }
 
     (lib.mkIf (!config.configOptions.headless) {
+      gnome.gnome-keyring.enable = true;
       xserver = {
         enable = true;
         xkb.layout = "no";
@@ -63,7 +64,6 @@
     ];
     configPackages = [
       pkgs.xdg-desktop-portal-gtk
-      #pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal
     ];

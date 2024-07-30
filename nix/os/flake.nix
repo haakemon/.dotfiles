@@ -60,6 +60,7 @@
             {
               home-manager = {
                 extraSpecialArgs = { inherit inputs; };
+                backupFileExtension = "backup";
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users."${delling.config.configOptions.username}" = {

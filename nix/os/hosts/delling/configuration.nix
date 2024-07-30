@@ -1,6 +1,24 @@
 { config, pkgs, ... }:
 
 {
+  specialisation = {
+    plasma.configuration = {
+      system.nixos.tags = [ "tag-plasma" ];
+      imports =
+        [
+          ../../modules/plasma.nix
+        ];
+    };
+
+    niri.configuration = {
+      system.nixos.tags = [ "tag-niri" ];
+      imports =
+        [
+          ../../modules/niri.nix
+        ];
+    };
+  };
+
   imports =
     [
       ./variables-local.nix

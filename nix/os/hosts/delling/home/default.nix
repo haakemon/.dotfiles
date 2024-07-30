@@ -44,9 +44,9 @@
       # Chat
       pkgs.telegram-desktop
       pkgs.slack
-      (pkgs.makeAutostartItem { name = "slack"; package = pkgs.slack; })
+      # (pkgs.makeAutostartItem { name = "slack"; package = pkgs.slack; })
       pkgs.teams-for-linux
-      (pkgs.makeAutostartItem { name = "teams-for-linux"; package = pkgs.teams-for-linux; })
+      # (pkgs.makeAutostartItem { name = "teams-for-linux"; package = pkgs.teams-for-linux; })
 
       (
         let base = pkgs.appimageTools.defaultFhsEnvArgs; in
@@ -63,6 +63,9 @@
     file = {
       ".face.icon".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/sddm/.face.icon";
       ".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/niri/config-delling.kdl";
+
+      ".icons/Banana".source = config.lib.file.mkOutOfStoreSymlink "${pkgs.banana-cursor}/share/icons/Banana";
+      ".icons/Dracula".source = config.lib.file.mkOutOfStoreSymlink "${pkgs.dracula-icon-theme}/share/icons/Dracula";
     };
 
     # This value determines the Home Manager release that your configuration is

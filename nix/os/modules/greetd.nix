@@ -3,7 +3,7 @@
 {
   # TODO: This is currently niri-specific - should be moved to niri.nix if it gets enabled
   services.greetd = {
-    enable = false;
+    enable = true;
     settings = {
       default_session = {
         command = ''

@@ -1,3 +1,4 @@
+
 # Starter Config
 
 if suggestions don't work, first make sure
@@ -9,6 +10,3 @@ if you do not want typechecking only suggestions
 // tsconfig.json
 "checkJs": false
 ```
-
-types are symlinked to:
-/home/haakemon/.local/share/com.github.Aylur.ags/types

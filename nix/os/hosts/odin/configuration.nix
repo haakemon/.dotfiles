@@ -9,7 +9,8 @@
         [
           ../../modules/niri.nix
           ../../modules/greetd.nix
-          ../../modules/stylix.nix
+          ../../modules/seahorse.nix
+          # ../../modules/stylix.nix
         ];
     };
 
@@ -40,7 +41,6 @@
       ../../modules/zsh.nix
       ../../modules/thunar.nix
       ../../modules/flatpak.nix
-      ../../modules/seahorse.nix
       ../../modules/logitech.nix
       ../../modules/openrgb.nix
       ../../modules/fstrim.nix

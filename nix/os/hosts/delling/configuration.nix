@@ -9,6 +9,7 @@
         [
           ../../modules/niri.nix
           ../../modules/greetd.nix
+          ../../modules/seahorse.nix
           # ../../modules/stylix.nix
         ];
     };
@@ -43,7 +44,6 @@
       ../../modules/thunar.nix
       ../../modules/thunderbolt.nix
       ../../modules/logitech.nix
-      ../../modules/seahorse.nix
       ../../modules/fstrim.nix
       ../../modules/printing.nix
     ];

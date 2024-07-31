@@ -85,7 +85,6 @@
 
   programs = lib.mkMerge [
     {
-      home-manager.enable = true;
       bash = {
         completion.enable = true;
       };
@@ -117,5 +116,9 @@
       LC_TELEPHONE = "nb_NO.UTF-8";
       LC_TIME = "nb_NO.UTF-8";
     };
+  };
+
+  home-manager.users.${config.configOptions.username} = { config, pkgs, ... }: {
+    programs.home-manager.enable = true;
   };
 }

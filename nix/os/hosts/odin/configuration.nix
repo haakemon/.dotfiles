@@ -1,10 +1,7 @@
-{ config, pkgs, lib, inputs, ... }:
-let
-  timestamp = lib.readFile "${pkgs.runCommand "timestamp" { } "echo -n `date +%FT%T` > $out"}";
-in
+{ config, pkgs, ... }:
+
 {
   boot.loader.grub.default = 1; # this should be 01-niri
-  system.nixos.label = timestamp;
   specialisation = {
     "01-niri".configuration = {
       system.nixos.tags = [ "niri" ];

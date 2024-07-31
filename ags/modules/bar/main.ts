@@ -117,7 +117,7 @@ function Left() {
         class_name: 'bar-app',
         on_primary_click: () => query('wezterm')[0].launch(),
         child: Widget.Icon({ icon: 'utilities-terminal-symbolic' }),
-        tooltip_markup: 'WezTerm',
+        tooltip_text: 'WezTerm',
       }),
     ],
   });
@@ -134,7 +134,18 @@ function Right() {
   return Widget.Box({
     hpack: 'end',
     spacing: 8,
-    children: [Volume(), BatteryLabel(), SysTray(), Clock()],
+    children: [
+      Volume(),
+      BatteryLabel(),
+      SysTray(),
+      Clock(),
+      Widget.Button({
+        class_name: 'bar-app',
+        on_primary_click: () => Utils.exec('wlogout'),
+        child: Widget.Icon({ icon: 'gnome-power-manager-symbolic' }),
+        tooltip_text: 'Power',
+      }),
+    ],
   });
 }
 

@@ -36,10 +36,6 @@
       ../../modules/keyd.nix
       ../../modules/gaming.nix
       ../../modules/zsa.nix
-      # ../../modules/stylix.nix
-      # ../../modules/sddm.nix
-      # ../../modules/niri.nix
-      # ../../modules/plasma.nix
       ../../modules/grub.nix
       ../../modules/zsh.nix
       ../../modules/thunar.nix

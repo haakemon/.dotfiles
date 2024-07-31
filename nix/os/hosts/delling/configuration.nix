@@ -1,20 +1,23 @@
 { config, pkgs, ... }:
 
 {
+  boot.loader.grub.default = 1; # this should be 01-niri
   specialisation = {
-    plasma.configuration = {
-      system.nixos.tags = [ "tag-plasma" ];
-      imports =
-        [
-          ../../modules/plasma.nix
-        ];
-    };
-
-    niri.configuration = {
-      system.nixos.tags = [ "tag-niri" ];
+    "01-niri".configuration = {
+      system.nixos.tags = [ "niri" ];
       imports =
         [
           ../../modules/niri.nix
+          ../../modules/greetd.nix
+          # ../../modules/stylix.nix
+        ];
+    };
+    "02-plasma".configuration = {
+      system.nixos.tags = [ "plasma" ];
+      imports =
+        [
+          ../../modules/plasma.nix
+          ../../modules/sddm.nix
         ];
     };
   };
@@ -36,8 +39,6 @@
       ../../modules/zsa.nix
       ../../modules/acme.nix
       # ../../modules/traefik.nix # conflicts with the local variant - should be modularized
-      ../../modules/sddm.nix
-      ../../modules/plasma.nix
       ../../modules/grub.nix
       ../../modules/zsh.nix
       ../../modules/thunar.nix

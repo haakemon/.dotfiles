@@ -53,22 +53,6 @@
     })
   ];
 
-  xdg.portal = lib.mkIf (!config.configOptions.headless) {
-    enable = true;
-    wlr.enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-gnome
-      pkgs.xdg-desktop-portal
-    ];
-    configPackages = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-gnome
-      pkgs.xdg-desktop-portal
-    ];
-  };
-
   xdg.icons.enable = true;
 
   console.keyMap = "no";

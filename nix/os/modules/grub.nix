@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   boot = {
@@ -15,6 +15,7 @@
         enable = true;
         useOSProber = lib.mkDefault true;
         configurationLimit = 20;
+        splashImage = "${config.configOptions.userHome}/.dotfiles/iamroot.png";
       };
     };
   };

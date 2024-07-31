@@ -9,7 +9,7 @@
         [
           ../../modules/niri.nix
           ../../modules/greetd.nix
-          # ../../modules/stylix.nix
+          ../../modules/stylix.nix
         ];
     };
 

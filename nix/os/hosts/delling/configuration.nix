@@ -57,6 +57,8 @@
     };
   };
 
+  programs.plotinus.enable = true;
+
   services = {
     hardware.bolt.enable = true; # enable thunderbolt/dock capabilities
 

@@ -47,17 +47,6 @@
       # (pkgs.makeAutostartItem { name = "slack"; package = pkgs.slack; })
       pkgs.teams-for-linux
       # (pkgs.makeAutostartItem { name = "teams-for-linux"; package = pkgs.teams-for-linux; })
-
-      (
-        let base = pkgs.appimageTools.defaultFhsEnvArgs; in
-        pkgs.buildFHSUserEnv (base // {
-          name = "fhs";
-          targetPkgs = pkgs: (base.targetPkgs pkgs) ++ [ pkgs.pkg-config ];
-          profile = "export FHS=1";
-          runScript = "zsh";
-          extraOutputsToInstall = [ "dev" ];
-        })
-      )
     ];
 
     file = {

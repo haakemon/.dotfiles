@@ -54,6 +54,18 @@ in
     packages = [
       pkgs.unzip
       pkgs.croc
+
+      (
+        let base = pkgs.appimageTools.defaultFhsEnvArgs; in
+        pkgs.buildFHSUserEnv (base // {
+          name = "fhs";
+          targetPkgs = pkgs: (base.targetPkgs pkgs) ++ [ pkgs.pkg-config ];
+          profile = "export FHS=1";
+          runScript = "zsh";
+          extraOutputsToInstall = [ "dev" ];
+        })
+      )
+
     ] ++ lib.optionals (!config.configOptions.headless) [
       pkgs.openshot-qt
       pkgs.shotcut

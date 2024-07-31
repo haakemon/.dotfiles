@@ -17,17 +17,6 @@
     packages = [
       # Utils
       pkgs.jotta-cli
-
-      (
-        let base = pkgs.appimageTools.defaultFhsEnvArgs; in
-        pkgs.buildFHSUserEnv (base // {
-          name = "fhs";
-          targetPkgs = pkgs: (base.targetPkgs pkgs) ++ [ pkgs.pkg-config ];
-          profile = "export FHS=1";
-          runScript = "zsh";
-          extraOutputsToInstall = [ "dev" ];
-        })
-      )
     ];
 
     # This value determines the Home Manager release that your configuration is

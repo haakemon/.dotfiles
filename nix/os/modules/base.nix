@@ -21,20 +21,6 @@
         enable = true;
         xkb.layout = "no";
       };
-      printing = {
-        enable = true;
-        startWhenNeeded = true;
-        webInterface = false;
-        cups-pdf.enable = true;
-        drivers = [ pkgs.gutenprint ];
-        cups-pdf.instances = {
-          pdf = {
-            settings = {
-              Out = "\${HOME}/Documents";
-            };
-          };
-        };
-      };
       pipewire = {
         enable = true;
         alsa.enable = true;
@@ -90,9 +76,6 @@
   ] ++ lib.optionals (!config.configOptions.headless) [
     pkgs.libnotify
     pkgs.victor-mono # font
-    pkgs.aha # ANSI HTML Adapter
-    # pkgs.mako # desktop notifications
-    pkgs.waybar
   ];
 
   system = {
@@ -102,7 +85,6 @@
 
   programs = lib.mkMerge [
     {
-      plotinus.enable = true;
       home-manager.enable = true;
       bash = {
         completion.enable = true;
@@ -112,6 +94,7 @@
     }
 
     (lib.mkIf (!config.configOptions.headless) {
+      plotinus.enable = true;
       corectrl.enable = true;
     })
   ];

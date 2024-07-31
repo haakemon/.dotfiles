@@ -5,11 +5,11 @@
     [
       ./variables-local.nix
       ./hardware-configuration.nix
+
       ../../modules/base.nix
       ../../modules/networking.nix
       ../../modules/virtualization.nix
       ../../modules/users.nix
-
       ../../modules/keyd.nix
       ../../modules/zsa.nix
       ../../modules/wireguard.nix
@@ -19,14 +19,10 @@
       ../../modules/adguard.nix
       ../../modules/grub.nix
       ../../modules/zsh.nix
+      ../../modules/fstrim.nix
     ];
 
   services = {
-    # fstrim = {
-    #   enable = true;
-    #   interval = "weekly";
-    # };
-
     traefik.dynamicConfigOptions.http = {
       services = {
         homarr.loadBalancer.servers = [{ url = "http://127.0.0.1:7575"; }];

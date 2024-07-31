@@ -34,7 +34,6 @@
       ../../modules/virtualization.nix
       ../../modules/gpu-nvidia.nix
       ../../modules/users.nix
-
       ../../modules/keyd.nix
       ../../modules/zsa.nix
       ../../modules/acme.nix
@@ -44,6 +43,9 @@
       ../../modules/thunar.nix
       ../../modules/thunderbolt.nix
       ../../modules/logitech.nix
+      ../../modules/seahorse.nix
+      ../../modules/fstrim.nix
+      ../../modules/printing.nix
     ];
 
   hardware = {

@@ -27,12 +27,12 @@
     [
       ./variables-local.nix
       ./hardware-configuration.nix
+
       ../../modules/base.nix
       ../../modules/networking.nix
       ../../modules/virtualization.nix
       ../../modules/gpu-amd.nix
       ../../modules/users.nix
-
       ../../modules/keyd.nix
       ../../modules/gaming.nix
       ../../modules/zsa.nix
@@ -40,38 +40,12 @@
       ../../modules/zsh.nix
       ../../modules/thunar.nix
       ../../modules/flatpak.nix
+      ../../modules/seahorse.nix
+      ../../modules/logitech.nix
+      ../../modules/openrgb.nix
+      ../../modules/fstrim.nix
+      ../../modules/printing.nix
     ];
-
-  # qt = {
-  #   enable = true;
-  #   style = "kvantum";
-  #   # platformTheme = "qt5tc";
-  # };
-
-  stylix.image = ./transparent.png;
-
-  #programs.seahorse.enable = true;
-
-  services = {
-    hardware.openrgb = {
-      enable = true;
-      motherboard = "amd";
-    };
-
-    # fstrim = {
-    #   enable = true;
-    #   interval = "weekly";
-    # };
-  };
-
-  hardware = {
-    # spacenavd.enable = true; # 3D mouse support, not working?
-    sane.enable = true; # Scanning
-    logitech.wireless = {
-      enable = true;
-      enableGraphical = true;
-    };
-  };
 
   networking = {
     nameservers = [

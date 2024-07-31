@@ -10,7 +10,6 @@
     ];
 
   programs = {
-    home-manager.enable = true;
     zsh = {
       initExtra = ''
         #region default initExtra

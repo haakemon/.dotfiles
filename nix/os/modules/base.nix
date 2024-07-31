@@ -101,6 +101,7 @@
 
   programs = lib.mkMerge [
     {
+      home-manager.enable = true;
       bash = {
         completion.enable = true;
       };

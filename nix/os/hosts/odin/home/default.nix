@@ -9,10 +9,6 @@
       ../../../modules/home-manager/development.nix
     ];
 
-  programs = {
-    home-manager.enable = true;
-  };
-
   home = {
     packages = [
       # Utils

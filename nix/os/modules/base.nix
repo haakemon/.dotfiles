@@ -54,6 +54,7 @@
   ];
 
   xdg.icons.enable = true;
+  gtk.iconCache.enable = true;
 
   console.keyMap = "no";
   security.rtkit.enable = true;
@@ -101,6 +102,7 @@
 
   programs = lib.mkMerge [
     {
+      plotinus.enable = true;
       home-manager.enable = true;
       bash = {
         completion.enable = true;

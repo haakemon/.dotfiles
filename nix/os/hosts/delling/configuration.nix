@@ -42,30 +42,17 @@
       ../../modules/grub.nix
       ../../modules/zsh.nix
       ../../modules/thunar.nix
+      ../../modules/thunderbolt.nix
+      ../../modules/logitech.nix
     ];
 
   hardware = {
-    logitech.wireless = {
-      enable = true;
-      enableGraphical = true;
-    };
     nvidia = {
       prime = {
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
       };
     };
-  };
-
-  programs.plotinus.enable = true;
-
-  services = {
-    hardware.bolt.enable = true; # enable thunderbolt/dock capabilities
-
-    # ollama = {
-    #   enable = true;
-    #   acceleration = "cuda";
-    # };
   };
 
   # This value determines the NixOS release from which the default

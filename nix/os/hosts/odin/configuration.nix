@@ -39,6 +39,7 @@
       ../../modules/grub.nix
       ../../modules/zsh.nix
       ../../modules/thunar.nix
+      ../../modules/flatpak.nix
     ];
 
   # qt = {
@@ -55,7 +56,6 @@
   #programs.seahorse.enable = true;
 
   services = {
-    flatpak.enable = true;
     hardware.openrgb = {
       enable = true;
       motherboard = "amd";

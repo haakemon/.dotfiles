@@ -12,7 +12,6 @@
   home = {
     packages = [
       # Utils
-      pkgs.jotta-cli
       pkgs.headsetcontrol # Set options for headsets
 
       # Tools

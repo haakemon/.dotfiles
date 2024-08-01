@@ -45,6 +45,7 @@
       ../../modules/openrgb.nix
       ../../modules/fstrim.nix
       ../../modules/printing.nix
+      ../../modules/jottacloud.nix
     ];
 
   networking = {
@@ -52,14 +53,6 @@
       "192.168.2.9" # TODO: Remove this after router is updated
       "9.9.9.9"
     ];
-  };
-
-  systemd.user.services.jotta = {
-    wantedBy = [ "default.target" ];
-    serviceConfig = {
-      Type = "exec";
-      ExecStart = "${pkgs.jotta-cli}/bin/jottad";
-    };
   };
 
   # This value determines the NixOS release from which the default

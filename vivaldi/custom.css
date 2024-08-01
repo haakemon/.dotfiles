@@ -1,0 +1,9 @@
+/* To enable custom Vivaldi css, go to vivaldi://experiments/ , and check `allow CSS modifications`
+then go to browser settings->appearance->custom ui modifications and restart the browser.
+See https://forum.vivaldi.net/topic/10549/modding-vivaldi
+ */
+
+/* Hide min/max/close buttons */
+.window-buttongroup > button {
+  display: none !important;
+}

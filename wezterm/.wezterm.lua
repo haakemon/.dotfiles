@@ -77,6 +77,9 @@ end)
 
 
 config.keys = {
+  { key = 'Insert', mods = 'CTRL', action = act.CopyTo 'Clipboard' },
+  { key = 'Insert', mods = 'SHIFT', action = act.PasteFrom 'Clipboard' },
+
   {
     key = 'e',
     mods = 'CTRL',

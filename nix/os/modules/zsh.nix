@@ -135,7 +135,7 @@
         '';
 
         shellAliases = {
-          nixrebuild = "sudo nixos-rebuild --upgrade switch --flake path:${config.configOptions.flake.dir}#${config.configOptions.flake.hash}";
+          nixrebuild = "sudo nixos-rebuild --specialisation 01-niri switch --flake path:${config.configOptions.flake.dir}#${config.configOptions.flake.hash}";
           nixrebuild-boot = "sudo nixos-rebuild boot --flake path:${config.configOptions.flake.dir}#${config.configOptions.flake.hash}";
           nixflake-update = "sudo nix flake update path:${config.configOptions.flake.dir}";
           gcCleanup = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";

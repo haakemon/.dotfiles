@@ -21,6 +21,7 @@
       ../../modules/zsh.nix
       ../../modules/fstrim.nix
       ../../modules/jottacloud.nix
+      ../../modules/acme.nix
     ];
 
   services = {

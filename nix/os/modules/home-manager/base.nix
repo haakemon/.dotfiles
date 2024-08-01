@@ -95,7 +95,7 @@ in
   gtk = {
     enable = true;
     theme.package = pkgs.adw-gtk3;
-    theme.name = "Adwaita-dark";
+    theme.name = "adw-gtk3-dark";
     cursorTheme.name = "Banana";
     cursorTheme.size = 36;
     iconTheme.name = "Dracula";

@@ -90,6 +90,16 @@
               hash = "sha256-4Dp2ehZLO83NhdBOKV0BhYFIvieaZPqiZZZtxsXWRaQ=";
             };
           }
+          {
+            name = "zsh-npm-scripts-autocomplete";
+            file = "zsh-npm-scripts-autocomplete.plugin.zsh";
+            src = pkgs.fetchFromGitHub {
+              owner = "grigorii-zander";
+              repo = "zsh-npm-scripts-autocomplete";
+              rev = "5d145e13150acf5dbb01dac6e57e57c357a47a4b";
+              hash = "sha256-Y34VXOU7b5z+R2SssCmbooVwrlmSxUxkObTV0YtsS50=";
+            };
+          }
         ];
 
         initExtraFirst = ''

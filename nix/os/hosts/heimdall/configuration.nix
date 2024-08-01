@@ -20,6 +20,7 @@
       ../../modules/grub.nix
       ../../modules/zsh.nix
       ../../modules/fstrim.nix
+      ../../modules/jottacloud.nix
     ];
 
   services = {
@@ -133,14 +134,6 @@
       };
     };
   };
-
-  # systemd.user.services.jotta = {
-  #   wantedBy = [ "default.target" ];
-  #   serviceConfig = {
-  #     Type = "exec";
-  #     ExecStart = "${pkgs.jotta-cli}/bin/jottad";
-  #   };
-  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

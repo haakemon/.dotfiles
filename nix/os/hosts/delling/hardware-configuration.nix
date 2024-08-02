@@ -13,6 +13,7 @@
     initrd = {
       availableKernelModules = [
         "xhci_pci"
+        "ahci"
         "thunderbolt"
         "nvme"
         "usb_storage"
@@ -28,6 +29,8 @@
     kernelModules = [
       "kvm-intel"
     ];
+    blacklistedKernelModules = ["nouveau"];
+    kernelParams = ["i915.modeset=1"];
     extraModulePackages = [ ];
   };
 

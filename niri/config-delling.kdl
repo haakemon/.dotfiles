@@ -80,19 +80,38 @@ input {
     position x=1280 y=0
 }
 
-output "DP-5" {
-  position x=1440 y=625
+debug {
+    wait-for-frame-completion-before-queueing
 }
+
+// Common
 
 output "DP-3" {
   transform "90"
   position x=0 y=0
 }
 
-output "eDP-1" {
-  position x=4000 y=625
-  scale 2.0
+
+// // Home with dock
+output "DP-7" {
+  mode "5120x1440@59.977"
+  position x=1440 y=310
+  // scale 0.75
 }
+
+output "eDP-1" {
+  off
+}
+
+// Office
+// output "DP-5" {
+//   position x=1440 y=625
+// }
+
+// output "eDP-1" {
+//   position x=4000 y=625
+//   scale 2.0
+// }
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:

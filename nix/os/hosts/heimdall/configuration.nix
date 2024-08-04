@@ -23,7 +23,6 @@
       ../../modules/virtualization.nix
       ../../modules/users.nix
       ../../modules/keyd.nix
-      ../../modules/zsa.nix
       ../../modules/wireguard.nix
       ../../modules/cockpit.nix
       ../../modules/ssh.nix

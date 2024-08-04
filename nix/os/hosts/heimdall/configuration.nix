@@ -1,6 +1,18 @@
 { config, pkgs, ... }:
 
 {
+  specialisation = {
+    "02-plasma".configuration = {
+      system.nixos.tags = [ "plasma" ];
+      imports =
+        [
+          ../../modules/plasma.nix
+          ../../modules/sddm.nix
+          ../../modules/vivaldi.nix
+        ];
+    };
+  };
+
   imports =
     [
       ./variables-local.nix

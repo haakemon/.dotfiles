@@ -46,6 +46,7 @@
       ../../modules/logitech.nix
       ../../modules/fstrim.nix
       ../../modules/printing.nix
+      ../../modules/vivaldi.nix
     ];
 
   hardware = {

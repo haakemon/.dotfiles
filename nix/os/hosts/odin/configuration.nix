@@ -46,6 +46,7 @@
       ../../modules/fstrim.nix
       ../../modules/printing.nix
       ../../modules/jottacloud.nix
+      ../../modules/vivaldi.nix
     ];
 
   networking = {

@@ -1,12 +1,5 @@
 { config, pkgs, lib, ... }:
-let
-  cus_vivaldi = pkgs.vivaldi.overrideAttrs
-    (oldAttrs: {
-      dontWrapQtApps = false;
-      dontPatchELF = true;
-      nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.kdePackages.wrapQtAppsHook ];
-    });
-in
+
 {
   home = {
     username = "${config.configOptions.username}";
@@ -69,9 +62,7 @@ in
     ] ++ lib.optionals (!config.configOptions.headless) [
       pkgs.openshot-qt
       pkgs.shotcut
-      # pkgs.vivaldi
 
-      cus_vivaldi
       pkgs.wezterm
       pkgs.freeoffice
       pkgs.kooha # screen recorder

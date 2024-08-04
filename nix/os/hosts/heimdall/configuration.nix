@@ -10,6 +10,14 @@
           ../../modules/sddm.nix
           ../../modules/vivaldi.nix
         ];
+
+      services = {
+        xserver = {
+          enable = true;
+          xkb.layout = "no";
+        };
+        gvfs.enable = true; # Mount, trash, and other functionalities
+      };
     };
   };
 

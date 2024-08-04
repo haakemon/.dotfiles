@@ -38,19 +38,20 @@
   services = {
     traefik.dynamicConfigOptions.http = {
       services = {
-        homarr.loadBalancer.servers = [{ url = "http://127.0.0.1:7575"; }];
-        cockpit.loadBalancer.servers = [{ url = "http://127.0.0.1:9090"; }];
         octoprint.loadBalancer.servers = [{ url = "http://192.168.2.10"; }];
         valetudo.loadBalancer.servers = [{ url = "http://192.168.2.11"; }];
+
+        homarr.loadBalancer.servers = [{ url = "http://127.0.0.1:7575"; }];
+        cockpit.loadBalancer.servers = [{ url = "http://127.0.0.1:9090"; }];
         zigbee2mqtt.loadBalancer.servers = [{ url = "http://127.0.0.1:8089"; }];
         zwavejs2mqtt.loadBalancer.servers = [{ url = "http://127.0.0.1:8091"; }];
         hass.loadBalancer.servers = [{ url = "http://127.0.0.1:8123"; }];
         memories.loadBalancer.servers = [{ url = "http://127.0.0.1:2342"; }];
+        photoprism.loadBalancer.servers = [{ url = "http://127.0.0.1:2343"; }];
         teslamate.loadBalancer.servers = [{ url = "http://127.0.0.1:4000"; }];
         "teslamate-stats".loadBalancer.servers = [{ url = "http://127.0.0.1:4001"; }];
         adguard.loadBalancer.servers = [{ url = "http://127.0.0.1:3050"; }];
         status.loadBalancer.servers = [{ url = "http://127.0.0.1:3001"; }];
-        tracks.loadBalancer.servers = [{ url = "http://127.0.0.1:3005"; }];
       };
 
       routers = {
@@ -136,12 +137,6 @@
           rule = "Host(`status.${config.configOptions.acme.domain}`)";
           entryPoints = [ "websecure" ];
           service = "status";
-        };
-
-        tracks = {
-          rule = "Host(`tracks.${config.configOptions.acme.domain}`)";
-          entryPoints = [ "websecure" ];
-          service = "tracks";
         };
       };
     };

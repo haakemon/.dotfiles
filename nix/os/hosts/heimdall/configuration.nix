@@ -114,7 +114,7 @@
         photoprism = {
           rule = "Host(`photoprism.${config.configOptions.acme.domain}`)";
           entryPoints = [ "websecure" ];
-          service = "memories";
+          service = "photoprism";
         };
 
         memories = {

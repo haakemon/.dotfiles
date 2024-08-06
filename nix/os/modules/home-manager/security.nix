@@ -12,9 +12,26 @@ in
     # Password management
     pkgs.keychain
     pkgs.bitwarden-cli
-    pkgs.rbw # https://crates.io/crates/rbw unofficial bitwarden CLI
-    pkgs.pinentry # dependency for rbw
-    # pkgs.pinentry-tty # dependency for rbw
+    (pkgs.rbw.override
+      (super: {
+        rustPlatform =
+          super.rustPlatform
+            // {
+            buildRustPackage = args:
+              super.rustPlatform.buildRustPackage (args
+                // {
+                version = "1.12.1";
+                src = pkgs.fetchFromGitHub {
+                  owner = "doy";
+                  repo = "rbw";
+                  rev = "1.12.1";
+                  hash = "sha256-+1kalFyhk2UL+iVzuFLDsSSTudrd4QpXw+3O4J+KsLc=";
+                };
+                cargoHash = "sha256-cKbbsDb449WANGT+x8APhzs+hf5SR3RBsCBWDNceRMA=";
+              });
+          };
+      }))
+    pkgs.pinentry-tty # dependency for rbw
   ] ++ lib.optionals (!config.configOptions.headless) [
     pkgs.bitwarden-desktop
     pkgs.keepassxc
@@ -30,11 +47,10 @@ in
         eval $(keychain --agents ssh --timeout 10080 --eval --quiet)
 
         function load-ssh-keys {
-          #rbw unlock
-          #echo "''${YELLOW_COLOR}loading ssh keys...''${RESET_COLOR}"
-          #rbw lock
-
-          echo "ssh keys not loaded"
+          rbw unlock
+          echo "''${YELLOW_COLOR}loading ssh keys...''${RESET_COLOR}"
+          ${sshKeysToLoad}
+          rbw lock
         }
 
         isSSHKeysNotLoaded=$(keychain -l)

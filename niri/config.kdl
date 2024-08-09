@@ -197,6 +197,11 @@ layout {
     }
 }
 
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.

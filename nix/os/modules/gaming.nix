@@ -64,6 +64,7 @@
       pkgs.alvr
 
       # games
+      pkgs.mari0
       pkgs.pingus
       # pkgs.openrw
       pkgs.openra

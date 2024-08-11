@@ -3,6 +3,7 @@
 {
   specialisation = {
     "02-plasma".configuration = {
+      environment.etc."specialisation".text = "02-plasma";
       system.nixos.tags = [ "plasma" ];
       imports =
         [
@@ -41,6 +42,7 @@
       ../../modules/fstrim.nix
       ../../modules/jottacloud.nix
       ../../modules/acme.nix
+      ../../modules/nh.nix
     ];
 
   services = {

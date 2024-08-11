@@ -83,6 +83,7 @@
             {
               home-manager = {
                 extraSpecialArgs = { inherit inputs; };
+                backupFileExtension = "backup";
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users."${heimdall.config.configOptions.username}" = {

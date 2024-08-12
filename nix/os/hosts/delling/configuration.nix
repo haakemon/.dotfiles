@@ -4,6 +4,7 @@
   boot.loader.grub.default = 1; # this should be 01-niri
   specialisation = {
     "01-niri".configuration = {
+      environment.etc."specialisation".text = "01-niri";
       system.nixos.tags = [ "niri" ];
       imports =
         [
@@ -14,6 +15,7 @@
         ];
     };
     "02-plasma".configuration = {
+      environment.etc."specialisation".text = "02-plasma";
       system.nixos.tags = [ "plasma" ];
       imports =
         [
@@ -47,6 +49,7 @@
       ../../modules/fstrim.nix
       ../../modules/printing.nix
       ../../modules/vivaldi.nix
+      ../../modules/nh.nix
     ];
 
   hardware = {

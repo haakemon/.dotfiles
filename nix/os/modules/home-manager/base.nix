@@ -20,10 +20,6 @@
       XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
       XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
       XDG_STATE_HOME = "${config.home.homeDirectory}/.local/state";
-      XDG_BIN_HOME = "${config.home.homeDirectory}/.local/bin";
-      PATH = [
-        "${config.home.homeDirectory}/.local/bin"
-      ];
 
       DOTNET_CLI_HOME = "${config.home.sessionVariables.XDG_CONFIG_HOME}/.dotnet";
       NPM_CONFIG_USERCONFIG = "${config.home.sessionVariables.XDG_CONFIG_HOME}/npm/config";

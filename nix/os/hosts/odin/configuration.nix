@@ -11,6 +11,7 @@
           ../../modules/niri.nix
           ../../modules/greetd.nix
           ../../modules/seahorse.nix
+          ../../modules/swayosd.nix
           # ../../modules/stylix.nix
         ];
     };

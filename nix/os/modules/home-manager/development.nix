@@ -25,6 +25,9 @@
     pkgs.flyctl
     pkgs.beekeeper-studio
     pkgs.pre-commit
+    pkgs.nixpkgs-fmt # formatting .nix files
+    pkgs.nixd # nix language server
+    pkgs.nixfmt-rfc-style # formatting .nix files
     pkgs.gcc # requirement for pre-commit nixpkgs-fmt
     pkgs.rustup # requirement for pre-commit nixpkgs-fmt
     pkgs.nodejs

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   specialisation = {
@@ -151,6 +151,87 @@
       };
     };
   };
+
+  home-manager.users.${config.configOptions.username} = { config, pkgs, ... }: {
+    systemd.user.services = {
+      home-server-immich = {
+        Unit = {
+          Description = "Immich server";
+          After = [ "podman.socket" "podman.service" ];
+        };
+        Install = {
+          WantedBy = [ "default.target" ];
+        };
+
+        Service = {
+          Environment = "PATH=$PATH:/run/wrappers/bin:${lib.makeBinPath [ pkgs.su pkgs.podman pkgs.podman-compose ]}";
+          ExecStart = "${pkgs.podman}/bin/podman compose up";
+          ExecStop = "${pkgs.podman}/bin/podman compose down";
+          Restart = "always";
+          TimeoutStopSec = "60s";
+          WorkingDirectory = "${config.configOptions.userHome}/home-server/immich";
+        };
+      };
+
+       home-server-teslamate = {
+        Unit = {
+          Description = "Teslamate server";
+          After = [ "podman.socket" "podman.service" ];
+        };
+        Install = {
+          WantedBy = [ "default.target" ];
+        };
+
+        Service = {
+          Environment = "PATH=$PATH:/run/wrappers/bin:${lib.makeBinPath [ pkgs.su pkgs.podman pkgs.podman-compose ]}";
+          ExecStart = "${pkgs.podman}/bin/podman compose up";
+          ExecStop = "${pkgs.podman}/bin/podman compose down";
+          Restart = "always";
+          TimeoutStopSec = "60s";
+          WorkingDirectory = "${config.configOptions.userHome}/home-server/teslamate";
+        };
+      };
+
+       home-server-photoprism = {
+        Unit = {
+          Description = "Photoprism server";
+          After = [ "podman.socket" "podman.service" ];
+        };
+        Install = {
+          WantedBy = [ "default.target" ];
+        };
+
+        Service = {
+          Environment = "PATH=$PATH:/run/wrappers/bin:${lib.makeBinPath [ pkgs.su pkgs.podman pkgs.podman-compose ]}";
+          ExecStart = "${pkgs.podman}/bin/podman compose up";
+          ExecStop = "${pkgs.podman}/bin/podman compose down";
+          Restart = "always";
+          TimeoutStopSec = "60s";
+          WorkingDirectory = "${config.configOptions.userHome}/home-server/photoprism";
+        };
+      };
+
+       home-server-rest = {
+        Unit = {
+          Description = "Home server";
+          After = [ "podman.socket" "podman.service" ];
+        };
+        Install = {
+          WantedBy = [ "default.target" ];
+        };
+
+        Service = {
+          Environment = "PATH=$PATH:/run/wrappers/bin:${lib.makeBinPath [ pkgs.su pkgs.podman pkgs.podman-compose ]}";
+          ExecStart = "${pkgs.podman}/bin/podman compose up";
+          ExecStop = "${pkgs.podman}/bin/podman compose down";
+          Restart = "always";
+          TimeoutStopSec = "60s";
+          WorkingDirectory = "${config.configOptions.userHome}/home-server";
+        };
+      };
+    };
+  };
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -3,6 +3,7 @@
 {
   users.users.${config.configOptions.username} = {
     isNormalUser = true;
+    linger = true;
     description = "${config.configOptions.username}";
     extraGroups = [
       "networkmanager"

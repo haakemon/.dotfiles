@@ -63,7 +63,7 @@
       pkgs.openshot-qt
       pkgs.shotcut
 
-      pkgs.wezterm
+      # pkgs.wezterm
       pkgs.freeoffice
       pkgs.kooha # screen recorder
       pkgs.smartmontools

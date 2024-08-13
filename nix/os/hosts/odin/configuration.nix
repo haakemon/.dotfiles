@@ -51,6 +51,7 @@
       ../../modules/jottacloud.nix
       ../../modules/vivaldi.nix
       ../../modules/nh.nix
+      ../../modules/wezterm.nix
     ];
 
   networking = {

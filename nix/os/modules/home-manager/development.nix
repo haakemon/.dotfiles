@@ -39,9 +39,9 @@
     # pkgs.android-studio
   ];
 
-  home.file = {
-    ".wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/wezterm/.wezterm.lua";
-  };
+  # home.file = {
+  #   ".wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/wezterm/.wezterm.lua";
+  # };
 
   editorconfig = {
     enable = true;

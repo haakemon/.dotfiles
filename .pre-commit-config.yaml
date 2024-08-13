@@ -19,6 +19,10 @@ repos:
     rev: v3.1.0
     hooks:
       - id: prettier
+  - repo: https://github.com/nix-community/nixpkgs-fmt
+    rev: f048515c9a98d7e2e4b034ec77641acc8a58098d
+    hooks:
+      - id: nixpkgs-fmt
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.41.0
     hooks:
@@ -31,10 +35,10 @@ repos:
     rev: v0.0.7
     hooks:
       - id: clean-dotenv
-  - repo: local
-    hooks:
-      - id: nix fmt
-        name: Nix fmt
-        entry: nix fmt
-        files: \.nix$
-        language: system
+  # - repo: local
+  #   hooks:
+  #     - id: nix fmt
+  #       name: Nix fmt
+  #       entry: nix fmt
+  #       files: \.nix$
+  #       language: system

@@ -9,7 +9,6 @@
           ../../modules/plasma.nix
           ../../modules/sddm.nix
           ../../modules/vivaldi.nix
-          ../../modules/swayosd.nix
         ];
 
       services = {

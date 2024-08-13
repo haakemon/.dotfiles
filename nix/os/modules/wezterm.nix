@@ -18,10 +18,6 @@
             config = wezterm.config_builder()
           end
 
-          math.randomseed(os.time())
-          local hue = math.random(0, 360);
-
-          -- config.color_scheme = 'Darcula (base16)'
           config.color_scheme = 'Dracula'
           config.font = wezterm.font 'Victor Mono'
 

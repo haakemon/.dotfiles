@@ -473,6 +473,7 @@ binds {
 
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
+    Shift+Print { spawn "wf-recorder" "-g" "\"$(slurp)\""; }
     Alt+Print { screenshot-window; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.

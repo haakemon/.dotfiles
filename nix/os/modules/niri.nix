@@ -22,6 +22,7 @@
     # pkgs.swaybg
     pkgs.swayidle
     pkgs.wf-recorder # screen recording utility
+    pkgs.slurp # screen geometry picker utility
   ];
 
   services = {

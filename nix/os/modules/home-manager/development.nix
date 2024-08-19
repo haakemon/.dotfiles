@@ -6,12 +6,13 @@
     pkgs.firefox
     pkgs.ungoogled-chromium
 
+    pkgs.alacritty # terminal
+    pkgs.cosmic-term # terminal
     # Tools
     # pkgs.mqttmultimeter # broken?
     pkgs.vhs
     # pkgs.vscode
     pkgs.vscode-fhs
-    pkgs.wezterm
     pkgs.bruno
     pkgs.sublime-merge
     pkgs.meld

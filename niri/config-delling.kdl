@@ -245,7 +245,6 @@ spawn-at-startup "~/.dotfiles/ags/start.sh"
 // spawn-at-startup "xwayland-satellite"
 spawn-at-startup "xwayland-satellite" ":0"
 
-spawn-at-startup "wezterm"
 spawn-at-startup "slack"
 spawn-at-startup "teams-for-linux"
 // spawn-at-startup "mako"

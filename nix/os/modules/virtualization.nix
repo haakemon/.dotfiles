@@ -13,7 +13,7 @@
     pkgs.win-spice
     pkgs.libvirt
     pkgs.libguestfs-with-appliance
-    pkgs.pods
+    # pkgs.pods # podman gui
   ];
 
   programs = lib.mkIf (!config.configOptions.headless) {

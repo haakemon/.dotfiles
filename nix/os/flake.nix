@@ -110,5 +110,6 @@
     stylix.url = "github:danth/stylix";
 
     ags.url = "github:Aylur/ags";
+    wezterm.url = "github:wez/wezterm?dir=nix";
   };
 }

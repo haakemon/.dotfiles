@@ -10,6 +10,7 @@
           ../../modules/plasma.nix
           ../../modules/sddm.nix
           ../../modules/vivaldi.nix
+          ../../modules/wezterm.nix
         ];
 
       services = {
@@ -173,7 +174,7 @@
         };
       };
 
-       home-server-teslamate = {
+      home-server-teslamate = {
         Unit = {
           Description = "Teslamate server";
           After = [ "podman.socket" "podman.service" ];
@@ -192,7 +193,7 @@
         };
       };
 
-       home-server-photoprism = {
+      home-server-photoprism = {
         Unit = {
           Description = "Photoprism server";
           After = [ "podman.socket" "podman.service" ];
@@ -211,7 +212,7 @@
         };
       };
 
-       home-server-rest = {
+      home-server-rest = {
         Unit = {
           Description = "Home server";
           After = [ "podman.socket" "podman.service" ];

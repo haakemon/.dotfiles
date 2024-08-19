@@ -4,9 +4,9 @@
   programs = {
     git = {
       enable = true;
-      delta = {
-        enable = true;
-      };
+      # delta = { # https://nixpk.gs/pr-tracker.html?pr=334814
+      #   enable = true;
+      # };
       extraConfig = {
         user = {
           name = "${config.configOptions.git.username}";

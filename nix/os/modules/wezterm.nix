@@ -1,11 +1,11 @@
 { config, ... }:
 
 {
-
-  home-manager.users.${config.configOptions.username} = { config, pkgs, ... }: {
+  home-manager.users.${config.configOptions.username} = { inputs, config, pkgs, ... }: {
     programs = {
       wezterm = {
         enable = true;
+        package = inputs.wezterm.packages.${pkgs.system}.default;
         extraConfig = ''
           local wezterm = require('wezterm')
           local act = wezterm.action

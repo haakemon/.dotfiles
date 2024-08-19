@@ -1,7 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   nixpkgs.overlays = [
+    inputs.niri.overlays.niri
     (self: super: {
       xwayland-satellite = super.callPackage ../apps/xwayland-satellite/package.nix { };
     })

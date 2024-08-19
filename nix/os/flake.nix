@@ -37,12 +37,6 @@
                 backupFileExtension = "backup";
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users."${odin.config.configOptions.username}" = {
-                  imports = [
-                    ./hosts/odin/variables-local.nix
-                    ./hosts/odin/home/default.nix
-                  ];
-                };
               };
             }
           ];
@@ -63,12 +57,6 @@
                 backupFileExtension = "backup";
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users."${delling.config.configOptions.username}" = {
-                  imports = [
-                    ./hosts/delling/variables-local.nix
-                    ./hosts/delling/home/default.nix
-                  ];
-                };
               };
             }
           ];
@@ -86,12 +74,6 @@
                 backupFileExtension = "backup";
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users."${heimdall.config.configOptions.username}" = {
-                  imports = [
-                    ./hosts/heimdall/variables-local.nix
-                    ./hosts/heimdall/home/default.nix
-                  ];
-                };
               };
             }
           ];

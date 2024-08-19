@@ -1,6 +1,11 @@
 { config, pkgs, inputs, ... }:
 
 {
+  imports =
+    [
+      ./ags.nix
+      ./swaylock.nix
+    ];
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
     (self: super: {
@@ -16,6 +21,7 @@
     pkgs.xwayland-satellite
     # pkgs.swaybg
     pkgs.swayidle
+    pkgs.wf-recorder # screen recording utility
   ];
 
   services = {
@@ -40,11 +46,6 @@
   };
 
   home-manager.users.${config.configOptions.username} = { config, pkgs, ... }: {
-    imports =
-      [
-        ./home-manager/ags.nix
-        ./home-manager/swaylock.nix
-      ];
     programs = {
       niri.config = null;
 

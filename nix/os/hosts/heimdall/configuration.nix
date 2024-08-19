@@ -1,17 +1,20 @@
-{ config, pkgs, lib, ... }:
+{ config
+, pkgs
+, lib
+, ...
+}:
 
 {
   specialisation = {
     "02-plasma".configuration = {
       environment.etc."specialisation".text = "02-plasma";
       system.nixos.tags = [ "plasma" ];
-      imports =
-        [
-          ../../modules/plasma.nix
-          ../../modules/sddm.nix
-          ../../modules/vivaldi.nix
-          ../../modules/wezterm.nix
-        ];
+      imports = [
+        ../../modules/plasma.nix
+        ../../modules/sddm.nix
+        ../../modules/vivaldi.nix
+        ../../modules/wezterm.nix
+      ];
 
       services = {
         xserver = {
@@ -23,28 +26,28 @@
     };
   };
 
-  imports =
-    [
-      ./variables-local.nix
-      ./hardware-configuration.nix
+  imports = [
+    ./variables-local.nix
+    ./hardware-configuration.nix
 
-      ../../modules/base.nix
-      ../../modules/networking.nix
-      ../../modules/virtualization.nix
-      ../../modules/users.nix
-      ../../modules/keyd.nix
-      ../../modules/wireguard.nix
-      ../../modules/cockpit.nix
-      ../../modules/ssh.nix
-      ../../modules/traefik.nix
-      ../../modules/adguard.nix
-      ../../modules/grub.nix
-      ../../modules/zsh.nix
-      ../../modules/fstrim.nix
-      ../../modules/jottacloud.nix
-      ../../modules/acme.nix
-      ../../modules/nh.nix
-    ];
+    ../../modules/base.nix
+    ../../modules/networking.nix
+    ../../modules/virtualization.nix
+    ../../modules/users.nix
+    ../../modules/keyd.nix
+    ../../modules/wireguard.nix
+    ../../modules/cockpit.nix
+    ../../modules/ssh.nix
+    ../../modules/traefik.nix
+    ../../modules/adguard.nix
+    ../../modules/grub.nix
+    ../../modules/zsh.nix
+    ../../modules/fstrim.nix
+    ../../modules/jottacloud.nix
+    ../../modules/acme.nix
+    ../../modules/nh.nix
+    ../../modules/git.nix
+  ];
 
   services = {
     traefik.dynamicConfigOptions.http = {
@@ -153,86 +156,123 @@
     };
   };
 
-  home-manager.users.${config.configOptions.username} = { config, pkgs, ... }: {
-    systemd.user.services = {
-      home-server-immich = {
-        Unit = {
-          Description = "Immich server";
-          After = [ "podman.socket" "podman.service" ];
-        };
-        Install = {
-          WantedBy = [ "default.target" ];
+  home-manager.users.${config.configOptions.username} =
+    { config, pkgs, ... }:
+    {
+      systemd.user.services = {
+        home-server-immich = {
+          Unit = {
+            Description = "Immich server";
+            After = [
+              "podman.socket"
+              "podman.service"
+            ];
+          };
+          Install = {
+            WantedBy = [ "default.target" ];
+          };
+
+          Service = {
+            Environment = "PATH=$PATH:/run/wrappers/bin:${
+              lib.makeBinPath [
+                pkgs.su
+                pkgs.podman
+                pkgs.podman-compose
+              ]
+            }";
+            ExecStart = "${pkgs.podman}/bin/podman compose up";
+            ExecStop = "${pkgs.podman}/bin/podman compose down";
+            Restart = "always";
+            TimeoutStopSec = "60s";
+            WorkingDirectory = "${config.configOptions.userHome}/home-server/immich";
+          };
         };
 
-        Service = {
-          Environment = "PATH=$PATH:/run/wrappers/bin:${lib.makeBinPath [ pkgs.su pkgs.podman pkgs.podman-compose ]}";
-          ExecStart = "${pkgs.podman}/bin/podman compose up";
-          ExecStop = "${pkgs.podman}/bin/podman compose down";
-          Restart = "always";
-          TimeoutStopSec = "60s";
-          WorkingDirectory = "${config.configOptions.userHome}/home-server/immich";
-        };
-      };
+        home-server-teslamate = {
+          Unit = {
+            Description = "Teslamate server";
+            After = [
+              "podman.socket"
+              "podman.service"
+            ];
+          };
+          Install = {
+            WantedBy = [ "default.target" ];
+          };
 
-      home-server-teslamate = {
-        Unit = {
-          Description = "Teslamate server";
-          After = [ "podman.socket" "podman.service" ];
-        };
-        Install = {
-          WantedBy = [ "default.target" ];
-        };
-
-        Service = {
-          Environment = "PATH=$PATH:/run/wrappers/bin:${lib.makeBinPath [ pkgs.su pkgs.podman pkgs.podman-compose ]}";
-          ExecStart = "${pkgs.podman}/bin/podman compose up";
-          ExecStop = "${pkgs.podman}/bin/podman compose down";
-          Restart = "always";
-          TimeoutStopSec = "60s";
-          WorkingDirectory = "${config.configOptions.userHome}/home-server/teslamate";
-        };
-      };
-
-      home-server-photoprism = {
-        Unit = {
-          Description = "Photoprism server";
-          After = [ "podman.socket" "podman.service" ];
-        };
-        Install = {
-          WantedBy = [ "default.target" ];
+          Service = {
+            Environment = "PATH=$PATH:/run/wrappers/bin:${
+              lib.makeBinPath [
+                pkgs.su
+                pkgs.podman
+                pkgs.podman-compose
+              ]
+            }";
+            ExecStart = "${pkgs.podman}/bin/podman compose up";
+            ExecStop = "${pkgs.podman}/bin/podman compose down";
+            Restart = "always";
+            TimeoutStopSec = "60s";
+            WorkingDirectory = "${config.configOptions.userHome}/home-server/teslamate";
+          };
         };
 
-        Service = {
-          Environment = "PATH=$PATH:/run/wrappers/bin:${lib.makeBinPath [ pkgs.su pkgs.podman pkgs.podman-compose ]}";
-          ExecStart = "${pkgs.podman}/bin/podman compose up";
-          ExecStop = "${pkgs.podman}/bin/podman compose down";
-          Restart = "always";
-          TimeoutStopSec = "60s";
-          WorkingDirectory = "${config.configOptions.userHome}/home-server/photoprism";
-        };
-      };
+        home-server-photoprism = {
+          Unit = {
+            Description = "Photoprism server";
+            After = [
+              "podman.socket"
+              "podman.service"
+            ];
+          };
+          Install = {
+            WantedBy = [ "default.target" ];
+          };
 
-      home-server-rest = {
-        Unit = {
-          Description = "Home server";
-          After = [ "podman.socket" "podman.service" ];
-        };
-        Install = {
-          WantedBy = [ "default.target" ];
+          Service = {
+            Environment = "PATH=$PATH:/run/wrappers/bin:${
+              lib.makeBinPath [
+                pkgs.su
+                pkgs.podman
+                pkgs.podman-compose
+              ]
+            }";
+            ExecStart = "${pkgs.podman}/bin/podman compose up";
+            ExecStop = "${pkgs.podman}/bin/podman compose down";
+            Restart = "always";
+            TimeoutStopSec = "60s";
+            WorkingDirectory = "${config.configOptions.userHome}/home-server/photoprism";
+          };
         };
 
-        Service = {
-          Environment = "PATH=$PATH:/run/wrappers/bin:${lib.makeBinPath [ pkgs.su pkgs.podman pkgs.podman-compose ]}";
-          ExecStart = "${pkgs.podman}/bin/podman compose up";
-          ExecStop = "${pkgs.podman}/bin/podman compose down";
-          Restart = "always";
-          TimeoutStopSec = "60s";
-          WorkingDirectory = "${config.configOptions.userHome}/home-server";
+        home-server-rest = {
+          Unit = {
+            Description = "Home server";
+            After = [
+              "podman.socket"
+              "podman.service"
+            ];
+          };
+          Install = {
+            WantedBy = [ "default.target" ];
+          };
+
+          Service = {
+            Environment = "PATH=$PATH:/run/wrappers/bin:${
+              lib.makeBinPath [
+                pkgs.su
+                pkgs.podman
+                pkgs.podman-compose
+              ]
+            }";
+            ExecStart = "${pkgs.podman}/bin/podman compose up";
+            ExecStop = "${pkgs.podman}/bin/podman compose down";
+            Restart = "always";
+            TimeoutStopSec = "60s";
+            WorkingDirectory = "${config.configOptions.userHome}/home-server";
+          };
         };
       };
     };
-  };
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -241,4 +281,16 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
+
+  home-manager.users.${config.configOptions.username} =
+    { config
+    , pkgs
+    , lib
+    , ...
+    }:
+    {
+      imports = [
+        ./variables-local.nix
+      ];
+    };
 }

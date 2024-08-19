@@ -12,6 +12,7 @@
     # pkgs.kdePackages.ghostwriter
     # pkgs.kdePackages.kdenlive
     pkgs.aha # ANSI HTML Adapter
+    pkgs.orca # screen reader
   ];
 
   xdg.portal = {

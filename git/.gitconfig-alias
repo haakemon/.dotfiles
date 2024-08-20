@@ -15,6 +15,7 @@
   ren = branch -m
   p = pull --ff-only
   ds = diff --staged
+  wip = commit -m "WIP" --no-verify
 
   gc = !git maintenance run --task=gc
   mstart = !git maintenance start

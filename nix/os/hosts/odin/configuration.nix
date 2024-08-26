@@ -42,6 +42,7 @@
     ../../modules/grub.nix
     ../../modules/zsh.nix
     ../../modules/thunar.nix
+    ../../modules/nautilus.nix
     ../../modules/flatpak.nix
     ../../modules/logitech.nix
     ../../modules/openrgb.nix
@@ -52,6 +53,7 @@
     ../../modules/nh.nix
     ../../modules/wezterm.nix
     ../../modules/git.nix
+    ../../modules/3d-printing.nix
   ];
 
   networking = {
@@ -86,8 +88,6 @@
           # Tools
           # pkgs.blender
           pkgs.obs-studio
-          pkgs.prusa-slicer
-          pkgs.plasticity
 
           # Gaming
           pkgs.heroic

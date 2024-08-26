@@ -30,6 +30,8 @@
         pkgs.corepack
         pkgs.ffmpeg
         pkgs.nixd # nix language server
+        pkgs.mqtt-explorer
+        # pkgs.mqttx
         # pkgs.flyctl
         # pkgs.arduino-ide
         # pkgs.android-studio

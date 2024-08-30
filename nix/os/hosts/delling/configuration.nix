@@ -117,7 +117,7 @@
           pkgs.telegram-desktop
           pkgs.slack
           # (pkgs.makeAutostartItem { name = "slack"; package = pkgs.slack; })
-          pkgs.teams-for-linux
+          #pkgs.teams-for-linux
           # (pkgs.makeAutostartItem { name = "teams-for-linux"; package = pkgs.teams-for-linux; })
         ];
 

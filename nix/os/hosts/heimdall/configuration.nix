@@ -47,6 +47,7 @@
     ../../modules/acme.nix
     ../../modules/nh.nix
     ../../modules/git.nix
+    ../../modules/mosquitto.nix
   ];
 
   services = {
@@ -156,9 +157,22 @@
     };
   };
 
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "24.05"; # Did you read the comment?
+
   home-manager.users.${config.configOptions.username} =
     { config, pkgs, ... }:
     {
+
+      imports = [
+        ./variables-local.nix
+      ];
+
       systemd.user.services = {
         home-server-immich = {
           Unit = {
@@ -244,9 +258,9 @@
           };
         };
 
-        home-server-rest = {
+        home-server-homarr = {
           Unit = {
-            Description = "Home server";
+            Description = "homarr";
             After = [
               "podman.socket"
               "podman.service"
@@ -268,29 +282,65 @@
             ExecStop = "${pkgs.podman}/bin/podman compose down";
             Restart = "always";
             TimeoutStopSec = "60s";
-            WorkingDirectory = "${config.configOptions.userHome}/home-server";
+            WorkingDirectory = "${config.configOptions.userHome}/home-server/homarr";
+          };
+        };
+
+        home-server-uptime-kuma = {
+          Unit = {
+            Description = "Uptime Kuma";
+            After = [
+              "podman.socket"
+              "podman.service"
+            ];
+          };
+          Install = {
+            WantedBy = [ "default.target" ];
+          };
+
+          Service = {
+            Environment = "PATH=$PATH:/run/wrappers/bin:${
+              lib.makeBinPath [
+                pkgs.su
+                pkgs.podman
+                pkgs.podman-compose
+              ]
+            }";
+            ExecStart = "${pkgs.podman}/bin/podman compose up";
+            ExecStop = "${pkgs.podman}/bin/podman compose down";
+            Restart = "always";
+            TimeoutStopSec = "60s";
+            WorkingDirectory = "${config.configOptions.userHome}/home-server/uptime-kuma";
+          };
+        };
+
+        home-server-smart-home = {
+          Unit = {
+            Description = "Smart home";
+            After = [
+              "podman.socket"
+              "podman.service"
+            ];
+          };
+          Install = {
+            WantedBy = [ "default.target" ];
+          };
+
+          Service = {
+            Environment = "PATH=$PATH:/run/wrappers/bin:${
+              lib.makeBinPath [
+                pkgs.su
+                pkgs.podman
+                pkgs.podman-compose
+              ]
+            }";
+            ExecStart = "${pkgs.podman}/bin/podman compose up";
+            ExecStop = "${pkgs.podman}/bin/podman compose down";
+            Restart = "always";
+            TimeoutStopSec = "60s";
+            WorkingDirectory = "${config.configOptions.userHome}/home-server/smart-home";
           };
         };
       };
-    };
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
-
-  home-manager.users.${config.configOptions.username} =
-    { config
-    , pkgs
-    , lib
-    , ...
-    }:
-    {
-      imports = [
-        ./variables-local.nix
-      ];
     };
 }

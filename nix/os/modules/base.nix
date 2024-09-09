@@ -198,6 +198,7 @@
             pkgs.bitwarden-desktop
             pkgs.keepassxc
             pkgs.protonvpn-gui
+            pkgs.xorg.xwininfo
 
             pkgs.cosmic-files
 

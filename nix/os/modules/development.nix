@@ -19,6 +19,10 @@
         pkgs.vhs # terminal gifs
 
         # Tools
+        # pkgs.pulsar # editor
+        pkgs.lapce # editor
+        pkgs.zed-editor # editor
+
         pkgs.vscode-fhs
         pkgs.meld
         pkgs.sublime-merge

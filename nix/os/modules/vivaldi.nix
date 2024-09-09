@@ -15,18 +15,5 @@ in
         cus_vivaldi
       ];
     };
-
-    xdg.desktopEntries = {
-      vivaldi = {
-        name = "Vivaldi";
-        genericName = "";
-        exec = "${cus_vivaldi}/bin/vivaldi";
-        terminal = false;
-        categories = [ "Application" "Network" "WebBrowser" ];
-        mimeType = [ "text/html" "text/xml" ];
-        icon = "${cus_vivaldi}/opt/vivaldi/product_logo_256.png";
-        type = "Application";
-      };
-    };
   };
 }

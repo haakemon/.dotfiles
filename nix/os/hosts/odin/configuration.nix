@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   boot.loader.grub.default = 1; # this should be 01-niri
@@ -74,7 +74,6 @@
   home-manager.users.${config.configOptions.username} =
     { config
     , pkgs
-    , lib
     , ...
     }:
     {
@@ -100,6 +99,7 @@
           # Chat
           pkgs.telegram-desktop
           pkgs.vesktop
+          pkgs.discord
         ];
 
         file = {

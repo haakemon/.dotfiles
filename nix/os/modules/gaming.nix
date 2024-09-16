@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs = {
@@ -7,10 +7,11 @@
       remotePlay.openFirewall = true;
       gamescopeSession.enable = true;
       package = pkgs.steam.override {
-        extraPkgs = pkgs: with pkgs; [
-          libkrb5
-          keyutils
-        ];
+        extraPkgs =
+          pkgs: with pkgs; [
+            libkrb5
+            keyutils
+          ];
       };
 
     };
@@ -24,7 +25,7 @@
         # General Configuration
         general = {
           renice = 0; # 0
-          ioprio = 0; #
+          ioprio = 0;
         };
 
         # GPU Configuration

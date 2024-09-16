@@ -2,9 +2,7 @@
 
 {
   home-manager.users.${config.configOptions.username} =
-    { config
-    , pkgs
-    , lib
+    { pkgs
     , ...
     }:
     {

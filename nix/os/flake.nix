@@ -7,6 +7,7 @@
     , chaotic
     , home-manager
     , niri
+    , nixos-cosmic
     , ...
     } @ inputs:
     let
@@ -27,6 +28,13 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/odin/configuration.nix
+            {
+              nix.settings = {
+                substituters = [ "https://cosmic.cachix.org/" ];
+                trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+              };
+            }
+            nixos-cosmic.nixosModules.default
             chaotic.nixosModules.default
             niri.nixosModules.niri
             inputs.stylix.nixosModules.stylix
@@ -93,5 +101,10 @@
 
     ags.url = "github:Aylur/ags";
     wezterm.url = "github:wez/wezterm?dir=nix";
+
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }

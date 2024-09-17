@@ -47,7 +47,7 @@
     ../../modules/logitech.nix
     ../../modules/openrgb.nix
     ../../modules/fstrim.nix
-    ../../modules/printing.nix
+    # ../../modules/printing.nix
     ../../modules/jottacloud.nix
     ../../modules/vivaldi.nix
     ../../modules/nh.nix

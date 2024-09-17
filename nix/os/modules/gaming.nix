@@ -13,7 +13,10 @@
             keyutils
           ];
       };
-
+      extraCompatPackages = [
+        pkgs.luxtorpeda
+        pkgs.proton-ge-custom
+      ];
     };
 
     # Need to add "gamemoderun %command%" to each Steam game,
@@ -78,9 +81,4 @@
       ENABLE_GAMESCOPE_WSI = "1";
     };
   };
-
-  chaotic.steam.extraCompatPackages = [
-    pkgs.luxtorpeda
-    pkgs.proton-ge-custom
-  ];
 }

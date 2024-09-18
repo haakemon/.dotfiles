@@ -72,7 +72,8 @@
     ]
     ++ lib.optionals (!config.configOptions.headless) [
       pkgs.libnotify
-      pkgs.victor-mono # font
+      pkgs.victor-mono
+      (pkgs.nerdfonts.override { fonts = [ "VictorMono" ]; })
     ];
 
   system = {

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 {
   imports =
@@ -12,13 +12,6 @@
   };
 
   hardware = {
-    graphics = {
-      extraPackages = [
-        pkgs.intel-media-driver
-        pkgs.vaapiVdpau
-        pkgs.libvdpau-va-gl
-      ];
-    };
     nvidia = {
       modesetting.enable = true;
 
@@ -41,32 +34,22 @@
       # the second is the PCI Subsystem Vendor ID,
       # and the third is the PCI Subsystem Device ID.
       # 25BA ?
-      open = true;
+      open = false;
 
       # Enable the Nvidia settings menu,
       # accessible via `nvidia-settings`.
       nvidiaSettings = true;
 
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
 
       prime = {
-        offload = { # sync.enable needs to be false if this is activated
-          enable = true;
-          enableOffloadCmd = true;
-        };
+        # offload = { # sync.enable needs to be false if this is activated
+        #   enable = true;
+        #   enableOffloadCmd = true;
+        # };
+        sync.enable = true;
       };
     };
   };
-
-  # Override the intel gpu driver setting imported above
-  environment.variables = {
-    VDPAU_DRIVER = "nvidia";
-  };
-
-  services.thermald.enable = lib.mkDefault true;
-
-  # available cpufreq governors: performance powersave
-  # The powersave mode locks the cpu to a 900mhz frequency which is not ideal
-  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 }

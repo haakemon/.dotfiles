@@ -1,6 +1,6 @@
 # Dotfiles
 
-My collection of dotfiles
+![dotfiles as imagined by DALL-E](dotfiles.webp)
 
 > [!NOTE]
 > The `~` or `$HOME` is used to denote your home directory. On Windows this will typically be at `C:\Users\[YOUR_USERNAME]\`. On Linux this will typically be at `/home/[YOUR_USERNAME]/`.

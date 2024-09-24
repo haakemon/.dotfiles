@@ -15,6 +15,7 @@ config.enable_scroll_bar = true
 config.hide_mouse_cursor_when_typing = false
 -- config.window_background_opacity = 0.8
 config.window_close_confirmation = "NeverPrompt"
+config.window_decorations = "RESIZE"
 
 config.initial_cols = 156
 config.initial_rows = 36

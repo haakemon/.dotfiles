@@ -62,7 +62,6 @@
         zwavejs2mqtt.loadBalancer.servers = [{ url = "http://127.0.0.1:8091"; }];
         hass.loadBalancer.servers = [{ url = "http://127.0.0.1:8123"; }];
         memories.loadBalancer.servers = [{ url = "http://127.0.0.1:2342"; }];
-        photoprism.loadBalancer.servers = [{ url = "http://127.0.0.1:2343"; }];
         teslamate.loadBalancer.servers = [{ url = "http://127.0.0.1:4000"; }];
         "teslamate-stats".loadBalancer.servers = [{ url = "http://127.0.0.1:4001"; }];
         adguard.loadBalancer.servers = [{ url = "http://127.0.0.1:3050"; }];
@@ -116,12 +115,6 @@
           rule = "Host(`hass.${config.configOptions.acme.domain}`)";
           entryPoints = [ "websecure" ];
           service = "hass";
-        };
-
-        photoprism = {
-          rule = "Host(`photoprism.${config.configOptions.acme.domain}`)";
-          entryPoints = [ "websecure" ];
-          service = "photoprism";
         };
 
         memories = {
@@ -227,34 +220,6 @@
             Restart = "always";
             TimeoutStopSec = "60s";
             WorkingDirectory = "${config.configOptions.userHome}/home-server/teslamate";
-          };
-        };
-
-        home-server-photoprism = {
-          Unit = {
-            Description = "Photoprism server";
-            After = [
-              "podman.socket"
-              "podman.service"
-            ];
-          };
-          Install = {
-            WantedBy = [ "default.target" ];
-          };
-
-          Service = {
-            Environment = "PATH=$PATH:/run/wrappers/bin:${
-              lib.makeBinPath [
-                pkgs.su
-                pkgs.podman
-                pkgs.podman-compose
-              ]
-            }";
-            ExecStart = "${pkgs.podman}/bin/podman compose up";
-            ExecStop = "${pkgs.podman}/bin/podman compose down";
-            Restart = "always";
-            TimeoutStopSec = "60s";
-            WorkingDirectory = "${config.configOptions.userHome}/home-server/photoprism";
           };
         };
 

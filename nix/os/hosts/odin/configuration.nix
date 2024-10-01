@@ -54,6 +54,7 @@
     ../../modules/wezterm.nix
     ../../modules/git.nix
     ../../modules/3d-printing.nix
+    ../../modules/obs-studio.nix
   ];
 
   networking = {
@@ -86,7 +87,6 @@
 
           # Tools
           # pkgs.blender
-          pkgs.obs-studio
 
           # Gaming
           pkgs.heroic

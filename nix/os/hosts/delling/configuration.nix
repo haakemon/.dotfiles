@@ -52,6 +52,7 @@
     ../../modules/nh.nix
     ../../modules/wezterm.nix
     ../../modules/git.nix
+    ../../modules/obs-studio.nix
   ];
 
   hardware = {
@@ -97,10 +98,6 @@
           # Utils
           pkgs.headsetcontrol # Set options for headsets
           pkgs.gcalcli
-
-          # Tools
-          pkgs.obs-studio
-          pkgs.otpclient
 
           # Music / video
           pkgs.spotify

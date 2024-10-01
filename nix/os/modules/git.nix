@@ -25,7 +25,7 @@ in
         pkgs.keychain
         pkgs.rbw
         pkgs.pinentry-tty # dependency for rbw
-      ] ++ lib.optionals (!config.configOptions.headless) [ pkgs.gitbutler ];
+      ];
 
       programs = {
         git = {

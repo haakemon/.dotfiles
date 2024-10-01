@@ -17,6 +17,13 @@ config.hide_mouse_cursor_when_typing = false
 config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "RESIZE"
 
+config.window_padding = {
+  left = 0,
+  right = 0,
+  top = 0,
+  bottom = 28,
+}
+
 config.initial_cols = 156
 config.initial_rows = 36
 

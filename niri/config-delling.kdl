@@ -84,47 +84,56 @@ debug {
     wait-for-frame-completion-before-queueing
 }
 
+// Monitor config
+// Sharp Corporation 0x1516 Unknown - laptop monitor
+// Dell Inc. DELL U2719D 7N8WTS2 - home side monitor
+// Samsung Electric Company LS49AG95 HNTRA00432 - home primary monitor
 
 // // // Home with dock
 // window-rule {
-//     match app-id=r#"^Chromium-browser$"#
-//     open-on-output "DP-8"
+//   match app-id=r#"^Chromium-browser$"#
+//   open-on-output "Samsung Electric Company LS49AG95 HNTRA00432"
 // }
-
-// output "DP-3" {
-//   transform "90"
-//   position x=0 y=0
-// }
-
-// output "DP-8" {
-//   mode "5120x1440"
-//   position x=1440 y=310
-//   // scale 0.75
-// }
-
-// output "eDP-1" {
+// output "Sharp Corporation 0x1516 Unknown" {
 //   off
 // }
+
 
 // Office
 window-rule {
     match app-id=r#"^Chromium-browser$"#
-    open-on-output "DP-6"
+    open-maximized true
+    // open-on-output "DP-5"
+    // open-on-output "DP-6"
+    open-on-output "eDP-1"
 }
 
-output "DP-3" {
+output "Sharp Corporation 0x1516 Unknown" {
+  position x=4000 y=625
+  scale 2.0
+}
+
+
+output "Dell Inc. DELL U2719D 7N8WTS2" {
   transform "90"
   position x=0 y=0
 }
 
-output "DP-5" {
+output "Samsung Electric Company LS49AG95 HNTRA00432" {
+  mode "5120x1440"
+  position x=1440 y=310
+  // scale 0.75
+}
+
+output "Dell Inc. DELL U2715H GH85D5290F5L" {
+  transform "90"
+  position x=0 y=0
+}
+
+output "Dell Inc. DELL P2720DC 6DNVMK3" {
   position x=1440 y=625
 }
 
-output "eDP-1" {
-  position x=4000 y=625
-  scale 2.0
-}
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
@@ -233,7 +242,7 @@ spawn-at-startup "~/.dotfiles/ags/start.sh"
 spawn-at-startup "xwayland-satellite" ":0"
 
 spawn-at-startup "slack"
-spawn-at-startup "teams-for-linux"
+// spawn-at-startup "teams-for-linux"
 // spawn-at-startup "mako"
 
 environment {

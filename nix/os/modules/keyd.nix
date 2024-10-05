@@ -22,7 +22,7 @@ in
           main = {
             "\\" = "G-2"; # @
             compose = "noop";
-            capslock = "overload(nav, esc)";
+            # capslock = "overload(nav, esc)";
 
             # convenience overloads - not working...
             # "r" = "overloadt(control+r, r, 200)";

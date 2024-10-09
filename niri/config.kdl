@@ -185,6 +185,16 @@ layout {
 }
 
 window-rule {
+  match app-id=r#"^Slack$"#
+  match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+  match app-id=r#"^org\.gnome\.World\.Secrets$"#
+  match app-id=r#"^Bitwarden$"#
+  match app-id=r#"^Proton Pass$"#
+
+  block-out-from "screen-capture"
+}
+
+window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
 }

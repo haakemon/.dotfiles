@@ -98,6 +98,13 @@ debug {
 // }
 
 window-rule {
+  match app-id=r#"^Code$"#
+  match app-id=r#"^sublime_merge$"#
+  match app-id=r#"^Vivaldi_stable$"#
+  open-on-output "Samsung Electric Company LS49AG95 HNTRA00432"
+}
+
+window-rule {
   match app-id=r#"^Chromium-browser$"#
   open-maximized true
   open-on-output "Sharp Corporation 0x1516 Unknown"
@@ -107,6 +114,7 @@ window-rule {
 output "Sharp Corporation 0x1516 Unknown" {
   position x=4000 y=625
   scale 2.0
+  off
 }
 
 output "Dell Inc. DELL U2719D 7N8WTS2" {

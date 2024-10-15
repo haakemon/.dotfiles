@@ -397,11 +397,11 @@
         "xwayland-satellite-unstable": "xwayland-satellite-unstable"
       },
       "locked": {
-        "lastModified": 1728947084,
-        "narHash": "sha256-bCC1Abh20wE7qYNO+4Mwly9VQydfB49aGVjTdxr01hQ=",
+        "lastModified": 1728975295,
+        "narHash": "sha256-Zk6MI6ZTTN7IQt/ozq91enKT640J6A8QUzqSwjAlWAk=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "da63f3599316dc2a02c1088197509be0aec743bf",
+        "rev": "14f8f87c78ff32a94c948106edc843397e431524",
         "type": "github"
       },
       "original": {
@@ -430,11 +430,11 @@
     "niri-unstable": {
       "flake": false,
       "locked": {
-        "lastModified": 1728918524,
-        "narHash": "sha256-zDFgW/8+hPDgKuovkK69Yek4ZZZZzY3nuso0Dh/OIa8=",
+        "lastModified": 1728969709,
+        "narHash": "sha256-kx9R/m2AHQ2W1uLLbbkOiUp8jUfE23moWrWng01Tg9g=",
         "owner": "YaLTeR",
         "repo": "niri",
-        "rev": "be7fbd418fcee2d2ff9f80aa15f1eb8ff0d83afb",
+        "rev": "e4161be1bfe660493bdc4b69a176b3f50147a707",
         "type": "github"
       },
       "original": {
@@ -590,6 +590,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_7": {
+      "locked": {
+        "lastModified": 1727348695,
+        "narHash": "sha256-J+PeFKSDV+pHL7ukkfpVzCOO7mBSrrpJ3svwBFABbhI=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1925c603f17fc89f4c8f6bf6f631a802ad85d784",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "ags": "ags",
@@ -598,7 +614,8 @@
         "niri": "niri",
         "nixpkgs": "nixpkgs_4",
         "stylix": "stylix",
-        "wezterm": "wezterm"
+        "wezterm": "wezterm",
+        "zen-browser": "zen-browser"
       }
     },
     "rust-analyzer-src": {
@@ -819,6 +836,24 @@
       "original": {
         "owner": "Supreeeme",
         "repo": "xwayland-satellite",
+        "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_7"
+      },
+      "locked": {
+        "lastModified": 1727721329,
+        "narHash": "sha256-QYlWZwUSwrM7BuO+dXclZIwoPvBIuJr6GpFKv9XKFPI=",
+        "owner": "MarceColl",
+        "repo": "zen-browser-flake",
+        "rev": "e6ab73f405e9a2896cce5956c549a9cc359e5fcc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MarceColl",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     },

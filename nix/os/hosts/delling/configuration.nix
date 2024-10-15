@@ -54,6 +54,7 @@
     ../../modules/git.nix
     ../../modules/obs-studio.nix
     ../../modules/kanshi.nix
+    ../../modules/zen-browser.nix
   ];
 
   hardware = {

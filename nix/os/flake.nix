@@ -93,5 +93,6 @@
 
     ags.url = "github:Aylur/ags";
     wezterm.url = "github:wez/wezterm?dir=nix";
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 }

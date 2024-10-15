@@ -53,6 +53,7 @@
     ../../modules/wezterm.nix
     ../../modules/git.nix
     ../../modules/obs-studio.nix
+    ../../modules/kanshi.nix
   ];
 
   hardware = {

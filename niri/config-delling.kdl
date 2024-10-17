@@ -92,12 +92,18 @@ debug {
 // Dell Inc. DELL U2715H GH85D5290F5L - office side monitor
 // Dell Inc. DELL P2720DC 6DNVMK3 - office primary monitor
 
-window-rule {
-  match app-id=r#"^Code$"#
-  match app-id=r#"^sublime_merge$"#
-  match app-id=r#"^Vivaldi-stable$"#
-  open-on-output "Samsung Electric Company LS49AG95 HNTRA00432" // Home
-}
+// window-rule {
+//   match app-id=r#"^Code$"#
+//   match app-id=r#"^sublime_merge$"#
+//   match app-id=r#"^Vivaldi-stable$"#
+//   open-on-output "Samsung Electric Company LS49AG95 HNTRA00432" // Home
+// }
+
+// window-rule {
+//   match app-id=r#"^Chromium-browser$"#
+//   open-maximized true
+//   open-on-output "Samsung Electric Company LS49AG95 HNTRA00432" // Home
+// }
 
 window-rule {
   match app-id=r#"^Code$"#
@@ -110,12 +116,6 @@ window-rule {
   match app-id=r#"^Chromium-browser$"#
   open-maximized true
   open-on-output "Sharp Corporation 0x1516 Unknown" // Laptop
-}
-
-window-rule {
-  match app-id=r#"^Chromium-browser$"#
-  open-maximized true
-  open-on-output "Samsung Electric Company LS49AG95 HNTRA00432" // Home
 }
 
 output "Sharp Corporation 0x1516 Unknown" {

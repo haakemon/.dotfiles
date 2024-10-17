@@ -187,7 +187,7 @@ layout {
 window-rule {
   match app-id=r#"^Code$"#
   match app-id=r#"^sublime_merge$"#
-  match app-id=r#"^Vivaldi_stable$"#
+  match app-id=r#"^Vivaldi-stable$"#
   open-on-output "Samsung Electric Company LS49AG95 HNTRA00432"
 }
 

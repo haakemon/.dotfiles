@@ -343,9 +343,8 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T { spawn "wezterm"; }
-    // Mod+R { spawn "fuzzel"; }
     Mod+R { spawn "ags" "-t" "applauncher"; }
-    Mod+L { spawn "swaylock"; }
+    Mod+L { spawn "hyprlock"; }
 
     // You can also use a shell:
     // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }

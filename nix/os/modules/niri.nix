@@ -1,11 +1,15 @@
-{ config, pkgs, inputs, ... }:
+{ config
+, pkgs
+, inputs
+, ...
+}:
 
 {
-  imports =
-    [
-      ./ags.nix
-      ./swaylock.nix
-    ];
+  imports = [
+    ./ags.nix
+    ./hyprlock.nix
+    ./hypridle.nix
+  ];
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
     (self: super: {
@@ -19,7 +23,6 @@
 
   environment.systemPackages = [
     pkgs.xwayland-satellite
-    # pkgs.swaybg
     pkgs.swayidle
     pkgs.wf-recorder # screen recording utility
     pkgs.slurp # screen geometry picker utility
@@ -46,56 +49,53 @@
     ];
   };
 
-  home-manager.users.${config.configOptions.username} = { config, pkgs, ... }: {
-    programs = {
-      niri.config = null;
+  home-manager.users.${config.configOptions.username} =
+    { config, pkgs, ... }:
+    {
+      programs = {
+        niri.config = null;
 
-      wlogout = {
-        enable = true;
-        layout = [
-          {
-            label = "shutdown";
-            action = "systemctl poweroff";
-            text = "Shutdown";
-            keybind = "s";
-          }
-          {
-            label = "reboot";
-            action = "systemctl reboot";
-            text = "Reboot";
-            keybind = "r";
-          }
-          {
-            label = "logout";
-            action = "sleep 1; niri msg action quit";
-            text = "Logout";
-            keybind = "l";
-          }
-        ];
+        wlogout = {
+          enable = true;
+          layout = [
+            {
+              label = "lock";
+              action = "loginctl lock-session";
+              text = "Lock";
+              keybind = "l";
+            }
+            {
+              label = "hibernate";
+              action = "systemctl hibernate";
+              text = "Hibernate";
+              keybind = "h";
+            }
+            {
+              label = "suspend";
+              action = "systemctl suspend";
+              text = "Suspend";
+              keybind = "u";
+            }
+            {
+              label = "reboot";
+              action = "systemctl reboot";
+              text = "Reboot";
+              keybind = "r";
+            }
+            {
+              label = "shutdown";
+              action = "systemctl poweroff";
+              text = "Shutdown";
+              keybind = "s";
+            }
+          ];
+        };
       };
+
+      # home = {
+      #   file = {
+      #     ".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/niri/config.kdl";
+      #   };
+      # };
     };
-
-    # home = {
-    #   file = {
-    #     ".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/niri/config.kdl";
-    #   };
-    # };
-
-    services = {
-      swayidle = {
-        enable = true;
-        events = [
-          { event = "before-sleep"; command = "${pkgs.swaylock-effects}/bin/swaylock -f"; }
-          { event = "lock"; command = "lock"; }
-        ];
-        timeouts = [
-          # { timeout = 300; command = "${lib.getExe config.programs.niri.package} msg action power-off-monitors"; }
-          { timeout = 300; command = "${pkgs.niri}/bin/niri msg action power-off-monitors"; }
-          { timeout = 3600; command = "${pkgs.swaylock-effects}/bin/swaylock -f"; }
-          { timeout = 7200; command = "${pkgs.systemd}/bin/systemctl suspend"; }
-        ];
-      };
-    };
-
-  };
 }

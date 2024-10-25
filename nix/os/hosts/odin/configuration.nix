@@ -55,6 +55,7 @@
     ../../modules/git.nix
     ../../modules/3d-printing.nix
     ../../modules/obs-studio.nix
+    ../../modules/vial.nix
   ];
 
   networking = {

@@ -56,6 +56,7 @@
     ../../modules/kanshi.nix
     ../../modules/zen-browser.nix
     ../../modules/batsignal.nix
+    ../../modules/vial.nix
   ];
 
   hardware = {

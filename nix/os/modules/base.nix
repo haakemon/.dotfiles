@@ -53,7 +53,7 @@
   nixpkgs.config.allowUnfree = true;
 
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.git;
     settings = {
       experimental-features = [
         "nix-command"

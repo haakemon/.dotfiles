@@ -56,7 +56,7 @@
           code = "${config.configOptions.userHome}/code";
           dl = "${config.configOptions.userHome}/Downloads";
           dots = "${config.configOptions.userHome}/.dotfiles";
-          flake = "${config.configOptions.flake.dir}";
+          flake = "${config.configOptions.username}/.dotfiles/nix/os";
         };
         dotDir = ".config/zsh";
 
@@ -145,10 +145,8 @@
         '';
 
         shellAliases = {
-          nixrebuild-default = "sudo nixos-rebuild switch --flake path:${config.configOptions.flake.dir}#${config.configOptions.flake.hash}";
-          nixrebuild-niri = "sudo nixos-rebuild --specialisation 01-niri switch --flake path:${config.configOptions.flake.dir}#${config.configOptions.flake.hash}";
-          nixrebuild-boot = "sudo nixos-rebuild boot --flake path:${config.configOptions.flake.dir}#${config.configOptions.flake.hash}";
-          nixflake-update = "sudo nix flake update path:${config.configOptions.flake.dir}";
+          nixrebuild-boot = "sudo nixos-rebuild boot --flake path:${config.configOptions.username}/.dotfiles/nix/os#${config.configOptions.hostname}";
+          nixflake-update = "sudo nix flake update --flake path:${config.configOptions.username}/.dotfiles/nix/os";
           gcCleanup = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
         };
 

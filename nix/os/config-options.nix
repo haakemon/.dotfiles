@@ -20,16 +20,6 @@
         description = "Some configuration will not be applied on a headless system";
         default = false;
       };
-      flake = {
-        dir = lib.mkOption {
-          type = lib.types.str;
-          description = "Absolute path to flake location";
-        };
-        hash = lib.mkOption {
-          type = lib.types.str;
-          description = "Flake name";
-        };
-      };
       sshKeys = lib.mkOption {
         type = lib.types.attrsOf lib.types.str;
         example = {

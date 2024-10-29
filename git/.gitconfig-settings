@@ -23,6 +23,8 @@
   # tool = vscode
   tool = smerge
   compactionHeuristic = true
+[diff "sopsdiffer"]
+  textconv = "sops decrypt"
 [mergetool]
   keepBackup = false
 [mergetool "smerge"]

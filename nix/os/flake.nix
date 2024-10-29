@@ -42,6 +42,7 @@
             inputs.niri.nixosModules.niri
             inputs.stylix.nixosModules.stylix
             inputs.home-manager.nixosModules.home-manager
+            inputs.sops-nix.nixosModules.sops
             homeManagerConf
           ];
         };
@@ -55,6 +56,7 @@
             inputs.niri.nixosModules.niri
             inputs.stylix.nixosModules.stylix
             inputs.home-manager.nixosModules.home-manager
+            inputs.sops-nix.nixosModules.sops
             homeManagerConf
           ];
         };
@@ -65,6 +67,7 @@
           modules = [
             ./hosts/heimdall/configuration.nix
             inputs.home-manager.nixosModules.home-manager
+            inputs.sops-nix.nixosModules.sops
             homeManagerConf
           ];
         };
@@ -108,6 +111,11 @@
 
     zen-browser = {
       url = "github:MarceColl/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

@@ -58,6 +58,17 @@
     ../../modules/vial.nix
   ];
 
+  sops = {
+    # defaultSopsFile = "${config.configOptions.userHome}/.dotfiles/nix/os/secrets/secrets.yaml";
+    defaultSopsFile = ../../secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "${config.configOptions.userHome}/.config/sops/age/keys.txt";
+
+    secrets = {
+      hello = { };
+    };
+  };
+
   networking = {
     nameservers = [
       "192.168.2.9" # TODO: Remove this after router is updated
@@ -101,6 +112,9 @@
           pkgs.telegram-desktop
           pkgs.vesktop
           pkgs.discord
+
+          pkgs.age
+          pkgs.sops
         ];
 
         file = {

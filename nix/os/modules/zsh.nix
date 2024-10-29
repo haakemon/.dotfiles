@@ -143,13 +143,6 @@
           fastfetch
           #endregion initExtra
         '';
-
-        shellAliases = {
-          nixrebuild-boot = "sudo nixos-rebuild boot --flake path:${config.configOptions.username}/.dotfiles/nix/os#${config.configOptions.hostname}";
-          nixflake-update = "sudo nix flake update --flake path:${config.configOptions.username}/.dotfiles/nix/os";
-          gcCleanup = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
-        };
-
       };
     };
   };

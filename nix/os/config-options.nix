@@ -20,16 +20,6 @@
         description = "Some configuration will not be applied on a headless system";
         default = false;
       };
-      git = {
-        username = lib.mkOption {
-          type = lib.types.str;
-          description = "Git username";
-        };
-        email = lib.mkOption {
-          type = lib.types.str;
-          description = "Git email";
-        };
-      };
       flake = {
         dir = lib.mkOption {
           type = lib.types.str;

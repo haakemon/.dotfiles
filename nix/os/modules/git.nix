@@ -35,8 +35,8 @@ in
           };
           extraConfig = {
             user = {
-              name = "${config.configOptions.git.username}";
-              email = "${config.configOptions.git.email}";
+              name = "Håkon Bogsrud";
+              email = "2082481+haakemon@users.noreply.github.com";
             };
           };
           includes = [

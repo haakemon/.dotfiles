@@ -109,7 +109,7 @@
           pkgs.vlc
 
           # Devtools
-          pkgs.azure-cli
+          # pkgs.azure-cli # https://nixpk.gs/pr-tracker.html?pr=345326
           pkgs.kubectl
           pkgs.kubectx
           pkgs.vault

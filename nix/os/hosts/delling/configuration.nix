@@ -55,7 +55,7 @@
     ../../modules/obs-studio.nix
     ../../modules/kanshi.nix
     ../../modules/zen-browser.nix
-    ../../modules/batsignal.nix
+    ../../modules/upower.nix
     ../../modules/vial.nix
   ];
 

@@ -101,7 +101,7 @@ debug {
 
 // window-rule {
 //   match app-id=r#"^Chromium-browser$"#
-//   open-maximized true
+//   open-maximized false
 //   open-on-output "Samsung Electric Company LS49AG95 HNTRA00432" // Home
 // }
 

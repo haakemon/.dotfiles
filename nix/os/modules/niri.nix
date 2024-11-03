@@ -24,7 +24,7 @@
   environment.systemPackages = [
     pkgs.xwayland-satellite
     pkgs.swayidle
-    pkgs.wf-recorder # screen recording utility
+    # pkgs.wf-recorder # screen recording utility # https://nixpk.gs/pr-tracker.html?pr=353362
     pkgs.slurp # screen geometry picker utility
   ];
 

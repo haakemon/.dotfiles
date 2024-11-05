@@ -12,9 +12,6 @@
   ];
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
-    (self: super: {
-      xwayland-satellite = super.callPackage ../apps/xwayland-satellite/package.nix { };
-    })
   ];
 
   programs = {
@@ -22,7 +19,7 @@
   };
 
   environment.systemPackages = [
-    pkgs.xwayland-satellite
+    pkgs.xwayland-satellite-unstable
     pkgs.swayidle
     # pkgs.wf-recorder # screen recording utility # https://nixpk.gs/pr-tracker.html?pr=353362
     pkgs.slurp # screen geometry picker utility

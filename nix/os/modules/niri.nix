@@ -12,6 +12,18 @@
   ];
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
+
+    # can be removed when https://nixpk.gs/pr-tracker.html?pr=353362 is released
+    (final: prev: {
+      wf-recorder = prev.wf-recorder.overrideAttrs (old: {
+        patches = ([ ]) ++ [
+          (prev.fetchpatch {
+            url = "https://github.com/ammen99/wf-recorder/commit/560bb92d3ddaeb31d7af77d22d01b0050b45bebe.diff";
+            sha256 = "sha256-7jbX5k8dh4dWfolMkZXiERuM72zVrkarsamXnd+1YoI=";
+          })
+        ];
+      });
+    })
   ];
 
   programs = {
@@ -21,7 +33,7 @@
   environment.systemPackages = [
     pkgs.xwayland-satellite-unstable
     pkgs.swayidle
-    # pkgs.wf-recorder # screen recording utility # https://nixpk.gs/pr-tracker.html?pr=353362
+    pkgs.wf-recorder # screen recording utility
     pkgs.slurp # screen geometry picker utility
   ];
 

@@ -109,17 +109,15 @@
           pkgs.vlc
 
           # Devtools
-          # pkgs.azure-cli # https://nixpk.gs/pr-tracker.html?pr=345326
+          pkgs.azure-cli
           pkgs.kubectl
+          pkgs.kubelogin
           pkgs.kubectx
           pkgs.vault
 
           # Chat
           pkgs.telegram-desktop
           pkgs.slack
-          # (pkgs.makeAutostartItem { name = "slack"; package = pkgs.slack; })
-          #pkgs.teams-for-linux
-          # (pkgs.makeAutostartItem { name = "teams-for-linux"; package = pkgs.teams-for-linux; })
         ];
 
         file = {

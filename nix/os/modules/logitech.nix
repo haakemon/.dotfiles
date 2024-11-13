@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   hardware = {
@@ -7,4 +7,6 @@
       enableGraphical = true;
     };
   };
+
+  environment.systemPackages = [ pkgs.pkgs.logiops_0_2_3 ];
 }

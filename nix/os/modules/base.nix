@@ -169,6 +169,10 @@
           # NIXOS_OZONE_WL = 1; # do I still need this? # breaks vscode in plasma?
         };
 
+        sessionPath = [
+          "${config.home.homeDirectory}/.local/bin"
+        ];
+
         file = {
           ".config/nixpkgs/config.nix".text = ''
             { allowUnfree = true; }

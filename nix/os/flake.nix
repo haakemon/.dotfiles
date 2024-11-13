@@ -26,16 +26,14 @@
           useUserPackages = true;
         };
       };
-
-      specialArgs = {
-        inherit inputs;
-      };
     in
     {
       nixosConfigurations = {
         odin = inputs.nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
           system = "x86_64-linux";
-          specialArgs = specialArgs;
           modules = [
             ./hosts/odin/configuration.nix
             inputs.chaotic.nixosModules.default
@@ -48,8 +46,10 @@
         };
 
         delling = inputs.nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
           system = "x86_64-linux";
-          specialArgs = specialArgs;
           modules = [
             ./hosts/delling/configuration.nix
             inputs.chaotic.nixosModules.default
@@ -62,8 +62,10 @@
         };
 
         heimdall = inputs.nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
           system = "x86_64-linux";
-          specialArgs = specialArgs;
           modules = [
             ./hosts/heimdall/configuration.nix
             inputs.home-manager.nixosModules.home-manager

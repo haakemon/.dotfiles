@@ -35,6 +35,10 @@ repos:
     rev: v0.0.7
     hooks:
       - id: clean-dotenv
+  - repo: https://github.com/fidgetingbits/pre-commit-statix
+    rev: v1.0.0
+    hooks:
+      - id: statix-check
   # - repo: local
   #   hooks:
   #     - id: nix fmt

@@ -68,6 +68,7 @@
     [
       pkgs.usbutils
       pkgs.pciutils
+      pkgs.statix
       pkgs.nixpkgs-fmt # formatting .nix files
     ]
     ++ lib.optionals (!config.configOptions.headless) [

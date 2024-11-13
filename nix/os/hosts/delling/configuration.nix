@@ -91,7 +91,7 @@
         zsh = {
           initExtra = ''
             #region default initExtra
-            source "''${HOME}/work/env.zsh"
+            source "''${HOME}/work/configs/env.zsh"
             #endregion default initExtra
           '';
         };

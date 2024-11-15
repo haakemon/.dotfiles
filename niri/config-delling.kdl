@@ -256,10 +256,7 @@ window-rule {
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
-spawn-at-startup "~/.dotfiles/ags/start.sh"
-// spawn-at-startup "xwayland-satellite"
-spawn-at-startup "xwayland-satellite" ":0"
-spawn-at-startup "kanshi" "--config" "~/.dotfiles/kanshi/delling"
+// spawn-at-startup "xwayland-satellite" ":0"
 
 // spawn-at-startup "slack"
 // spawn-at-startup "teams-for-linux"

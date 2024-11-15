@@ -79,7 +79,6 @@
   home-manager.users.${config.configOptions.username} =
     { config
     , pkgs
-    , lib
     , ...
     }:
     {
@@ -102,6 +101,16 @@
         Install.WantedBy = [ "graphical-session.target" ];
         Service = {
           ExecStart = "${pkgs.pkgs.logiops_0_2_3}/bin/logid --config ${config.configOptions.userHome}/.dotfiles/logid/mx-master-3-for-mac.cfg";
+          Restart = "on-failure";
+          RestartSec = 10;
+        };
+      };
+
+      systemd.user.services."kanshi" = {
+        Unit.Description = "Dynamic display configuration";
+        Install.WantedBy = [ "graphical-session.target" ];
+        Service = {
+          ExecStart = "${pkgs.pkgs.kanshi}/bin/kanshi --config ${config.configOptions.userHome}/.dotfiles/kanshi/delling";
           Restart = "on-failure";
           RestartSec = 10;
         };

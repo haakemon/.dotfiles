@@ -1,10 +1,9 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [
-      ./gpu-common.nix
-    ];
+  imports = [
+    ./gpu-common.nix
+  ];
   boot = {
     initrd.kernelModules = [ "amdgpu" ];
   };
@@ -13,6 +12,9 @@
     graphics = {
       extraPackages = [
         pkgs.rocmPackages.clr.icd
+        pkgs.vulkan-loader
+        pkgs.vulkan-validation-layers
+        pkgs.vulkan-extension-layer
       ];
     };
   };

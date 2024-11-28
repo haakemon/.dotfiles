@@ -133,6 +133,7 @@
           pkgs.kubelogin
           pkgs.kubectx
           pkgs.vault
+          pkgs.dotnet-sdk_8
 
           # Chat
           pkgs.telegram-desktop

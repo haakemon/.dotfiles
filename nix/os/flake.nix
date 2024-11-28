@@ -16,6 +16,8 @@
         lib = inputs.nixpkgs.lib;
       };
 
+      nixpkgsOverlays = import ./nixpkgs-overlays.nix;
+
       homeManagerConf = {
         home-manager = {
           extraSpecialArgs = {
@@ -42,6 +44,9 @@
             inputs.home-manager.nixosModules.home-manager
             inputs.sops-nix.nixosModules.sops
             homeManagerConf
+            {
+              nixpkgs.overlays = [ nixpkgsOverlays ];
+            }
           ];
         };
 
@@ -58,6 +63,9 @@
             inputs.home-manager.nixosModules.home-manager
             inputs.sops-nix.nixosModules.sops
             homeManagerConf
+            {
+              nixpkgs.overlays = [ nixpkgsOverlays ];
+            }
           ];
         };
 
@@ -71,6 +79,9 @@
             inputs.home-manager.nixosModules.home-manager
             inputs.sops-nix.nixosModules.sops
             homeManagerConf
+            {
+              nixpkgs.overlays = [ nixpkgsOverlays ];
+            }
           ];
         };
       };

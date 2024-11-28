@@ -68,6 +68,10 @@
     };
   };
 
+  networking.wireless.iwd.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
+
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -121,6 +125,7 @@
           # Utils
           pkgs.headsetcontrol # Set options for headsets
           pkgs.gcalcli
+          pkgs.impala
 
           # Music / video
           pkgs.spotify

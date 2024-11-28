@@ -137,6 +137,7 @@
           pkgs.kubectl
           pkgs.kubelogin
           pkgs.kubectx
+          pkgs.k9s
           pkgs.vault
           pkgs.dotnet-sdk_8
 

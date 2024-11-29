@@ -105,6 +105,7 @@
 
           # Music / video
           pkgs.spotify
+          pkgs.psst # alternative spotify client
           pkgs.freetube
           pkgs.vlc
 

@@ -74,7 +74,7 @@
     ++ lib.optionals (!config.configOptions.headless) [
       pkgs.libnotify
       pkgs.victor-mono
-      (pkgs.nerdfonts.override { fonts = [ "VictorMono" ]; })
+      pkgs.nerd-fonts.victor-mono
     ];
 
   system = {
@@ -213,7 +213,7 @@
 
             pkgs.freeoffice
             pkgs.smartmontools
-            (pkgs.nerdfonts.override { fonts = [ "VictorMono" ]; })
+            pkgs.nerd-fonts.victor-mono
             pkgs.victor-mono
             pkgs.gparted
             pkgs.standardnotes

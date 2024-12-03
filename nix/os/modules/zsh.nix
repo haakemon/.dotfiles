@@ -20,7 +20,7 @@
       pkgs.eza
       pkgs.zsh-powerlevel10k
       pkgs.entr # https://github.com/eradman/entr
-      (pkgs.nerdfonts.override { fonts = [ "VictorMono" ]; })
+      pkgs.nerd-fonts.victor-mono
       pkgs.victor-mono
       pkgs.bat
       pkgs.fzf # fuzzy find

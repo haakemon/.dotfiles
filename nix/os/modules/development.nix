@@ -28,8 +28,8 @@
         pkgs.mitmproxy
         pkgs.simple-http-server
         pkgs.nmap
-        pkgs.nodejs
-        pkgs.corepack
+        pkgs.nodejs_22
+        pkgs.corepack_22
         pkgs.ffmpeg
         pkgs.nixd # nix language server
         pkgs.mqtt-explorer

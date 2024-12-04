@@ -1,6 +1,8 @@
 { config, ... }:
 
 {
+  security.pam.services.ags = { };
+
   home-manager.users.${config.configOptions.username} =
     { inputs
     , config

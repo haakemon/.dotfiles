@@ -18,7 +18,7 @@
 
         # Tools
         # pkgs.pulsar # editor
-        pkgs.lapce # editor
+        # pkgs.lapce # editor
         pkgs.zed-editor # editor
 
         pkgs.vscode-fhs

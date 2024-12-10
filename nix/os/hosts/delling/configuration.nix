@@ -48,6 +48,7 @@
     ../../modules/logitech.nix
     ../../modules/fstrim.nix
     ../../modules/printing.nix
+    ../../modules/nautilus.nix
     ../../modules/vivaldi.nix
     ../../modules/nh.nix
     ../../modules/wezterm.nix

@@ -229,12 +229,6 @@
 
       };
       dconf.settings = lib.mkIf (!config.configOptions.headless) {
-        # Settings for virt-manager https://nixos.wiki/wiki/Virt-manager
-        "org/virt-manager/virt-manager/connections" = {
-          autoconnect = [ "qemu:///system" ];
-          uris = [ "qemu:///system" ];
-        };
-
         "org/gnome/desktop/interface" = {
           color-scheme = "prefer-dark";
         };

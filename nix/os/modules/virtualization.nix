@@ -51,4 +51,15 @@
       spiceUSBRedirection.enable = true;
     })
   ];
+
+  home-manager.users.${config.configOptions.username} = { config, pkgs, ... }:
+    {
+      dconf.settings = lib.mkIf (!config.configOptions.headless) {
+        # Settings for virt-manager https://nixos.wiki/wiki/Virt-manager
+        "org/virt-manager/virt-manager/connections" = {
+          autoconnect = [ "qemu:///system" ];
+          uris = [ "qemu:///system" ];
+        };
+      };
+    };
 }

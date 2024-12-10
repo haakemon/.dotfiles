@@ -21,6 +21,9 @@
   mstart = !git maintenance start
   mstop = !git maintenance stop
 
+  ls-gone = "!git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}'"
+  rm-gone = !$HOME/.dotfiles/git/scripts/rm-gone-branches.sh
+
   # list branches sorted by last modified
   b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
 

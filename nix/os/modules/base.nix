@@ -218,6 +218,8 @@
             pkgs.standardnotes
             # pkgs.manuskript
             # pkgs.rawtherapee
+            pkgs.peazip
+            pkgs.nix-tree
             pkgs.nomacs # image viewer
             pkgs.marktext
             pkgs.scrcpy

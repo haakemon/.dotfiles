@@ -6,6 +6,8 @@
 
 {
 
+  hardware.keyboard.qmk.enable = true;
+
   services.udev.packages = [
     pkgs.vial
   ];
@@ -16,7 +18,12 @@
       home = {
         packages = [
           pkgs.vial
+          pkgs.qmk
         ];
+
+        sessionVariables = {
+          QMK_HOME = "${config.home.homeDirectory}/code/qmk_firmware";
+        };
       };
     };
 }

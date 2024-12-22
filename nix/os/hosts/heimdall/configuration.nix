@@ -53,7 +53,6 @@
   services = {
     traefik.dynamicConfigOptions.http = {
       services = {
-        octoprint.loadBalancer.servers = [{ url = "http://192.168.2.10"; }];
         valetudo.loadBalancer.servers = [{ url = "http://192.168.2.11"; }];
 
         homarr.loadBalancer.servers = [{ url = "http://127.0.0.1:7575"; }];
@@ -85,12 +84,6 @@
           rule = "Host(`cockpit.${config.configOptions.acme.domain}`)";
           entryPoints = [ "websecure" ];
           service = "cockpit";
-        };
-
-        octoprint = {
-          rule = "Host(`octoprint.${config.configOptions.acme.domain}`)";
-          entryPoints = [ "websecure" ];
-          service = "octoprint";
         };
 
         valetudo = {

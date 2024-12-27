@@ -30,6 +30,7 @@
   imports = [
     ./variables-local.nix
     ./hardware-configuration.nix
+    ./smart-home.nix
 
     ../../modules/base.nix
     ../../modules/networking.nix

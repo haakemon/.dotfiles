@@ -1,0 +1,64 @@
+version: "3.9"
+
+x-common-app-config: &common-app-config
+  restart: unless-stopped
+  environment:
+    - TZ=$TZ
+    - TIME_ZONE=$TZ
+
+networks:
+  default:
+    driver: bridge
+
+volumes:
+  teslamate-grafana-data:
+
+########################### SERVICES
+services:
+  teslamate:
+    <<: *common-app-config
+    container_name: teslamate
+    image: teslamate/teslamate:1.30.1@sha256:21b53b2490f88805a48c03998a1a307edfc908dec6323f5221097639bcb846bf
+    ports:
+      - 127.0.0.1:4000:4000
+    environment:
+      ENCRYPTION_KEY: $TESLAMATE_ENCRYPTION_KEY
+      DATABASE_USER: $TESLAMATE_DB_USER
+      DATABASE_PASS: $TESLAMATE_DB_PASS
+      DATABASE_NAME: $TESLAMATE_DB_NAME
+      DATABASE_HOST: teslamate_database
+      MQTT_USERNAME: $TESLAMATE_MQTT_USERNAME
+      MQTT_PASSWORD: $TESLAMATE_MQTT_PASSWORD
+      MQTT_HOST: host.containers.internal
+      TZ: $TZ
+    cap_drop:
+      - all
+
+  teslamate_grafana:
+    <<: *common-app-config
+    container_name: teslamate-grafana
+    image: teslamate/grafana:1.30.1@sha256:8c44b15fa5c57989004ee935fbad21ae070d75457d8beb432d2adedb44802e38
+    ports:
+      - 127.0.0.1:4001:3000
+    environment:
+      DATABASE_USER: $TESLAMATE_DB_USER
+      DATABASE_PASS: $TESLAMATE_DB_PASS
+      DATABASE_NAME: $TESLAMATE_DB_NAME
+      DATABASE_HOST: teslamate_database
+      TZ: $TZ
+    volumes:
+      - teslamate-grafana-data:/var/lib/grafana
+
+  teslamate_database:
+    <<: *common-app-config
+    container_name: teslamate-database
+    image: postgres:16.4@sha256:17b6fe3a18780358f7f44a02bc21a8ef5f349aa83d8dae96d43cd168a97cf6fa
+    environment:
+      POSTGRES_USER: $TESLAMATE_DB_USER
+      POSTGRES_PASSWORD: $TESLAMATE_DB_PASS
+      POSTGRES_DB: $TESLAMATE_DB_NAME
+      PUID: $PUID
+      PGID: $PGID
+      TZ: $TZ
+    volumes:
+      - "$DATADIR/teslamate/db_16:/var/lib/postgresql/data"

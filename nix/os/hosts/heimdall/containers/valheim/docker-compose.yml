@@ -1,0 +1,30 @@
+version: "3.9"
+
+x-common-app-config: &common-app-config
+  restart: no
+  environment:
+    - TZ=$TZ
+    - TIME_ZONE=$TZ
+
+networks:
+  default:
+    driver: bridge
+
+########################### SERVICES
+services:
+  valheim:
+    image: lloesche/valheim-server@sha256:b97da1038714e5156cf28d042422a1c5af41e03189572025e615bde61395c678
+    container_name: valheim
+    cap_add:
+      - sys_nice
+    volumes:
+      - $DATADIR/valheim/config:/config
+      - $DATADIR/valheim/data:/opt/valheim
+    ports:
+      - "2456:2456/udp"
+    environment:
+      SERVER_NAME: $VALHEIM_SERVER_NAME
+      WORLD_NAME: $VALHEIM_WORLD_NAME
+      SERVER_PASS: $VALHEIM_SERVER_PASS
+      SERVER_PUBLIC: false
+    stop_grace_period: 2m

@@ -1,0 +1,25 @@
+version: "3.9"
+
+x-common-app-config: &common-app-config
+  restart: unless-stopped
+  environment:
+    - TZ=$TZ
+    - TIME_ZONE=$TZ
+
+networks:
+  default:
+    driver: bridge
+
+########################### SERVICES
+services:
+  homarr:
+    <<: *common-app-config
+    container_name: homarr
+    image: ghcr.io/ajnart/homarr:0.15.4@sha256:c13f04c95fdfbdb710375301cc45783a4c239eaedc96258e2a026feead213f99
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:7575:7575
+    volumes:
+      - $DATADIR/homarr/configs:/app/data/configs
+      - $DATADIR/homarr/icons:/app/public/icons
+      - $DATADIR/homarr/data:/data

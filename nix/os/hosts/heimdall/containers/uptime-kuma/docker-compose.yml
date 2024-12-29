@@ -1,0 +1,22 @@
+version: "3.9"
+
+x-common-app-config: &common-app-config
+  restart: unless-stopped
+  environment:
+    - TZ=$TZ
+    - TIME_ZONE=$TZ
+
+networks:
+  default:
+    driver: bridge
+
+########################### SERVICES
+services:
+  uptime-kuma:
+    <<: *common-app-config
+    ports:
+      - 127.0.0.1:3001:3001
+    volumes:
+      - "$DATADIR/uptime-kuma:/app/data"
+    container_name: uptime-kuma
+    image: louislam/uptime-kuma:1.23.15-alpine@sha256:6aa3bec3f03651e69bf66b1053927d1afbe924326490216b136ff49a769c88be

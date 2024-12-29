@@ -18,7 +18,7 @@ services:
   teslamate:
     <<: *common-app-config
     container_name: teslamate
-    image: teslamate/teslamate:1.30.1@sha256:21b53b2490f88805a48c03998a1a307edfc908dec6323f5221097639bcb846bf
+    image: teslamate/teslamate:1.32.0@sha256:8c282ada5c72b7b0cbd316ec7bc010a9214d5943cf1e1b36ab9b7a98f45a5809
     ports:
       - 127.0.0.1:4000:4000
     environment:
@@ -37,7 +37,7 @@ services:
   teslamate_grafana:
     <<: *common-app-config
     container_name: teslamate-grafana
-    image: teslamate/grafana:1.30.1@sha256:8c44b15fa5c57989004ee935fbad21ae070d75457d8beb432d2adedb44802e38
+    image: teslamate/grafana:1.32.0@sha256:76b8d0599b552e517df406805183b4ef578bc74cee8bcd147ab8698057d63629
     ports:
       - 127.0.0.1:4001:3000
     environment:
@@ -52,7 +52,7 @@ services:
   teslamate_database:
     <<: *common-app-config
     container_name: teslamate-database
-    image: postgres:16.4@sha256:17b6fe3a18780358f7f44a02bc21a8ef5f349aa83d8dae96d43cd168a97cf6fa
+    image: postgres:16.6@sha256:c7afedc5c15994625b5be4cb4736c030271b55be0360b78a99c90ec2fbe658b6
     environment:
       POSTGRES_USER: $TESLAMATE_DB_USER
       POSTGRES_PASSWORD: $TESLAMATE_DB_PASS

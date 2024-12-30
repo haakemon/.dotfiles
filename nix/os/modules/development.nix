@@ -20,6 +20,7 @@
         # pkgs.pulsar # editor
         # pkgs.lapce # editor
         pkgs.zed-editor # editor
+        pkgs.openapi-tui
 
         pkgs.vscode-fhs
         pkgs.meld

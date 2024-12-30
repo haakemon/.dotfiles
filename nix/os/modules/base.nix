@@ -180,6 +180,9 @@
 
         packages =
           [
+            pkgs.systemctl-tui
+            pkgs.podman-tui
+
             pkgs.unzip
             pkgs.croc
             (
@@ -205,12 +208,16 @@
             pkgs.protonvpn-gui
             pkgs.xorg.xwininfo
 
+            pkgs.spotify
+            pkgs.spotify-player #tui
+            pkgs.vlc
+
             pkgs.cosmic-files
 
             # pkgs.openshot-qt
             # pkgs.shotcut
 
-            pkgs.freeoffice
+            # pkgs.freeoffice
             pkgs.smartmontools
             pkgs.nerd-fonts.victor-mono
             pkgs.victor-mono

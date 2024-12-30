@@ -124,10 +124,7 @@
           pkgs.gcalcli
 
           # Music / video
-          pkgs.spotify
-          pkgs.psst # alternative spotify client
           pkgs.freetube
-          pkgs.vlc
 
           # Devtools
           pkgs.azure-cli

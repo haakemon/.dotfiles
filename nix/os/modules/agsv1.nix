@@ -11,10 +11,10 @@
     }:
     {
       imports = [
-        inputs.ags.homeManagerModules.default
+        inputs.agsv1.homeManagerModules.default
       ];
 
-      systemd.user.services."ags" = {
+      systemd.user.services."agsv1" = {
         Unit = {
           Description = "Bar and notifications";
           PartOf = "graphical-session.target";
@@ -24,8 +24,7 @@
         };
         Install.WantedBy = [ "graphical-session.target" ];
         Service = {
-          Type = "notify";
-          NotifyAccess = "all";
+          Type = "exec";
           ExecStart = "${config.configOptions.userHome}/.dotfiles/ags_v1/start.sh";
           StandardOutput = "jounral";
           Restart = "on-failure";

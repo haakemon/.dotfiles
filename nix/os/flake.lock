@@ -1,6 +1,6 @@
 {
   "nodes": {
-    "ags": {
+    "agsv1": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
@@ -481,7 +481,7 @@
     },
     "root": {
       "inputs": {
-        "ags": "ags",
+        "agsv1": "agsv1",
         "chaotic": "chaotic",
         "home-manager": "home-manager_2",
         "niri": "niri",

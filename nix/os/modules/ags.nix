@@ -18,7 +18,7 @@
         Unit.Description = "Bar and notifications";
         Install.WantedBy = [ "graphical-session.target" ];
         Service = {
-          ExecStart = "${config.configOptions.userHome}/.dotfiles/ags/start.sh";
+          ExecStart = "${config.configOptions.userHome}/.dotfiles/ags_v1/start.sh";
           Restart = "on-failure";
           RestartSec = 10;
         };
@@ -29,7 +29,7 @@
           enable = true;
 
           # null or path, leave as null if you don't want hm to manage the config
-          #configDir = ../ags;
+          #configDir = ../ags_v1;
           configDir = null;
 
           # additional packages to add to gjs's runtime

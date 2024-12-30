@@ -15,10 +15,19 @@
       ];
 
       systemd.user.services."ags" = {
-        Unit.Description = "Bar and notifications";
+        Unit = {
+          Description = "Bar and notifications";
+          PartOf = "graphical-session.target";
+          After = "graphical-session.target";
+          Requisite = "graphical-session.target";
+          BindsTo = "graphical-session.target";
+        };
         Install.WantedBy = [ "graphical-session.target" ];
         Service = {
+          Type = "notify";
+          NotifyAccess = "all";
           ExecStart = "${config.configOptions.userHome}/.dotfiles/ags_v1/start.sh";
+          StandardOutput = "jounral";
           Restart = "on-failure";
           RestartSec = 10;
         };

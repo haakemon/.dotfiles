@@ -1,4 +1,4 @@
-version: "3.9"
+version: '3.9'
 
 x-common-app-config: &common-app-config
   restart: unless-stopped
@@ -61,4 +61,4 @@ services:
       PGID: $PGID
       TZ: $TZ
     volumes:
-      - "$DATADIR/teslamate/db_16:/var/lib/postgresql/data"
+      - '$DATADIR/teslamate/db_17:/var/lib/postgresql/data'

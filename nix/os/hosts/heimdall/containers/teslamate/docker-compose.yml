@@ -1,5 +1,3 @@
-version: '3.9'
-
 x-common-app-config: &common-app-config
   restart: unless-stopped
   environment:
@@ -8,10 +6,12 @@ x-common-app-config: &common-app-config
 
 networks:
   default:
+    name: teslamate_net
     driver: bridge
 
 volumes:
   teslamate-grafana-data:
+  teslamate-db:
 
 ########################### SERVICES
 services:
@@ -61,4 +61,4 @@ services:
       PGID: $PGID
       TZ: $TZ
     volumes:
-      - '$DATADIR/teslamate/db_17:/var/lib/postgresql/data'
+      - teslamate-db:/var/lib/postgresql/data

@@ -20,4 +20,18 @@
     };
   };
 
+  home-manager.users.${config.configOptions.username} =
+    { config
+    , pkgs
+    , lib
+    , ...
+    }:
+    {
+      programs.home-manager.enable = true;
+      home = {
+        sessionVariables = {
+          PODMAN_COMPOSE_WARNING_LOGS = "false";
+        };
+      };
+    };
 }

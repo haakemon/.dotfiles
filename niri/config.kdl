@@ -291,7 +291,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T { spawn "wezterm"; }
-    Mod+R { spawn "ags" "-t" "applauncher"; }
+    Mod+R { spawn "ags" "toggle" "launcher"; }
     Mod+L { spawn "hyprlock"; }
 
     // You can also use a shell:

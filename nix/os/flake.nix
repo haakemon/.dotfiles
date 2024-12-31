@@ -112,15 +112,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    agsv1 = {
-      url = "github:aylur/ags/v1";
+    ags = {
+      url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # ags = {
-    #   url = "github:aylur/ags/v1";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
 
     wezterm = {
       url = "github:wez/wezterm?dir=nix";

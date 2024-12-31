@@ -84,4 +84,9 @@
       ENABLE_GAMESCOPE_WSI = "1";
     };
   };
+
+  services.wivrn = {
+    enable = true;
+    openFirewall = true;
+  };
 }

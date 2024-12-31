@@ -6,7 +6,7 @@
 
 {
   imports = [
-    ./agsv1.nix
+    ./ags.nix
     ./hyprlock.nix
     ./hypridle.nix
   ];
@@ -69,7 +69,7 @@
           Type = "notify";
           NotifyAccess = "all";
           ExecStart = "${pkgs.xwayland-satellite}/bin/xwayland-satellite :0";
-          StandardOutput = "jounral";
+          StandardOutput = "journal";
           Restart = "on-failure";
           RestartSec = 10;
         };

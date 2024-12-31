@@ -41,7 +41,7 @@ export default function Applauncher() {
   return (
     <window
       name="launcher"
-      anchor={Astal.WindowAnchor.TOP | Astal.WindowAnchor.TOP}
+      anchor={Astal.WindowAnchor.TOP | Astal.WindowAnchor.BOTTOM}
       exclusivity={Astal.Exclusivity.IGNORE}
       keymode={Astal.Keymode.ON_DEMAND}
       application={App}
@@ -52,7 +52,7 @@ export default function Applauncher() {
       <box>
         <eventbox widthRequest={1} expand onClick={hide} />
         <box hexpand={false} vertical>
-          <eventbox heightRequest={100} onClick={hide} />
+          <eventbox heightRequest={300} onClick={hide} />
           <box widthRequest={500} className="Applauncher" vertical>
             <entry
               placeholderText="Search"

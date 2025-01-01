@@ -48,6 +48,8 @@ services:
       TZ: $TZ
     volumes:
       - teslamate-grafana-data:/var/lib/grafana
+      - ~/code/Teslamate-CustomGrafanaDashboards/customdashboards.yml:/etc/grafana/provisioning/dashboards/customdashboards.yml
+      - ~/code/Teslamate-CustomGrafanaDashboards/dashboards:/TeslamateCustomDashboards
 
   teslamate_database:
     <<: *common-app-config

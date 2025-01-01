@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
+{ config
+, pkgs
+, lib
+, ...
 }:
 
 {
@@ -30,7 +29,6 @@
   imports = [
     ./variables-local.nix
     ./hardware-configuration.nix
-    ./containers.nix
 
     ../../modules/base.nix
     ../../modules/networking.nix
@@ -54,18 +52,18 @@
   services = {
     traefik.dynamicConfigOptions.http = {
       services = {
-        valetudo.loadBalancer.servers = [ { url = "http://192.168.2.11"; } ];
+        valetudo.loadBalancer.servers = [{ url = "http://192.168.2.11"; }];
 
-        homarr.loadBalancer.servers = [ { url = "http://127.0.0.1:7575"; } ];
-        cockpit.loadBalancer.servers = [ { url = "http://127.0.0.1:9090"; } ];
-        zigbee2mqtt.loadBalancer.servers = [ { url = "http://127.0.0.1:8089"; } ];
-        zwavejs2mqtt.loadBalancer.servers = [ { url = "http://127.0.0.1:8091"; } ];
-        hass.loadBalancer.servers = [ { url = "http://127.0.0.1:8123"; } ];
-        memories.loadBalancer.servers = [ { url = "http://127.0.0.1:2342"; } ];
-        teslamate.loadBalancer.servers = [ { url = "http://127.0.0.1:4000"; } ];
-        "teslamate-stats".loadBalancer.servers = [ { url = "http://127.0.0.1:4001"; } ];
-        adguard.loadBalancer.servers = [ { url = "http://127.0.0.1:3050"; } ];
-        status.loadBalancer.servers = [ { url = "http://127.0.0.1:3001"; } ];
+        homarr.loadBalancer.servers = [{ url = "http://127.0.0.1:7575"; }];
+        cockpit.loadBalancer.servers = [{ url = "http://127.0.0.1:9090"; }];
+        zigbee2mqtt.loadBalancer.servers = [{ url = "http://127.0.0.1:8089"; }];
+        zwavejs2mqtt.loadBalancer.servers = [{ url = "http://127.0.0.1:8091"; }];
+        hass.loadBalancer.servers = [{ url = "http://127.0.0.1:8123"; }];
+        memories.loadBalancer.servers = [{ url = "http://127.0.0.1:2342"; }];
+        teslamate.loadBalancer.servers = [{ url = "http://127.0.0.1:4000"; }];
+        "teslamate-stats".loadBalancer.servers = [{ url = "http://127.0.0.1:4001"; }];
+        adguard.loadBalancer.servers = [{ url = "http://127.0.0.1:3050"; }];
+        status.loadBalancer.servers = [{ url = "http://127.0.0.1:3001"; }];
       };
 
       routers = {

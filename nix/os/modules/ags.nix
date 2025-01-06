@@ -25,7 +25,8 @@
         Install.WantedBy = [ "graphical-session.target" ];
         Service = {
           Type = "exec";
-          ExecStart = "${config.configOptions.userHome}/.dotfiles/ags/start.sh";
+          KillMode = "mixed";
+          ExecStart = "${config.programs.ags.finalPackage}/bin/ags run ${config.configOptions.userHome}/.dotfiles/ags/app.ts";
           StandardOutput = "journal";
           Restart = "on-failure";
           RestartSec = 10;

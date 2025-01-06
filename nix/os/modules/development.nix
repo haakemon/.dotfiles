@@ -34,6 +34,7 @@
         pkgs.ffmpeg
         pkgs.nixd # nix language server
         pkgs.mqtt-explorer
+        pkgs.mqttui
         # pkgs.mqttx
         # pkgs.flyctl
         # pkgs.arduino-ide

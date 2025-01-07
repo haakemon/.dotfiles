@@ -2,7 +2,8 @@
 
 {
   home-manager.users.${config.configOptions.username} =
-    { pkgs
+    { inputs
+    , pkgs
     , ...
     }:
     {
@@ -14,6 +15,8 @@
         # Terminals
         pkgs.alacritty
         pkgs.cosmic-term
+        # pkgs.ghostty
+        inputs.ghostty.packages.x86_64-linux.default
         pkgs.vhs # terminal gifs
 
         # Tools

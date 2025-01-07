@@ -122,6 +122,10 @@
       # inputs.nixpkgs.follows = "nixpkgs"; # this breaks for some reason
     };
 
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
+
     zen-browser = {
       url = "github:MarceColl/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";

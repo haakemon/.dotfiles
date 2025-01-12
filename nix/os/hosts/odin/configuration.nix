@@ -56,6 +56,7 @@
     ../../modules/3d-printing.nix
     ../../modules/obs-studio.nix
     ../../modules/vial.nix
+    ../../modules/zen-browser.nix
   ];
 
   sops = {

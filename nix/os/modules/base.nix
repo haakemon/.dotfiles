@@ -182,6 +182,7 @@
         packages =
           [
             pkgs.systemctl-tui
+            pkgs.lazyjournal # journalctl tool
             pkgs.podman-tui
 
             pkgs.unzip

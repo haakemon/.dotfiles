@@ -25,10 +25,6 @@
     pkgs.slurp # screen geometry picker utility
   ];
 
-  services = {
-    blueman.enable = true;
-  };
-
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;

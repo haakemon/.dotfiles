@@ -28,6 +28,17 @@
           useUserPackages = true;
         };
       };
+
+      cosmicModuleSettings = [
+        {
+          nix.settings = {
+            substituters = [ "https://cosmic.cachix.org/" ];
+            trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+          };
+        }
+        inputs.nixos-cosmic.nixosModules.default
+      ];
+
     in
     {
       nixosConfigurations = {
@@ -55,7 +66,7 @@
             inherit inputs;
           };
           system = "x86_64-linux";
-          modules = [
+          modules = cosmicModuleSettings ++ [
             ./hosts/delling/configuration.nix
             inputs.chaotic.nixosModules.default
             inputs.niri.nixosModules.niri
@@ -63,6 +74,7 @@
             inputs.home-manager.nixosModules.home-manager
             inputs.sops-nix.nixosModules.sops
             homeManagerConf
+
             {
               nixpkgs.overlays = [ nixpkgsOverlays ];
             }
@@ -90,6 +102,7 @@
   inputs = {
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
+      follows = "nixos-cosmic/nixpkgs";
     };
 
     home-manager = {
@@ -134,6 +147,10 @@
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
     };
   };
 }

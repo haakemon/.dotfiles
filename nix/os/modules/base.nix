@@ -18,6 +18,7 @@
         enable = true;
         xkb.layout = "no";
       };
+      pulseaudio.enable = false;
       pipewire = {
         enable = true;
         alsa.enable = true;
@@ -44,7 +45,6 @@
 
   hardware = {
     enableRedistributableFirmware = true;
-    pulseaudio.enable = false;
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   };

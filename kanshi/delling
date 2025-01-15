@@ -1,3 +1,15 @@
 profile laptop {
   output 'Sharp Corporation 0x1516 Unknown' enable
 }
+
+profile office {
+  output 'Sharp Corporation 0x1516 Unknown' enable
+  output 'Dell Inc. DELL U2715H GH85D5290F5L' enable
+  output 'Dell Inc. DELL P2720DC 6DNVMK3' enable
+}
+
+profile home {
+  output 'Sharp Corporation 0x1516 Unknown' disable
+  output 'Samsung Electric Company LS49AG95 HNTRA00432' enable
+  output 'Dell Inc. DELL U2719D 7N8WTS2' enable
+}

@@ -63,6 +63,8 @@
     optimise.automatic = true;
   };
 
+  environment.enableAllTerminfo = true;
+
   environment.systemPackages =
     [
       pkgs.usbutils

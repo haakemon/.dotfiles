@@ -15,14 +15,11 @@
         # Terminals
         pkgs.alacritty
         pkgs.cosmic-term
-        # pkgs.ghostty
         inputs.ghostty.packages.x86_64-linux.default
         pkgs.vhs # terminal gifs
 
         # Tools
-        # pkgs.pulsar # editor
-        # pkgs.lapce # editor
-        pkgs.zed-editor # editor
+        pkgs.zed-editor
         pkgs.openapi-tui
 
         pkgs.vscode-fhs
@@ -38,10 +35,6 @@
         pkgs.nixd # nix language server
         pkgs.mqtt-explorer
         pkgs.mqttui
-        # pkgs.mqttx
-        # pkgs.flyctl
-        # pkgs.arduino-ide
-        # pkgs.android-studio
       ];
 
       editorconfig = {

@@ -9,12 +9,4 @@ prev
     nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ prev.kdePackages.wrapQtAppsHook ];
   });
 
-  python312Packages = prev.python312Packages // {
-    mitmproxy = prev.python312Packages.mitmproxy.overrideAttrs (oldAttrs: rec {
-      pythonRelaxDeps = oldAttrs.pythonRelaxDeps or [ ] ++ [
-        "passlib"
-      ];
-    });
-  };
-
 }

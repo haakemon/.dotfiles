@@ -21,11 +21,11 @@
 
             listener = [
               {
-                timeout = 300;
+                timeout = 600;
                 on-timeout = "loginctl lock-session";
               }
               {
-                timeout = 900;
+                timeout = 1200;
                 on-timeout = "${pkgs.niri}/bin/niri msg action power-off-monitors";
                 on-resume = "${pkgs.niri}/bin/niri msg action power-on-monitors";
               }

@@ -210,7 +210,7 @@ window-rule {
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
-// spawn-at-startup "xwayland-satellite" ":0"
+spawn-at-startup "clipse -listen"
 
 environment {
   //QT_QPA_PLATFORM "wayland"
@@ -261,6 +261,12 @@ window-rule {
     default-column-width {}
 }
 
+window-rule {
+    match app-id=r#"^banana.clipsepaste$"#
+    block-out-from "screen-capture"
+    open-floating true
+}
+
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
@@ -309,6 +315,7 @@ binds {
     XF86MonBrightnessDown { spawn "swayosd-client" "--brightness" "lower"; }
 
     Mod+C { close-window; }
+    Mod+V { spawn "ghostty" "--class=banana.clipsepaste" "-e" "clipse"; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }

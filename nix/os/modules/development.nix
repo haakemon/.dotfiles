@@ -2,7 +2,8 @@
 
 {
   home-manager.users.${config.configOptions.username} =
-    { inputs
+    { config
+    , inputs
     , pkgs
     , ...
     }:
@@ -36,6 +37,10 @@
         pkgs.mqtt-explorer
         pkgs.mqttui
       ];
+
+      home.file = {
+        ".config/ghostty/config".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/ghostty/config";
+      };
 
       editorconfig = {
         enable = true;
@@ -79,5 +84,6 @@
           '';
         };
       };
+
     };
 }

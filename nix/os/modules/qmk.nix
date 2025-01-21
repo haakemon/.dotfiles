@@ -8,16 +8,11 @@
 
   hardware.keyboard.qmk.enable = true;
 
-  services.udev.packages = [
-    pkgs.vial
-  ];
-
   home-manager.users.${config.configOptions.username} =
     { config, pkgs, ... }:
     {
       home = {
         packages = [
-          pkgs.vial
           pkgs.qmk
         ];
 

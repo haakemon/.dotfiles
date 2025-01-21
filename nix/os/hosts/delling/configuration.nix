@@ -63,7 +63,7 @@
     ../../modules/obs-studio.nix
     ../../modules/zen-browser.nix
     ../../modules/upower.nix
-    ../../modules/vial.nix
+    ../../modules/qmk.nix
   ];
 
   hardware = {

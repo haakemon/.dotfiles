@@ -23,6 +23,8 @@
     pkgs.swayidle
     pkgs.wf-recorder # screen recording utility
     pkgs.slurp # screen geometry picker utility
+    pkgs.wl-clipboard
+    pkgs.clipse
   ];
 
   xdg.portal = {

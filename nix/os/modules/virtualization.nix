@@ -32,6 +32,11 @@
         sessionVariables = {
           PODMAN_COMPOSE_WARNING_LOGS = "false";
         };
+
+        packages = [
+          pkgs.dive # explore docker layers
+          pkgs.podman-tui
+        ];
       };
     };
 }

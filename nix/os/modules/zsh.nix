@@ -34,7 +34,6 @@
       pkgs.duf # disk space utility
       pkgs.glow # cli markdown viewer
       pkgs.glances
-      pkgs.clipboard-jh # https://github.com/Slackadays/Clipboard
     ];
 
     home.file = {

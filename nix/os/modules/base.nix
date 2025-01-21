@@ -187,6 +187,12 @@
             pkgs.lazyjournal # journalctl tool
             pkgs.podman-tui
 
+            pkgs.bandwhich # network utilization monitor
+            pkgs.dblab # db client
+            pkgs.superfile
+            pkgs.television # multi-purpose fuzzy finder
+            pkgs.bluetui
+
             pkgs.unzip
             pkgs.croc
             (
@@ -234,7 +240,6 @@
             pkgs.nomacs # image viewer
             pkgs.marktext
             pkgs.scrcpy
-            pkgs.slides # terminal markdown slides
             # pkgs.krusader
             # pkgs.grim # screenshot tool
             # pkgs.fuzzel

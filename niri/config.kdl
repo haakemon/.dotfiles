@@ -316,6 +316,7 @@ binds {
 
     Mod+C { close-window; }
     Mod+V { spawn "ghostty" "--class=banana.clipsepaste" "-e" "clipse"; }
+    Mod+Space { spawn "emote"; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }

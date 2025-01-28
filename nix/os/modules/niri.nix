@@ -25,6 +25,7 @@
     pkgs.slurp # screen geometry picker utility
     pkgs.wl-clipboard
     pkgs.clipse
+    pkgs.emote
   ];
 
   xdg.portal = {

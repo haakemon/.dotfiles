@@ -20,20 +20,9 @@ in
         ];
         settings = {
           main = {
-            "\\" = "G-2"; # @
             compose = "noop";
-            # capslock = "overload(nav, esc)";
-
-            # convenience overloads - not working...
-            # "r" = "overloadt(control+r, r, 200)";
-            # "t" = "overloadt(control+t, t, 200)";
-            # tab = "C-S-7";
-            # tab = "overloadt(macro(C-S-7), tab, 200)";
-            # tab = "overloadt(macro(C+S-7), tab, 200)";
-
-            # copy/paste - not working...
-            # "c" = "overloadt(control+insert, c, 200)";
-            # "v" = "overloadt(shift+insert, v, 200)";
+            esc = "timeout(esc, 200, f20)";
+            capslock = "tab";
 
             # home row mods
             "a" = "overloadt(meta, a, 200)";
@@ -44,38 +33,6 @@ in
             "k" = "overloadt(shift, k, 200)";
             "l" = "overloadt(alt, l, 200)";
             ";" = "overloadt(meta, ;, 200)";
-          };
-          "shift" = {
-            "4" = "G-4"; # $
-            "\\" = "S-\\"; # *
-          };
-          "altgr" = {
-            "2" = "\\"; # '
-            "7" = "equal"; # \
-          };
-          "control+alt" = {
-            z = "volumedown";
-            x = "volumeup";
-            s = "playpause";
-            a = "previoussong";
-            d = "nextsong";
-            "102nd" = "mute";
-          };
-          "shift+altgr" = {
-            "7" = "`"; # |
-            "8" = "G-7"; # {
-            "9" = "G-0"; # }
-          };
-          "nav" = {
-            "u" = "home";
-            "o" = "end";
-            "i" = "up";
-            "k" = "down";
-            "j" = "left";
-            "l" = "right";
-            "p" = "pageup";
-            ";" = "pagedown"; # ;=ø
-            "space" = "delete";
           };
         };
       };

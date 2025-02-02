@@ -13,7 +13,7 @@
         packages = [
           # pkgs.blender
           # pkgs.prusa-slicer
-          pkgs.bambu-studio
+          # pkgs.bambu-studio
           pkgs.plasticity
           pkgs.fstl
         ];

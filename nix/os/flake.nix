@@ -16,7 +16,7 @@
         lib = inputs.nixpkgs.lib;
       };
 
-      nixpkgsOverlays = import ./nixpkgs-overlays.nix;
+      nixpkgsOverlays = import ./nixpkgs-overlays.nix inputs;
 
       homeManagerConf = {
         home-manager = {

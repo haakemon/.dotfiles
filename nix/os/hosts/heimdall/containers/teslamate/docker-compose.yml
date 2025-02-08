@@ -54,7 +54,7 @@ services:
   teslamate_database:
     <<: *common-app-config
     container_name: teslamate-database
-    image: postgres:17.2@sha256:87ec5e0a167dc7d4831729f9e1d2ee7b8597dcc49ccd9e43cc5f89e808d2adae
+    image: postgres:17.2@sha256:3267c505060a0052e5aa6e5175a7b41ab6b04da2f8c4540fc6e98a37210aa2d3
     environment:
       POSTGRES_USER: $TESLAMATE_DB_USER
       POSTGRES_PASSWORD: $TESLAMATE_DB_PASS

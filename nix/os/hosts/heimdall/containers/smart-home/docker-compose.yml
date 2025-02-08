@@ -15,7 +15,7 @@ services:
   homeassistant:
     <<: *common-app-config
     container_name: homeassistant
-    image: ghcr.io/home-assistant/home-assistant:2025.1.4@sha256:a8aab945aec2f43eb1b1fde4d19e25ef952fab9c10f49e40d3b3ce7d24cedc19
+    image: ghcr.io/home-assistant/home-assistant:2025.2.1@sha256:1ce5f9a18073d2cc4deea7234347abd2bcbb8a0ddd6423127414006112a080b8
     network_mode: host
     ports:
       - 127.0.0.1:8123:8123
@@ -25,7 +25,7 @@ services:
   zigbee2mqtt:
     <<: *common-app-config
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:2.0.0@sha256:6105a3a01a66bbfb98909a7c309d0707ec7b41728ac15d399747077225231545
+    image: koenkk/zigbee2mqtt:2.1.0@sha256:9426e9a8de6c4efc15e13f2802435bd57fbe3f532c1b18a215df98c664b64d19
     network_mode: host
     ports:
       - 127.0.0.1:8089:8089

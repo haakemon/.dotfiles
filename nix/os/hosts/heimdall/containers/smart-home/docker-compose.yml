@@ -1,10 +1,8 @@
-version: "3.9"
-
 x-common-app-config: &common-app-config
   restart: unless-stopped
   environment:
-    - TZ=$TZ
-    - TIME_ZONE=$TZ
+    TZ: $TZ
+    TIME_ZONE: $TZ
 
 networks:
   default:
@@ -30,7 +28,7 @@ services:
     ports:
       - 127.0.0.1:8089:8089
     volumes:
-      - "$DATADIR/zigbee2mqtt/data:/app/data"
+      - '$DATADIR/zigbee2mqtt/data:/app/data'
       - /run/udev:/run/udev:ro
     devices:
       - /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0:/dev/ttyACM0
@@ -43,7 +41,7 @@ services:
     image: zwavejs/zwavejs2mqtt:9.30.1@sha256:e74db9cfbbff0f29893e5e329de9c88319eebc93c2ecddebcb7aa7d1b5d01973
     network_mode: host
     volumes:
-      - "$DATADIR/zwavejs2mqtt/store:/usr/src/app/store"
+      - '$DATADIR/zwavejs2mqtt/store:/usr/src/app/store'
     ports:
       - 127.0.0.1:3000:3000 # Home Assistant web socket integration
       - 127.0.0.1:8091:8091

@@ -1,10 +1,8 @@
-version: "3.9"
-
 x-common-app-config: &common-app-config
   restart: unless-stopped
   environment:
-    - TZ=$TZ
-    - TIME_ZONE=$TZ
+    TZ: $TZ
+    TIME_ZONE: $TZ
 
 networks:
   default:
@@ -16,7 +14,6 @@ services:
     <<: *common-app-config
     container_name: homarr
     image: ghcr.io/ajnart/homarr:0.15.10@sha256:3ddd7a3d391b7c9d56910a1aa0046f4e9d2ca8af132936f42651e4cfdbd3db5c
-    restart: unless-stopped
     ports:
       - 127.0.0.1:7575:7575
     volumes:

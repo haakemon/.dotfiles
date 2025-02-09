@@ -5,7 +5,6 @@ networks:
 ########################### SERVICES
 services:
   valheim:
-    restart: no
     image: lloesche/valheim-server@sha256:b97da1038714e5156cf28d042422a1c5af41e03189572025e615bde61395c678
     container_name: valheim
     cap_add:

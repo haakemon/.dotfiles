@@ -11,10 +11,8 @@
     {
       home = {
         packages = [
-          # pkgs.blender
-          # pkgs.prusa-slicer
           # pkgs.bambu-studio
-          pkgs.plasticity
+          # pkgs.plasticity
           pkgs.fstl
         ];
       };

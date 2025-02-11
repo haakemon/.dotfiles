@@ -38,7 +38,6 @@
     ../../modules/users.nix
     ../../modules/keyd.nix
     ../../modules/gaming.nix
-    ../../modules/zsa.nix
     ../../modules/grub.nix
     ../../modules/zsh.nix
     ../../modules/thunar.nix

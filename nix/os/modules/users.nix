@@ -14,6 +14,7 @@
       "dialout"
       "tty"
       "input"
+      "plugdev"
       "podman"
     ];
     shell = pkgs.zsh;

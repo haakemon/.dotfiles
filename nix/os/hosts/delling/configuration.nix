@@ -45,7 +45,6 @@
     ../../modules/gpu-nvidia.nix
     ../../modules/users.nix
     ../../modules/keyd.nix
-    ../../modules/zsa.nix
     ../../modules/acme.nix
     # ../../modules/traefik.nix # conflicts with the local variant - should be modularized
     ../../modules/grub.nix

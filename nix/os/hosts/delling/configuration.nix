@@ -138,6 +138,7 @@
         file = {
           ".face.icon".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/sddm/.face.icon";
           ".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/niri/config-delling.kdl";
+          ".config/zed/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/zed/settings.json";
 
           ".icons/Banana".source = config.lib.file.mkOutOfStoreSymlink "${pkgs.banana-cursor}/share/icons/Banana";
           ".icons/Dracula".source = config.lib.file.mkOutOfStoreSymlink "${pkgs.dracula-icon-theme}/share/icons/Dracula";

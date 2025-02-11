@@ -205,6 +205,7 @@ window-rule {
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
+    draw-border-with-background false
 }
 
 // Add lines like this to spawn processes at startup.
@@ -265,6 +266,13 @@ window-rule {
     match app-id=r#"^banana.clipsepaste$"#
     block-out-from "screen-capture"
     open-floating true
+}
+
+window-rule {
+  match app-id=r#"^Thunar$"#
+  default-column-width {
+    proportion 0.20;
+  }
 }
 
 // Example: block out two password managers from screen capture.

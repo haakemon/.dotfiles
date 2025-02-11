@@ -17,6 +17,6 @@ prev
         "ruamel.yaml"
       ];
     });
-  };
 
+  };
 }

@@ -34,6 +34,7 @@
   "ui_font_size": 16,
   "tab_size": 2,
   "show_whitespaces": "all",
+  "buffer_line_height": "standard",
   "buffer_font_size": 14,
   "buffer_font_family": "Victor Mono",
   "theme": {

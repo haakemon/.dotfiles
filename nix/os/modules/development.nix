@@ -31,7 +31,7 @@
         pkgs.simple-http-server
         pkgs.nmap
         pkgs.nodejs_22
-        pkgs.corepack_22
+        pkgs.pnpm
         pkgs.ffmpeg
         pkgs.nixd # nix language server
         pkgs.mqtt-explorer

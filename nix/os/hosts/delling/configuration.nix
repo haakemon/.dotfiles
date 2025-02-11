@@ -62,6 +62,7 @@
     ../../modules/zen-browser.nix
     ../../modules/upower.nix
     ../../modules/qmk.nix
+    ../../modules/keybase.nix
   ];
 
   hardware = {

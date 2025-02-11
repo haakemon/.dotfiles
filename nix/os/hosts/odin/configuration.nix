@@ -56,6 +56,7 @@
     ../../modules/obs-studio.nix
     ../../modules/qmk.nix
     ../../modules/zen-browser.nix
+    ../../modules/keybase.nix
   ];
 
   sops = {

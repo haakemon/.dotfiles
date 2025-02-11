@@ -47,6 +47,7 @@
     ../../modules/acme.nix
     ../../modules/nh.nix
     ../../modules/git.nix
+    ../../modules/keybase.nix
   ];
 
   services = {

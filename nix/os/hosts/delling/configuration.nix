@@ -57,7 +57,6 @@
     ../../modules/nautilus.nix
     ../../modules/vivaldi.nix
     ../../modules/nh.nix
-    ../../modules/wezterm.nix
     ../../modules/git.nix
     ../../modules/obs-studio.nix
     ../../modules/zen-browser.nix

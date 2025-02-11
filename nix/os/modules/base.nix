@@ -65,6 +65,11 @@
 
   environment.enableAllTerminfo = true;
 
+  fonts.packages = lib.mkIf (!config.configOptions.headless) [
+    pkgs.victor-mono
+    pkgs.nerd-fonts.victor-mono
+  ];
+
   environment.systemPackages =
     [
       pkgs.usbutils
@@ -74,8 +79,6 @@
     ]
     ++ lib.optionals (!config.configOptions.headless) [
       pkgs.libnotify
-      pkgs.victor-mono
-      pkgs.nerd-fonts.victor-mono
     ];
 
   system = {
@@ -229,8 +232,6 @@
 
             # pkgs.freeoffice
             pkgs.smartmontools
-            pkgs.nerd-fonts.victor-mono
-            pkgs.victor-mono
             pkgs.gparted
             pkgs.standardnotes
             # pkgs.manuskript

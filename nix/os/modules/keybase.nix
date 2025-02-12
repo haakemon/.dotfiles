@@ -2,6 +2,7 @@
 
 {
   services.keybase.enable = true;
+  services.kbfs.enable = true;
 
   home-manager.users.${config.configOptions.username} =
     { inputs
@@ -15,6 +16,7 @@
         packages =
           [
             pkgs.keybase
+            pkgs.kbfs
           ]
           ++ lib.optionals (!config.configOptions.headless) [
             pkgs.keybase-gui

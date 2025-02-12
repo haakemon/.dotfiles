@@ -35,11 +35,11 @@
   "tab_size": 2,
   "show_whitespaces": "all",
   "buffer_line_height": "standard",
-  "buffer_font_size": 14,
+  "buffer_font_size": 15,
   "buffer_font_family": "Victor Mono",
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Snowfall dark"
+    "dark": "Catppuccin Macchiato"
   }
 }

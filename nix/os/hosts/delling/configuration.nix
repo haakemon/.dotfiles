@@ -122,7 +122,7 @@
           pkgs.freetube
 
           # Devtools
-          # pkgs.azure-cli # https://nixpk.gs/pr-tracker.html?pr=380349
+          pkgs.azure-cli
           pkgs.kubectl
           pkgs.kubelogin
           pkgs.kubectx

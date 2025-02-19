@@ -29,7 +29,7 @@
           pkgs.obs-studio-plugins.obs-mute-filter
           pkgs.obs-studio-plugins.obs-gradient-source
           pkgs.obs-studio-plugins.obs-composite-blur
-          pkgs.obs-studio-plugins.droidcam-obs
+          # pkgs.obs-studio-plugins.droidcam-obs # https://github.com/NixOS/nixpkgs/pull/382559
         ];
       };
     };

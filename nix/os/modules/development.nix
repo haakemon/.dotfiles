@@ -36,6 +36,7 @@
         pkgs.nixd # nix language server
         pkgs.mqtt-explorer
         pkgs.mqttui
+        pkgs.posting
       ];
 
       home.file = {

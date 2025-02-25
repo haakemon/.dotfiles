@@ -51,7 +51,7 @@
             ./hosts/odin/configuration.nix
             inputs.chaotic.nixosModules.default
             inputs.niri.nixosModules.niri
-            inputs.stylix.nixosModules.stylix
+            # inputs.stylix.nixosModules.stylix
             inputs.home-manager.nixosModules.home-manager
             inputs.sops-nix.nixosModules.sops
             homeManagerConf
@@ -70,7 +70,7 @@
             ./hosts/delling/configuration.nix
             inputs.chaotic.nixosModules.default
             inputs.niri.nixosModules.niri
-            inputs.stylix.nixosModules.stylix
+            # inputs.stylix.nixosModules.stylix
             inputs.home-manager.nixosModules.home-manager
             inputs.sops-nix.nixosModules.sops
             homeManagerConf
@@ -120,10 +120,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # stylix = {
+    #   url = "github:danth/stylix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     ags = {
       url = "github:aylur/ags";

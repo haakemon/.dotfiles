@@ -195,6 +195,7 @@
             pkgs.superfile
             pkgs.television # multi-purpose fuzzy finder
             pkgs.bluetui
+            pkgs.pavucontrol # sound
 
             pkgs.unzip
             pkgs.croc

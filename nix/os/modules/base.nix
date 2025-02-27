@@ -207,6 +207,7 @@
             pkgs.bluetui
             pkgs.pavucontrol # sound
 
+            pkgs.rclone
             pkgs.unzip
             pkgs.croc
             (

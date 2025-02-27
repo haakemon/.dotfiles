@@ -54,6 +54,7 @@
   nix = {
     package = pkgs.nixVersions.git;
     settings = {
+      use-xdg-base-directories = true;
       experimental-features = [
         "nix-command"
         "flakes"
@@ -143,6 +144,7 @@
         homeDirectory = "${config.configOptions.userHome}";
 
         sessionVariables = {
+          # https://wiki.archlinux.org/title/XDG_Base_Directory
           XDG_DESKTOP_DIR = "${config.home.homeDirectory}/Desktop";
           XDG_DOCUMENTS_DIR = "${config.home.homeDirectory}/Documents";
           XDG_DOWNLOAD_DIR = "${config.home.homeDirectory}/Downloads";
@@ -152,22 +154,30 @@
           XDG_TEMPLATES_DIR = "${config.home.homeDirectory}/Templates";
           XDG_VIDEOS_DIR = "${config.home.homeDirectory}/Videos";
 
-          XDG_CACHE_HOME = "${config.home.homeDirectory}/.cache";
           XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
+          XDG_CACHE_HOME = "${config.home.homeDirectory}/.cache";
           XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
           XDG_STATE_HOME = "${config.home.homeDirectory}/.local/state";
 
           DOTNET_CLI_HOME = "${config.home.sessionVariables.XDG_CONFIG_HOME}/.dotnet";
           NPM_CONFIG_USERCONFIG = "${config.home.sessionVariables.XDG_CONFIG_HOME}/npm/config";
+          AZURE_CONFIG_DIR = "${config.home.sessionVariables.XDG_CONFIG_HOME}/azure";
+          FLY_CONFIG_DIR = "${config.home.sessionVariables.XDG_CONFIG_HOME}/fly";
 
           NUGET_PACKAGES = "${config.home.sessionVariables.XDG_CACHE_HOME}/NuGetPackages";
           CARGO_HOME = "${config.home.sessionVariables.XDG_CACHE_HOME}/cargo";
           DVDCSS_CACHE = "${config.home.sessionVariables.XDG_CACHE_HOME}/dvdcss";
           NPM_CONFIG_CACHE = "${config.home.sessionVariables.XDG_CACHE_HOME}/npm_cache";
           NPM_CONFIG_TMP = "${config.home.sessionVariables.XDG_CACHE_HOME}/npm_tmp";
-          DISPLAY = ":0";
+          AZURE_LOGGING_LOG_DIR = "${config.home.sessionVariables.XDG_CACHE_HOME}/azure/logs";
 
+          RUSTUP_HOME = "${config.home.sessionVariables.XDG_DATA_HOME}/rustup";
+          GNUPGHOME = "${config.home.sessionVariables.XDG_DATA_HOME}/gnupg";
+
+          DISPLAY = ":0";
           GTK_THEME = "adw-gtk3-dark";
+          NODE_REPL_HISTORY = ""; # Disable node repl persistent history
+          XCURSOR_PATH = "${config.home.sessionVariables.XDG_DATA_HOME}/icons";
 
           STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${config.home.homeDirectory}/.steam/root/compatibilitytools.d";
           # ELECTRON_OZONE_PLATFORM_HINT = "auto"; # or  "wayland" ? # breaks vivaldi even with workaround in plasma?
@@ -223,7 +233,7 @@
             pkgs.xorg.xwininfo
 
             pkgs.spotify
-            pkgs.spotify-player #tui
+            pkgs.spotify-player # tui
             pkgs.vlc
 
             pkgs.cosmic-files

@@ -1,6 +1,10 @@
 { config, ... }:
 
 {
+  imports = [
+    ./mitmproxy.nix
+  ];
+
   home-manager.users.${config.configOptions.username} =
     { config
     , inputs
@@ -27,7 +31,6 @@
         pkgs.meld
         pkgs.sublime-merge
         pkgs.bruno
-        pkgs.mitmproxy
         pkgs.simple-http-server
         pkgs.nmap
         pkgs.nodejs_22
@@ -40,7 +43,8 @@
       ];
 
       home.file = {
-        ".config/ghostty/config".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/ghostty/config";
+        ".config/ghostty/config".source =
+          config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/ghostty/config";
       };
 
       editorconfig = {
@@ -66,6 +70,7 @@
         direnv = {
           enable = true;
           nix-direnv.enable = true;
+          enableZshIntegration = true;
         };
 
         zsh = {

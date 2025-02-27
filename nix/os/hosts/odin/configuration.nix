@@ -47,7 +47,7 @@
     ../../modules/openrgb.nix
     ../../modules/fstrim.nix
     # ../../modules/printing.nix
-    ../../modules/jottacloud.nix
+    # ../../modules/jottacloud.nix
     ../../modules/vivaldi.nix
     ../../modules/nh.nix
     ../../modules/wezterm.nix

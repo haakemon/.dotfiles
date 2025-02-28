@@ -10,6 +10,7 @@
       # execute to update:
       # fwupdmgr refresh && fwupdmgr update
       fwupd.enable = true;
+      dbus.implementation = "broker";
     }
 
     (lib.mkIf (!config.configOptions.headless) {

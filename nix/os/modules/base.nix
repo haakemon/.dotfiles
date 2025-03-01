@@ -3,7 +3,9 @@
 , lib
 , ...
 }:
-
+let
+  gtkThemeName = "adw-gtk3-dark";
+in
 {
   services = lib.mkMerge [
     {
@@ -176,7 +178,7 @@
           GNUPGHOME = "${config.home.sessionVariables.XDG_DATA_HOME}/gnupg";
 
           DISPLAY = ":0";
-          GTK_THEME = "adw-gtk3-dark";
+          GTK_THEME = gtkThemeName;
           NODE_REPL_HISTORY = ""; # Disable node repl persistent history
           XCURSOR_PATH = "${config.home.sessionVariables.XDG_DATA_HOME}/icons";
 
@@ -193,6 +195,15 @@
           ".config/nixpkgs/config.nix".text = ''
             { allowUnfree = true; }
           '';
+          ".config/zed/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/zed/settings.json";
+          ".config/zed/keymap.json".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/zed/keymap.json";
+
+          "${config.home.sessionVariables.XDG_DATA_HOME}/icons/Banana".source =
+            config.lib.file.mkOutOfStoreSymlink "${pkgs.banana-cursor}/share/icons/Banana";
+          "${config.home.sessionVariables.XDG_DATA_HOME}/icons/Dracula".source =
+            config.lib.file.mkOutOfStoreSymlink "${pkgs.dracula-icon-theme}/share/icons/Dracula";
+
+          ".face.icon".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/sddm/.face.icon";
         };
 
         packages =
@@ -270,11 +281,19 @@
 
       gtk = {
         enable = true;
-        theme.package = pkgs.adw-gtk3;
-        theme.name = "adw-gtk3-dark";
-        cursorTheme.name = "Banana";
-        cursorTheme.size = 36;
-        iconTheme.name = "Dracula";
+        theme = {
+          name = gtkThemeName;
+          package = pkgs.adw-gtk3;
+        };
+        iconTheme = {
+          name = "Dracula";
+          package = pkgs.dracula-icon-theme;
+        };
+        cursorTheme = {
+          name = "Banana";
+          size = 36;
+          package = pkgs.banana-cursor;
+        };
 
         # gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
         # gtk2.extraConfig = "gtk-application-prefer-dark-theme = 1";
@@ -286,8 +305,6 @@
         gtk4.extraConfig = {
           gtk-application-prefer-dark-theme = 1;
         };
-        # gtk.cursorTheme = {
-        #     package = pkgs.banana-cursor;
       };
     };
 }

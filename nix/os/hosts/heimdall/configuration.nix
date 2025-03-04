@@ -43,7 +43,6 @@
     ../../modules/grub.nix
     ../../modules/zsh.nix
     ../../modules/fstrim.nix
-    ../../modules/jottacloud.nix
     ../../modules/acme.nix
     ../../modules/nh.nix
     ../../modules/git.nix

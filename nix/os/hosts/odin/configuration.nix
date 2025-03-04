@@ -47,7 +47,6 @@
     ../../modules/openrgb.nix
     ../../modules/fstrim.nix
     # ../../modules/printing.nix
-    # ../../modules/jottacloud.nix
     ../../modules/vivaldi.nix
     ../../modules/nh.nix
     ../../modules/wezterm.nix
@@ -117,7 +116,8 @@
         ];
 
         file = {
-          ".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/niri/config.kdl";
+          ".config/niri/config.kdl".source =
+            config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/niri/config.kdl";
         };
       };
     };

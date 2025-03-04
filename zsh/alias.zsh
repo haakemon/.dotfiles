@@ -26,3 +26,28 @@ alias ssh-gen-ed="ssh-keygen -t ed25519 -a 100"
 alias synctime="sudo ntpdate pool.ntp.org"
 alias ctop="sudo docker run --rm -ti -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest"
 alias dpsa="sudo docker ps -a --format \"table {{.ID}}\t{{.Names}}\t{{.State}}\t{{.Status}}\t{{.Image}}\""
+
+
+function change_random_bg {
+  colors=(
+    "#2E1A47"  # Dark purple
+    "#1F3B41"  # Dark teal
+    "#4B2F2F"  # Dark red-brown
+    "#2B3D2F"  # Dark olive green
+    "#3E1E5B"  # Dark fuchsia
+  )
+  RANDOM_COLOR=${colors[$RANDOM % ${#colors[@]}]}
+  printf "\033]11;%s\007" "$RANDOM_COLOR"
+}
+
+function ssh {
+  change_random_bg
+  command ssh "$@"
+  printf '\x1b]111\x1b\\'
+}
+
+function sudo {
+  printf "\033]11;#873e23\007"
+  command sudo "$@"
+  printf '\x1b]111\x1b\\'
+}

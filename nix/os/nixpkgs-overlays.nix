@@ -1,6 +1,6 @@
 inputs: final: prev:
 prev
-  // {
+// {
   # https://nixpk.gs/pr-tracker.html?pr=
 
   # https://github.com/NixOS/nixpkgs/issues/309056#issuecomment-2366801752
@@ -19,4 +19,17 @@ prev
     });
 
   };
+
+  # firefox = prev.firefox.overrideAttrs (oldAttrs: {
+  #   buildCommand =
+  #     oldAttrs.buildCommand
+  #     + ''
+  #       wrapProgram "$executablePath" \
+  #         --set 'HOME' '/users/${username}/config'
+  #     '';
+  # });
 }
+
+# environment.systemPackages = with pkgs; [
+#     (chromium.override { enableWideVine = true; })
+# ];

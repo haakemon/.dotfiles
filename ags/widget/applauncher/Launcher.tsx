@@ -30,7 +30,6 @@ function AppButton({ app }: { app: Apps.Application }) {
 export default function Applauncher() {
   const { CENTER } = Gtk.Align;
   const apps = new Apps.Apps();
-  const width = Variable(1000);
 
   const text = Variable('');
   const list = text((text) => apps.fuzzy_query(text).slice(0, MAX_ITEMS));
@@ -48,15 +47,14 @@ export default function Applauncher() {
       application={App}
       onShow={(self) => {
         text.set('');
-        width.set(self.get_current_monitor().workarea.width);
       }}
       onKeyPressEvent={function (self, event: Gdk.Event) {
         if (event.get_keyval()[1] === Gdk.KEY_Escape) self.hide();
       }}>
       <box>
-        <eventbox widthRequest={width((w) => w / 2)} expand onClick={hide} />
+        <eventbox widthRequest={1} expand onClick={hide} />
         <box hexpand={false} vertical>
-          <eventbox heightRequest={100} onClick={hide} />
+          <eventbox heightRequest={300} onClick={hide} />
           <box widthRequest={500} className="Applauncher" vertical>
             <entry
               placeholderText="Search"
@@ -74,7 +72,7 @@ export default function Applauncher() {
           </box>
           <eventbox expand onClick={hide} />
         </box>
-        <eventbox widthRequest={width((w) => w / 2)} expand onClick={hide} />
+        <eventbox widthRequest={1} expand onClick={hide} />
       </box>
     </window>
   );

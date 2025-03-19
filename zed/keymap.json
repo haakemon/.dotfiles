@@ -13,7 +13,7 @@
   {
     "context": "Editor",
     "bindings": {
-      "f20": ["editor::ToggleComments", { "advance_downwards": false }]
+      "f12": ["editor::ToggleComments", { "advance_downwards": false }]
     }
   }
 ]

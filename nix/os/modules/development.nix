@@ -24,7 +24,7 @@
         pkgs.vhs # terminal gifs
 
         # Tools
-        pkgs.zed-editor
+        inputs.zeditor.packages."x86_64-linux".default
         pkgs.openapi-tui
 
         pkgs.vscode-fhs

@@ -15,7 +15,8 @@
   ren = branch -m
   p = pull --ff-only
   ds = diff --staged
-  wip = commit -m "WIP" --no-verify
+  wip = !"git add --all; git commit --message=WIP" --no-verify
+  unwip = !"git log -n 1 | grep -q -c WIP && git reset HEAD~1"
 
   gc = !git maintenance run --task=gc
   mstart = !git maintenance start

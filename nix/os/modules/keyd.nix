@@ -21,7 +21,7 @@ in
         settings = {
           main = {
             compose = "noop";
-            esc = "timeout(esc, 200, f20)";
+            esc = "timeout(esc, 200, f12)";
             capslock = "tab";
 
             # home row mods

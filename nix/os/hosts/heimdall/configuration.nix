@@ -13,7 +13,7 @@
         ../../modules/plasma.nix
         ../../modules/sddm.nix
         ../../modules/vivaldi.nix
-        ../../modules/wezterm.nix
+        ../../modules/development.nix
       ];
 
       services = {

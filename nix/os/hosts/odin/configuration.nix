@@ -49,7 +49,6 @@
     # ../../modules/printing.nix
     ../../modules/vivaldi.nix
     ../../modules/nh.nix
-    ../../modules/wezterm.nix
     ../../modules/git.nix
     ../../modules/3d-printing.nix
     ../../modules/obs-studio.nix

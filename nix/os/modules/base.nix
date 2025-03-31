@@ -170,6 +170,7 @@ in
           NPM_CONFIG_USERCONFIG = "${config.home.sessionVariables.XDG_CONFIG_HOME}/npm/config";
           AZURE_CONFIG_DIR = "${config.home.sessionVariables.XDG_CONFIG_HOME}/azure";
           FLY_CONFIG_DIR = "${config.home.sessionVariables.XDG_CONFIG_HOME}/fly";
+          KUBECONFIG = "${config.home.sessionVariables.XDG_CONFIG_HOME}/kube";
 
           NUGET_PACKAGES = "${config.home.sessionVariables.XDG_CACHE_HOME}/NuGetPackages";
           CARGO_HOME = "${config.home.sessionVariables.XDG_CACHE_HOME}/cargo";
@@ -177,7 +178,10 @@ in
           NPM_CONFIG_CACHE = "${config.home.sessionVariables.XDG_CACHE_HOME}/npm_cache";
           NPM_CONFIG_TMP = "${config.home.sessionVariables.XDG_CACHE_HOME}/npm_tmp";
           AZURE_LOGGING_LOG_DIR = "${config.home.sessionVariables.XDG_CACHE_HOME}/azure/logs";
+          __GL_SHADER_DISK_CACHE_PATH = "${config.home.sessionVariables.XDG_CACHE_HOME}/nv"; # nvidia cache https://us.download.nvidia.com/XFree86/FreeBSD-x86/319.32/README/openglenvvariables.html
+          KUBECACHEDIR = "${config.home.sessionVariables.XDG_CACHE_HOME}/kube";
 
+          ADB_VENDOR_KEYS = "${config.home.sessionVariables.XDG_DATA_HOME}/android";
           RUSTUP_HOME = "${config.home.sessionVariables.XDG_DATA_HOME}/rustup";
           GNUPGHOME = "${config.home.sessionVariables.XDG_DATA_HOME}/gnupg";
 

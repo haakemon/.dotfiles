@@ -52,7 +52,7 @@ in
             #region git initExtra
 
             # 10080 minutes = 7 days
-            eval $(keychain --agents ssh --timeout 10080 --eval --quiet)
+            eval $(keychain --absolute --dir "$XDG_RUNTIME_DIR"/keychain --agents ssh --timeout 10080 --eval --quiet)
 
             function load-ssh-keys {
               rbw unlock

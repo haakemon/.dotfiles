@@ -197,6 +197,8 @@ in
           '';
           ".config/zed/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/zed/settings.json";
           ".config/zed/keymap.json".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/zed/keymap.json";
+          ".config/spotify-player/keymap.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/spotify-player/keymap.toml";
+          ".config/spotify-player/app.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/spotify-player/app.toml";
 
           "${config.home.sessionVariables.XDG_DATA_HOME}/icons/Banana".source =
             config.lib.file.mkOutOfStoreSymlink "${pkgs.banana-cursor}/share/icons/Banana";

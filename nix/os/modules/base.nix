@@ -55,7 +55,7 @@ in
   nixpkgs.config.allowUnfree = true;
 
   nix = {
-    package = pkgs.nixVersions.git;
+    package = pkgs.nixVersions.latest;
     settings = {
       use-xdg-base-directories = true;
       experimental-features = [

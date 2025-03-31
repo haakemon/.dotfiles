@@ -92,9 +92,6 @@ in
 
   programs = lib.mkMerge [
     {
-      bash = {
-        completion.enable = true;
-      };
       dconf.enable = true;
       nix-ld.enable = true;
     }
@@ -133,6 +130,13 @@ in
     }:
     {
       programs.home-manager.enable = true;
+
+      programs.bash = {
+        enable = true;
+        enableCompletion = true;
+        historyFile = "${config.home.sessionVariables.XDG_STATE_HOME}/bash/history";
+      };
+
       home = {
         # This value determines the Home Manager release that your configuration is
         # compatible with. This helps avoid breakage when a new Home Manager release

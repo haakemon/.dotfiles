@@ -137,6 +137,8 @@ in
         historyFile = "${config.home.sessionVariables.XDG_STATE_HOME}/bash/history";
       };
 
+      services.lorri.enable = true;
+
       home = {
         # This value determines the Home Manager release that your configuration is
         # compatible with. This helps avoid breakage when a new Home Manager release

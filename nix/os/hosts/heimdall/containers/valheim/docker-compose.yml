@@ -5,7 +5,7 @@ networks:
 ########################### SERVICES
 services:
   valheim:
-    image: lloesche/valheim-server@sha256:b97da1038714e5156cf28d042422a1c5af41e03189572025e615bde61395c678
+    image: lloesche/valheim-server@sha256:8f1c5fc831c900312b4a47c1fe57bfc03b574c1433ea502f5d8f0ad301a22a83
     container_name: valheim
     cap_add:
       - sys_nice

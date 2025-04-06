@@ -256,6 +256,7 @@ in
             pkgs.keepassxc
             pkgs.protonvpn-gui
             pkgs.xorg.xwininfo
+            pkgs.mission-center # taskmanager
 
             pkgs.spotify
             pkgs.spotify-player # tui

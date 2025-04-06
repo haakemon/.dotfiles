@@ -24,10 +24,10 @@
         pkgs.vhs # terminal gifs
 
         # Tools
-        inputs.zeditor.packages."x86_64-linux".default
+        # inputs.zeditor.packages."x86_64-linux".default
         pkgs.openapi-tui
 
-        pkgs.beekeeper-studio
+        # pkgs.beekeeper-studio
         pkgs.vscode-fhs
         pkgs.meld
         pkgs.sublime-merge

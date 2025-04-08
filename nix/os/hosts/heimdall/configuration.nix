@@ -182,5 +182,26 @@
         ./variables-local.nix
       ];
 
+      systemd.user.timers."rclone-proton-immich" = {
+        Install.WantedBy = [ "timers.target" ];
+        Timer = {
+          OnCalendar = "Mon 09:00:00";
+          Unit = "rclone-proton-immich.service";
+        };
+      };
+
+      systemd.user.services."rclone-proton-immich" = {
+        Unit = {
+          Description = "Rclone sync immich library to Proton Drive";
+          After = "network-online.target";
+        };
+        Service = {
+          Type = "exec";
+          ExecStart = "${pkgs.rclone}/bin/rclone --rc sync ${config.configOptions.userHome}/data/immich/files/ protondrive:computers/heimdall/immich";
+          StandardOutput = "journal";
+          Restart = "no";
+        };
+      };
+
     };
 }

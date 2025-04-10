@@ -289,16 +289,24 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^banana.clipsepaste$"#
-    block-out-from "screen-capture"
-    open-floating true
+  match app-id=r#"^banana.clipsepaste$"#
+  block-out-from "screen-capture"
+  open-floating true
 }
 
 window-rule {
   match app-id=r#"^Thunar$"#
+  match app-id=r#"^Telegram$"#
+  match app-id=r#"^org.gnome.Nautilus$"#
+  open-on-output "Samsung Electric Company LS49AG95 HNTRA00432"
   default-column-width {
     proportion 0.20;
   }
+}
+
+window-rule {
+  match app-id=r#"^org.pulseaudio.pavucontrol$"#
+  open-floating true
 }
 
 // Example: block out two password managers from screen capture.
@@ -500,7 +508,7 @@ binds {
 
     // Mod+R { switch-preset-column-width; }
     Mod+F { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
+    Mod+Shift+F { toggle-window-floating; }
     // Mod+C { center-column; }
 
     // Finer width adjustments.

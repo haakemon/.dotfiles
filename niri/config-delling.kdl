@@ -149,6 +149,16 @@ window-rule {
   block-out-from "screen-capture"
 }
 
+window-rule {
+  match app-id=r#"^Thunar$"#
+  match app-id=r#"^Telegram$"#
+  match app-id=r#"^org.gnome.Nautilus$"#
+  open-on-output "Samsung Electric Company LS49AG95 HNTRA00432"
+  default-column-width {
+    proportion 0.20;
+  }
+}
+
 // Indicate screencasted windows with red colors.
 window-rule {
     match is-window-cast-target=true
@@ -542,7 +552,7 @@ binds {
 
     // Mod+R { switch-preset-column-width; }
     Mod+F { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
+    Mod+Shift+F { toggle-window-floating; }
     // Mod+C { center-column; }
 
     // Finer width adjustments.

@@ -25,6 +25,7 @@
 
         # Tools
         # inputs.zeditor.packages."x86_64-linux".default
+        pkgs.zed-editor
         pkgs.openapi-tui
 
         # pkgs.beekeeper-studio

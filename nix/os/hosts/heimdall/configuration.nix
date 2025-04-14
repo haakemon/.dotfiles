@@ -47,6 +47,7 @@
     ../../modules/nh.nix
     ../../modules/git.nix
     ../../modules/keybase.nix
+    ../../modules/sops.nix
   ];
 
   services = {

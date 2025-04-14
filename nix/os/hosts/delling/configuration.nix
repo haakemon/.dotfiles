@@ -63,6 +63,7 @@
     ../../modules/upower.nix
     ../../modules/qmk.nix
     ../../modules/keybase.nix
+    ../../modules/sops.nix
   ];
 
   hardware = {

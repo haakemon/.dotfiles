@@ -55,18 +55,8 @@
     ../../modules/qmk.nix
     ../../modules/zen-browser.nix
     ../../modules/keybase.nix
+    ../../modules/sops.nix
   ];
-
-  sops = {
-    # defaultSopsFile = "${config.configOptions.userHome}/.dotfiles/nix/os/secrets/secrets.yaml";
-    defaultSopsFile = ../../secrets/secrets.yaml;
-    defaultSopsFormat = "yaml";
-    age.keyFile = "${config.configOptions.userHome}/.config/sops/age/keys.txt";
-
-    secrets = {
-      hello = { };
-    };
-  };
 
   networking = {
     nameservers = [
@@ -130,9 +120,6 @@
           pkgs.telegram-desktop
           pkgs.vesktop
           pkgs.discord
-
-          pkgs.age
-          pkgs.sops
         ];
 
         file = {

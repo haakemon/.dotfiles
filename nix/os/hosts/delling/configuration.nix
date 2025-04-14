@@ -142,7 +142,7 @@
           pkgs.kubectx
           pkgs.k9s
           pkgs.vault
-          pkgs.dotnet-sdk_8
+          pkgs.dotnet-sdk_9
 
           # Chat
           pkgs.telegram-desktop

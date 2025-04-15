@@ -1,9 +1,9 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   sops = {
     # defaultSopsFile = "${config.configOptions.userHome}/.dotfiles/nix/os/secrets/secrets.yaml";
-    defaultSopsFile = ../../secrets/secrets.yaml;
+    defaultSopsFile = ../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
     age.keyFile = "/etc/secrets/sops/age/keys.txt";
 
@@ -12,7 +12,7 @@
     };
   };
 
-  packages = [
+  environment.systemPackages = [
     pkgs.age
     pkgs.sops
   ];

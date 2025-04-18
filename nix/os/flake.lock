@@ -550,6 +550,7 @@
           "nixpkgs"
         ],
         "sops-nix": "sops-nix",
+        "sops-secrets": "sops-secrets",
         "wezterm": "wezterm",
         "zeditor": "zeditor",
         "zen-browser": "zen-browser"
@@ -653,6 +654,24 @@
         "owner": "Mic92",
         "repo": "sops-nix",
         "type": "github"
+      }
+    },
+    "sops-secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1744962166,
+        "narHash": "sha256-gtX4HW61uHZaEnoFFGbsSFmBZfyCNri1xH0Wq+6nhJE=",
+        "ref": "main",
+        "rev": "14aa5e1cc909c1810ec0517e068d4974b757bcdb",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/haakemon/sops.git"
+      },
+      "original": {
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/haakemon/sops.git"
       }
     },
     "systems": {

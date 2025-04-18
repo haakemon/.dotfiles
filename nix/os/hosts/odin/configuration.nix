@@ -1,5 +1,7 @@
-{ config, ... }:
-
+{ inputs, config, ... }:
+let
+  secretspath = builtins.toString inputs.sops-secrets;
+in
 {
   boot.loader.grub.default = 1; # this should be 01-niri
   specialisation = {
@@ -63,6 +65,18 @@
       "192.168.2.9" # TODO: Remove this after router is updated
       "9.9.9.9"
     ];
+  };
+
+  sops = {
+    secrets = {
+      "ssh/config" = {
+        sopsFile = "${secretspath}/secrets/hosts/odin/odin.yaml";
+        path = "${config.configOptions.userHome}/.ssh/config";
+        owner = config.users.users.${config.configOptions.username}.name;
+        group = config.users.users.${config.configOptions.username}.group;
+        mode = "0600";
+      };
+    };
   };
 
   # This value determines the NixOS release from which the default

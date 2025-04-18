@@ -53,7 +53,6 @@
             inputs.niri.nixosModules.niri
             # inputs.stylix.nixosModules.stylix
             inputs.home-manager.nixosModules.home-manager
-            inputs.sops-nix.nixosModules.sops
             homeManagerConf
             {
               nixpkgs.overlays = [ nixpkgsOverlays ];
@@ -72,7 +71,6 @@
             inputs.niri.nixosModules.niri
             # inputs.stylix.nixosModules.stylix
             inputs.home-manager.nixosModules.home-manager
-            inputs.sops-nix.nixosModules.sops
             homeManagerConf
 
             {
@@ -89,7 +87,6 @@
           modules = [
             ./hosts/heimdall/configuration.nix
             inputs.home-manager.nixosModules.home-manager
-            inputs.sops-nix.nixosModules.sops
             homeManagerConf
             {
               nixpkgs.overlays = [ nixpkgsOverlays ];
@@ -152,6 +149,11 @@
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    sops-secrets = {
+      url = "git+ssh://git@github.com/haakemon/sops.git?ref=main&shallow=1";
+      flake = false;
     };
 
     nixos-cosmic = {

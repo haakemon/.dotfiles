@@ -50,7 +50,6 @@
     ../../modules/grub.nix
     ../../modules/zsh.nix
     ../../modules/thunar.nix
-    ../../modules/thunderbolt.nix
     ../../modules/logitech.nix
     ../../modules/fstrim.nix
     ../../modules/printing.nix
@@ -75,8 +74,11 @@
     };
   };
 
-  services.fprintd = {
-    enable = true;
+  services = {
+    hardware.bolt.enable = true;
+    fprintd = {
+      enable = true;
+    };
   };
 
   # This value determines the NixOS release from which the default

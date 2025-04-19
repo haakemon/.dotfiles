@@ -51,6 +51,8 @@
   ];
 
   services = {
+    hardware.bolt.enable = true;
+
     traefik.dynamicConfigOptions.http = {
       services = {
         valetudo.loadBalancer.servers = [{ url = "http://192.168.2.11"; }];

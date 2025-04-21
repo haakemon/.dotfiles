@@ -45,7 +45,7 @@
     ];
   };
 
-  home-manager.users.${config.configOptions.username} =
+  home-manager.users.${config.user-config.name} =
     { config, pkgs, ... }:
     {
       home = {
@@ -116,7 +116,7 @@
 
       # home = {
       #   file = {
-      #     ".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/niri/config.kdl";
+      #     ".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/niri/config.kdl";
       #   };
       # };
     };

@@ -3,7 +3,7 @@
 {
   security.pam.services.ags = { };
 
-  home-manager.users.${config.configOptions.username} =
+  home-manager.users.${config.user-config.name} =
     { inputs
     , config
     , pkgs
@@ -26,7 +26,7 @@
         Service = {
           Type = "exec";
           KillMode = "mixed";
-          ExecStart = "${config.programs.ags.finalPackage}/bin/ags run ${config.configOptions.userHome}/.dotfiles/ags/app.ts";
+          ExecStart = "${config.programs.ags.finalPackage}/bin/ags run ${config.user-config.home}/.dotfiles/ags/app.ts";
           StandardOutput = "journal";
           Restart = "on-failure";
           RestartSec = 10;

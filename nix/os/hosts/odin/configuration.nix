@@ -3,10 +3,6 @@ let
   secretspath = builtins.toString inputs.sops-secrets;
 in
 {
-  user-config = {
-    name = config.configOptions.username;
-  };
-
   boot.loader.grub.default = 1; # this should be 01-niri
   specialisation = {
     "01-niri".configuration = {
@@ -32,7 +28,7 @@ in
   };
 
   imports = [
-    ./variables-local.nix
+    ./user-config.nix
     ./hardware-configuration.nix
 
     ../../modules/development.nix
@@ -75,9 +71,9 @@ in
     secrets = {
       "ssh/config" = {
         sopsFile = "${secretspath}/secrets/hosts/odin/odin.yaml";
-        path = "${config.configOptions.userHome}/.ssh/config";
-        owner = config.users.users.${config.configOptions.username}.name;
-        group = config.users.users.${config.configOptions.username}.group;
+        path = "${config.user-config.home}/.ssh/config";
+        owner = config.users.users.${config.user-config.name}.name;
+        group = config.users.users.${config.user-config.name}.group;
         mode = "0600";
       };
     };
@@ -91,13 +87,15 @@ in
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
 
-  home-manager.users.${config.configOptions.username} =
+  home-manager.users.${config.user-config.name} =
     { config
     , pkgs
     , ...
     }:
     {
-      imports = [ ./variables-local.nix ];
+      imports = [
+        ./user-config.nix
+      ];
 
       systemd.user.timers."rclone-proton" = {
         Install.WantedBy = [ "timers.target" ];
@@ -114,7 +112,7 @@ in
         };
         Service = {
           Type = "exec";
-          ExecStart = "${pkgs.rclone}/bin/rclone --rc sync ${config.configOptions.userHome}/ProtonDrive/ protondrive:computers/odin";
+          ExecStart = "${pkgs.rclone}/bin/rclone --rc sync ${config.user-config.home}/ProtonDrive/ protondrive:computers/odin";
           StandardOutput = "journal";
           Restart = "no";
         };
@@ -142,7 +140,7 @@ in
 
         file = {
           ".config/niri/config.kdl".source =
-            config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/niri/config.kdl";
+            config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/niri/config.kdl";
         };
       };
     };

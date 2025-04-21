@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  home-manager.users.${config.configOptions.username} = { config, pkgs, ... }: {
+  home-manager.users.${config.user-config.name} = { config, pkgs, ... }: {
     home = {
       packages = [
         pkgs.vivaldi

@@ -5,10 +5,6 @@
 }:
 
 {
-  user-config = {
-    name = config.configOptions.username;
-  };
-
   specialisation = {
     "02-plasma".configuration = {
       environment.etc."specialisation".text = "02-plasma";
@@ -31,7 +27,7 @@
   };
 
   imports = [
-    ./variables-local.nix
+    ./user-config.nix
     ./hardware-configuration.nix
 
     ../../modules/base.nix
@@ -158,7 +154,7 @@
             acl = [
               "readwrite #"
             ];
-            passwordFile = "${config.configOptions.userHome}/secrets/mosquitto";
+            passwordFile = "${config.user-config.home}/secrets/mosquitto";
           };
         }
       ];
@@ -181,12 +177,12 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
 
-  home-manager.users.${config.configOptions.username} =
+  home-manager.users.${config.user-config.name} =
     { config, pkgs, ... }:
     {
 
       imports = [
-        ./variables-local.nix
+        ./user-config.nix
       ];
 
       systemd.user.timers."rclone-proton-immich" = {
@@ -204,7 +200,7 @@
         };
         Service = {
           Type = "exec";
-          ExecStart = "${pkgs.rclone}/bin/rclone --rc sync ${config.configOptions.userHome}/data/immich/files/ protondrive:computers/heimdall/immich";
+          ExecStart = "${pkgs.rclone}/bin/rclone --rc sync ${config.user-config.home}/data/immich/files/ protondrive:computers/heimdall/immich";
           StandardOutput = "journal";
           Restart = "no";
         };

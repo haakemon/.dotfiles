@@ -3,7 +3,7 @@
 {
   services.udev.packages = [ pkgs.swayosd ];
 
-  home-manager.users.${config.configOptions.username} = { config, pkgs, ... }: {
+  home-manager.users.${config.user-config.name} = { config, pkgs, ... }: {
     services.swayosd = {
       enable = true;
     };

@@ -1,10 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  user-config = {
-    name = config.configOptions.username;
-  };
-
   boot.loader.grub.default = 1; # this should be 01-niri
   specialisation = {
     "01-niri".configuration = {
@@ -36,7 +32,7 @@
   };
 
   imports = [
-    ./variables-local.nix
+    ./user-config.nix
     ./configuration-local.nix
     ./hardware-configuration.nix
     # ./traefik.nix
@@ -93,14 +89,14 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
 
-  home-manager.users.${config.configOptions.username} =
+  home-manager.users.${config.user-config.name} =
     { config
     , pkgs
     , ...
     }:
     {
       imports = [
-        ./variables-local.nix
+        ./user-config.nix
       ];
 
       programs = {
@@ -117,7 +113,7 @@
         Unit.Description = "Unofficial userland driver for logitech devices";
         Install.WantedBy = [ "graphical-session.target" ];
         Service = {
-          ExecStart = "${pkgs.pkgs.logiops_0_2_3}/bin/logid --config ${config.configOptions.userHome}/.dotfiles/logid/mx-master-3-for-mac.cfg";
+          ExecStart = "${pkgs.pkgs.logiops_0_2_3}/bin/logid --config ${config.user-config.home}/.dotfiles/logid/mx-master-3-for-mac.cfg";
           Restart = "on-failure";
           RestartSec = 10;
         };
@@ -158,7 +154,7 @@
 
         file = {
           ".config/niri/config.kdl".source =
-            config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/niri/config-delling.kdl";
+            config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/niri/config-delling.kdl";
         };
       };
     };

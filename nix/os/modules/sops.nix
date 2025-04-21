@@ -16,15 +16,15 @@ in
 
     secrets = {
       "private_keys/ssh/id_ed25519--git" = {
-        path = "${config.configOptions.userHome}/.ssh/id_ed25519--git";
-        owner = config.users.users.${config.configOptions.username}.name;
-        group = config.users.users.${config.configOptions.username}.group;
+        path = "${config.user-config.home}/.ssh/id_ed25519--git";
+        owner = config.users.users.${config.user-config.name}.name;
+        group = config.users.users.${config.user-config.name}.group;
         mode = "0600";
       };
       "private_keys/ssh/id_ed25519--git.pub" = {
-        path = "${config.configOptions.userHome}/.ssh/id_ed25519--git.pub";
-        owner = config.users.users.${config.configOptions.username}.name;
-        group = config.users.users.${config.configOptions.username}.group;
+        path = "${config.user-config.home}/.ssh/id_ed25519--git.pub";
+        owner = config.users.users.${config.user-config.name}.name;
+        group = config.users.users.${config.user-config.name}.group;
         mode = "0644";
       };
     };

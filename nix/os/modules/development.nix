@@ -5,7 +5,7 @@
     ./mitmproxy.nix
   ];
 
-  home-manager.users.${config.configOptions.username} =
+  home-manager.users.${config.user-config.name} =
     { config
     , inputs
     , pkgs
@@ -46,7 +46,7 @@
 
       home.file = {
         ".config/ghostty/config".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/ghostty/config";
+          config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/ghostty/config";
       };
 
       editorconfig = {

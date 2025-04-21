@@ -8,7 +8,7 @@ let
     config.configOptions.sshKeys;
 in
 {
-  home-manager.users.${config.configOptions.username} =
+  home-manager.users.${config.user-config.name} =
     { config
     , pkgs
     , lib

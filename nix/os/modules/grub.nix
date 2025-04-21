@@ -15,7 +15,7 @@
         enable = true;
         useOSProber = lib.mkDefault true;
         configurationLimit = 20;
-        splashImage = "${config.configOptions.userHome}/.dotfiles/iamroot.png";
+        splashImage = "${config.user-config.home}/.dotfiles/iamroot.png";
       };
     };
   };

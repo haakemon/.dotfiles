@@ -21,13 +21,13 @@
           ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o enp88s0 -j MASQUERADE
         '';
 
-        privateKeyFile = "${config.configOptions.userHome}/data/wireguard/keys/server/private";
+        privateKeyFile = "${config.user-config.home}/data/wireguard/keys/server/private";
 
         peers = [
           {
             name = "haakemob";
             publicKey = "cgM7ZabyqOrGOkQ1GvIlCNQRNszLKVfS3xQcrdX8cSE=";
-            presharedKeyFile = "${config.configOptions.userHome}/data/wireguard/keys/peers/haakemob.psk";
+            presharedKeyFile = "${config.user-config.home}/data/wireguard/keys/peers/haakemob.psk";
             allowedIPs = [ "10.100.0.2/32" ];
           }
         ];

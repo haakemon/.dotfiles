@@ -14,7 +14,7 @@
   };
   security.polkit.enable = true;
 
-  home-manager.users.${config.configOptions.username} =
+  home-manager.users.${config.user-config.name} =
     { pkgs
     , ...
     }:

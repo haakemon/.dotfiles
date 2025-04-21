@@ -28,6 +28,6 @@
     };
 
     # a wallpaper is required
-    image = "${config.configOptions.userHome}/.dotfiles/transparent.png";
+    image = "${config.user-config.home}/.dotfiles/transparent.png";
   };
 }

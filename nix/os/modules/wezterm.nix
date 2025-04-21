@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  home-manager.users.${config.configOptions.username} = { inputs, config, pkgs, ... }: {
+  home-manager.users.${config.user-config.name} = { inputs, config, pkgs, ... }: {
     programs = {
       wezterm = {
         enable = true;
@@ -42,7 +42,7 @@
     };
 
     home.file = {
-      ".wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/wezterm/.wezterm.lua";
+      ".wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/wezterm/.wezterm.lua";
     };
   };
 }

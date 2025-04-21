@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  home-manager.users.${config.configOptions.username} =
+  home-manager.users.${config.user-config.name} =
     { inputs
     , config
     , pkgs

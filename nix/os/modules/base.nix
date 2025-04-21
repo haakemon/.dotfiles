@@ -122,7 +122,7 @@ in
     };
   };
 
-  home-manager.users.${config.configOptions.username} =
+  home-manager.users.${config.user-config.name} =
     { config
     , pkgs
     , lib
@@ -149,8 +149,8 @@ in
         # release notes.
         stateVersion = "24.05"; # Please read the comment before changing.
 
-        username = "${config.configOptions.username}";
-        homeDirectory = "${config.configOptions.userHome}";
+        username = "${config.user-config.name}";
+        homeDirectory = "${config.user-config.home}";
 
         sessionVariables = {
           # https://wiki.archlinux.org/title/XDG_Base_Directory
@@ -205,17 +205,17 @@ in
           ".config/nixpkgs/config.nix".text = ''
             { allowUnfree = true; }
           '';
-          ".config/zed/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/zed/settings.json";
-          ".config/zed/keymap.json".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/zed/keymap.json";
-          ".config/spotify-player/keymap.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/spotify-player/keymap.toml";
-          ".config/spotify-player/app.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/spotify-player/app.toml";
+          ".config/zed/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/zed/settings.json";
+          ".config/zed/keymap.json".source = config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/zed/keymap.json";
+          ".config/spotify-player/keymap.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/spotify-player/keymap.toml";
+          ".config/spotify-player/app.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/spotify-player/app.toml";
 
           "${config.home.sessionVariables.XDG_DATA_HOME}/icons/Banana".source =
             config.lib.file.mkOutOfStoreSymlink "${pkgs.banana-cursor}/share/icons/Banana";
           "${config.home.sessionVariables.XDG_DATA_HOME}/icons/Dracula".source =
             config.lib.file.mkOutOfStoreSymlink "${pkgs.dracula-icon-theme}/share/icons/Dracula";
 
-          ".face.icon".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/sddm/.face.icon";
+          ".face.icon".source = config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/sddm/.face.icon";
         };
 
         packages =

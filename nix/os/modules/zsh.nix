@@ -12,7 +12,7 @@
     };
   };
 
-  home-manager.users.${config.configOptions.username} = { config, pkgs, ... }: {
+  home-manager.users.${config.user-config.name} = { config, pkgs, ... }: {
     home.packages = [
       pkgs.killall
       pkgs.wget
@@ -35,7 +35,7 @@
     ];
 
     home.file = {
-      ".config/fastfetch/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink "${config.configOptions.userHome}/.dotfiles/fastfetch/config.jsonc";
+      ".config/fastfetch/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/fastfetch/config.jsonc";
     };
 
     programs = {
@@ -47,13 +47,13 @@
 
         history = {
           ignoreAllDups = true;
-          path = "${config.configOptions.userHome}/.local/share/zsh/zsh_history";
+          path = "${config.user-config.home}/.local/share/zsh/zsh_history";
         };
         dirHashes = {
-          code = "${config.configOptions.userHome}/code";
-          dl = "${config.configOptions.userHome}/Downloads";
-          dots = "${config.configOptions.userHome}/.dotfiles";
-          flake = "${config.configOptions.username}/.dotfiles/nix/os";
+          code = "${config.user-config.home}/code";
+          dl = "${config.user-config.home}/Downloads";
+          dots = "${config.user-config.home}/.dotfiles";
+          flake = "${config.user-config.name}/.dotfiles/nix/os";
         };
         dotDir = ".config/zsh";
 

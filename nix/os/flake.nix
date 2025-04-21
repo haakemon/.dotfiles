@@ -49,6 +49,7 @@
           system = "x86_64-linux";
           modules = [
             ./hosts/odin/configuration.nix
+            ./user-options.nix
             inputs.chaotic.nixosModules.default
             inputs.niri.nixosModules.niri
             # inputs.stylix.nixosModules.stylix
@@ -70,6 +71,7 @@
           system = "x86_64-linux";
           modules = cosmicModuleSettings ++ [
             ./hosts/delling/configuration.nix
+            ./user-options.nix
             inputs.chaotic.nixosModules.default
             inputs.niri.nixosModules.niri
             # inputs.stylix.nixosModules.stylix
@@ -91,6 +93,7 @@
           system = "x86_64-linux";
           modules = [
             ./hosts/heimdall/configuration.nix
+            ./user-options.nix
             inputs.home-manager.nixosModules.home-manager
             homeManagerConf
             (

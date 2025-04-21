@@ -16,7 +16,7 @@
         lib = inputs.nixpkgs.lib;
       };
 
-      nixpkgsOverlays = import ./nixpkgs-overlays.nix inputs;
+      mkOverlays = config: import ./nixpkgs-overlays.nix config inputs;
 
       homeManagerConf = {
         home-manager = {
@@ -54,9 +54,12 @@
             # inputs.stylix.nixosModules.stylix
             inputs.home-manager.nixosModules.home-manager
             homeManagerConf
-            {
-              nixpkgs.overlays = [ nixpkgsOverlays ];
-            }
+            (
+              { config, ... }:
+              {
+                nixpkgs.overlays = [ (mkOverlays config) ];
+              }
+            )
           ];
         };
 
@@ -72,10 +75,12 @@
             # inputs.stylix.nixosModules.stylix
             inputs.home-manager.nixosModules.home-manager
             homeManagerConf
-
-            {
-              nixpkgs.overlays = [ nixpkgsOverlays ];
-            }
+            (
+              { config, ... }:
+              {
+                nixpkgs.overlays = [ (mkOverlays config) ];
+              }
+            )
           ];
         };
 
@@ -88,9 +93,12 @@
             ./hosts/heimdall/configuration.nix
             inputs.home-manager.nixosModules.home-manager
             homeManagerConf
-            {
-              nixpkgs.overlays = [ nixpkgsOverlays ];
-            }
+            (
+              { config, ... }:
+              {
+                nixpkgs.overlays = [ (mkOverlays config) ];
+              }
+            )
           ];
         };
       };

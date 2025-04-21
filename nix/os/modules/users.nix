@@ -1,10 +1,11 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  users.users.${config.configOptions.username} = {
+  users.users.${config.user-config.name} = {
     isNormalUser = true;
     linger = true;
-    description = "${config.configOptions.username}";
+    description = config.user-config.name;
+    home = config.user-config.home;
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -18,8 +19,6 @@
       "podman"
     ];
     shell = pkgs.zsh;
-    packages = [
-
-    ];
+    packages = [ ];
   };
 }

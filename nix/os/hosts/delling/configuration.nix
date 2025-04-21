@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  user-config = {
+    name = config.configOptions.username;
+  };
+
   boot.loader.grub.default = 1; # this should be 01-niri
   specialisation = {
     "01-niri".configuration = {

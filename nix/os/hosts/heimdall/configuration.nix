@@ -5,6 +5,10 @@
 }:
 
 {
+  user-config = {
+    name = config.configOptions.username;
+  };
+
   specialisation = {
     "02-plasma".configuration = {
       environment.etc."specialisation".text = "02-plasma";

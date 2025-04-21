@@ -1,4 +1,4 @@
-inputs: final: prev:
+config: inputs: final: prev:
 prev
   // {
   # https://nixpk.gs/pr-tracker.html?pr=
@@ -17,6 +17,15 @@ prev
         "ruamel.yaml"
       ];
     });
-
   };
+
+  firefox = prev.firefox.overrideAttrs (oldAttrs: {
+    buildCommand =
+      oldAttrs.buildCommand
+      + ''
+        wrapProgram "$executablePath" \
+          --set 'HOME' '${config.user-config.home}/.config/mozilla'
+      '';
+  });
+
 }

@@ -1,4 +1,7 @@
-{ config, pkgs, ... }:
+{ config
+, pkgs
+, ...
+}:
 
 {
   networking = {
@@ -11,7 +14,7 @@
       enable = true;
       interfaces.wg0 = {
         ips = [ "10.100.0.1/24" ];
-        listenPort = config.configOptions.wireguardPort;
+        listenPort = 51886;
 
         postSetup = ''
           ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o enp88s0 -j MASQUERADE
@@ -34,7 +37,7 @@
       };
     };
     firewall = {
-      allowedUDPPorts = [ config.configOptions.wireguardPort ];
+      allowedUDPPorts = [ 51886 ];
     };
   };
 }

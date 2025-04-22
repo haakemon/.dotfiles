@@ -10,7 +10,7 @@
       pkgs.podman-compose
       pkgs.distrobox
     ]
-    ++ lib.optionals (!config.configOptions.headless) [
+    ++ lib.optionals (!config.system-config.headless) [
       pkgs.virt-viewer
       pkgs.spice
       pkgs.spice-gtk
@@ -21,11 +21,11 @@
       pkgs.libguestfs-with-appliance
     ];
 
-  programs = lib.mkIf (!config.configOptions.headless) {
+  programs = lib.mkIf (!config.system-config.headless) {
     virt-manager.enable = true;
   };
 
-  services = lib.mkIf (!config.configOptions.headless) {
+  services = lib.mkIf (!config.system-config.headless) {
     spice-vdagentd.enable = true;
   };
 
@@ -41,7 +41,7 @@
       };
     }
 
-    (lib.mkIf (!config.configOptions.headless) {
+    (lib.mkIf (!config.system-config.headless) {
       # waydroid.enable = true;
       libvirtd = {
         enable = true;

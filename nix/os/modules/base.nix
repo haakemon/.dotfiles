@@ -15,7 +15,7 @@ in
       dbus.implementation = "broker";
     }
 
-    (lib.mkIf (!config.configOptions.headless) {
+    (lib.mkIf (!config.system-config.headless) {
       gnome.gnome-keyring.enable = true;
       xserver = {
         enable = true;
@@ -69,7 +69,7 @@ in
 
   environment.enableAllTerminfo = true;
 
-  fonts.packages = lib.mkIf (!config.configOptions.headless) [
+  fonts.packages = lib.mkIf (!config.system-config.headless) [
     pkgs.victor-mono
     pkgs.nerd-fonts.victor-mono
   ];
@@ -81,7 +81,7 @@ in
       pkgs.statix
       pkgs.nixpkgs-fmt # formatting .nix files
     ]
-    ++ lib.optionals (!config.configOptions.headless) [
+    ++ lib.optionals (!config.system-config.headless) [
       pkgs.libnotify
     ];
 
@@ -96,7 +96,7 @@ in
       nix-ld.enable = true;
     }
 
-    (lib.mkIf (!config.configOptions.headless) {
+    (lib.mkIf (!config.system-config.headless) {
       plotinus.enable = true;
       corectrl.enable = true;
     })
@@ -250,7 +250,7 @@ in
               )
             )
           ]
-          ++ lib.optionals (!config.configOptions.headless) [
+          ++ lib.optionals (!config.system-config.headless) [
             pkgs.proton-pass
             pkgs.bitwarden-desktop
             pkgs.keepassxc
@@ -284,7 +284,7 @@ in
           ];
 
       };
-      dconf.settings = lib.mkIf (!config.configOptions.headless) {
+      dconf.settings = lib.mkIf (!config.system-config.headless) {
         "org/gnome/desktop/interface" = {
           color-scheme = "prefer-dark";
         };

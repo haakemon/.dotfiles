@@ -18,7 +18,7 @@
             pkgs.keybase
             pkgs.kbfs
           ]
-          ++ lib.optionals (!config.configOptions.headless) [
+          ++ lib.optionals (!config.system-config.headless) [
             pkgs.keybase-gui
           ];
       };

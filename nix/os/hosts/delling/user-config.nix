@@ -3,6 +3,7 @@
 {
   imports = [
     ./variables-local.nix
+    ./system-config.nix
     ../../user-options.nix
   ];
 

@@ -146,6 +146,7 @@
           pkgs.k9s
           pkgs.vault
           pkgs.dotnet-sdk_9
+          pkgs.traefik
 
           # Chat
           pkgs.telegram-desktop

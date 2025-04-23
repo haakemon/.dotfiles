@@ -135,11 +135,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    wezterm = {
-      url = "github:wez/wezterm?dir=nix";
-      # inputs.nixpkgs.follows = "nixpkgs"; # this breaks for some reason
-    };
-
     ghostty = {
       url = "github:ghostty-org/ghostty";
     };

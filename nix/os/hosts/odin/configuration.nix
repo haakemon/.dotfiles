@@ -49,13 +49,12 @@ in
     ../../modules/openrgb.nix
     ../../modules/fstrim.nix
     # ../../modules/printing.nix
-    ../../modules/vivaldi.nix
+    ../../modules/browsers.nix
     ../../modules/nh.nix
     ../../modules/git.nix
     ../../modules/3d-printing.nix
     ../../modules/obs-studio.nix
     ../../modules/qmk.nix
-    ../../modules/zen-browser.nix
     ../../modules/keybase.nix
     ../../modules/sops.nix
   ];

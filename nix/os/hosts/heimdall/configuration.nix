@@ -12,7 +12,7 @@
       imports = [
         ../../modules/plasma.nix
         ../../modules/sddm.nix
-        ../../modules/vivaldi.nix
+        ../../modules/browsers.nix
         ../../modules/development.nix
       ];
 

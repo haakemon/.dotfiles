@@ -13,10 +13,6 @@
     }:
     {
       home.packages = [
-        # Browsers
-        pkgs.firefox
-        pkgs.ungoogled-chromium
-
         # Terminals
         pkgs.alacritty
         pkgs.cosmic-term

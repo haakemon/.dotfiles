@@ -51,11 +51,10 @@
     ../../modules/fstrim.nix
     ../../modules/printing.nix
     ../../modules/nautilus.nix
-    ../../modules/vivaldi.nix
+    ../../modules/browsers.nix
     ../../modules/nh.nix
     ../../modules/git.nix
     ../../modules/obs-studio.nix
-    ../../modules/zen-browser.nix
     ../../modules/upower.nix
     ../../modules/qmk.nix
     ../../modules/keybase.nix

@@ -19,6 +19,8 @@ prev
     });
   };
 
+  # thanks https://r.je/evict-your-darlings
+  # avoid .mozilla folder in ~/
   firefox = prev.firefox.overrideAttrs (oldAttrs: {
     buildCommand =
       oldAttrs.buildCommand
@@ -28,4 +30,13 @@ prev
       '';
   });
 
+  # avoid .zen folder in ~/
+  zen-browser = inputs.zen-browser.packages."x86_64-linux".default.overrideAttrs (oldAttrs: {
+    buildCommand =
+      oldAttrs.buildCommand
+      + ''
+        wrapProgram "$executablePath" \
+          --set 'HOME' '${config.user-config.home}/.config/zen'
+      '';
+  });
 }

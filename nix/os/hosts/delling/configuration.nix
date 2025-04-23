@@ -35,7 +35,6 @@
     ./user-config.nix
     ./configuration-local.nix
     ./hardware-configuration.nix
-    # ./traefik.nix
 
     ../../modules/development.nix
 
@@ -45,8 +44,6 @@
     ../../modules/gpu-nvidia.nix
     ../../modules/users.nix
     ../../modules/keyd.nix
-    # ../../modules/acme.nix
-    # ../../modules/traefik.nix # conflicts with the local variant - should be modularized
     ../../modules/grub.nix
     ../../modules/zsh.nix
     ../../modules/thunar.nix

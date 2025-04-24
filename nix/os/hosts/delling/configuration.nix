@@ -32,7 +32,7 @@
   };
 
   imports = [
-    ./user-config.nix
+    ./config-local.nix
     ./configuration-local.nix
     ./hardware-configuration.nix
 
@@ -92,7 +92,7 @@
     }:
     {
       imports = [
-        ./user-config.nix
+        ./config-local.nix
       ];
 
       programs = {

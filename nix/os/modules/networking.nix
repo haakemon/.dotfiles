@@ -2,7 +2,7 @@
 
 {
   networking = {
-    hostName = "${config.configOptions.hostname}";
+    hostName = "${config.system-config.hostname}";
     networkmanager.enable = true;
     # hosts = {
     #   "127.0.0.1" = [	"local.dev" ];

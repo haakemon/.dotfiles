@@ -65,6 +65,9 @@ in
       auto-optimise-store = true;
     };
     optimise.automatic = true;
+    extraOptions = ''
+      !include ${config.sops.secrets."nix/accessTokens".path}
+    '';
   };
 
   environment.enableAllTerminfo = true;

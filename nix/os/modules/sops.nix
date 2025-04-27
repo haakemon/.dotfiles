@@ -15,6 +15,12 @@ in
     age.keyFile = keysFileLocation;
 
     secrets = {
+      "private_keys/ssh/allowed_signers" = {
+        path = "${config.user-config.home}/.ssh/allowed_signers";
+        owner = config.users.users.${config.user-config.name}.name;
+        group = config.users.users.${config.user-config.name}.group;
+        mode = "0600";
+      };
       "private_keys/ssh/id_ed25519--git" = {
         path = "${config.user-config.home}/.ssh/id_ed25519--git";
         owner = config.users.users.${config.user-config.name}.name;
@@ -26,6 +32,10 @@ in
         owner = config.users.users.${config.user-config.name}.name;
         group = config.users.users.${config.user-config.name}.group;
         mode = "0644";
+      };
+      "nix/accessTokens" = {
+        group = config.users.users.${config.user-config.name}.group;
+        mode = "0440";
       };
     };
   };

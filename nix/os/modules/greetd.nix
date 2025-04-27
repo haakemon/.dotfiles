@@ -14,15 +14,15 @@
     settings = {
       default_session = {
         command = ''
-          ${pkgs.greetd.tuigreet}/bin/tuigreet
-            --cmd niri-session
-            --remember
-            --remember-session
-            --time
-            --asterisks
-            --power-shutdown shutdown now
-            --power-reboot reboot
-            --greeting "Hello from tuigreet"
+          ${pkgs.greetd.tuigreet}/bin/tuigreet \
+            --cmd niri-session \
+            --remember \
+            --remember-session \
+            --time \
+            --asterisks \
+            --power-shutdown shutdown now \
+            --power-reboot reboot \
+            --greeting "Eat some bananas"
         '';
         # --time-format #strftime format
 

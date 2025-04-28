@@ -32,9 +32,12 @@
   };
 
   imports = [
-    ./config-local.nix
     ./configuration-local.nix
     ./hardware-configuration.nix
+
+    ../../config-options.nix
+    ../../user-options.nix
+    ../../system-options.nix
 
     inputs.nrk-hylla.nixosModules
 

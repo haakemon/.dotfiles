@@ -110,6 +110,10 @@
       follows = "nixos-cosmic/nixpkgs";
     };
 
+    nixpkgs-stable = {
+      url = "github:NixOS/nixpkgs/nixos-24.11";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -118,11 +122,13 @@
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
 
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
     };
 
     # stylix = {
@@ -137,6 +143,7 @@
 
     ghostty = {
       url = "github:ghostty-org/ghostty";
+      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
     };
 
     zen-browser = {
@@ -161,6 +168,7 @@
 
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
     };
 
     nrk-hylla = {

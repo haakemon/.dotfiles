@@ -48,8 +48,8 @@ in
         };
 
         zsh = {
-          initExtra = ''
-            #region git initExtra
+          initContent = ''
+            #region initContent git.nix
 
             # 10080 minutes = 7 days
             eval $(keychain --absolute --dir "$XDG_RUNTIME_DIR"/keychain --agents ssh --timeout 10080 --eval --quiet)
@@ -66,7 +66,7 @@ in
               load-ssh-keys
             fi
 
-            #endregion git initExtra
+            #endregion initContent git.nix
           '';
         };
       };

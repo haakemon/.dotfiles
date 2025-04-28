@@ -71,8 +71,8 @@
         };
 
         zsh = {
-          initExtra = ''
-            #region development initExtra
+          initContent = ''
+            #region initContent development.nix
             source "''${HOME}/.dotfiles/nix/devenv/nix.devenv.zsh"
 
             c() {
@@ -83,7 +83,7 @@
               fi
             }
 
-            #endregion development initExtra
+            #endregion initContent development.nix
           '';
         };
       };

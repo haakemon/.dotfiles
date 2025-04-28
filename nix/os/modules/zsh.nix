@@ -99,8 +99,8 @@
           }
         ];
 
-        initExtraFirst = ''
-          #region initExtraFirst
+        initContent = lib.mkBefore ''
+          #region initContent mkBefore zsh.nix
           autoload -Uz compinit
           compinit
           unsetopt beep
@@ -132,13 +132,9 @@
           source "''${HOME}/.dotfiles/zsh/alias.zsh"
           source "''${HOME}/.dotfiles/zsh/zsh-hooks.zsh"
 
-          #endregion initExtraFirst
-        '';
-
-        initExtra = ''
-          #region initExtra
           fastfetch
-          #endregion initExtra
+
+          #endregion initContent mkBefore zsh.nix
         '';
       };
     };

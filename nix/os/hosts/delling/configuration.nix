@@ -104,10 +104,10 @@
 
       programs = {
         zsh = {
-          initExtra = ''
-            #region default initExtra
+          initContent = ''
+            #region initContent configuration.nix
             source "''${HOME}/work/configs/env.zsh"
-            #endregion default initExtra
+            #endregion initContent configuration.nix
           '';
         };
       };

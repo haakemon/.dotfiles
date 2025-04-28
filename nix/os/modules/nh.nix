@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   environment.sessionVariables = {
-    FLAKE = "path:/home/${config.user-config.name}/.dotfiles/nix/os";
+    NH_FLAKE = "path:/home/${config.user-config.name}/.dotfiles/nix/os";
   };
   programs.nh = {
     enable = true;

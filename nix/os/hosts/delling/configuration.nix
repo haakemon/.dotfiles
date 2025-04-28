@@ -63,6 +63,22 @@
     ../../modules/sops.nix
   ];
 
+  boot = {
+    loader = {
+      grub = {
+        useOSProber = false;
+        enableCryptodisk = true;
+      };
+    };
+    initrd = {
+      luks.devices."enc-pv" = {
+        device = "/dev/disk/by-uuid/17b53833-98dc-4862-afa6-6bcfa36474ce";
+        preLVM = true;
+        allowDiscards = true;
+      };
+    };
+  };
+
   programs.f5vpn = {
     enable = true;
     oesisUser = config.user-config.name;

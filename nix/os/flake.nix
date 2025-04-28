@@ -162,5 +162,10 @@
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
     };
+
+    nrk-hylla = {
+      url = "git+ssh://git@github.com/nrkno/linux-hylla.git?ref=feature/nix-f5vpn&shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   boot.loader.grub.default = 1; # this should be 01-niri
@@ -36,6 +36,8 @@
     ./configuration-local.nix
     ./hardware-configuration.nix
 
+    inputs.nrk-hylla.nixosModules
+
     ../../modules/development.nix
 
     ../../modules/base.nix
@@ -60,6 +62,11 @@
     ../../modules/keybase.nix
     ../../modules/sops.nix
   ];
+
+  programs.f5vpn = {
+    enable = true;
+    oesisUser = config.user-config.name;
+  };
 
   hardware = {
     nvidia = {

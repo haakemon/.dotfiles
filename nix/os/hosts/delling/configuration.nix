@@ -106,6 +106,13 @@ in
     };
   };
 
+  security.wrappers.traefik = {
+    owner = "root";
+    group = "root";
+    capabilities = "cap_net_bind_service=+ep";
+    source = "${pkgs.traefik}/bin/traefik";
+  };
+
   sops = {
     secrets = {
       "ssh/id_ed25519" = {

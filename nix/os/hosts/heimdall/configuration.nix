@@ -169,6 +169,33 @@
     };
   };
 
+  sops = {
+    secrets = {
+      "ssh/authorized_keys" = {
+        sopsFile = "${secretspath}/secrets/hosts/heimdall/heimdall.yaml";
+        path = "${config.user-config.home}/.ssh/authorized_keys";
+        owner = config.users.users.${config.user-config.name}.name;
+        group = config.users.users.${config.user-config.name}.group;
+        mode = "0640";
+      };
+      "ssh/id_ed25519" = {
+        sopsFile = "${secretspath}/secrets/hosts/heimdall/heimdall.yaml";
+        path = "${config.user-config.home}/.ssh/id_ed25519";
+        owner = config.users.users.${config.user-config.name}.name;
+        group = config.users.users.${config.user-config.name}.group;
+        mode = "0600";
+      };
+      "ssh/id_ed25519.pub" = {
+        sopsFile = "${secretspath}/secrets/hosts/heimdall/heimdall.yaml";
+        path = "${config.user-config.home}/.ssh/id_ed25519.pub";
+        owner = config.users.users.${config.user-config.name}.name;
+        group = config.users.users.${config.user-config.name}.group;
+        mode = "0644";
+      };
+    };
+  };
+
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

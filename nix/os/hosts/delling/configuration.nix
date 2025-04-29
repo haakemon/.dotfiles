@@ -1,5 +1,7 @@
 { inputs, config, pkgs, ... }:
-
+let
+  secretspath = builtins.toString inputs.sops-secrets;
+in
 {
   boot.loader.grub.default = 1; # this should be 01-niri
   specialisation = {
@@ -100,6 +102,25 @@
     hardware.bolt.enable = true;
     fprintd = {
       enable = true;
+    };
+  };
+
+  sops = {
+    secrets = {
+      "ssh/id_ed25519" = {
+        sopsFile = "${secretspath}/secrets/hosts/delling/delling.yaml";
+        path = "${config.user-config.home}/.ssh/id_ed25519";
+        owner = config.users.users.${config.user-config.name}.name;
+        group = config.users.users.${config.user-config.name}.group;
+        mode = "0600";
+      };
+      "ssh/id_ed25519.pub" = {
+        sopsFile = "${secretspath}/secrets/hosts/delling/delling.yaml";
+        path = "${config.user-config.home}/.ssh/id_ed25519.pub";
+        owner = config.users.users.${config.user-config.name}.name;
+        group = config.users.users.${config.user-config.name}.group;
+        mode = "0644";
+      };
     };
   };
 

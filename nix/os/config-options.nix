@@ -3,23 +3,6 @@
 {
   options = {
     configOptions = {
-      username = lib.mkOption {
-        type = lib.types.str;
-        description = "The username for the user";
-      };
-      userHome = lib.mkOption {
-        type = lib.types.str;
-        description = "The home path for the user";
-      };
-      hostname = lib.mkOption {
-        type = lib.types.str;
-        description = "The hostname for the system";
-      };
-      headless = lib.mkOption {
-        type = lib.types.bool;
-        description = "Some configuration will not be applied on a headless system";
-        default = false;
-      };
       sshKeys = lib.mkOption {
         type = lib.types.attrsOf lib.types.str;
         example = {
@@ -46,10 +29,6 @@
           type = lib.types.str;
           description = "path to credentials file";
         };
-      };
-      wireguardPort = lib.mkOption {
-        type = lib.types.number;
-        description = "port number for wireguard";
       };
     };
   };

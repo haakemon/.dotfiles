@@ -3,7 +3,9 @@
 , lib
 , ...
 }:
-
+let
+  secretspath = builtins.toString inputs.sops-secrets;
+in
 {
   specialisation = {
     "02-plasma".configuration = {

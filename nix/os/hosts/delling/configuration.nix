@@ -1,6 +1,7 @@
 { inputs, config, pkgs, ... }:
 let
   secretspath = builtins.toString inputs.sops-secrets;
+  cfg = config;
 in
 {
   boot.loader.grub.default = 1; # this should be 01-niri
@@ -139,8 +140,17 @@ in
     }:
     {
       imports = [
-        ./config-local.nix
+        ../../user-options.nix
+        ../../system-options.nix
       ];
+
+      user-config = {
+        name = cfg.user-config.name;
+      };
+
+      system-config = {
+        hostname = cfg.system-config.hostname;
+      };
 
       programs = {
         zsh = {

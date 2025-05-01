@@ -77,7 +77,7 @@ in
         "teslamate-stats".loadBalancer.servers = [{ url = "http://127.0.0.1:4001"; }];
         adguard.loadBalancer.servers = [{ url = "http://127.0.0.1:3050"; }];
         status.loadBalancer.servers = [{ url = "http://127.0.0.1:3001"; }];
-        scrutiny.loadBalancer.servers = [{ url = "http://127.0.0.1:3001"; }];
+        scrutiny.loadBalancer.servers = [{ url = "http://127.0.0.1:8999"; }];
       };
 
       routers = {

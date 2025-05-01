@@ -13,6 +13,12 @@ in
       # fwupdmgr refresh && fwupdmgr update
       fwupd.enable = true;
       dbus.implementation = "broker";
+      cockpit.enable = true;
+      scrutiny = {
+        enable = true;
+        collector.enable = true;
+        settings.web.listen.port = 8999;
+      };
     }
 
     (lib.mkIf (!config.system-config.headless) {
@@ -29,11 +35,6 @@ in
         pulse.enable = true;
         socketActivation = true;
         wireplumber.enable = true;
-      };
-      scrutiny = {
-        enable = true;
-        collector.enable = true;
-        settings.web.listen.port = 8999;
       };
       gvfs.enable = true; # Mount, trash, and other functionalities
       playerctld.enable = true;

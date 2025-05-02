@@ -1,10 +1,13 @@
-{ inputs, config, pkgs, ... }:
+{ inputs
+, config
+, pkgs
+, ...
+}:
 let
   secretspath = builtins.toString inputs.sops-secrets;
   cfg = config;
 in
 {
-  boot.loader.grub.default = 1; # this should be 01-niri
   specialisation = {
     "01-niri".configuration = {
       environment.etc."specialisation".text = "01-niri";
@@ -74,6 +77,7 @@ in
       grub = {
         useOSProber = false;
         enableCryptodisk = true;
+        default = 1; # this will be 01-niri
       };
     };
     initrd = {

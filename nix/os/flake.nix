@@ -1,21 +1,11 @@
 {
-  description = "A very basic flake";
+  description = "My NixOS config";
 
   outputs =
     { self
     , ...
     }@inputs:
     let
-      odin = import ./hosts/odin/variables-local.nix {
-        lib = inputs.nixpkgs.lib;
-      };
-      delling = import ./hosts/delling/variables-local.nix {
-        lib = inputs.nixpkgs.lib;
-      };
-      heimdall = import ./hosts/heimdall/variables-local.nix {
-        lib = inputs.nixpkgs.lib;
-      };
-
       mkOverlays = config: import ./nixpkgs-overlays.nix config inputs;
 
       homeManagerConf = {
@@ -74,6 +64,7 @@
             inputs.niri.nixosModules.niri
             # inputs.stylix.nixosModules.stylix
             inputs.home-manager.nixosModules.home-manager
+            inputs.dotfiles-private.nixosModules.hosts.delling
             homeManagerConf
             (
               { config, ... }:
@@ -158,6 +149,11 @@
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    dotfiles-private = {
+      url = "git+ssh://git@github.com/haakemon/.dotfiles-private.git?ref=main&shallow=1&dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -41,12 +41,10 @@ in
     ../../modules/wireguard.nix
     ../../modules/cockpit.nix
     ../../modules/ssh.nix
-    ../../modules/traefik.nix
     ../../modules/adguard.nix
     ../../modules/grub.nix
     ../../modules/zsh.nix
     ../../modules/fstrim.nix
-    ../../modules/acme.nix
     ../../modules/nh.nix
     ../../modules/git.nix
     ../../modules/keybase.nix
@@ -64,10 +62,48 @@ in
     hardware.bolt.enable = true;
 
     traefik = {
+      enable = true;
+      environmentFiles = [
+        config.sops.secrets."env/cloudflare".path
+      ];
+      staticConfigOptions = {
+        api = {
+          dashboard = true;
+        };
+        global = {
+          checkNewVersion = false;
+          sendAnonymousUsage = false;
+        };
+        entryPoints = {
+          websecure = {
+            address = ":443";
+            http.tls = {
+              certResolver = "letsencrypt";
+              domains = [
+                {
+                  main = "${config.configOptions.acme.domain}";
+                  sans = [
+                    "*.${config.configOptions.acme.domain}"
+                  ];
+                }
+              ];
+            };
+            forwardedHeaders.trustedIps = [ "127.0.0.1" ];
+          };
+        };
+        certificatesResolvers = {
+          letsencrypt.acme = {
+            # caServer = "https://acme-staging-v02.api.letsencrypt.org/directory";
+            storage = "/var/lib/traefik/cert.json";
+            dnsChallenge = {
+              provider = "cloudflare";
+            };
+          };
+        };
+      };
       dynamicConfigOptions.http = {
         services = {
           valetudo.loadBalancer.servers = [{ url = "http://192.168.2.11"; }];
-
           homarr.loadBalancer.servers = [{ url = "http://127.0.0.1:7575"; }];
           cockpit.loadBalancer.servers = [{ url = "http://127.0.0.1:9090"; }];
           zigbee2mqtt.loadBalancer.servers = [{ url = "http://127.0.0.1:8089"; }];
@@ -167,7 +203,7 @@ in
             acl = [
               "readwrite #"
             ];
-            passwordFile = "${config.user-config.home}/secrets/mosquitto";
+            passwordFile = config.sops.secrets."pwd/mosquitto".path;
           };
         }
       ];
@@ -178,6 +214,7 @@ in
     firewall = {
       allowedTCPPorts = [
         1883 # mosquitto
+        443 # traefik
       ];
     };
   };
@@ -204,6 +241,12 @@ in
         owner = config.users.users.${config.user-config.name}.name;
         group = config.users.users.${config.user-config.name}.group;
         mode = "0644";
+      };
+      "env/cloudflare" = {
+        sopsFile = "${secretspath}/secrets/hosts/heimdall/heimdall.yaml";
+      };
+      "pwd/mosquitto" = {
+        sopsFile = "${secretspath}/secrets/hosts/heimdall/heimdall.yaml";
       };
     };
   };

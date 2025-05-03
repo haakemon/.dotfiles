@@ -4,6 +4,7 @@
   services = {
     traefik = {
       enable = true;
+
       staticConfigOptions = {
         api = {
           dashboard = true;
@@ -58,7 +59,7 @@
 
       #   routers = {
       #     localhost3000 = {
-      #       rule = "Host(`localhost3000.${config.configOptions.acme.domain}`)";
+      #       rule = "Host(`localhost3000.domain.com`)";
       #       entryPoints = [ "websecure" ];
       #       service = "localhost3000";
       #       tls.certresolver = "letsencrypt";
@@ -71,7 +72,7 @@
 
   networking = {
     firewall = {
-      allowedTCPPorts = [ 80 443 ];
+      allowedTCPPorts = [ 443 ];
     };
   };
 }

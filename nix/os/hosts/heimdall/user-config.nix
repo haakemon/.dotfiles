@@ -4,6 +4,7 @@
   imports = [
     ./variables-local.nix
     ./system-config.nix
+    ../../config-options.nix
     ../../user-options.nix
   ];
 

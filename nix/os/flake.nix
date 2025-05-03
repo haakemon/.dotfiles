@@ -42,6 +42,7 @@
             inputs.chaotic.nixosModules.default
             inputs.niri.nixosModules.niri
             # inputs.stylix.nixosModules.stylix
+            inputs.dotfiles-private.nixosModules.hosts.odin
             inputs.home-manager.nixosModules.home-manager
             homeManagerConf
             (
@@ -83,6 +84,7 @@
           modules = [
             ./hosts/heimdall/configuration.nix
             inputs.home-manager.nixosModules.home-manager
+            inputs.dotfiles-private.nixosModules.hosts.heimdall
             homeManagerConf
             (
               { config, ... }:

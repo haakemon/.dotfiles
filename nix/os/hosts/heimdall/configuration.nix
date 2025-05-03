@@ -1,5 +1,7 @@
 { inputs
 , config
+, pkgs
+, lib
 , ...
 }:
 let
@@ -61,94 +63,96 @@ in
     };
     hardware.bolt.enable = true;
 
-    traefik.dynamicConfigOptions.http = {
-      services = {
-        valetudo.loadBalancer.servers = [{ url = "http://192.168.2.11"; }];
+    traefik = {
+      dynamicConfigOptions.http = {
+        services = {
+          valetudo.loadBalancer.servers = [{ url = "http://192.168.2.11"; }];
 
-        homarr.loadBalancer.servers = [{ url = "http://127.0.0.1:7575"; }];
-        cockpit.loadBalancer.servers = [{ url = "http://127.0.0.1:9090"; }];
-        zigbee2mqtt.loadBalancer.servers = [{ url = "http://127.0.0.1:8089"; }];
-        zwavejs2mqtt.loadBalancer.servers = [{ url = "http://127.0.0.1:8091"; }];
-        hass.loadBalancer.servers = [{ url = "http://127.0.0.1:8123"; }];
-        memories.loadBalancer.servers = [{ url = "http://127.0.0.1:2342"; }];
-        teslamate.loadBalancer.servers = [{ url = "http://127.0.0.1:4000"; }];
-        "teslamate-stats".loadBalancer.servers = [{ url = "http://127.0.0.1:4001"; }];
-        adguard.loadBalancer.servers = [{ url = "http://127.0.0.1:3050"; }];
-        status.loadBalancer.servers = [{ url = "http://127.0.0.1:3001"; }];
-        scrutiny.loadBalancer.servers = [{ url = "http://127.0.0.1:8999"; }];
-      };
-
-      routers = {
-        homarr = {
-          rule = "Host(`${config.configOptions.acme.domain}`)";
-          entryPoints = [ "websecure" ];
-          service = "homarr";
+          homarr.loadBalancer.servers = [{ url = "http://127.0.0.1:7575"; }];
+          cockpit.loadBalancer.servers = [{ url = "http://127.0.0.1:9090"; }];
+          zigbee2mqtt.loadBalancer.servers = [{ url = "http://127.0.0.1:8089"; }];
+          zwavejs2mqtt.loadBalancer.servers = [{ url = "http://127.0.0.1:8091"; }];
+          hass.loadBalancer.servers = [{ url = "http://127.0.0.1:8123"; }];
+          memories.loadBalancer.servers = [{ url = "http://127.0.0.1:2342"; }];
+          teslamate.loadBalancer.servers = [{ url = "http://127.0.0.1:4000"; }];
+          "teslamate-stats".loadBalancer.servers = [{ url = "http://127.0.0.1:4001"; }];
+          adguard.loadBalancer.servers = [{ url = "http://127.0.0.1:3050"; }];
+          status.loadBalancer.servers = [{ url = "http://127.0.0.1:3001"; }];
+          scrutiny.loadBalancer.servers = [{ url = "http://127.0.0.1:8999"; }];
         };
 
-        traefik = {
-          rule = "Host(`traefik.${config.configOptions.acme.domain}`)";
-          entryPoints = [ "websecure" ];
-          service = "api@internal";
-        };
+        routers = {
+          homarr = {
+            rule = "Host(`${config.configOptions.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "homarr";
+          };
 
-        cockpit = {
-          rule = "Host(`cockpit.${config.configOptions.acme.domain}`)";
-          entryPoints = [ "websecure" ];
-          service = "cockpit";
-        };
+          traefik = {
+            rule = "Host(`traefik.${config.configOptions.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "api@internal";
+          };
 
-        valetudo = {
-          rule = "Host(`valetudo.${config.configOptions.acme.domain}`)";
-          entryPoints = [ "websecure" ];
-          service = "valetudo";
-        };
+          cockpit = {
+            rule = "Host(`cockpit.${config.configOptions.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "cockpit";
+          };
 
-        zigbee2mqtt = {
-          rule = "Host(`zigbee2mqtt.${config.configOptions.acme.domain}`)";
-          entryPoints = [ "websecure" ];
-          service = "zigbee2mqtt";
-        };
+          valetudo = {
+            rule = "Host(`valetudo.${config.configOptions.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "valetudo";
+          };
 
-        zwavejs2mqtt = {
-          rule = "Host(`zwavejs2mqtt.${config.configOptions.acme.domain}`)";
-          entryPoints = [ "websecure" ];
-          service = "zwavejs2mqtt";
-        };
+          zigbee2mqtt = {
+            rule = "Host(`zigbee2mqtt.${config.configOptions.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "zigbee2mqtt";
+          };
 
-        hass = {
-          rule = "Host(`hass.${config.configOptions.acme.domain}`)";
-          entryPoints = [ "websecure" ];
-          service = "hass";
-        };
+          zwavejs2mqtt = {
+            rule = "Host(`zwavejs2mqtt.${config.configOptions.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "zwavejs2mqtt";
+          };
 
-        memories = {
-          rule = "Host(`memories.${config.configOptions.acme.domain}`)";
-          entryPoints = [ "websecure" ];
-          service = "memories";
-        };
+          hass = {
+            rule = "Host(`hass.${config.configOptions.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "hass";
+          };
 
-        teslamate = {
-          rule = "Host(`tesla.${config.configOptions.acme.domain}`)";
-          entryPoints = [ "websecure" ];
-          service = "teslamate";
-        };
+          memories = {
+            rule = "Host(`memories.${config.configOptions.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "memories";
+          };
 
-        "teslamate-stats" = {
-          rule = "Host(`tesla-stats.${config.configOptions.acme.domain}`)";
-          entryPoints = [ "websecure" ];
-          service = "teslamate-stats";
-        };
+          teslamate = {
+            rule = "Host(`tesla.${config.configOptions.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "teslamate";
+          };
 
-        adguard = {
-          rule = "Host(`adguard.${config.configOptions.acme.domain}`)";
-          entryPoints = [ "websecure" ];
-          service = "adguard";
-        };
+          "teslamate-stats" = {
+            rule = "Host(`tesla-stats.${config.configOptions.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "teslamate-stats";
+          };
 
-        status = {
-          rule = "Host(`status.${config.configOptions.acme.domain}`)";
-          entryPoints = [ "websecure" ];
-          service = "status";
+          adguard = {
+            rule = "Host(`adguard.${config.configOptions.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "adguard";
+          };
+
+          status = {
+            rule = "Host(`status.${config.configOptions.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "status";
+          };
         };
       };
     };

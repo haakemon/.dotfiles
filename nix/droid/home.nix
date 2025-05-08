@@ -26,7 +26,7 @@
 
       ];
 
-      initContent = lib.mkBefore ''
+      initExtra = ''
         #region initContent mkBefore zsh.nix
 
         fastfetch

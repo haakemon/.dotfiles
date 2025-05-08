@@ -20,5 +20,10 @@
     ];
     shell = pkgs.zsh;
     packages = [ ];
+
+    # openssh.authorizedKeys.keys = [
+    #   ${config.user-config.home}/.dotfiles/keys/id_ed25519.pub
+    #   ${config.user-config.home}/.dotfiles/keys/id_ed25519_odin.pub
+    # ];
   };
 }

@@ -37,7 +37,14 @@
 
   time.timeZone = "Europe/Oslo";
 
-  terminal.font = "${pkgs.nerd-fonts.fira-code}/share/fonts/truetype/NerdFonts/FiraCode/FiraCodeNerdFont-Regular.ttf";
+  # terminal.font = "${pkgs.nerd-fonts.fira-code}/share/fonts/truetype/NerdFonts/FiraCode/FiraCodeNerdFont-Regular.ttf";
+
+  # terminal.font = "${pkgs.nerdfonts.victor-mono}/share/fonts/truetype/NerdFonts/VictorMono/VictorMonoNerdFont-Regular.ttf";
+  terminal.font = "${pkgs.nerdfonts.override { fonts = [ "VictorMono" ]; } }/share/fonts/truetype/NerdFonts/VictorMono/VictorMonoNerdFont-Regular.ttf";
+
+
+
+# ${pkgs.nerdfonts.override { fonts = [ "VictorMono" ]; } }/share/fonts/truetype/NerdFonts/VictorMono/VictorMonoNerdFont-Regular.ttf
 
   # Configure home-manager
   home-manager = {

@@ -5,6 +5,10 @@
 }:
 
 {
+  imports = [
+    ./user-config.nix
+  ];
+
   # Read the changelog before changing this value
   home.stateVersion = "24.05";
 

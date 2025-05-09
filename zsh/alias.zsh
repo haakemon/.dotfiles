@@ -18,7 +18,6 @@ alias g="git"
 alias port-listeners="sudo lsof -i -P -n | grep LISTEN"
 alias ppsa="podman ps -a --format \"table {{.ID}}\t{{.Names}}\t{{.State}}\t{{.Status}}\t{{.Image}}\""
 
-alias ssh-gen-rsa="ssh-keygen -t rsa -b 4096 -a 100"
 alias ssh-gen-ed="ssh-keygen -t ed25519 -a 100"
 
 # alias with sudo privileges

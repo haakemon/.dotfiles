@@ -95,6 +95,17 @@
           ];
         };
       };
+
+      nixOnDroidConfigurations = {
+        ve = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+          pkgs = import inputs.nixpkgs-2405 {
+            system = "aarch64-linux";
+          };
+          modules = [ ./hosts/ve/configuration.nix ];
+
+          home-manager-path = inputs.home-manager-2405.outPath;
+        };
+      };
     };
 
   inputs = {
@@ -172,6 +183,20 @@
     nrk-hylla = {
       url = "git+ssh://git@github.com/nrkno/linux-hylla.git?ref=feature/nix-f5vpn&shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixpkgs-2405 = {
+      url = "github:NixOS/nixpkgs/nixos-24.05";
+    };
+
+    home-manager-2405 = {
+      url = "github:nix-community/home-manager/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs-2405";
+    };
+
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs-2405";
     };
   };
 }

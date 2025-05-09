@@ -8,6 +8,10 @@
   # Read the changelog before changing this value
   system.stateVersion = "24.05";
 
+  imports = [
+    ./user-config.nix
+  ];
+
   environment.packages = [
     pkgs.nano
     pkgs.croc

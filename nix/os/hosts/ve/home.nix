@@ -12,7 +12,7 @@
   ];
 
   home.file = {
-    ".config/fastfetch/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink "''${HOME}/.dotfiles/fastfetch/config.jsonc";
+    ".config/fastfetch/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/fastfetch/config.jsonc";
   };
 
   programs = {

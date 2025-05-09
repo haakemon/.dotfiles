@@ -9,8 +9,10 @@ fi
 
 # Supported commands
 cmds=(
-  as
   ant
+  as
+  asdf
+  base64
   blkid
   cc
   configure
@@ -34,6 +36,7 @@ cmds=(
   getfacl
   getsebool
   gmake
+  gpg
   id
   ifconfig
   iostat
@@ -45,6 +48,7 @@ cmds=(
   last
   ldap
   lolcat
+  logo-ls
   ld
   ls
   lsattr

@@ -101,7 +101,7 @@
           pkgs = import inputs.nixpkgs-2405 {
             system = "aarch64-linux";
           };
-          modules = [ ./hosts/droid/configuration.nix ];
+          modules = [ ./hosts/ve/configuration.nix ];
 
           home-manager-path = inputs.home-manager-2405.outPath;
         };

@@ -17,6 +17,7 @@
     pkgs.openssh
     pkgs.fastfetch
     pkgs.eza
+    pkgs.bat
   ];
 
   environment.etcBackupExtension = ".bak";

@@ -128,7 +128,6 @@
           source "''${HOME}/.dotfiles/zsh/p10k.zsh"
           source "''${HOME}/.dotfiles/zsh/p10k-extensions.zsh"
           source "''${HOME}/.dotfiles/zsh/keybindings.zsh"
-          source "''${HOME}/.dotfiles/zsh/env.zsh"
           source "''${HOME}/.dotfiles/zsh/alias.zsh"
           source "''${HOME}/.dotfiles/zsh/zsh-hooks.zsh"
 

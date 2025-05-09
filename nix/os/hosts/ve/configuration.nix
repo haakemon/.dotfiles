@@ -18,6 +18,8 @@
     pkgs.fastfetch
     pkgs.eza
     pkgs.bat
+    pkgs.zsh-powerlevel10k
+    pkgs.onefetch
   ];
 
   environment.etcBackupExtension = ".bak";

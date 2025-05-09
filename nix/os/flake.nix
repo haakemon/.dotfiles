@@ -103,7 +103,7 @@
           };
           modules = [ ./hosts/droid/configuration.nix ];
 
-          home-manager-path = home-manager-2405.outPath;
+          home-manager-path = inputs.home-manager-2405.outPath;
         };
       };
     };

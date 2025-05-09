@@ -199,6 +199,9 @@ in
           STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${config.home.homeDirectory}/.steam/root/compatibilitytools.d";
           # ELECTRON_OZONE_PLATFORM_HINT = "auto"; # or  "wayland" ? # breaks vivaldi even with workaround in plasma?
           # NIXOS_OZONE_WL = "1"; # do I still need this? # breaks vscode in plasma?
+
+          DOTNET_CLI_TELEMETRY_OPTOUT = 1;
+          BAT_CONFIG_PATH = "${config.home.homeDirectory}/.dotfiles/bat/bat.conf";
         };
 
         sessionPath = [

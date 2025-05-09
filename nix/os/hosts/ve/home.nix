@@ -62,7 +62,6 @@
 
         source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
         source "''${HOME}/.dotfiles/zsh/p10k.zsh"
-        source "''${HOME}/.dotfiles/zsh/p10k-extensions.zsh"
         source "''${HOME}/.dotfiles/zsh/alias.zsh"
         source "''${HOME}/.dotfiles/zsh/zsh-hooks.zsh"
 

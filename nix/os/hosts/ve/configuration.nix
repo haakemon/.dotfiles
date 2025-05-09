@@ -1,7 +1,8 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 
 {
@@ -24,8 +25,12 @@
     pkgs.bat
     pkgs.zsh-powerlevel10k
     pkgs.onefetch
-    pkgs.rbw
-    pkgs.keychain
+    pkgs.pre-commit
+    pkgs.nixpkgs-fmt # formatting .nix files
+    pkgs.nixfmt-rfc-style # formatting .nix files
+    pkgs.gcc # requirement for pre-commit nixpkgs-fmt
+    pkgs.rustup # requirement for pre-commit nixpkgs-fmt
+    pkgs.zoxide
   ];
 
   environment.etcBackupExtension = ".bak";
@@ -39,7 +44,9 @@
 
   time.timeZone = "Europe/Oslo";
 
-  terminal.font = "${pkgs.nerdfonts.override { fonts = [ "VictorMono" ]; } }/share/fonts/truetype/NerdFonts/VictorMonoNerdFont-Regular.ttf";
+  terminal.font = "${
+    pkgs.nerdfonts.override { fonts = [ "VictorMono" ]; }
+  }/share/fonts/truetype/NerdFonts/VictorMonoNerdFont-Regular.ttf";
 
   # Configure home-manager
   home-manager = {

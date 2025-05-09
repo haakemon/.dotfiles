@@ -96,15 +96,16 @@
         };
       };
 
-      nixOnDroidConfigurations.default = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
-        pkgs = import nixpkgs-2405 {
-          system = "aarch64-linux";
+      nixOnDroidConfigurations = {
+        ve = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+          pkgs = import inputs.nixpkgs-2405 {
+            system = "aarch64-linux";
+          };
+          modules = [ ./hosts/droid/configuration.nix ];
+
+          home-manager-path = home-manager-2405.outPath;
         };
-        modules = [ ./hosts/droid/configuration.nix ];
-
-        home-manager-path = home-manager-2405.outPath;
       };
-
     };
 
   inputs = {

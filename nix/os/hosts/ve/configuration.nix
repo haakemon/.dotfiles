@@ -33,7 +33,7 @@
 
   time.timeZone = "Europe/Oslo";
 
-  terminal.font = "${pkgs.nerd-fonts.victor-mono}/share/fonts/truetype/NerdFonts/VictorMono/VictorMonoNerdFont-Regular.ttf";
+  terminal.font = "${pkgs.nerdfonts.victor-mono}/share/fonts/truetype/NerdFonts/VictorMono/VictorMonoNerdFont-Regular.ttf";
 
   # Configure home-manager
   home-manager = {

@@ -106,7 +106,7 @@
             ./hosts/nidavellir/configuration.nix
             inputs.disko.nixosModules.disko
             inputs.home-manager.nixosModules.home-manager
-            inputs.dotfiles-private.nixosModules.hosts.nidavellir
+            # inputs.dotfiles-private.nixosModules.hosts.nidavellir
             homeManagerConf
             (
               { config, ... }:

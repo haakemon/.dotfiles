@@ -94,6 +94,28 @@
             )
           ];
         };
+
+        # nix run nixpkgs#nixos-anywhere -- --flake .#nidavellir --generate-hardware-config nixos-generate-config ./hardware-configuration.nix <user>@<host>
+        # nixos-rebuild --target-host <user>@<host> --flake path:/home/haakemon/.dotfiles/nix/os#nidavellir --use-remote-sudo switch
+        nidavellir = inputs.nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/nidavellir/configuration.nix
+            inputs.disko.nixosModules.disko
+            inputs.home-manager.nixosModules.home-manager
+            inputs.dotfiles-private.nixosModules.hosts.nidavellir
+            homeManagerConf
+            (
+              { config, ... }:
+              {
+                nixpkgs.overlays = [ (mkOverlays config) ];
+              }
+            )
+          ];
+        };
       };
 
       nixOnDroidConfigurations = {
@@ -197,6 +219,11 @@
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs-2405";
+    };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

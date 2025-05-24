@@ -3,54 +3,20 @@
 , lib
 , ...
 }:
-let
-  gtkThemeName = "adw-gtk3-dark";
-in
+
 {
-  services = lib.mkMerge [
-    {
-      # execute to update:
-      # fwupdmgr refresh && fwupdmgr update
-      fwupd.enable = true;
-      dbus.implementation = "broker";
-      cockpit.enable = true;
-      scrutiny = {
-        enable = true;
-        collector.enable = true;
-        settings.web.listen.port = 8999;
-      };
-    }
-
-    (lib.mkIf (!config.system-config.headless) {
-      gnome.gnome-keyring.enable = true;
-      xserver = {
-        enable = true;
-        xkb.layout = "no";
-      };
-      pulseaudio.enable = false;
-      pipewire = {
-        enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
-        socketActivation = true;
-        wireplumber.enable = true;
-      };
-      gvfs.enable = true; # Mount, trash, and other functionalities
-      playerctld.enable = true;
-    })
-  ];
-
-  xdg.icons.enable = true;
-  gtk.iconCache.enable = true;
+  services = {
+    # execute to update:
+    # fwupdmgr refresh && fwupdmgr update
+    fwupd.enable = true;
+    dbus.implementation = "broker";
+  };
 
   console.keyMap = "no";
   security.rtkit.enable = true;
 
   hardware = {
     enableRedistributableFirmware = true;
-    bluetooth.enable = true;
-    bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -64,6 +30,9 @@ in
         "flakes"
       ];
       auto-optimise-store = true;
+      trusted-users = [
+        "${config.user-config.name}"
+      ];
     };
     optimise.automatic = true;
     extraOptions = ''
@@ -73,38 +42,10 @@ in
 
   environment.enableAllTerminfo = true;
 
-  fonts.packages = lib.mkIf (!config.system-config.headless) [
-    pkgs.victor-mono
-    pkgs.nerd-fonts.victor-mono
-  ];
-
-  environment.systemPackages =
-    [
-      pkgs.usbutils
-      pkgs.pciutils
-      pkgs.statix
-      pkgs.nixpkgs-fmt # formatting .nix files
-    ]
-    ++ lib.optionals (!config.system-config.headless) [
-      pkgs.libnotify
-    ];
-
   system = {
     autoUpgrade.enable = true;
     autoUpgrade.allowReboot = false;
   };
-
-  programs = lib.mkMerge [
-    {
-      dconf.enable = true;
-      nix-ld.enable = true;
-    }
-
-    (lib.mkIf (!config.system-config.headless) {
-      plotinus.enable = true;
-      corectrl.enable = true;
-    })
-  ];
 
   time.timeZone = "Europe/Oslo";
   i18n = {
@@ -190,18 +131,10 @@ in
           ADB_VENDOR_KEYS = "${config.home.sessionVariables.XDG_DATA_HOME}/android";
           RUSTUP_HOME = "${config.home.sessionVariables.XDG_DATA_HOME}/rustup";
           GNUPGHOME = "${config.home.sessionVariables.XDG_DATA_HOME}/gnupg";
-
-          DISPLAY = ":0";
-          GTK_THEME = gtkThemeName;
-          NODE_REPL_HISTORY = ""; # Disable node repl persistent history
-          XCURSOR_PATH = "${config.home.sessionVariables.XDG_DATA_HOME}/icons";
-
-          STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${config.home.homeDirectory}/.steam/root/compatibilitytools.d";
-          # ELECTRON_OZONE_PLATFORM_HINT = "auto"; # or  "wayland" ? # breaks vivaldi even with workaround in plasma?
-          # NIXOS_OZONE_WL = "1"; # do I still need this? # breaks vscode in plasma?
+          BAT_CONFIG_PATH = "${config.home.homeDirectory}/.dotfiles/bat/bat.conf";
 
           DOTNET_CLI_TELEMETRY_OPTOUT = 1;
-          BAT_CONFIG_PATH = "${config.home.homeDirectory}/.dotfiles/bat/bat.conf";
+          NODE_REPL_HISTORY = ""; # Disable node repl persistent history
         };
 
         sessionPath = [
@@ -212,119 +145,36 @@ in
           ".config/nixpkgs/config.nix".text = ''
             { allowUnfree = true; }
           '';
-          ".config/zed/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/zed/settings.json";
-          ".config/zed/keymap.json".source = config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/zed/keymap.json";
-          ".config/spotify-player/keymap.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/spotify-player/keymap.toml";
-          ".config/spotify-player/app.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/spotify-player/app.toml";
-
-          "${config.home.sessionVariables.XDG_DATA_HOME}/icons/Banana".source =
-            config.lib.file.mkOutOfStoreSymlink "${pkgs.banana-cursor}/share/icons/Banana";
-          "${config.home.sessionVariables.XDG_DATA_HOME}/icons/Dracula".source =
-            config.lib.file.mkOutOfStoreSymlink "${pkgs.dracula-icon-theme}/share/icons/Dracula";
-
-          ".face.icon".source = config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/sddm/.face.icon";
         };
 
-        packages =
-          [
-            pkgs.systemctl-tui
-            pkgs.lazyjournal # journalctl tool
-            pkgs.podman-tui
+        packages = [
+          pkgs.systemctl-tui
+          pkgs.lazyjournal # journalctl tool
+          pkgs.podman-tui
 
-            pkgs.bandwhich # network utilization monitor
-            pkgs.dblab # db client
-            pkgs.superfile
-            pkgs.television # multi-purpose fuzzy finder
-            pkgs.bluetui
-            pkgs.pavucontrol # sound
+          pkgs.bandwhich # network utilization monitor
+          pkgs.superfile
+          pkgs.television # multi-purpose fuzzy finder
 
-            pkgs.rclone
-            pkgs.unzip
-            pkgs.croc
-            (
-              let
-                base = pkgs.appimageTools.defaultFhsEnvArgs;
-              in
-              pkgs.buildFHSEnv (
-                base
-                // {
-                  name = "fhs";
-                  targetPkgs = pkgs: (base.targetPkgs pkgs) ++ [ pkgs.pkg-config ];
-                  profile = "export FHS=1";
-                  runScript = "zsh";
-                  extraOutputsToInstall = [ "dev" ];
-                }
-              )
+          pkgs.rclone
+          pkgs.unzip
+          pkgs.croc
+          (
+            let
+              base = pkgs.appimageTools.defaultFhsEnvArgs;
+            in
+            pkgs.buildFHSEnv (
+              base
+              // {
+                name = "fhs";
+                targetPkgs = pkgs: (base.targetPkgs pkgs) ++ [ pkgs.pkg-config ];
+                profile = "export FHS=1";
+                runScript = "zsh";
+                extraOutputsToInstall = [ "dev" ];
+              }
             )
-          ]
-          ++ lib.optionals (!config.system-config.headless) [
-            pkgs.proton-pass
-            pkgs.bitwarden-desktop
-            pkgs.keepassxc
-            pkgs.protonvpn-gui
-            pkgs.xorg.xwininfo
-            pkgs.mission-center # taskmanager
-
-            pkgs.spotify
-            pkgs.spotify-player # tui
-            pkgs.vlc
-
-            pkgs.cosmic-files
-
-            # pkgs.openshot-qt
-            # pkgs.shotcut
-
-            # pkgs.freeoffice
-            pkgs.smartmontools
-            pkgs.gparted
-            pkgs.standardnotes
-            # pkgs.manuskript
-            # pkgs.rawtherapee
-            # pkgs.peazip # https://nixpk.gs/pr-tracker.html?pr=374566
-            pkgs.nix-tree
-            pkgs.nomacs # image viewer
-            pkgs.marktext
-            pkgs.scrcpy
-            # pkgs.krusader
-            # pkgs.grim # screenshot tool
-            # pkgs.fuzzel
-          ];
-
-      };
-      dconf.settings = lib.mkIf (!config.system-config.headless) {
-        "org/gnome/desktop/interface" = {
-          color-scheme = "prefer-dark";
-        };
-      };
-
-      fonts.fontconfig.enable = true;
-
-      gtk = {
-        enable = true;
-        theme = {
-          name = gtkThemeName;
-          package = pkgs.adw-gtk3;
-        };
-        iconTheme = {
-          name = "Dracula";
-          package = pkgs.dracula-icon-theme;
-        };
-        cursorTheme = {
-          name = "Banana";
-          size = 36;
-          package = pkgs.banana-cursor;
-        };
-
-        # gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
-        # gtk2.extraConfig = "gtk-application-prefer-dark-theme = 1";
-
-        gtk3.extraConfig = {
-          gtk-application-prefer-dark-theme = 1;
-        };
-
-        gtk4.extraConfig = {
-          gtk-application-prefer-dark-theme = 1;
-        };
+          )
+        ];
       };
     };
 }

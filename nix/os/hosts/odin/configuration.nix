@@ -34,6 +34,7 @@ in
     ../../modules/development.nix
 
     ../../modules/base.nix
+    ../../modules/base_headfull.nix
     ../../modules/networking.nix
     ../../modules/virtualization.nix
     ../../modules/gpu-amd.nix

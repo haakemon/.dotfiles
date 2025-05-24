@@ -10,6 +10,7 @@
 
   imports = [
     ./user-config.nix
+    ../../modules/sops.nix
   ];
 
   environment.packages = [

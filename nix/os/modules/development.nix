@@ -33,7 +33,8 @@
         pkgs.nmap
         pkgs.nodejs_22
         pkgs.pnpm
-        pkgs.ffmpeg
+        pkgs.ffmpeg-full
+        pkgs.v4l-utils
         pkgs.nixd # nix language server
         pkgs.mqtt-explorer
         pkgs.mqttui

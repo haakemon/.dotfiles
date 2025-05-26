@@ -7,7 +7,7 @@
   };
 
   environment.systemPackages = [
-    pkgs.f3d
+    # pkgs.f3d
     pkgs.nufraw-thumbnailer
     pkgs.ffmpegthumbnailer
     pkgs.epub-thumbnailer

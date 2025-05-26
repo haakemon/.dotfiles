@@ -55,11 +55,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1748272670,
-        "narHash": "sha256-KvsGAUPS5g5rc4w1HD6ZmqjvY70izs175V232oTZyrU=",
+        "lastModified": 1748287245,
+        "narHash": "sha256-LnNiRRmWmuRmn8hOgS205Gn39d0ZAoNbtq5TIEW4wAQ=",
         "owner": "chaotic-cx",
         "repo": "nyx",
-        "rev": "b5df860c52fb722f7bdb5a5038f270cad048a1c1",
+        "rev": "21060b27db09e7c72d974a1279219307104f3d81",
         "type": "github"
       },
       "original": {
@@ -353,11 +353,11 @@
         "xwayland-satellite-unstable": "xwayland-satellite-unstable"
       },
       "locked": {
-        "lastModified": 1748281126,
-        "narHash": "sha256-an96StUmDev54kxztWhzM2cVgD+Hd9l7BVmoBHMplA8=",
+        "lastModified": 1748286492,
+        "narHash": "sha256-14bRczJErvDIyeHlOrdMcqGwW2VPUnyZCbuTFu8L/wE=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "1639273ac872f0d93f014c82a3e35505dc0c21ab",
+        "rev": "88f4c38ccaf73691e738c758f149009d3266d0bd",
         "type": "github"
       },
       "original": {
@@ -386,11 +386,11 @@
     "niri-unstable": {
       "flake": false,
       "locked": {
-        "lastModified": 1748030931,
-        "narHash": "sha256-34Y9mI/IN9eWZm6v1wQS+TUw1BK9Ed5XBWe8lrVu6RE=",
+        "lastModified": 1748151941,
+        "narHash": "sha256-z4viQZLgC2bIJ3VrzQnR+q2F3gAOEQpU1H5xHtX/2fs=",
         "owner": "YaLTeR",
         "repo": "niri",
-        "rev": "a605a3f016769ba2fd7e2147fe05c9ac3707f973",
+        "rev": "8ba57fcf25d2fc9565131684a839d58703f1dae7",
         "type": "github"
       },
       "original": {
@@ -789,10 +789,10 @@
     "sops-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1748283817,
-        "narHash": "sha256-nXgoP07lGs1uHviCwY5o6VJbfr0+xk3Y5dk9QHqtF/U=",
+        "lastModified": 1748295691,
+        "narHash": "sha256-C1S9Eij7dtZEnuUVA8QdSVgN/7DIbRj5hSVqHiIiyCQ=",
         "ref": "main",
-        "rev": "f3826b6a48ac4b307a8c66e9742dbe9e5a24d159",
+        "rev": "ca885706a1b56a6677b618a4c047a665f4bfb35e",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/haakemon/sops.git"
@@ -839,11 +839,11 @@
     "xwayland-satellite-unstable": {
       "flake": false,
       "locked": {
-        "lastModified": 1747111562,
-        "narHash": "sha256-GAqhWoxaBIk0tgoecZPa8gTHDHxNc0JtlwWHZN2iOOo=",
+        "lastModified": 1748057133,
+        "narHash": "sha256-t9XPqehcZYDh4YVDq6w/c/L+MhoE/9MIQSYTQOwMwp8=",
         "owner": "Supreeeme",
         "repo": "xwayland-satellite",
-        "rev": "ec9ff64c1e0cbec42710b580b7c0f759b1694e72",
+        "rev": "572fa4a2bfe920daacdefc7e564b49115413306a",
         "type": "github"
       },
       "original": {
@@ -862,11 +862,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1748283821,
-        "narHash": "sha256-akvdKAGuJPwSwuJMrL6c5q78p7OZ0GsmA31LicMqobo=",
+        "lastModified": 1748291892,
+        "narHash": "sha256-DLYWezEa4wQuupsJqtN4Kr7zJ7cPqox/n/tSOCx5Rdc=",
         "owner": "zed-industries",
         "repo": "zed",
-        "rev": "4c396bcc91656c8a684064eaf11e32d63d946e6e",
+        "rev": "6840a4e5bcd813102cd8ceac8df72e363383ba63",
         "type": "github"
       },
       "original": {

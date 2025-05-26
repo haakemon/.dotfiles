@@ -18,13 +18,12 @@ in
     ./hardware-configuration.nix
 
     ../../modules/base.nix
-    # ../../modules/users.nix
-    # ../../modules/ssh.nix
-    # ../../modules/zsh.nix
-    ../../modules/nh.nix
-    # ../../modules/git.nix
     ../../modules/ssh.nix
     ../../modules/sops.nix
+    ../../modules/nh.nix
+    # ../../modules/users.nix
+    # ../../modules/zsh.nix
+    # ../../modules/git.nix
   ];
 
   boot.loader.grub = {

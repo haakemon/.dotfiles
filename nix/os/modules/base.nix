@@ -159,6 +159,7 @@
           pkgs.rclone
           pkgs.unzip
           pkgs.croc
+          pkgs.git
           (
             let
               base = pkgs.appimageTools.defaultFhsEnvArgs;

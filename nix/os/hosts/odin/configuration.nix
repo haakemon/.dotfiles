@@ -43,7 +43,7 @@ in
     ../../modules/gaming.nix
     ../../modules/grub.nix
     ../../modules/zsh.nix
-    ../../modules/thunar.nix
+    # ../../modules/thunar.nix
     ../../modules/nautilus.nix
     ../../modules/flatpak.nix
     ../../modules/logitech.nix
@@ -53,6 +53,7 @@ in
     ../../modules/browsers.nix
     ../../modules/nh.nix
     ../../modules/git.nix
+    ../../modules/rbw.nix
     ../../modules/3d-printing.nix
     ../../modules/obs-studio.nix
     ../../modules/qmk.nix

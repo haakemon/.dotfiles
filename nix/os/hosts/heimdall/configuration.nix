@@ -47,6 +47,7 @@ in
     ../../modules/fstrim.nix
     ../../modules/nh.nix
     ../../modules/git.nix
+    ../../modules/rbw.nix
     ../../modules/keybase.nix
     ../../modules/sops.nix
   ];

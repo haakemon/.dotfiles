@@ -22,8 +22,8 @@ in
     ../../modules/sops.nix
     ../../modules/nh.nix
     # ../../modules/users.nix
-    # ../../modules/zsh.nix
-    # ../../modules/git.nix
+    ../../modules/zsh.nix
+    ../../modules/git.nix
   ];
 
   boot.loader.grub = {
@@ -32,12 +32,6 @@ in
     efiSupport = true;
     efiInstallAsRemovable = true;
   };
-
-  environment.systemPackages = map lib.lowPrio [
-    pkgs.curl
-    pkgs.gitMinimal
-    pkgs.nano
-  ];
 
   programs.zsh.enable = true;
 

@@ -66,6 +66,7 @@ in
     ../../modules/browsers.nix
     ../../modules/nh.nix
     ../../modules/git.nix
+    ../../modules/rbw.nix
     ../../modules/obs-studio.nix
     ../../modules/upower.nix
     ../../modules/qmk.nix

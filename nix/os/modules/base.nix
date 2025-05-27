@@ -160,6 +160,8 @@
           pkgs.unzip
           pkgs.croc
           pkgs.git
+          pkgs.curl
+          pkgs.nano
           (
             let
               base = pkgs.appimageTools.defaultFhsEnvArgs;

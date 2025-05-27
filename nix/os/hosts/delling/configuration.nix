@@ -58,10 +58,10 @@ in
     ../../modules/keyd.nix
     ../../modules/grub.nix
     ../../modules/zsh.nix
-    ../../modules/thunar.nix
     ../../modules/logitech.nix
     ../../modules/fstrim.nix
     ../../modules/printing.nix
+    # ../../modules/thunar.nix
     ../../modules/nautilus.nix
     ../../modules/browsers.nix
     ../../modules/nh.nix

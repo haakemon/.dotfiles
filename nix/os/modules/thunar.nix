@@ -7,7 +7,7 @@
   };
 
   environment.systemPackages = [
-    # pkgs.f3d
+    # pkgs.f3d # https://github.com/NixOS/nixpkgs/pull/407910
     pkgs.nufraw-thumbnailer
     pkgs.ffmpegthumbnailer
     pkgs.epub-thumbnailer

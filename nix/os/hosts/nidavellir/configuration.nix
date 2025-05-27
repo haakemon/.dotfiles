@@ -102,6 +102,9 @@ in
         stateVersion = "24.05"; # Please read the comment before changing.
 
         packages = [
+          pkgs.simple-http-server
+          pkgs.nodejs_22
+          pkgs.pnpm
         ];
       };
     };

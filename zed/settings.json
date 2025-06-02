@@ -22,7 +22,7 @@
   "agent": {
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-latest"
+      "model": "claude-sonnet-4-latest"
     },
     "version": "2"
   },
@@ -41,5 +41,10 @@
     "mode": "system",
     "light": "One Light",
     "dark": "Catppuccin Macchiato"
+  },
+  "formatter": {
+    "code_actions": {
+      "source.fixAll.eslint": true
+    }
   }
 }

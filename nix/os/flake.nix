@@ -140,6 +140,10 @@
       url = "github:NixOS/nixpkgs/nixos-24.11";
     };
 
+    nixpkgs-unstable-small = {
+      url = "github:NixOS/nixpkgs/nixos-unstable-small";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";

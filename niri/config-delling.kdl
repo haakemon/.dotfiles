@@ -115,7 +115,7 @@ window-rule {
 
 output "Sharp Corporation 0x1516 Unknown" {
   position x=4000 y=625
-  scale 1.6
+  scale 2
 }
 
 output "Dell Inc. DELL U2719D 7N8WTS2" {

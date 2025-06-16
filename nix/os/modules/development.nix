@@ -31,7 +31,7 @@
         pkgs.bruno
         pkgs.simple-http-server
         pkgs.nmap
-        pkgs.nodejs_22
+        pkgs.nodejs_24
         pkgs.pnpm
         pkgs.ffmpeg-full
         pkgs.v4l-utils

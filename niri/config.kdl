@@ -43,6 +43,22 @@ input {
     // focus-follows-mouse
 }
 
+overview {
+    zoom 0.5
+    // backdrop-color "#000000"
+    workspace-shadow {
+        off
+    }
+}
+
+// Make the wallpaper stationary, rather than moving with workspaces.
+layer-rule {
+    // This is for swaybg; change for other wallpaper tools.
+    // Find the right namespace by running niri msg layers.
+    match namespace="^swww-daemon$"
+    place-within-backdrop true
+}
+
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
 // The built-in laptop monitor is usually called "eDP-1".
@@ -97,6 +113,8 @@ layout {
     shadow {
         on
     }
+
+    background-color "transparent"
 
     // Set gaps around windows in logical pixels.
     gaps 16
@@ -210,6 +228,28 @@ window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
     draw-border-with-background false
+}
+
+window-rule {
+    match is-urgent=true
+
+    focus-ring {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+
+    border {
+        inactive-color "#7d0d2d"
+    }
+
+    shadow {
+        color "#7d0d2d70"
+    }
+
+    tab-indicator {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
 }
 
 // Indicate screencasted windows with red colors.

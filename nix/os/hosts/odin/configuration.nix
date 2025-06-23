@@ -59,6 +59,7 @@ in
     ../../modules/qmk.nix
     ../../modules/keybase.nix
     ../../modules/sops.nix
+    ../../modules/wallpaper.nix
   ];
 
   networking = {

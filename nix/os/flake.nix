@@ -133,7 +133,6 @@
   inputs = {
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
-      follows = "nixos-cosmic/nixpkgs";
     };
 
     nixpkgs-stable = {
@@ -173,7 +172,7 @@
 
     ghostty = {
       url = "github:ghostty-org/ghostty";
-      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser = {
@@ -204,6 +203,7 @@
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs-stable.follows = "nixpkgs-stable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nrk-hylla = {

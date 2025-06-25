@@ -13,7 +13,7 @@ services:
   homeassistant:
     <<: *common-app-config
     container_name: homeassistant
-    image: ghcr.io/home-assistant/home-assistant:2025.4.4@sha256:c9a4eefee167f674db4a51b1b7466339a5637978cee4df0269e5f41ff1614aaf
+    image: ghcr.io/home-assistant/home-assistant:2025.6.3@sha256:e207929bdf5dc95db43c618b877364e99f7ad506ec5440aeef80d5c9c1cae668
     network_mode: host
     ports:
       - 127.0.0.1:8123:8123
@@ -23,7 +23,7 @@ services:
   zigbee2mqtt:
     <<: *common-app-config
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:2.2.1@sha256:5c1f0ca9669292b1bdabc7b6d9927642049bc2c1ee53f42b7299181e93dd7d8f
+    image: koenkk/zigbee2mqtt:2.4.0@sha256:dd7479e5416c4b95725333d0a69ff504bcbda9a7a3431e5d5dd1e27c16465cdd
     network_mode: host
     ports:
       - 127.0.0.1:8089:8089
@@ -38,7 +38,7 @@ services:
   zwavejs2mqtt:
     <<: *common-app-config
     container_name: zwavejs2mqtt
-    image: zwavejs/zwavejs2mqtt:10.3.3@sha256:91280e5709f4ec62e5943348f9ac8375e745acd1116e19f460c5aef3f53bab09
+    image: zwavejs/zwavejs2mqtt:10.7.0@sha256:f9000bab31e9b8b4844488862b5b8ad4c09bb2381ade67ab7ec02d6cdb6fa0cd
     network_mode: host
     volumes:
       - '$DATADIR/zwavejs2mqtt/store:/usr/src/app/store'

@@ -96,7 +96,7 @@
         };
 
         # nix run nixpkgs#nixos-anywhere -- --flake .#nidavellir --generate-hardware-config nixos-generate-config ./hardware-configuration.nix <user>@<host>
-        # nixos-rebuild --target-host <user>@<host> --flake path:/home/haakemon/.dotfiles/nix/os#nidavellir --use-remote-sudo switch
+        # nixos-rebuild --target-host <user>@<host> --flake path:/home/haakemon/.dotfiles/nix/os#nidavellir --sudo switch
         nidavellir = inputs.nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;

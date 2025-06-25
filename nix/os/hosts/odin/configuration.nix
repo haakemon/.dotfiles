@@ -69,6 +69,10 @@ in
     ];
   };
 
+  wallpaper = {
+    scriptPath = "${config.user-config.home}/.dotfiles/waypaper/${config.system-config.hostname}/random.sh";
+  };
+
   sops = {
     secrets = {
       "ssh/config" = {
@@ -91,6 +95,9 @@ in
         owner = config.users.users.${config.user-config.name}.name;
         group = config.users.users.${config.user-config.name}.group;
         mode = "0644";
+      };
+      "env/cloudflare" = {
+        sopsFile = "${secretspath}/secrets/hosts/heimdall/heimdall.yaml";
       };
     };
   };

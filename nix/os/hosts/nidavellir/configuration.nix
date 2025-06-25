@@ -82,6 +82,9 @@ in
         group = config.users.users.${config.user-config.name}.group;
         mode = "0644";
       };
+      "env/cloudflare" = {
+        sopsFile = "${secretspath}/secrets/hosts/${config.system-config.hostname}/${config.system-config.hostname}.yaml";
+      };
     };
   };
 

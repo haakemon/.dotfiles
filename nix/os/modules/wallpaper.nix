@@ -1,22 +1,22 @@
 { config
-, pkgs
 , lib
+, pkgs
 , ...
 }:
 {
+  options.wallpaper = {
+    scriptPath = lib.mkOption {
+      type = lib.types.str;
+      description = "Path to the wallpaper script";
+    };
+  };
 
-  home-manager.users.${config.user-config.name} =
-    { config
-    , pkgs
-    , lib
-    , ...
-    }:
-    {
-
+  config = {
+    home-manager.users.${config.user-config.name} = {
       systemd.user.timers."wallpaper" = {
         Install.WantedBy = [ "timers.target" ];
         Timer = {
-          OnCalendar = "*:0/5"; # Every 5 minutes
+          OnCalendar = "*:0/30"; # Every 30 minutes
           Unit = "wallpaper.service";
         };
       };
@@ -27,7 +27,7 @@
         };
         Service = {
           Type = "exec";
-          ExecStart = "${config.user-config.home}/.dotfiles/waypaper/${config.system-config.hostname}/random.sh";
+          ExecStart = config.wallpaper.scriptPath;
           StandardOutput = "journal";
           Restart = "no";
         };
@@ -40,4 +40,5 @@
         ];
       };
     };
+  };
 }

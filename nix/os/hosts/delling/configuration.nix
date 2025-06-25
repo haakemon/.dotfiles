@@ -72,6 +72,7 @@ in
     ../../modules/qmk.nix
     ../../modules/keybase.nix
     ../../modules/sops.nix
+    ../../modules/wallpaper.nix
   ];
 
   boot = {
@@ -95,6 +96,10 @@ in
   #   enable = true;
   #   oesisUser = config.user-config.name;
   # };
+
+  wallpaper = {
+    scriptPath = "${config.user-config.home}/.dotfiles/waypaper/delling/random.sh";
+  };
 
   hardware = {
     nvidia = {

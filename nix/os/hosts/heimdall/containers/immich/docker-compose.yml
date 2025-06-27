@@ -72,7 +72,7 @@ services:
 
   database:
     container_name: immich_postgres
-    image: ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0
+    image: ghcr.io/immich-app/postgres:16-vectorchord0.4.3-pgvectors0.2.0@sha256:ea033f9d15afb2e85450d81f73ba7cdcb7b3f60a32c4ed561ef1e161fe4a99de
     restart: unless-stopped
     environment:
       POSTGRES_PASSWORD: ${DB_PASSWORD}

@@ -151,6 +151,7 @@
           pkgs.systemctl-tui
           pkgs.lazyjournal # journalctl tool
           pkgs.podman-tui
+          pkgs.ugm # user group browser
 
           pkgs.bandwhich # network utilization monitor
           pkgs.superfile

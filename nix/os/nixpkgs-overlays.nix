@@ -39,6 +39,18 @@ prev
       '';
   });
 
+  # https://github.com/NixOS/nixpkgs/issues/419838
+  linux-firmware = prev.linux-firmware.overrideAttrs (oldAttrs: rec {
+    pname = "linux-firmware";
+    version = "20250625";
+    src = prev.fetchFromGitLab {
+      owner = "kernel-firmware";
+      repo = "linux-firmware";
+      rev = "b27862c732f56f6c47940be08296c58df06e43cc";
+      hash = "sha256-BiNWF0z5yTqgU5swZ+XMSI0ow5VDdSuI9u4mfyz/tqk=";
+    };
+  });
+
   # avoid .zen folder in ~/
   zen-browser = zen-browser-pkg.overrideAttrs (oldAttrs: {
     buildCommand =

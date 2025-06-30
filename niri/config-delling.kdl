@@ -306,9 +306,10 @@ layout {
 }
 
 window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
-    draw-border-with-background false
+  geometry-corner-radius 12
+  clip-to-geometry true
+  draw-border-with-background false
+  opacity 0.98
 }
 
 // Add lines like this to spawn processes at startup.

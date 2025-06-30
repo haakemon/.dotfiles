@@ -231,48 +231,33 @@ window-rule {
 }
 
 window-rule {
-    match is-urgent=true
+  match is-window-cast-target=true
+  match is-urgent=true
 
-    focus-ring {
-        active-color "#f38ba8"
-        inactive-color "#7d0d2d"
-    }
+  focus-ring {
+    off
+  }
 
-    border {
-        inactive-color "#7d0d2d"
-    }
+  border {
+    on
+    width 8
+    active-color "#ff0000"
+    inactive-color "#ff0000"
+  }
 
-    shadow {
-        color "#7d0d2d70"
-    }
+  shadow {
+    on
+    softness 4
+    spread 4
+    offset x=0 y=0
+    draw-behind-window true
+    color "#ff0000"
+  }
 
-    tab-indicator {
-        active-color "#f38ba8"
-        inactive-color "#7d0d2d"
-    }
-}
-
-// Indicate screencasted windows with red colors.
-window-rule {
-    match is-window-cast-target=true
-
-    focus-ring {
-        active-color "#f38ba8"
-        inactive-color "#7d0d2d"
-    }
-
-    border {
-        inactive-color "#7d0d2d"
-    }
-
-    shadow {
-        color "#7d0d2d70"
-    }
-
-    tab-indicator {
-        active-color "#f38ba8"
-        inactive-color "#7d0d2d"
-    }
+  tab-indicator {
+    active-color "#ff0000"
+    inactive-color "#ff0000"
+  }
 }
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
@@ -575,7 +560,7 @@ binds {
     // Mod+Shift+Space { switch-layout "prev"; }
 
     Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
+    Ctrl+Print { set-dynamic-cast-window; }
     Shift+Print { spawn "wf-recorder" "-g" "\"$(slurp)\""; }
     Alt+Print { screenshot-window; }
 

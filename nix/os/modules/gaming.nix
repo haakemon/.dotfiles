@@ -6,6 +6,7 @@
       enable = true;
       remotePlay.openFirewall = true;
       gamescopeSession.enable = true;
+      localNetworkGameTransfers.openFirewall = true;
       package = pkgs.steam.override {
         extraPkgs =
           pkgs: with pkgs; [

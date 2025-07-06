@@ -13,6 +13,7 @@
       extraPackages = [
         pkgs.rocmPackages.clr.icd
         pkgs.vulkan-loader
+        pkgs.vulkan-tools
         pkgs.vulkan-validation-layers
         pkgs.vulkan-extension-layer
       ];

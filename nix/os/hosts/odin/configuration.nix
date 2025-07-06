@@ -60,6 +60,7 @@ in
     ../../modules/keybase.nix
     ../../modules/sops.nix
     ../../modules/wallpaper.nix
+    ../../modules/quickshell.nix
   ];
 
   networking = {

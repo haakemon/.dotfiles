@@ -165,6 +165,11 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
 
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     ags = {
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";

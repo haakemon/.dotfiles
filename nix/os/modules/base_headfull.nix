@@ -43,6 +43,17 @@ in
   fonts.packages = [
     pkgs.victor-mono
     pkgs.nerd-fonts.victor-mono
+    pkgs.fira-sans
+    pkgs.roboto
+    pkgs.nerd-fonts._0xproto
+    pkgs.nerd-fonts.droid-sans-mono
+    pkgs.jetbrains-mono
+    pkgs.noto-fonts
+    pkgs.noto-fonts-emoji
+    pkgs.noto-fonts-cjk-sans
+    pkgs.noto-fonts-cjk-serif
+    pkgs.material-symbols
+    pkgs.material-icons
   ];
 
   environment.systemPackages = [

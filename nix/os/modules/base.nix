@@ -159,6 +159,7 @@
           pkgs.bandwhich # network utilization monitor
           pkgs.superfile
           pkgs.television # multi-purpose fuzzy finder
+          pkgs.lm_sensors
 
           pkgs.rclone
           pkgs.unzip

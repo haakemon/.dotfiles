@@ -263,7 +263,8 @@ window-rule {
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
-spawn-at-startup "clipse -listen"
+// spawn-at-startup "sh" "-c" "~/.dotfiles/ags/start.sh"
+spawn-at-startup "clipse" "-listen"
 
 environment {
   //QT_QPA_PLATFORM "wayland"

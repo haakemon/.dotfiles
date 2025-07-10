@@ -1,44 +1,37 @@
-import { App, Gdk, Gtk } from 'astal/gtk3';
+import app from 'ags/gtk4/app';
+import GLib from 'gi://GLib';
+import Gtk from 'gi://Gtk?version=4.0';
+
 import style from './style.scss';
+
+import Applauncher from './widget/launcher/Launcher';
+import NotificationPopups from './widget/notification/NotificationPopups';
 import Bar from './widget/bar/Bar';
-import NotificationPopups from './widget/notification/Popups';
-import AppLauncher from './widget/applauncher/Launcher';
+
+let applauncher: Gtk.Window;
 
 function main() {
-  AppLauncher().hide();
+  applauncher = Applauncher() as Gtk.Window;
+  app.add_window(applauncher);
 
-  const bars = new Map<Gdk.Monitor, Gtk.Widget>();
-  const popups = new Map<Gdk.Monitor, Gtk.Widget>();
-
-  // initialize
-  for (const gdkmonitor of App.get_monitors()) {
-    print('initialize', JSON.stringify(gdkmonitor.get_model()));
-    bars.set(gdkmonitor, Bar(gdkmonitor));
-    popups.set(gdkmonitor, NotificationPopups(gdkmonitor));
-  }
-
-  App.connect('monitor-added', (_, gdkmonitor) => {
-    print('monitor-added', JSON.stringify(gdkmonitor.get_model()));
-    bars.set(gdkmonitor, Bar(gdkmonitor));
-    popups.set(gdkmonitor, NotificationPopups(gdkmonitor));
-  });
-
-  App.connect('monitor-removed', (_, gdkmonitor) => {
-    print('monitor-removed', JSON.stringify(gdkmonitor.get_model()));
-    bars.get(gdkmonitor)?.destroy();
-    bars.delete(gdkmonitor);
-
-    popups.get(gdkmonitor)?.destroy();
-    popups.delete(gdkmonitor);
-  });
+  Bar();
+  NotificationPopups();
 }
 
-App.start({
+app.start({
   css: style,
-  instanceName: 'astal',
+  gtkTheme: 'Adwaita',
   requestHandler(request, res) {
-    print(request);
-    res('ok');
+    const [, argv] = GLib.shell_parse_argv(request);
+    if (!argv) return res('argv parse error');
+
+    switch (argv[0]) {
+      case 'toggle':
+        applauncher.visible = !applauncher.visible;
+        return res('ok');
+      default:
+        return res('unknown command');
+    }
   },
   main,
 });

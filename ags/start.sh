@@ -1,9 +1,6 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
 
 ags quit
 
-cd ~/.dotfiles/ags
-pnpm i
-
-ags run ~/.dotfiles/ags/app.ts
-# ags --inspector --config ~/.dotfiles/ags_v1/entry.js
+nohup ags run ~/.dotfiles/ags/app.ts &
+# ags run ~/.dotfiles/ags/app.ts

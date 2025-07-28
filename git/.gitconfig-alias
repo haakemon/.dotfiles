@@ -11,6 +11,7 @@
 
   # less common shortcuts
   bi = bisect
+  bi-stop = bisect reset HEAD
   s = status -sb
   ren = branch -m
   p = pull --ff-only

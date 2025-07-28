@@ -42,7 +42,7 @@ album_percent = 40
 [device]
 name = "spotify-player"
 device_type = "speaker"
-volume = 100
+volume = 70
 bitrate = 320
 audio_cache = false
 normalization = false

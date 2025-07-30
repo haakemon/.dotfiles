@@ -3,11 +3,11 @@
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
-workspace "editors" {
+workspace "gaming" {
   open-on-output "Samsung Electric Company LS49AG95 HNTRA00432"
 }
 
-workspace "main" {
+workspace "editors" {
   open-on-output "Samsung Electric Company LS49AG95 HNTRA00432"
 }
 
@@ -52,7 +52,7 @@ input {
 }
 
 overview {
-    zoom 0.5
+    zoom 0.4
     // backdrop-color "#000000"
     workspace-shadow {
         off
@@ -215,8 +215,10 @@ layout {
 }
 
 window-rule {
-  match app-id=r#"^vivaldi-stable$"#
-  open-on-workspace "main"
+  match app-id=r#"^steam$"#
+  match app-id=r#"^heroic$"#
+  open-on-workspace "gaming"
+  open-focused true
 }
 
 window-rule {
@@ -227,7 +229,7 @@ window-rule {
 }
 
 window-rule {
-  match app-id=r#"^Slack$"#
+  match app-id=r#"^slack$"#
   match app-id=r#"^org\.keepassxc\.KeePassXC$"#
   match app-id=r#"^org\.gnome\.World\.Secrets$"#
   match app-id=r#"^Bitwarden$"#
@@ -335,8 +337,7 @@ window-rule {
 }
 
 window-rule {
-  match app-id=r#"^Thunar$"#
-  match app-id=r#"^Telegram$"#
+  match app-id=r#"^org.telegram.desktop$"#
   match app-id=r#"^org.gnome.Nautilus$"#
   open-on-output "Samsung Electric Company LS49AG95 HNTRA00432"
   default-column-width {

@@ -3,6 +3,14 @@
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
+workspace "editors" {
+  open-on-output "Samsung Electric Company LS49AG95 HNTRA00432"
+}
+
+workspace "main" {
+  open-on-output "Samsung Electric Company LS49AG95 HNTRA00432"
+}
+
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
@@ -207,10 +215,15 @@ layout {
 }
 
 window-rule {
-  match app-id=r#"^Code$"#
+  match app-id=r#"^vivaldi-stable$"#
+  open-on-workspace "main"
+}
+
+window-rule {
+  match app-id=r#"^code$"#
   match app-id=r#"^sublime_merge$"#
-  match app-id=r#"^Vivaldi-stable$"#
-  open-on-output "Samsung Electric Company LS49AG95 HNTRA00432"
+  open-on-workspace "editors"
+  open-focused true
 }
 
 window-rule {

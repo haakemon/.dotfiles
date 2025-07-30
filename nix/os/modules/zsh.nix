@@ -55,7 +55,7 @@
           dots = "${config.user-config.home}/.dotfiles";
           flake = "${config.user-config.name}/.dotfiles/nix/os";
         };
-        dotDir = ".config/zsh";
+        dotDir = "${config.user-config.home}/.config/zsh";
 
         plugins = [
           {

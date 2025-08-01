@@ -3,10 +3,6 @@
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
-workspace "editors" {
-  open-on-output "Dell Inc. DELL P2720DC 6DNVMK3" // Office
-}
-
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
@@ -119,13 +115,6 @@ debug {
 //   match app-id=r#"^chromium-browser$"#
 //   open-on-output "Samsung Electric Company LS49AG95 HNTRA00432" // Home
 // }
-
-window-rule {
-  match app-id=r#"^code$"#
-  match app-id=r#"^sublime_merge$"#
-  open-on-workspace "editors"
-  open-focused true
-}
 
 window-rule {
   match app-id=r#"^chromium-browser$"#

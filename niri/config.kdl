@@ -3,14 +3,6 @@
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
-workspace "gaming" {
-  open-on-output "Samsung Electric Company LS49AG95 HNTRA00432"
-}
-
-workspace "editors" {
-  open-on-output "Samsung Electric Company LS49AG95 HNTRA00432"
-}
-
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
@@ -212,20 +204,6 @@ layout {
         // top 64
         // bottom 64
     }
-}
-
-window-rule {
-  match app-id=r#"^steam$"#
-  match app-id=r#"^heroic$"#
-  open-on-workspace "gaming"
-  open-focused true
-}
-
-window-rule {
-  match app-id=r#"^code$"#
-  match app-id=r#"^sublime_merge$"#
-  open-on-workspace "editors"
-  open-focused true
 }
 
 window-rule {

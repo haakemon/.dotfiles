@@ -36,3 +36,5 @@ After uninstall, manual cleanup:
 ```shell
 sudo rm -rf /var/lib/waydroid /home/.waydroid ~/waydroid ~/.share/waydroid ~/.local/share/applications/*aydroid* ~/.local/share/waydroid
 ```
+
+Track PRs: <https://nixpk.gs/pr-tracker.html?pr=>

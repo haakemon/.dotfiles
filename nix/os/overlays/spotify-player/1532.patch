@@ -1,0 +1,211 @@
+diff --git a/spotify_player/src/auth.rs b/spotify_player/src/auth.rs
+index f3b7646..c196c0a 100644
+--- a/spotify_player/src/auth.rs
++++ b/spotify_player/src/auth.rs
+@@ -1,6 +1,6 @@
+ use anyhow::Result;
+ use librespot_core::{authentication::Credentials, cache::Cache, config::SessionConfig, Session};
+-use librespot_oauth::get_access_token;
++use librespot_oauth::OAuthClientBuilder;
+
+ use crate::config;
+
+@@ -8,10 +8,10 @@ pub const SPOTIFY_CLIENT_ID: &str = "65b708073fc0480ea92a077233ca87bd";
+ // based on https://github.com/librespot-org/librespot/blob/f96f36c064795011f9fee912291eecb1aa46fff6/src/main.rs#L173
+ const OAUTH_SCOPES: &[&str] = &[
+     "app-remote-control",
+-    "playlist-modify",
++    // "playlist-modify",
+     "playlist-modify-private",
+     "playlist-modify-public",
+-    "playlist-read",
++    // "playlist-read",
+     "playlist-read-collaborative",
+     "playlist-read-private",
+     "streaming",
+@@ -20,12 +20,12 @@ const OAUTH_SCOPES: &[&str] = &[
+     "user-follow-read",
+     "user-library-modify",
+     "user-library-read",
+-    "user-modify",
++    // "user-modify",
+     "user-modify-playback-state",
+-    "user-modify-private",
+-    "user-personalized",
++    // "user-modify-private",
++    // "user-personalized",
+     "user-read-currently-playing",
+-    "user-read-play-history",
++    // "user-read-play-history",
+     "user-read-playback-position",
+     "user-read-playback-state",
+     "user-read-private",
+@@ -96,12 +96,17 @@ pub fn get_creds(auth_config: &AuthConfig, reauth: bool, use_cached: bool) -> Re
+             let msg = "No cached credentials found, please authenticate the application first.";
+             if reauth {
+                 eprintln!("{msg}");
+-                get_access_token(
++                let client_builder = OAuthClientBuilder::new(
+                     SPOTIFY_CLIENT_ID,
+                     &auth_config.login_redirect_uri,
+                     OAUTH_SCOPES.to_vec(),
+-                )
+-                .map(|t| Credentials::with_access_token(t.access_token))?
++                );
++
++                let oauth_client = client_builder.build()?;
++
++                oauth_client
++                    .get_access_token()
++                    .map(|t| Credentials::with_access_token(t.access_token))?
+             } else {
+                 anyhow::bail!(msg);
+             }
+diff --git a/spotify_player/src/client/mod.rs b/spotify_player/src/client/mod.rs
+index de71a66..51cb7be 100644
+--- a/spotify_player/src/client/mod.rs
++++ b/spotify_player/src/client/mod.rs
+@@ -46,7 +46,7 @@ pub struct Client {
+     spotify: Arc<spotify::Spotify>,
+     auth_config: AuthConfig,
+     #[cfg(feature = "streaming")]
+-    stream_conn: Arc<Mutex<Option<librespot_connect::spirc::Spirc>>>,
++    stream_conn: Arc<Mutex<Option<librespot_connect::Spirc>>>,
+ }
+
+ impl Deref for Client {
+diff --git a/spotify_player/src/state/ui/page.rs b/spotify_player/src/state/ui/page.rs
+index 8451ed3..cd8a401 100644
+--- a/spotify_player/src/state/ui/page.rs
++++ b/spotify_player/src/state/ui/page.rs
+@@ -164,7 +164,7 @@ impl PageState {
+     }
+
+     /// The currently focused window state of the page.
+-    pub fn focus_window_state_mut(&mut self) -> Option<MutableWindowState> {
++    pub fn focus_window_state_mut(&mut self) -> Option<MutableWindowState<'_>> {
+         match self {
+             Self::Library {
+                 state:
+diff --git a/spotify_player/src/streaming.rs b/spotify_player/src/streaming.rs
+index 48b79ed..74dd7e3 100644
+--- a/spotify_player/src/streaming.rs
++++ b/spotify_player/src/streaming.rs
+@@ -1,6 +1,6 @@
+ use crate::{client::Client, config, state::SharedState};
+ use anyhow::Context;
+-use librespot_connect::{config::ConnectConfig, spirc::Spirc};
++use librespot_connect::{ConnectConfig, Spirc};
+ use librespot_core::authentication::Credentials;
+ use librespot_core::Session;
+ use librespot_core::{config::DeviceType, spotify_id};
+@@ -156,17 +156,20 @@ pub async fn new_connection(
+     let connect_config = ConnectConfig {
+         name: device.name.clone(),
+         device_type: device.device_type.parse::<DeviceType>().unwrap_or_default(),
+-        initial_volume: Some(volume),
++        initial_volume: volume,
+
+         // non-configurable fields, use default values.
+         // We may allow users to configure these fields in a future release
+-        has_volume_ctrl: true,
+         is_group: false,
++        disable_volume: false,
++        volume_steps: 64,
+     };
+
+     tracing::info!("Application's connect configurations: {:?}", connect_config);
+
+-    let mixer = Arc::new(mixer::softmixer::SoftMixer::open(MixerConfig::default()));
++    let mixer = Arc::new(
++        mixer::softmixer::SoftMixer::open(MixerConfig::default()).context("opening softmixer")?,
++    );
+     mixer.set_volume(volume);
+
+     let backend = audio_backend::find(None).expect("should be able to find an audio backend");
+diff --git a/spotify_player/src/token.rs b/spotify_player/src/token.rs
+index e5b0fe4..d973276 100644
+--- a/spotify_player/src/token.rs
++++ b/spotify_player/src/token.rs
+@@ -7,43 +7,35 @@ use librespot_core::session::Session;
+ const TIMEOUT_IN_SECS: u64 = 5;
+
+ /// The application authentication token's permission scopes
+-const SCOPES: [&str; 15] = [
+-    "user-read-recently-played",
+-    "user-top-read",
+-    "user-read-playback-position",
+-    "user-read-playback-state",
+-    "user-modify-playback-state",
+-    "user-read-currently-playing",
+-    "streaming",
+-    "playlist-read-private",
+-    "playlist-modify-private",
+-    "playlist-modify-public",
+-    "playlist-read-collaborative",
+-    "user-follow-read",
+-    "user-follow-modify",
+-    "user-library-read",
+-    "user-library-modify",
+-];
++// const SCOPES: [&str; 15] = [
++//     "user-read-recently-played",
++//     "user-top-read",
++//     "user-read-playback-position",
++//     "user-read-playback-state",
++//     "user-modify-playback-state",
++//     "user-read-currently-playing",
++//     "streaming",
++//     "playlist-read-private",
++//     "playlist-modify-private",
++//     "playlist-modify-public",
++//     "playlist-read-collaborative",
++//     "user-follow-read",
++//     "user-follow-modify",
++//     "user-library-read",
++//     "user-library-modify",
++// ];
+
+ pub async fn get_token_librespot(
+     session: &Session,
+-    client_id: &str,
++    _client_id: &str,
+ ) -> Result<librespot_core::token::Token> {
+-    let query_uri = format!(
+-        "hm://keymaster/token/authenticated?scope={}&client_id={}&device_id={}",
+-        SCOPES.join(","),
+-        client_id,
+-        session.device_id(),
+-    );
+-    let request = session.mercury().get(query_uri)?;
+-    let response = request.await?;
+-    let data = response
+-        .payload
+-        .first()
+-        .ok_or(librespot_core::token::TokenError::Empty)?
+-        .clone();
+-    let token = librespot_core::token::Token::from_json(String::from_utf8(data)?)?;
+-    Ok(token)
++    let auth_data = session.auth_data();
++    if auth_data.is_empty() {
++        anyhow::bail!("Session has no stored credentials for login5 token acquisition");
++    }
++
++    let token = session.login5().auth_token().await;
++    token.map_err(|e| anyhow::anyhow!(e))
+ }
+
+ pub async fn get_token_rspotify(session: &Session, client_id: &str) -> Result<rspotify::Token> {
+diff --git a/spotify_player/src/utils.rs b/spotify_player/src/utils.rs
+index a8d905d..9514742 100644
+--- a/spotify_player/src/utils.rs
++++ b/spotify_player/src/utils.rs
+@@ -37,7 +37,7 @@ pub fn get_episode_show_image_url(episode: &rspotify::model::FullEpisode) -> Opt
+     }
+ }
+
+-pub fn parse_uri(uri: &str) -> Cow<str> {
++pub fn parse_uri(uri: &str) -> Cow<'_, str> {
+     let parts = uri.split(':').collect::<Vec<_>>();
+     // The below URI probably has a format of `spotify:user:{user_id}:{type}:{id}`,
+     // but `rspotify` library expects to receive an URI of format `spotify:{type}:{id}`.

@@ -41,8 +41,6 @@ function add-zsh-to-shells {
 }
 
 function brewinstall-basics {
-  brew tap oven-sh/bun
-
   brew install zsh \
     zsh-completions \
     pnpm \
@@ -57,9 +55,7 @@ function brewinstall-basics {
     romkatv/powerlevel10k/powerlevel10k \
     bc \
     gh \
-    keychain \
-    tmux \
-    bun
+    keychain
 }
 
 function brewinstall-container-tools {
@@ -101,7 +97,3 @@ chsh -s /home/linuxbrew/.linuxbrew/bin/zsh
 zsh
 
 source "${HOME}/.zshrc"
-
-# Symlink tmux config
-ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
-ln -s ~/.dotfiles/tmux/.tmux-powerlinerc ~/.tmux-powerlinerc

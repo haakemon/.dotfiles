@@ -26,9 +26,4 @@ if type brew &>/dev/null; then
   compinit
 fi
 
-# Start/Attach to main tmux session by default
-# if [[ -z "$TMUX" ]]; then
-#   tmx
-# fi
-
 ff # see alias.zsh

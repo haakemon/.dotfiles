@@ -25,9 +25,6 @@ in
           initContent = ''
             #region initContent rbw.nix
 
-            # 10080 minutes = 7 days
-            eval $(keychain --timeout 10080 --eval --quiet)
-
             function load-ssh-keys {
               rbw unlock
               echo "''${YELLOW_COLOR}loading ssh keys...''${RESET_COLOR}"
@@ -37,6 +34,8 @@ in
 
             isSSHKeysNotLoaded=$(keychain -l)
             if [[ "$isSSHKeysNotLoaded" == "The agent has no identities." ]]; then
+              # 10080 minutes = 7 days
+              eval $(keychain --timeout 10080 --eval --quiet)
               load-ssh-keys
             fi
 

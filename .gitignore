@@ -83,3 +83,4 @@ $RECYCLE.BIN/
 .env*
 !.env*template
 nohup.out
+nohup.*.out

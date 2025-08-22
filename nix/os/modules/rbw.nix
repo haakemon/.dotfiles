@@ -18,6 +18,7 @@ in
       home.packages = [
         pkgs.rbw
         pkgs.pinentry-tty # dependency for rbw
+        pkgs.keychain
       ];
 
       programs = {
@@ -32,8 +33,8 @@ in
               rbw lock
             }
 
-            isSSHKeysNotLoaded=$(keychain -l)
-            if [[ "$isSSHKeysNotLoaded" == "The agent has no identities." ]]; then
+            isSSHKeysNotLoaded=$(keychain -l 2>&1 | xargs) || true
+            if [[ "$isSSHKeysNotLoaded" == "The agent has no identities." ]] || [[ "$isSSHKeysNotLoaded" == *"Error connecting to agent"* ]]; then
               # 10080 minutes = 7 days
               eval $(keychain --timeout 10080 --eval --quiet)
               load-ssh-keys

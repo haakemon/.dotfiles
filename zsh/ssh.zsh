@@ -10,7 +10,7 @@ function load-ssh-keys {
   fi
 }
 
-isSSHKeysNotLoaded=$(keychain -l 2>&1 | xargs) || true
+isSSHKeysNotLoaded=$(ssh-add -l | xargs)
 if [[ "$isSSHKeysNotLoaded" == "The agent has no identities." ]] || [[ "$isSSHKeysNotLoaded" == *"Error connecting to agent"* ]]; then
   # 10080 minutes = 7 days
   eval $(keychain --timeout 10080 --eval --quiet)

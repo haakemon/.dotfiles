@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 
 function isSSHKeysLoaded() {
-  local keychainOutput=$(keychain -l)
+  local sshAddList=$(ssh-add -l | xargs)
 
-  if [ "$keychainOutput" != "The agent has no identities." ]; then
+  if [ "$sshAddList" != "The agent has no identities." ]; then
     return 1
   else
     return 0

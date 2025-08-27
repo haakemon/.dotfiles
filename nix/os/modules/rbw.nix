@@ -33,11 +33,13 @@ in
               rbw lock
             }
 
-            isSSHKeysNotLoaded=$(keychain -l 2>&1 | xargs) || true
+            # TODO: enable only for headless? Otherwise handled by gnome-keyring
+
+            # isSSHKeysNotLoaded=$(ssh-add -l | xargs)
             if [[ "$isSSHKeysNotLoaded" == "The agent has no identities." ]] || [[ "$isSSHKeysNotLoaded" == *"Error connecting to agent"* ]]; then
               # 10080 minutes = 7 days
-              eval $(keychain --timeout 10080 --eval --quiet)
-              load-ssh-keys
+              # eval $(keychain --timeout 10080 --eval --quiet)
+              # load-ssh-keys
             fi
 
             #endregion initContent rbw.nix

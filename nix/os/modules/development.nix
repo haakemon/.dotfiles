@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./mitmproxy.nix
+    # ./mitmproxy.nix # https://github.com/NixOS/nixpkgs/pull/436868
   ];
 
   home-manager.users.${config.user-config.name} =

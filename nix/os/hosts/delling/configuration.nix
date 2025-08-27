@@ -67,7 +67,7 @@ in
     ../../modules/nh.nix
     ../../modules/git.nix
     ../../modules/rbw.nix
-    ../../modules/obs-studio.nix
+    # ../../modules/obs-studio.nix # https://github.com/NixOS/nixpkgs/pull/436682
     ../../modules/upower.nix
     ../../modules/qmk.nix
     ../../modules/keybase.nix
@@ -210,7 +210,7 @@ in
           pkgs.freetube
 
           # Devtools
-          pkgs.azure-cli
+          # pkgs.azure-cli # https://github.com/NixOS/nixpkgs/pull/437062
           pkgs.kubectl
           pkgs.kubelogin
           pkgs.kubectx

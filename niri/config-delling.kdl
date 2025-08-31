@@ -128,13 +128,13 @@ output "Sharp Corporation 0x1516 Unknown" {
 }
 
 output "Dell Inc. DELL U2719D 7N8WTS2" {
-  transform "90"
-  position x=0 y=0
+  transform "270"
+  position x=5120 y=-220
 }
 
 output "Samsung Electric Company LS49AG95 HNTRA00432" {
   mode "5120x1440"
-  position x=1440 y=310
+  position x=0 y=0
   // scale 0.75
 }
 

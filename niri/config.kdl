@@ -96,14 +96,13 @@ layer-rule {
     position x=1280 y=0
 }
 
-output "DP-1" {
-  position x=1440 y=310
-  // mode "2560x1440@239.901"
+output "Samsung Electric Company LS49AG95 HNTRA00432" {
+  position x=0 y=0
 }
 
-output "DP-2" {
-  transform "90"
-  position x=0 y=0
+output "Dell Inc. DELL U2719D 7N8WTS2" {
+  transform "270"
+  position x=5120 y=-220
 }
 
 // Settings that influence how windows are positioned and sized.

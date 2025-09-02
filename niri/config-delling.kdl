@@ -123,8 +123,8 @@ window-rule {
 }
 
 output "Sharp Corporation 0x1516 Unknown" {
-  // position x=4000 y=625 // Office
-  position x=6140 y=0 // Home
+  position x=4000 y=950 // Office
+  // position x=6140 y=0 // Home
   scale 2
 }
 
@@ -141,11 +141,11 @@ output "Samsung Electric Company LS49AG95 HNTRA00432" {
 
 output "Dell Inc. DELL U2715H GH85D5290F5L" {
   transform "90"
-  position x=0 y=0
+  position x=2560 y=0
 }
 
 output "Dell Inc. DELL P2720DC 6DNVMK3" {
-  position x=1440 y=625
+  position x=0 y=625
 }
 
 window-rule {

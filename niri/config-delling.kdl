@@ -123,7 +123,8 @@ window-rule {
 }
 
 output "Sharp Corporation 0x1516 Unknown" {
-  position x=4000 y=625
+  // position x=4000 y=625 // Office
+  position x=6140 y=0 // Home
   scale 2
 }
 

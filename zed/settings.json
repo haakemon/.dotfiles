@@ -23,8 +23,7 @@
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-sonnet-4"
-    },
-    "version": "2"
+    }
   },
   "base_keymap": "VSCode",
   "telemetry": {
@@ -46,5 +45,17 @@
     "code_actions": {
       "source.fixAll.eslint": true
     }
+  },
+  "auto_install_extensions": {
+    "docker-compose": true,
+    "dockerfile": true,
+    "env": true,
+    "git-firefly": true,
+    "html": true,
+    "kdl": true,
+    "new-darcula": true,
+    "nix": true,
+    "vscode-icons": true,
+    "catppuccin": true
   }
 }

@@ -28,13 +28,13 @@ in
         ../../modules/sddm.nix
       ];
     };
-    "03-cosmic".configuration = {
-      environment.etc."specialisation".text = "03-cosmic";
-      system.nixos.tags = [ "cosmic" ];
-      imports = [
-        ../../modules/cosmic.nix
-      ];
-    };
+    # "03-cosmic".configuration = {
+    #   environment.etc."specialisation".text = "03-cosmic";
+    #   system.nixos.tags = [ "cosmic" ];
+    #   imports = [
+    #     ../../modules/cosmic.nix
+    #   ];
+    # };
   };
 
   imports = [

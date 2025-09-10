@@ -210,7 +210,7 @@ in
           pkgs.freetube
 
           # Devtools
-          # pkgs.azure-cli # https://github.com/NixOS/nixpkgs/pull/437062
+          pkgs.azure-cli
           pkgs.kubectl
           pkgs.kubelogin
           pkgs.kubectx

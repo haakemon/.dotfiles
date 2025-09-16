@@ -637,6 +637,28 @@
         "type": "gitlab"
       }
     },
+    "nrk-hylla": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1745849577,
+        "narHash": "sha256-7JjO075laA95zAk5bd57j/1cV7c57wxx2m+mTxk7c94=",
+        "ref": "feature/nix-f5vpn",
+        "rev": "baa05f223ee25937e0e45c94ae28472c82e57bf3",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/nrkno/linux-hylla.git"
+      },
+      "original": {
+        "ref": "feature/nix-f5vpn",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/nrkno/linux-hylla.git"
+      }
+    },
     "quickshell": {
       "inputs": {
         "nixpkgs": [
@@ -674,6 +696,7 @@
         "nixpkgs-2405": "nixpkgs-2405",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-unstable-small": "nixpkgs-unstable-small",
+        "nrk-hylla": "nrk-hylla",
         "quickshell": "quickshell",
         "sops-nix": "sops-nix",
         "sops-secrets": "sops-secrets",

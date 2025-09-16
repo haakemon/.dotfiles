@@ -218,6 +218,7 @@ in
           pkgs.vault
           pkgs.dotnet-sdk_9
           pkgs.traefik
+          pkgs.claude-code
 
           # Chat
           pkgs.telegram-desktop

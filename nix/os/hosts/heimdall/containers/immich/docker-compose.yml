@@ -8,7 +8,7 @@ volumes:
 services:
   immich-server:
     container_name: immich_server
-    image: ghcr.io/immich-app/immich-server:v1.138.0@sha256:12cee930e2cc211a95acae12ad780c0b2eecaea0479a06e255c73a4deb0b3efb
+    image: ghcr.io/immich-app/immich-server:v1.143.1@sha256:a5935f03b93137952c38b14a47148525023f4c36a2db174d8266a9d3b37e7e3b
     restart: unless-stopped
     environment:
       TZ: $TZ
@@ -34,7 +34,7 @@ services:
       TIME_ZONE: $TZ
       IMMICH_WORKERS_EXCLUDE: 'api'
     container_name: immich_microservices
-    image: ghcr.io/immich-app/immich-server:v1.138.0@sha256:12cee930e2cc211a95acae12ad780c0b2eecaea0479a06e255c73a4deb0b3efb
+    image: ghcr.io/immich-app/immich-server:v1.143.1@sha256:a5935f03b93137952c38b14a47148525023f4c36a2db174d8266a9d3b37e7e3b
     volumes:
       - $UPLOAD_LOCATION:/data
       - /etc/localtime:/etc/localtime:ro
@@ -48,7 +48,7 @@ services:
 
   immich-machine-learning:
     container_name: immich_machine_learning
-    image: ghcr.io/immich-app/immich-machine-learning:v1.138.0@sha256:25fca00128f10444303c93829516927bd14804ccbe9b7450eb41c64c722c5ac4
+    image: ghcr.io/immich-app/immich-machine-learning:v1.143.1@sha256:cc94659771d7e394d6406ebb0664069f2523062fda4f934def31648e903c4de2
     restart: unless-stopped
     environment:
       TZ: $TZ

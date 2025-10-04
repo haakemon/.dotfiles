@@ -8,7 +8,7 @@ volumes:
 services:
   immich-server:
     container_name: immich_server
-    image: ghcr.io/immich-app/immich-server:v1.138.0@sha256:12cee930e2cc211a95acae12ad780c0b2eecaea0479a06e255c73a4deb0b3efb
+    image: ghcr.io/immich-app/immich-server:v2.0.1@sha256:8286638680f0a38a7cb380be64ed77d1d1cfe6d0e0b843f64bff92b24289078d
     restart: unless-stopped
     environment:
       TZ: $TZ
@@ -34,7 +34,7 @@ services:
       TIME_ZONE: $TZ
       IMMICH_WORKERS_EXCLUDE: 'api'
     container_name: immich_microservices
-    image: ghcr.io/immich-app/immich-server:v1.138.0@sha256:12cee930e2cc211a95acae12ad780c0b2eecaea0479a06e255c73a4deb0b3efb
+    image: ghcr.io/immich-app/immich-server:v2.0.1@sha256:8286638680f0a38a7cb380be64ed77d1d1cfe6d0e0b843f64bff92b24289078d
     volumes:
       - $UPLOAD_LOCATION:/data
       - /etc/localtime:/etc/localtime:ro

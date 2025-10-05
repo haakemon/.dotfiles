@@ -20,11 +20,6 @@
       ];
     };
 
-    alvr = {
-      enable = true;
-      openFirewall = true;
-    };
-
     # Need to add "gamemoderun %command%" to each Steam game,
     # or start Steam with gamemoderun steam-runtime to apply to all games
     # downside is that gamemode will run as long as Steam is running

@@ -55,25 +55,6 @@
         };
       };
 
-      systemd.user.services."xwayland-satellite" = {
-        Unit = {
-          Description = "Xwalyand satellite";
-          PartOf = "graphical-session.target";
-          After = "graphical-session.target";
-          Requisite = "graphical-session.target";
-          BindsTo = "graphical-session.target";
-        };
-        Install.WantedBy = [ "graphical-session.target" ];
-        Service = {
-          Type = "notify";
-          NotifyAccess = "all";
-          ExecStart = "${pkgs.xwayland-satellite}/bin/xwayland-satellite :0";
-          StandardOutput = "journal";
-          Restart = "on-failure";
-          RestartSec = 10;
-        };
-      };
-
       programs = {
         niri.config = null;
 

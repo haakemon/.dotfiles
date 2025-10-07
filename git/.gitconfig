@@ -1,0 +1,7 @@
+[include]
+  path = ~/.dotfiles/git/.gitconfig-alias
+  path = ~/.dotfiles/git/.gitconfig-color
+  path = ~/.dotfiles/git/.gitconfig-delta
+  path = ~/.dotfiles/git/.gitconfig-settings
+  path = ~/.dotfiles/git/.gitconfig-signing
+  path = ~/.dotfiles/git/.gitconfig-user

@@ -1,5 +1,4 @@
 [alias]
-
   # common shortcuts
   co = checkout
   ci = commit

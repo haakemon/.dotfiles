@@ -3,7 +3,6 @@
 [core]
   fscache = true
   preloadindex = true
-  pager = delta --24-bit-color=always --paging=always
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
   editor = code --wait
   autocrlf = false
@@ -40,10 +39,6 @@
 [difftool "vscode"]
   prompt = false
   cmd = code -n --wait --diff $LOCAL $REMOTE
-
-[include]
-  path = ~/.dotfiles/git/.gitconfig-alias
-  path = ~/.dotfiles/git/.gitconfig-color
 [advice]
   pushNonFastForward = false
   # statusHints = false
@@ -51,26 +46,3 @@
   # resolveConflict = false
   # implicitIdentity = false
   # detachedHead = false
-
-# https://github.com/dandavison/delta
-# [interactive]
-  # Some issues getting delta to work with inteactive add, so disable it for now
-  # diffFilter = delta --color-only --features=interactive
-
-[delta]
-  features = decorations
-  line-numbers = true
-  side-by-side = true
-  colorMoved = default
-
-[delta "interactive"]
-  keep-plus-minus-markers = false
-
-[delta "decorations"]
-  commit-decoration-style = blue ol
-  commit-style = raw
-  file-style = omit
-  hunk-header-decoration-style = blue box
-  hunk-header-file-style = red
-  hunk-header-line-number-style = "#067a00"
-  hunk-header-style = file line-number syntax

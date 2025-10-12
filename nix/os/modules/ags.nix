@@ -48,7 +48,7 @@
             inputs.astal.packages.${pkgs.system}.auth
             inputs.astal.packages.${pkgs.system}.battery
             inputs.astal.packages.${pkgs.system}.bluetooth
-            inputs.astal.packages.${pkgs.system}.cava
+            # inputs.astal.packages.${pkgs.system}.cava
             inputs.astal.packages.${pkgs.system}.greet
             inputs.astal.packages.${pkgs.system}.mpris
             inputs.astal.packages.${pkgs.system}.network

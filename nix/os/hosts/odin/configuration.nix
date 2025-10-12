@@ -1,4 +1,8 @@
-{ inputs, config, ... }:
+{ inputs
+, config
+, pkgs
+, ...
+}:
 let
   secretspath = builtins.toString inputs.sops-secrets;
 in
@@ -60,7 +64,7 @@ in
     ../../modules/keybase.nix
     ../../modules/sops.nix
     ../../modules/wallpaper.nix
-    ../../modules/quickshell.nix
+    # ../../modules/quickshell.nix
   ];
 
   networking = {

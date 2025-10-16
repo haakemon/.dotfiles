@@ -49,3 +49,14 @@ function sudo {
   command sudo "$@"
   printf '\x1b]111\x1b\\'
 }
+
+# Define the function only if 'code' command is available
+if command -v code &> /dev/null; then
+  c() {
+    if [ "$#" -eq 0 ]; then
+      code .
+    else
+      code "$@"
+    fi
+  }
+fi

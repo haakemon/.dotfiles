@@ -5,10 +5,6 @@
     # ./mitmproxy.nix # https://github.com/NixOS/nixpkgs/pull/436868
   ];
 
-  programs.nix-ld.libraries = [
-    pkgs.fnm
-  ];
-
   home-manager.users.${config.user-config.name} =
     { config
     , inputs

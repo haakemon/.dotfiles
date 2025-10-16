@@ -5,6 +5,10 @@
     # ./mitmproxy.nix # https://github.com/NixOS/nixpkgs/pull/436868
   ];
 
+  programs.nix-ld.libraries = [
+    pkgs.fnm
+  ];
+
   home-manager.users.${config.user-config.name} =
     { config
     , inputs
@@ -31,7 +35,7 @@
         pkgs.bruno
         pkgs.simple-http-server
         pkgs.nmap
-        pkgs.nodejs_24
+        pkgs.fnm
         pkgs.pnpm
         pkgs.ffmpeg-full
         pkgs.v4l-utils
@@ -75,14 +79,7 @@
           initContent = ''
             #region initContent development.nix
             source "''${HOME}/.dotfiles/nix/devenv/nix.devenv.zsh"
-
-            c() {
-              if [ "$#" -eq 0 ]; then
-                code .
-              else
-                code "$@"
-              fi
-            }
+            source "''${HOME}/.dotfiles/zsh/fnm.zsh"
 
             #endregion initContent development.nix
           '';

@@ -80,6 +80,7 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,linux,osx,powershell
 
+.*.env*
 .env*
 !.env*template
 nohup.out

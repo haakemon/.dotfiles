@@ -12,7 +12,7 @@ volumes:
 services:
   app:
     <<: *common-app-config
-    image: fireflyiii/core:latest
+    image: fireflyiii/core:latest@sha256:730b9cd720af4f6c67140354bcc571d189281cf46dac3d917d2c238a92244c7d
     hostname: app
     container_name: firefly_iii_core
     volumes:
@@ -26,7 +26,7 @@ services:
       - db
   db:
     <<: *common-app-config
-    image: postgres:18.0-alpine3.22
+    image: postgres:18.0-alpine3.22@sha256:f898ac406e1a9e05115cc2efcb3c3abb3a92a4c0263f3b6f6aaae354cbb1953a
     hostname: db
     container_name: firefly_iii_db
     env_file: .db.env
@@ -40,7 +40,7 @@ services:
     # To make this work, set STATIC_CRON_TOKEN in your .env file or as an environment variable
     # The STATIC_CRON_TOKEN must be *exactly* 32 characters long
     #
-    image: alpine
+    image: alpine@sha256:4b7ce07002c69e8f3d704a9c5d6fd3053be500b7f1c69fc0d80990c2ad8dd412
     container_name: firefly_iii_cron
     env_file: .env
     command: sh -c "

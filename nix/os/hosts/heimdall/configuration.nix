@@ -117,7 +117,7 @@ in
           status.loadBalancer.servers = [{ url = "http://127.0.0.1:3001"; }];
           scrutiny.loadBalancer.servers = [{ url = "http://127.0.0.1:8999"; }];
           money.loadBalancer.servers = [{ url = "http://127.0.0.1:8182"; }];
-          food.loadBalancer.servers = [{ url = "http://127.0.0.1:8182"; }];
+          food.loadBalancer.servers = [{ url = "http://127.0.0.1:8255"; }];
         };
 
         routers = {

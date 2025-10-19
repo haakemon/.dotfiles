@@ -28,5 +28,7 @@ services:
       - $DATADIR/tandoor/mediafiles:/opt/recipes/mediafiles
     depends_on:
       - db_recipes
+    ports:
+      - 127.0.0.1:8255:80
     networks:
       - default

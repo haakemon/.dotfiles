@@ -10,6 +10,12 @@
     # fwupdmgr refresh && fwupdmgr update
     fwupd.enable = true;
     dbus.implementation = "broker";
+    cockpit.enable = true;
+    scrutiny = {
+      enable = true;
+      collector.enable = true;
+      settings.web.listen.port = 8999;
+    };
   };
 
   console.keyMap = "no";

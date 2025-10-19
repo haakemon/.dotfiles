@@ -8,12 +8,6 @@ let
 in
 {
   services = {
-    cockpit.enable = true;
-    scrutiny = {
-      enable = true;
-      collector.enable = true;
-      settings.web.listen.port = 8999;
-    };
     gnome.gnome-keyring.enable = true;
     xserver = {
       enable = true;

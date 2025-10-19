@@ -39,7 +39,6 @@ in
     ../../modules/users.nix
     ../../modules/keyd.nix
     ../../modules/wireguard.nix
-    ../../modules/cockpit.nix
     ../../modules/ssh.nix
     ../../modules/adguard.nix
     ../../modules/grub.nix

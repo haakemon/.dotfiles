@@ -116,6 +116,8 @@ in
           adguard.loadBalancer.servers = [{ url = "http://127.0.0.1:3050"; }];
           status.loadBalancer.servers = [{ url = "http://127.0.0.1:3001"; }];
           scrutiny.loadBalancer.servers = [{ url = "http://127.0.0.1:8999"; }];
+          money.loadBalancer.servers = [{ url = "http://127.0.0.1:8182"; }];
+          food.loadBalancer.servers = [{ url = "http://127.0.0.1:8182"; }];
         };
 
         routers = {
@@ -189,6 +191,24 @@ in
             rule = "Host(`status.${config.configOptions.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "status";
+          };
+
+          scrutiny = {
+            rule = "Host(`scrutiny.${config.configOptions.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "scrutiny";
+          };
+
+          money = {
+            rule = "Host(`money.${config.configOptions.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "money";
+          };
+
+          food = {
+            rule = "Host(`food.${config.configOptions.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "food";
           };
         };
       };

@@ -1,0 +1,55 @@
+x-common-app-config: &common-app-config
+  restart: unless-stopped
+
+networks:
+  firefly_iii:
+    driver: bridge
+
+volumes:
+  firefly_iii_upload:
+  firefly_iii_db:
+
+services:
+  app:
+    <<: *common-app-config
+    image: fireflyiii/core:latest
+    hostname: app
+    container_name: firefly_iii_core
+    volumes:
+      - firefly_iii_upload:/var/www/html/storage/upload
+    env_file: .env
+    networks:
+      - firefly_iii
+    ports:
+      - 8182:8080
+    depends_on:
+      - db
+  db:
+    <<: *common-app-config
+    image: postgres:lts
+    hostname: db
+    container_name: firefly_iii_db
+    env_file: .db.env
+    networks:
+      - firefly_iii
+    volumes:
+      - firefly_iii_db:/var/lib/postgresql/data
+  cron:
+    <<: *common-app-config
+    #
+    # To make this work, set STATIC_CRON_TOKEN in your .env file or as an environment variable
+    # The STATIC_CRON_TOKEN must be *exactly* 32 characters long
+    #
+    image: alpine
+    container_name: firefly_iii_cron
+    env_file: .env
+    command: sh -c "
+      apk add tzdata && \
+      (ln -s /usr/share/zoneinfo/$$TZ /etc/localtime || true) && \
+      echo \"0 3 * * * wget -qO- http://app:8080/api/v1/cron/$$STATIC_CRON_TOKEN;echo\"
+      | crontab - && \
+      crond -f -L /dev/stdout"
+    networks:
+      - firefly_iii
+    depends_on:
+      - app

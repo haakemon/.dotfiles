@@ -1,0 +1,32 @@
+x-common-app-config: &common-app-config
+  restart: unless-stopped
+
+networks:
+  default:
+
+volumes:
+  staticfiles:
+
+services:
+  db_recipes:
+    <<: *common-app-config
+    image: postgres:16-alpine
+    volumes:
+      - $DATADIR/tandoor/postgresql:/var/lib/postgresql/data
+    env_file:
+      - ./.env
+    networks:
+      - default
+
+  web_recipes:
+    <<: *common-app-config
+    image: vabene1111/recipes
+    env_file:
+      - ./.env
+    volumes:
+      - staticfiles:/opt/recipes/staticfiles
+      - $DATADIR/tandoor/mediafiles:/opt/recipes/mediafiles
+    depends_on:
+      - db_recipes
+    networks:
+      - default

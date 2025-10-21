@@ -19,16 +19,6 @@
         };
       };
 
-      cosmicModuleSettings = [
-        {
-          nix.settings = {
-            substituters = [ "https://cosmic.cachix.org/" ];
-            trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-          };
-        }
-        inputs.nixos-cosmic.nixosModules.default
-      ];
-
     in
     {
       nixosConfigurations = {
@@ -59,7 +49,7 @@
             inherit inputs;
           };
           system = "x86_64-linux";
-          modules = cosmicModuleSettings ++ [
+          modules = [
             ./hosts/delling/configuration.nix
             inputs.chaotic.nixosModules.default
             inputs.niri.nixosModules.niri
@@ -209,12 +199,6 @@
     sops-secrets = {
       url = "git+ssh://git@github.com/haakemon/sops.git?ref=main&shallow=1";
       flake = false;
-    };
-
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nrk-hylla = {

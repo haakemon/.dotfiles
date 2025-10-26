@@ -323,6 +323,14 @@ window-rule {
 }
 
 window-rule {
+  match app-id=r#"^steam$"#
+  open-on-output "Samsung Electric Company LS49AG95 HNTRA00432"
+  default-column-width {
+    proportion 0.20;
+  }
+}
+
+window-rule {
   match app-id=r#"^org.pulseaudio.pavucontrol$"#
   open-floating true
 }

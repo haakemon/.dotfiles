@@ -151,19 +151,11 @@ in
           # Utils
           pkgs.headsetcontrol # Set options for headsets
 
-          # Tools
-          # pkgs.blender
-
-          # Gaming
-          pkgs.heroic
-
           # Music / video
           pkgs.freetube
 
           # Chat
           pkgs.telegram-desktop
-          pkgs.vesktop
-          pkgs.discord
         ];
 
         file = {

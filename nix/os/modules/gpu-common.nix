@@ -7,7 +7,7 @@
     pkgs.vulkan-loader
     pkgs.vulkan-validation-layers
     pkgs.clinfo # graphics info
-    pkgs.glxinfo # graphics info
+    pkgs.mesa-demos # graphics info
     pkgs.wayland-utils # graphics info
   ];
 

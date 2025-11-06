@@ -43,7 +43,7 @@ in
     pkgs.nerd-fonts.droid-sans-mono
     pkgs.jetbrains-mono
     pkgs.noto-fonts
-    pkgs.noto-fonts-emoji
+    pkgs.noto-fonts-color-emoji
     pkgs.noto-fonts-cjk-sans
     pkgs.noto-fonts-cjk-serif
     pkgs.material-symbols

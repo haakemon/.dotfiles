@@ -63,7 +63,7 @@
 
       pkgs.luxtorpeda
       pkgs.proton-ge-custom
-      pkgs.protonup
+      pkgs.protonup-ng
       pkgs.protonup-qt
       pkgs.mangohud
 

@@ -12,6 +12,7 @@ in
     "01-niri".configuration = {
       environment.etc."specialisation".text = "01-niri";
       system.nixos.tags = [ "niri" ];
+
       imports = [
         ../../modules/niri.nix
         ../../modules/greetd.nix
@@ -29,6 +30,14 @@ in
         ../../modules/sddm.nix
       ];
     };
+
+    # "03-cosmic".configuration = {
+    #   environment.etc."specialisation".text = "03-cosmic";
+    #   system.nixos.tags = [ "cosmic" ];
+    #   imports = [
+    #     ../../modules/cosmic.nix
+    #   ];
+    # };
   };
 
   imports = [

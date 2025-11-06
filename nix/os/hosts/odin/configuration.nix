@@ -56,6 +56,7 @@ in
     # ../../modules/printing.nix
     ../../modules/browsers.nix
     ../../modules/nh.nix
+    ../../modules/noctalia.nix
     ../../modules/git.nix
     ../../modules/rbw.nix
     ../../modules/3d-printing.nix

@@ -27,9 +27,16 @@
       description = "Enable browsers browser";
       default = false;
     };
+    ladybird = lib.mkOption {
+      type = lib.types.bool;
+      description = "Enable Ladybird browser";
+      default = false;
+    };
   };
 
   config = {
+    programs.ladybird.enable = config.browsers.ladybird;
+
     home-manager.users.${config.user-config.name} = {
       home.packages = lib.flatten [
         (lib.optional config.browsers.browsers pkgs.browsers)

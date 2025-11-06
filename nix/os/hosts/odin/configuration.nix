@@ -68,6 +68,15 @@ in
     # ../../modules/quickshell.nix
   ];
 
+  browsers = {
+    vivaldi = true;
+    firefox = true;
+    chromium = true;
+    ladybird = true;
+    zen = false;
+    browsers = false;
+  };
+
   networking = {
     nameservers = [
       "192.168.2.9" # TODO: Remove this after router is updated

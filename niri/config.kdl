@@ -55,7 +55,7 @@ overview {
 layer-rule {
     // This is for swaybg; change for other wallpaper tools.
     // Find the right namespace by running niri msg layers.
-    match namespace="^swww-daemon$"
+    match namespace="^noctalia-wallpaper"
     place-within-backdrop true
 }
 
@@ -217,7 +217,7 @@ window-rule {
 }
 
 window-rule {
-  geometry-corner-radius 12
+  geometry-corner-radius 20
   clip-to-geometry true
   draw-border-with-background false
   opacity 0.98
@@ -572,4 +572,9 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+}
+
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
 }

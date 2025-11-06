@@ -73,8 +73,6 @@ in
     ../../modules/qmk.nix
     ../../modules/keybase.nix
     ../../modules/sops.nix
-    ../../modules/wallpaper.nix
-    # ../../modules/quickshell.nix
   ];
 
   browsers = {
@@ -91,10 +89,6 @@ in
       "192.168.2.9" # TODO: Remove this after router is updated
       "9.9.9.9"
     ];
-  };
-
-  wallpaper = {
-    scriptPath = "${config.user-config.home}/.dotfiles/waypaper/${config.system-config.hostname}/random.sh";
   };
 
   sops = {

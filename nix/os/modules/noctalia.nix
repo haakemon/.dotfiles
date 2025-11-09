@@ -9,11 +9,6 @@
     ./quickshell.nix
   ];
 
-  # environment.systemPackages = [
-  #   inputs.noctalia.packages.${pkgs.system}.default
-  #   # ... maybe other stuff
-  # ];
-
   home-manager.users.${config.user-config.name} = {
     imports = [
       inputs.noctalia.homeModules.default
@@ -24,5 +19,13 @@
     };
 
     programs.noctalia-shell.systemd.enable = true;
+
+
+
+    # home = {
+    #   file = {
+    #     ".config/noctalia/colors.json".source = config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/quickshell/noctalia//colors.json";
+    #   };
+    # };
   };
 }

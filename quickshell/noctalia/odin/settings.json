@@ -1,0 +1,324 @@
+{
+  "appLauncher": {
+    "backgroundOpacity": 1,
+    "customLaunchPrefix": "",
+    "customLaunchPrefixEnabled": false,
+    "enableClipboardHistory": false,
+    "pinnedExecs": [],
+    "position": "center",
+    "sortByMostUsed": true,
+    "terminalCommand": "xterm -e",
+    "useApp2Unit": false
+  },
+  "audio": {
+    "cavaFrameRate": 60,
+    "mprisBlacklist": [],
+    "preferredPlayer": "",
+    "visualizerQuality": "high",
+    "visualizerType": "linear",
+    "volumeOverdrive": false,
+    "volumeStep": 5
+  },
+  "bar": {
+    "backgroundOpacity": 0.8,
+    "density": "default",
+    "exclusive": true,
+    "floating": false,
+    "marginHorizontal": 0.25,
+    "marginVertical": 0.25,
+    "monitors": [],
+    "outerCorners": true,
+    "position": "top",
+    "showCapsule": true,
+    "widgets": {
+      "center": [
+        {
+          "icon": "rocket",
+          "id": "CustomButton",
+          "leftClickExec": "noctalia-shell ipc call launcher toggle",
+          "middleClickExec": "",
+          "parseJson": false,
+          "rightClickExec": "",
+          "textCollapse": "",
+          "textCommand": "",
+          "textIntervalMs": 3000,
+          "textStream": false
+        },
+        {
+          "colorName": "primary",
+          "hideWhenIdle": false,
+          "id": "AudioVisualizer",
+          "width": 200
+        },
+        {
+          "hideWhenZero": true,
+          "id": "NotificationHistory",
+          "showUnreadBadge": true
+        }
+      ],
+      "left": [
+        {
+          "characterCount": 2,
+          "hideUnoccupied": false,
+          "id": "Workspace",
+          "labelMode": "index"
+        }
+      ],
+      "right": [
+        {
+          "displayMode": "alwaysShow",
+          "id": "Volume"
+        },
+        {
+          "displayMode": "onhover",
+          "id": "Battery",
+          "warningThreshold": 30
+        },
+        {
+          "blacklist": [],
+          "colorizeIcons": false,
+          "drawerEnabled": true,
+          "favorites": [],
+          "id": "Tray"
+        },
+        {
+          "customFont": "",
+          "formatHorizontal": "HH:mm ddd, MMM dd",
+          "formatVertical": "HH mm - dd MM",
+          "id": "Clock",
+          "useCustomFont": false,
+          "usePrimaryColor": true
+        },
+        {
+          "customIconPath": "",
+          "icon": "",
+          "id": "ControlCenter",
+          "useDistroLogo": true
+        }
+      ]
+    }
+  },
+  "battery": {
+    "chargingMode": 0
+  },
+  "brightness": {
+    "brightnessStep": 5,
+    "enableDdcSupport": false,
+    "enforceMinimum": true
+  },
+  "colorSchemes": {
+    "darkMode": true,
+    "generateTemplatesForPredefined": false,
+    "manualSunrise": "06:30",
+    "manualSunset": "18:30",
+    "matugenSchemeType": "scheme-fruit-salad",
+    "predefinedScheme": "Catppuccin",
+    "schedulingMode": "off",
+    "useWallpaperColors": false
+  },
+  "controlCenter": {
+    "cards": [
+      {
+        "enabled": true,
+        "id": "profile-card"
+      },
+      {
+        "enabled": true,
+        "id": "shortcuts-card"
+      },
+      {
+        "enabled": true,
+        "id": "audio-card"
+      },
+      {
+        "enabled": true,
+        "id": "weather-card"
+      },
+      {
+        "enabled": true,
+        "id": "media-sysmon-card"
+      }
+    ],
+    "position": "close_to_bar_button",
+    "shortcuts": {
+      "left": [
+        {
+          "id": "WiFi"
+        },
+        {
+          "id": "Bluetooth"
+        },
+        {
+          "id": "ScreenRecorder"
+        },
+        {
+          "id": "WallpaperSelector"
+        }
+      ],
+      "right": [
+        {
+          "id": "Notifications"
+        },
+        {
+          "id": "PowerProfile"
+        },
+        {
+          "id": "KeepAwake"
+        },
+        {
+          "id": "NightLight"
+        }
+      ]
+    }
+  },
+  "dock": {
+    "backgroundOpacity": 1,
+    "colorizeIcons": false,
+    "displayMode": "always_visible",
+    "enabled": false,
+    "floatingRatio": 1,
+    "monitors": [],
+    "onlySameOutput": true,
+    "pinnedApps": [],
+    "size": 1
+  },
+  "general": {
+    "animationDisabled": false,
+    "animationSpeed": 1,
+    "avatarImage": "/home/haakemon/profile.png",
+    "compactLockScreen": false,
+    "dimDesktop": true,
+    "enableShadows": false,
+    "forceBlackScreenCorners": true,
+    "language": "",
+    "lockOnSuspend": false,
+    "radiusRatio": 1,
+    "scaleRatio": 1,
+    "screenRadiusRatio": 0.48,
+    "shadowDirection": "bottom_right",
+    "shadowOffsetX": 2,
+    "shadowOffsetY": 3,
+    "showScreenCorners": true
+  },
+  "hooks": {
+    "darkModeChange": "",
+    "enabled": false,
+    "wallpaperChange": ""
+  },
+  "location": {
+    "analogClockInCalendar": false,
+    "firstDayOfWeek": -1,
+    "name": "Oslo, Norway",
+    "showCalendarEvents": true,
+    "showCalendarWeather": true,
+    "showWeekNumberInCalendar": true,
+    "use12hourFormat": false,
+    "useFahrenheit": false,
+    "weatherEnabled": true
+  },
+  "network": {
+    "wifiEnabled": true
+  },
+  "nightLight": {
+    "autoSchedule": true,
+    "dayTemp": "6500",
+    "enabled": false,
+    "forced": false,
+    "manualSunrise": "06:30",
+    "manualSunset": "18:30",
+    "nightTemp": "4000"
+  },
+  "notifications": {
+    "backgroundOpacity": 1,
+    "criticalUrgencyDuration": 15,
+    "doNotDisturb": false,
+    "enabled": true,
+    "location": "top",
+    "lowUrgencyDuration": 3,
+    "monitors": [],
+    "normalUrgencyDuration": 8,
+    "overlayLayer": false,
+    "respectExpireTimeout": false
+  },
+  "osd": {
+    "autoHideMs": 2000,
+    "enabled": true,
+    "location": "bottom",
+    "monitors": [],
+    "overlayLayer": true
+  },
+  "screenRecorder": {
+    "audioCodec": "opus",
+    "audioSource": "default_output",
+    "colorRange": "limited",
+    "directory": "/home/haakemon/Videos",
+    "frameRate": 60,
+    "quality": "very_high",
+    "showCursor": true,
+    "videoCodec": "h264",
+    "videoSource": "portal"
+  },
+  "settingsVersion": 21,
+  "setupCompleted": true,
+  "templates": {
+    "alacritty": false,
+    "code": false,
+    "discord": false,
+    "discord_armcord": false,
+    "discord_dorion": false,
+    "discord_equibop": false,
+    "discord_lightcord": false,
+    "discord_vesktop": false,
+    "discord_webcord": false,
+    "enableUserTemplates": false,
+    "foot": false,
+    "fuzzel": false,
+    "ghostty": false,
+    "gtk": false,
+    "kcolorscheme": false,
+    "kitty": false,
+    "pywalfox": false,
+    "qt": false,
+    "vicinae": false,
+    "walker": false,
+    "wezterm": false
+  },
+  "ui": {
+    "fontDefault": "Roboto",
+    "fontDefaultScale": 1,
+    "fontFixed": "DejaVu Sans Mono",
+    "fontFixedScale": 1,
+    "panelsAttachedToBar": true,
+    "settingsPanelAttachToBar": false,
+    "tooltipsEnabled": true
+  },
+  "wallpaper": {
+    "defaultWallpaper": "/nix/store/q8gbabnhr8b2r4s57d1pgchqvz0hf0cc-noctalia-shell-76a182a90cd31539019fb3c99f002ea56d028df3/share/noctalia-shell/Assets/Wallpaper/noctalia.png",
+    "directory": "/home/haakemon/ProtonDrive/Wallpaper/5120x1440",
+    "enableMultiMonitorDirectories": true,
+    "enabled": true,
+    "fillColor": "#000000",
+    "fillMode": "crop",
+    "monitors": [
+      {
+        "directory": "/home/haakemon/ProtonDrive/Wallpaper/1440x2560",
+        "name": "DP-2",
+        "wallpaper": "/home/haakemon/ProtonDrive/Wallpaper/1440x2560/Comics/Superhero-Wallpaper-02-1440x2560.jpg"
+      },
+      {
+        "directory": "/home/haakemon/ProtonDrive/Wallpaper/5120x1440",
+        "name": "DP-1",
+        "wallpaper": "/home/haakemon/ProtonDrive/Wallpaper/5120x1440/Digital Art/digital-art9_49898040671_o.png"
+      }
+    ],
+    "overviewEnabled": false,
+    "panelPosition": "follow_bar",
+    "randomEnabled": true,
+    "randomIntervalSec": 300,
+    "recursiveSearch": true,
+    "setWallpaperOnAllMonitors": false,
+    "transitionDuration": 1500,
+    "transitionEdgeSmoothness": 0.05,
+    "transitionType": "random"
+  }
+}

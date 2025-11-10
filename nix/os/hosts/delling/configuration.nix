@@ -76,6 +76,15 @@ in
     ../../modules/wallpaper.nix
   ];
 
+  browsers = {
+    vivaldi = true;
+    firefox = true;
+    chromium = true;
+    ladybird = true;
+    zen = false;
+    browsers = false;
+  };
+
   boot = {
     loader = {
       grub = {

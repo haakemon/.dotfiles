@@ -6,7 +6,6 @@
 
 {
   imports = [
-    ./ags.nix
     ./hyprlock.nix
     ./hypridle.nix
   ];

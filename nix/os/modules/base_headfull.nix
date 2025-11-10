@@ -126,6 +126,7 @@ in
           # pkgs.shotcut
 
           # pkgs.freeoffice
+          pkgs.hardinfo2
           pkgs.smartmontools
           pkgs.gparted
           pkgs.standardnotes

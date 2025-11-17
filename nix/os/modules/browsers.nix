@@ -32,6 +32,11 @@
       description = "Enable Ladybird browser";
       default = false;
     };
+    google-chrome = lib.mkOption {
+      type = lib.types.bool;
+      description = "Enable google-chrome browser";
+      default = false;
+    };
   };
 
   config = {
@@ -44,6 +49,7 @@
         (lib.optional config.browsers.zen pkgs.zen-browser)
         (lib.optional config.browsers.firefox pkgs.firefox)
         (lib.optional config.browsers.chromium pkgs.ungoogled-chromium)
+        (lib.optional config.browsers.google-chrome pkgs.google-chrome)
       ];
     };
   };

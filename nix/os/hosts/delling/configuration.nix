@@ -81,7 +81,8 @@ in
     chromium = true;
     ladybird = true;
     zen = false;
-    browsers = false;
+    browsers = true;
+    google-chrome = true;
   };
 
   boot = {

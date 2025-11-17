@@ -1,9 +1,3 @@
-x-common-app-config: &common-app-config
-  restart: unless-stopped
-  environment:
-    TZ: $TZ
-    TIME_ZONE: $TZ
-
 networks:
   default:
     driver: bridge
@@ -11,12 +5,14 @@ networks:
 ########################### SERVICES
 services:
   homarr:
-    <<: *common-app-config
+    restart: unless-stopped
     container_name: homarr
-    image: ghcr.io/ajnart/homarr:0.16.0@sha256:737ec361ed248b6d2b62b037da816f283b0484e0b94bc9876945c7c602e7307c
+    image: ghcr.io/homarr-labs/homarr:1.43.3
     ports:
       - 127.0.0.1:7575:7575
     volumes:
-      - $DATADIR/homarr/configs:/app/data/configs
-      - $DATADIR/homarr/icons:/app/public/icons
-      - $DATADIR/homarr/data:/data
+      - $DATADIR/homarr/appdata:/appdata
+    environment:
+      - TZ=$TZ
+      - TIME_ZONE=$TZ
+      - SECRET_ENCRYPTION_KEY=$SECRET_ENCRYPTION_KEY

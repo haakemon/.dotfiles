@@ -255,7 +255,6 @@ window-rule {
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
-// spawn-at-startup "sh" "-c" "~/.dotfiles/ags/start.sh"
 spawn-at-startup "clipse" "-listen"
 
 environment {
@@ -365,7 +364,6 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T { spawn "ghostty"; }
-    // Mod+R { spawn "ags" "toggle" "launcher"; }
     Mod+R { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Mod+L { spawn "hyprlock"; }
 

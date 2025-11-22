@@ -60,4 +60,4 @@ services:
       TZ: $TZ
       TIME_ZONE: $TZ
     volumes:
-      - teslamate-db:/var/lib/postgresql/data
+      - teslamate-db:/var/lib/postgresql

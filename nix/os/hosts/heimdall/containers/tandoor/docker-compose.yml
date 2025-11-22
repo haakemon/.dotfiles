@@ -20,7 +20,7 @@ services:
 
   web_recipes:
     <<: *common-app-config
-    image: vabene1111/recipes@sha256:af6bd76e703d644748a93d581da05c25159d742b94b2da9eddadaaec93555858
+    image: vabene1111/recipes:2.3.5
     env_file:
       - ./.env
     volumes:

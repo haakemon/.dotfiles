@@ -138,27 +138,6 @@ in
         ./user-config.nix
       ];
 
-      systemd.user.timers."rclone-proton" = {
-        Install.WantedBy = [ "timers.target" ];
-        Timer = {
-          OnCalendar = "*-*-* 13:00:00";
-          Unit = "rclone-proton.service";
-        };
-      };
-
-      systemd.user.services."rclone-proton" = {
-        Unit = {
-          Description = "Rclone sync to Proton Drive";
-          After = "network-online.target";
-        };
-        Service = {
-          Type = "exec";
-          ExecStart = "${pkgs.rclone}/bin/rclone --rc sync ${config.user-config.home}/ProtonDrive/ protondrive:computers/odin";
-          StandardOutput = "journal";
-          Restart = "no";
-        };
-      };
-
       home = {
         packages = [
           # Utils

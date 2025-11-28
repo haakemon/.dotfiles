@@ -3,7 +3,7 @@
 {
   services = {
     ollama = {
-      enable = true;
+      enable = false;
       acceleration = "rocm";
       # acceleration = "cuda";
     };

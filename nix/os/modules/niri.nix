@@ -19,7 +19,6 @@
 
   environment.systemPackages = [
     pkgs.xwayland-satellite-unstable
-    pkgs.swayidle
     pkgs.wf-recorder # screen recording utility
     pkgs.slurp # screen geometry picker utility
     pkgs.wl-clipboard
@@ -56,42 +55,6 @@
 
       programs = {
         niri.config = null;
-
-        wlogout = {
-          enable = true;
-          layout = [
-            {
-              label = "lock";
-              action = "loginctl lock-session";
-              text = "Lock";
-              keybind = "l";
-            }
-            {
-              label = "hibernate";
-              action = "systemctl hibernate";
-              text = "Hibernate";
-              keybind = "h";
-            }
-            {
-              label = "suspend";
-              action = "systemctl suspend";
-              text = "Suspend";
-              keybind = "u";
-            }
-            {
-              label = "reboot";
-              action = "systemctl reboot";
-              text = "Reboot";
-              keybind = "r";
-            }
-            {
-              label = "shutdown";
-              action = "systemctl poweroff";
-              text = "Shutdown";
-              keybind = "s";
-            }
-          ];
-        };
       };
 
       # home = {

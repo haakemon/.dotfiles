@@ -16,7 +16,7 @@ in
         ../../modules/niri.nix
         ../../modules/greetd.nix
         ../../modules/seahorse.nix
-        ../../modules/swayosd.nix
+        # ../../modules/swayosd.nix
         # ../../modules/stylix.nix
       ];
     };
@@ -183,16 +183,6 @@ in
             source "''${HOME}/work/configs/env.zsh"
             #endregion initContent configuration.nix
           '';
-        };
-      };
-
-      systemd.user.services."logiops" = {
-        Unit.Description = "Unofficial userland driver for logitech devices";
-        Install.WantedBy = [ "graphical-session.target" ];
-        Service = {
-          ExecStart = "${pkgs.pkgs.logiops_0_2_3}/bin/logid --config ${config.user-config.home}/.dotfiles/logid/mx-master-3-for-mac.cfg";
-          Restart = "on-failure";
-          RestartSec = 10;
         };
       };
 

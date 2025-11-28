@@ -151,6 +151,7 @@ in
       };
 
       fonts.fontconfig.enable = true;
+      fonts.fontDir.enable = true;
 
       gtk = {
         enable = true;

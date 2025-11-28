@@ -121,6 +121,7 @@ in
           pkgs.vlc
 
           pkgs.cosmic-files
+          pkgs.filen-desktop
 
           # pkgs.openshot-qt
           # pkgs.shotcut

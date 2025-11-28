@@ -164,6 +164,8 @@
           pkgs.podman-tui
           pkgs.ugm # user group browser
 
+          pkgs.filen-cli
+
           pkgs.bandwhich # network utilization monitor
           pkgs.superfile
           pkgs.television # multi-purpose fuzzy finder

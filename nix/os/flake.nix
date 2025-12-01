@@ -7,18 +7,6 @@
     }@inputs:
     let
       mkOverlays = config: import ./nixpkgs-overlays.nix config inputs;
-
-      homeManagerConf = {
-        home-manager = {
-          extraSpecialArgs = {
-            inherit inputs;
-          };
-          backupFileExtension = "backup";
-          useGlobalPkgs = true;
-          useUserPackages = true;
-        };
-      };
-
     in
     {
       nixosConfigurations = {
@@ -33,8 +21,6 @@
             inputs.niri.nixosModules.niri
             # inputs.stylix.nixosModules.stylix
             inputs.dotfiles-private.nixosModules.hosts.odin
-            inputs.home-manager.nixosModules.home-manager
-            homeManagerConf
             (
               { config, ... }:
               {
@@ -54,9 +40,7 @@
             inputs.chaotic.nixosModules.default
             inputs.niri.nixosModules.niri
             # inputs.stylix.nixosModules.stylix
-            inputs.home-manager.nixosModules.home-manager
             inputs.dotfiles-private.nixosModules.hosts.delling
-            homeManagerConf
             (
               { config, ... }:
               {
@@ -73,9 +57,7 @@
           system = "x86_64-linux";
           modules = [
             ./hosts/heimdall/configuration.nix
-            inputs.home-manager.nixosModules.home-manager
             inputs.dotfiles-private.nixosModules.hosts.heimdall
-            homeManagerConf
             (
               { config, ... }:
               {
@@ -95,9 +77,7 @@
           modules = [
             ./hosts/nidavellir/configuration.nix
             inputs.disko.nixosModules.disko
-            inputs.home-manager.nixosModules.home-manager
             inputs.dotfiles-private.nixosModules.hosts.nidavellir
-            homeManagerConf
             (
               { config, ... }:
               {
@@ -133,15 +113,9 @@
       url = "github:NixOS/nixpkgs/nixos-unstable-small";
     };
 
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
     };
 
     niri = {

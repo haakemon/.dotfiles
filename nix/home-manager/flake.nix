@@ -91,6 +91,26 @@
             ./hosts/delling/home.nix
           ];
         };
+
+        odin = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+
+          extraSpecialArgs = {
+            inherit inputs;
+          };
+
+          modules = [
+            sops-nix.homeManagerModules.sops
+            dotfiles-private.homeManagerModules.hosts.odin
+            (
+              { config, ... }:
+              {
+                nixpkgs.overlays = [ (mkOverlays config) ];
+              }
+            )
+            ./hosts/odin/home.nix
+          ];
+        };
       };
     };
 }

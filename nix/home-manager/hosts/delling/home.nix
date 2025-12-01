@@ -23,8 +23,9 @@ in
     ../../modules/obs-studio.nix
     ../../modules/qmk.nix
     ../../modules/zsh.nix
+    ../../modules/niri.nix
   ];
-  # Set home directory
+
   home = {
     stateVersion = "24.05";
     username = config.user-config.name;

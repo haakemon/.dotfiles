@@ -52,24 +52,4 @@
       spiceUSBRedirection.enable = true;
     })
   ];
-
-  home-manager.users.${config.user-config.name} =
-    { config
-    , pkgs
-    , lib
-    , ...
-    }:
-    {
-      programs.home-manager.enable = true;
-      home = {
-        sessionVariables = {
-          PODMAN_COMPOSE_WARNING_LOGS = "false";
-        };
-
-        packages = [
-          pkgs.dive # explore docker layers
-          pkgs.podman-tui
-        ];
-      };
-    };
 }

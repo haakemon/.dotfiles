@@ -44,7 +44,7 @@ in
     ./user-config.nix
     ./hardware-configuration.nix
 
-    ../../modules/development.nix
+    # ../../modules/development.nix
 
     ../../modules/base.nix
     ../../modules/base_headfull.nix
@@ -63,26 +63,24 @@ in
     ../../modules/openrgb.nix
     ../../modules/fstrim.nix
     # ../../modules/printing.nix
-    ../../modules/browsers.nix
     ../../modules/nh.nix
-    ../../modules/noctalia.nix
-    ../../modules/git.nix
-    ../../modules/rbw.nix
-    ../../modules/3d-printing.nix
-    ../../modules/obs-studio.nix
+    # ../../modules/git.nix
+    # ../../modules/rbw.nix
+    # ../../modules/3d-printing.nix
+    # ../../modules/obs-studio.nix
     ../../modules/qmk.nix
-    ../../modules/keybase.nix
+    # ../../modules/keybase.nix
     ../../modules/sops.nix
   ];
 
-  browsers = {
-    vivaldi = true;
-    firefox = true;
-    chromium = true;
-    ladybird = true;
-    zen = false;
-    browsers = false;
-  };
+  # browsers = {
+  #   vivaldi = true;
+  #   firefox = true;
+  #   chromium = true;
+  #   ladybird = true;
+  #   zen = false;
+  #   browsers = false;
+  # };
 
   networking = {
     nameservers = [
@@ -127,41 +125,4 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
-  home-manager.users.${config.user-config.name} =
-    { config
-    , pkgs
-    , ...
-    }:
-    {
-      imports = [
-        ./user-config.nix
-      ];
-
-      home = {
-        packages = [
-          # Utils
-          pkgs.headsetcontrol # Set options for headsets
-
-          # Music / video
-          pkgs.freetube
-
-          # Chat
-          pkgs.telegram-desktop
-        ];
-
-        file = {
-          ".config/niri/config.kdl".source =
-            config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/niri/config.kdl";
-
-          ".config/noctalia/colors.json".source =
-            config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/quickshell/noctalia/odin/colors.json";
-          ".config/noctalia/gui-settings.json".source =
-            config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/quickshell/noctalia/odin/gui-settings.json";
-          ".config/noctalia/settings.json".source =
-            config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/quickshell/noctalia/odin/settings.json";
-
-        };
-      };
-    };
 }

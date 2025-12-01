@@ -5,10 +5,6 @@
 }:
 
 {
-  imports = [
-    ./hyprlock.nix
-    ./hypridle.nix
-  ];
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
   ];
@@ -43,24 +39,4 @@
     ];
   };
 
-  home-manager.users.${config.user-config.name} =
-    { config, pkgs, ... }:
-    {
-      home = {
-        sessionVariables = {
-          ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-          NIXOS_OZONE_WL = "1";
-        };
-      };
-
-      programs = {
-        niri.config = null;
-      };
-
-      # home = {
-      #   file = {
-      #     ".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/niri/config.kdl";
-      #   };
-      # };
-    };
 }

@@ -89,26 +89,4 @@ in
   };
 
   system.stateVersion = "24.05";
-
-  home-manager.users.${config.user-config.name} =
-    { config
-    , pkgs
-    , ...
-    }:
-    {
-
-      imports = [
-        ./user-config.nix
-      ];
-
-      home = {
-        stateVersion = "24.05"; # Please read the comment before changing.
-
-        packages = [
-          pkgs.simple-http-server
-          pkgs.nodejs_22
-          pkgs.pnpm
-        ];
-      };
-    };
 }

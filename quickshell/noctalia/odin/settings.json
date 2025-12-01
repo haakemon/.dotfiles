@@ -88,6 +88,7 @@
           "id": "Volume"
         },
         {
+          "deviceNativePath": "",
           "displayMode": "onhover",
           "id": "Battery",
           "warningThreshold": 30
@@ -121,6 +122,26 @@
     "brightnessStep": 5,
     "enableDdcSupport": false,
     "enforceMinimum": true
+  },
+  "calendar": {
+    "cards": [
+      {
+        "enabled": true,
+        "id": "banner-card"
+      },
+      {
+        "enabled": true,
+        "id": "calendar-card"
+      },
+      {
+        "enabled": true,
+        "id": "timer-card"
+      },
+      {
+        "enabled": true,
+        "id": "weather-card"
+      }
+    ]
   },
   "changelog": {
     "lastSeenVersion": ""
@@ -315,17 +336,21 @@
     ],
     "showHeader": true
   },
-  "settingsVersion": 24,
-  "setupCompleted": true,
+  "settingsVersion": 25,
   "systemMonitor": {
     "cpuCriticalThreshold": 90,
+    "cpuPollingInterval": 3000,
     "cpuWarningThreshold": 80,
     "criticalColor": "",
     "diskCriticalThreshold": 90,
+    "diskPollingInterval": 3000,
     "diskWarningThreshold": 80,
     "memCriticalThreshold": 90,
+    "memPollingInterval": 3000,
     "memWarningThreshold": 80,
+    "networkPollingInterval": 3000,
     "tempCriticalThreshold": 90,
+    "tempPollingInterval": 3000,
     "tempWarningThreshold": 80,
     "useCustomColors": false,
     "warningColor": ""

@@ -278,35 +278,4 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
-  home-manager.users.${config.user-config.name} =
-    { config, pkgs, ... }:
-    {
-
-      imports = [
-        ./user-config.nix
-      ];
-
-      systemd.user.timers."rclone-proton-immich" = {
-        Install.WantedBy = [ "timers.target" ];
-        Timer = {
-          OnCalendar = "Mon 09:00:00";
-          Unit = "rclone-proton-immich.service";
-        };
-      };
-
-      systemd.user.services."rclone-proton-immich" = {
-        Unit = {
-          Description = "Rclone sync immich library to Proton Drive";
-          After = "network-online.target";
-        };
-        Service = {
-          Type = "exec";
-          ExecStart = "${pkgs.rclone}/bin/rclone --rc sync ${config.user-config.home}/data/immich/files/ protondrive:computers/heimdall/immich";
-          StandardOutput = "journal";
-          Restart = "no";
-        };
-      };
-
-    };
 }

@@ -18,22 +18,4 @@
 
   qt.enable = true;
 
-  home-manager.users.${config.user-config.name} = {
-    home = {
-      packages = [
-        # inputs.quickshell.packages.x86_64-linux.default
-        (inputs.quickshell.packages.${pkgs.system}.default.override {
-          withJemalloc = true;
-          withQtSvg = true;
-          withWayland = true;
-          withX11 = false;
-          withPipewire = true;
-          withPam = true;
-          withHyprland = false;
-          withI3 = false;
-        })
-
-      ];
-    };
-  };
 }

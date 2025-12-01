@@ -11,7 +11,6 @@
 
   programs = {
     niri.enable = true;
-    niri.config = null;
   };
 
   environment.systemPackages = [

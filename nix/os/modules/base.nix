@@ -48,7 +48,7 @@
     '';
   };
 
-  environment.enableAllTerminfo = true;
+  # environment.enableAllTerminfo = true;
 
   system = {
     autoUpgrade.enable = true;

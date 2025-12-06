@@ -91,6 +91,8 @@
           "deviceNativePath": "",
           "displayMode": "onhover",
           "id": "Battery",
+          "showNoctaliaPerformance": false,
+          "showPowerProfiles": false,
           "warningThreshold": 30
         },
         {
@@ -110,7 +112,9 @@
         },
         {
           "colorizeDistroLogo": false,
+          "colorizeSystemIcon": "none",
           "customIconPath": "",
+          "enableColorization": false,
           "icon": "",
           "id": "ControlCenter",
           "useDistroLogo": true
@@ -220,7 +224,6 @@
     "monitors": [],
     "onlySameOutput": true,
     "pinnedApps": [],
-    "radiusRatio": 0.1,
     "size": 1
   },
   "general": {
@@ -228,10 +231,12 @@
     "animationDisabled": false,
     "animationSpeed": 1,
     "avatarImage": "/home/haakemon/profile.png",
+    "boxRadiusRatio": 1,
     "compactLockScreen": false,
     "dimmerOpacity": 0.8,
     "enableShadows": false,
     "forceBlackScreenCorners": true,
+    "iRadiusRatio": 1,
     "language": "",
     "lockOnSuspend": false,
     "radiusRatio": 1,
@@ -336,7 +341,7 @@
     ],
     "showHeader": true
   },
-  "settingsVersion": 25,
+  "settingsVersion": 26,
   "systemMonitor": {
     "cpuCriticalThreshold": 90,
     "cpuPollingInterval": 3000,
@@ -360,6 +365,7 @@
     "cava": false,
     "code": false,
     "discord": false,
+    "emacs": false,
     "enableUserTemplates": false,
     "foot": false,
     "fuzzel": false,
@@ -367,6 +373,7 @@
     "gtk": false,
     "kcolorscheme": false,
     "kitty": false,
+    "niri": false,
     "pywalfox": false,
     "qt": false,
     "spicetify": false,
@@ -386,25 +393,13 @@
     "tooltipsEnabled": true
   },
   "wallpaper": {
-    "defaultWallpaper": "/nix/store/q8gbabnhr8b2r4s57d1pgchqvz0hf0cc-noctalia-shell-76a182a90cd31539019fb3c99f002ea56d028df3/share/noctalia-shell/Assets/Wallpaper/noctalia.png",
     "directory": "/home/haakemon/ProtonDrive/Wallpaper/5120x1440",
     "enableMultiMonitorDirectories": true,
     "enabled": true,
     "fillColor": "#000000",
     "fillMode": "crop",
     "hideWallpaperFilenames": false,
-    "monitors": [
-      {
-        "directory": "/home/haakemon/ProtonDrive/Wallpaper/1440x2560",
-        "name": "DP-2",
-        "wallpaper": "/home/haakemon/ProtonDrive/Wallpaper/1440x2560/Comics/Superhero-Wallpaper-04-1440x2560.jpg"
-      },
-      {
-        "directory": "/home/haakemon/ProtonDrive/Wallpaper/5120x1440",
-        "name": "DP-1",
-        "wallpaper": "/home/haakemon/ProtonDrive/Wallpaper/5120x1440/Nature/flower_49898351157_o.jpg"
-      }
-    ],
+    "monitorDirectories": [],
     "overviewEnabled": false,
     "panelPosition": "follow_bar",
     "randomEnabled": true,

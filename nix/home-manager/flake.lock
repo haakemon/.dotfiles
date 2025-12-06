@@ -24,6 +24,24 @@
         "url": "ssh://git@github.com/haakemon/.dotfiles-private.git"
       }
     },
+    "dotfiles-private-nonflake": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1765058790,
+        "narHash": "sha256-oRi3AqFQXnZ+x4KdpHtL9LEsTeEELax8mQbGlcD4Ue8=",
+        "ref": "main",
+        "rev": "4761f5ba3a8309b61598987542aea8c874e75b8c",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/haakemon/.dotfiles-private.git"
+      },
+      "original": {
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/haakemon/.dotfiles-private.git"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -191,6 +209,7 @@
     "root": {
       "inputs": {
         "dotfiles-private": "dotfiles-private",
+        "dotfiles-private-nonflake": "dotfiles-private-nonflake",
         "ghostty": "ghostty",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2",
@@ -198,7 +217,6 @@
         "noctalia": "noctalia",
         "quickshell": "quickshell",
         "sops-nix": "sops-nix",
-        "sops-secrets": "sops-secrets",
         "zen-browser": "zen-browser"
       }
     },
@@ -220,24 +238,6 @@
         "owner": "Mic92",
         "repo": "sops-nix",
         "type": "github"
-      }
-    },
-    "sops-secrets": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1748295691,
-        "narHash": "sha256-C1S9Eij7dtZEnuUVA8QdSVgN/7DIbRj5hSVqHiIiyCQ=",
-        "ref": "main",
-        "rev": "ca885706a1b56a6677b618a4c047a665f4bfb35e",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@github.com/haakemon/sops.git"
-      },
-      "original": {
-        "ref": "main",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@github.com/haakemon/sops.git"
       }
     },
     "systems": {

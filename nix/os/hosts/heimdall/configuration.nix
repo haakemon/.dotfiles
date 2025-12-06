@@ -5,7 +5,7 @@
 , ...
 }:
 let
-  secretspath = builtins.toString inputs.sops-secrets;
+  secretspath = builtins.toString inputs.dotfiles-private-nonflake;
 in
 {
   specialisation = {
@@ -240,31 +240,31 @@ in
   sops = {
     secrets = {
       "ssh/authorized_keys" = {
-        sopsFile = "${secretspath}/secrets/hosts/heimdall/heimdall.yaml";
+        sopsFile = "${secretspath}/sops/secrets/hosts/heimdall/heimdall.yaml";
         path = "${config.user-config.home}/.ssh/authorized_keys";
         owner = config.users.users.${config.user-config.name}.name;
         group = config.users.users.${config.user-config.name}.group;
         mode = "0640";
       };
       "ssh/id_ed25519" = {
-        sopsFile = "${secretspath}/secrets/hosts/heimdall/heimdall.yaml";
+        sopsFile = "${secretspath}/sops/secrets/hosts/heimdall/heimdall.yaml";
         path = "${config.user-config.home}/.ssh/id_ed25519";
         owner = config.users.users.${config.user-config.name}.name;
         group = config.users.users.${config.user-config.name}.group;
         mode = "0600";
       };
       "ssh/id_ed25519.pub" = {
-        sopsFile = "${secretspath}/secrets/hosts/heimdall/heimdall.yaml";
+        sopsFile = "${secretspath}/sops/secrets/hosts/heimdall/heimdall.yaml";
         path = "${config.user-config.home}/.ssh/id_ed25519.pub";
         owner = config.users.users.${config.user-config.name}.name;
         group = config.users.users.${config.user-config.name}.group;
         mode = "0644";
       };
       "env/cloudflare" = {
-        sopsFile = "${secretspath}/secrets/hosts/heimdall/heimdall.yaml";
+        sopsFile = "${secretspath}/sops/secrets/hosts/heimdall/heimdall.yaml";
       };
       "pwd/mosquitto" = {
-        sopsFile = "${secretspath}/secrets/hosts/heimdall/heimdall.yaml";
+        sopsFile = "${secretspath}/sops/secrets/hosts/heimdall/heimdall.yaml";
       };
     };
   };

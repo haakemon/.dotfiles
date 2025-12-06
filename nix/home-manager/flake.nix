@@ -41,29 +41,25 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sops-secrets = {
-      url = "git+ssh://git@github.com/haakemon/sops.git?ref=main&shallow=1";
-      flake = false;
-    };
-
     dotfiles-private = {
       url = "git+ssh://git@github.com/haakemon/.dotfiles-private.git?ref=main&shallow=1&dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    dotfiles-private-nonflake = {
+      url = "git+ssh://git@github.com/haakemon/.dotfiles-private.git?ref=main&shallow=1";
+      flake = false;
+    };
+
   };
 
   outputs =
     { self
     , nixpkgs
-    , home-manager
-    , sops-nix
-    , sops-secrets
-    , dotfiles-private
     , ...
     }@inputs:
     let
       system = "x86_64-linux";
-      # pkgs = nixpkgs.legacyPackages.${system};
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
@@ -72,7 +68,7 @@
     in
     {
       homeConfigurations = {
-        delling = home-manager.lib.homeManagerConfiguration {
+        delling = inputs.home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
 
           extraSpecialArgs = {
@@ -80,8 +76,8 @@
           };
 
           modules = [
-            sops-nix.homeManagerModules.sops
-            dotfiles-private.homeManagerModules.hosts.delling
+            inputs.sops-nix.homeManagerModules.sops
+            inputs.dotfiles-private.homeManagerModules.hosts.delling
             (
               { config, ... }:
               {
@@ -92,7 +88,7 @@
           ];
         };
 
-        odin = home-manager.lib.homeManagerConfiguration {
+        odin = inputs.home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
 
           extraSpecialArgs = {
@@ -100,8 +96,8 @@
           };
 
           modules = [
-            sops-nix.homeManagerModules.sops
-            dotfiles-private.homeManagerModules.hosts.odin
+            inputs.sops-nix.homeManagerModules.sops
+            inputs.dotfiles-private.homeManagerModules.hosts.odin
             (
               { config, ... }:
               {

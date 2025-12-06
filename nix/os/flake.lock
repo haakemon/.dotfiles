@@ -68,16 +68,34 @@
       },
       "locked": {
         "dir": "nix",
-        "lastModified": 1765057726,
-        "narHash": "sha256-2kNBZunKUxlbv5kQ9CMSf/ZkkVyYRiz9mnobrDVw6gU=",
+        "lastModified": 1765058790,
+        "narHash": "sha256-oRi3AqFQXnZ+x4KdpHtL9LEsTeEELax8mQbGlcD4Ue8=",
         "ref": "main",
-        "rev": "334367c3ffcbe56fa30e18c3c7fd531b61b4b768",
+        "rev": "4761f5ba3a8309b61598987542aea8c874e75b8c",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/haakemon/.dotfiles-private.git"
       },
       "original": {
         "dir": "nix",
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/haakemon/.dotfiles-private.git"
+      }
+    },
+    "dotfiles-private-nonflake": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1765058790,
+        "narHash": "sha256-oRi3AqFQXnZ+x4KdpHtL9LEsTeEELax8mQbGlcD4Ue8=",
+        "ref": "main",
+        "rev": "4761f5ba3a8309b61598987542aea8c874e75b8c",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/haakemon/.dotfiles-private.git"
+      },
+      "original": {
         "ref": "main",
         "shallow": true,
         "type": "git",
@@ -618,6 +636,7 @@
         "chaotic": "chaotic",
         "disko": "disko",
         "dotfiles-private": "dotfiles-private",
+        "dotfiles-private-nonflake": "dotfiles-private-nonflake",
         "ghostty": "ghostty",
         "home-manager-2405": "home-manager-2405",
         "niri": "niri",
@@ -630,7 +649,6 @@
         "nrk-hylla": "nrk-hylla",
         "quickshell": "quickshell",
         "sops-nix": "sops-nix",
-        "sops-secrets": "sops-secrets",
         "zeditor": "zeditor",
         "zen-browser": "zen-browser"
       }
@@ -711,24 +729,6 @@
         "owner": "Mic92",
         "repo": "sops-nix",
         "type": "github"
-      }
-    },
-    "sops-secrets": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1748295691,
-        "narHash": "sha256-C1S9Eij7dtZEnuUVA8QdSVgN/7DIbRj5hSVqHiIiyCQ=",
-        "ref": "main",
-        "rev": "ca885706a1b56a6677b618a4c047a665f4bfb35e",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@github.com/haakemon/sops.git"
-      },
-      "original": {
-        "ref": "main",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@github.com/haakemon/sops.git"
       }
     },
     "systems": {

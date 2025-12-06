@@ -1,6 +1,6 @@
 { config, pkgs, inputs, ... }:
 let
-  secretspath = builtins.toString inputs.sops-secrets;
+  secretspath = builtins.toString inputs.dotfiles-private-nonflake;
   keysFileLocation = "/etc/secrets/sops/age/keys.txt";
 in
 {
@@ -10,7 +10,7 @@ in
   ];
 
   sops = {
-    defaultSopsFile = "${secretspath}/secrets/common.yaml";
+    defaultSopsFile = "${secretspath}/sops/secrets/common.yaml";
     defaultSopsFormat = "yaml";
     age.keyFile = keysFileLocation;
 

@@ -159,8 +159,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sops-secrets = {
-      url = "git+ssh://git@github.com/haakemon/sops.git?ref=main&shallow=1";
+    dotfiles-private-nonflake = {
+      url = "git+ssh://git@github.com/haakemon/.dotfiles-private.git?ref=main&shallow=1";
       flake = false;
     };
 

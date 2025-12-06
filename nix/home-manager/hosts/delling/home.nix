@@ -4,7 +4,7 @@
 , ...
 }:
 let
-  secretspath = builtins.toString inputs.sops-secrets;
+  secretspath = builtins.toString inputs.dotfiles-private-nonflake;
 in
 {
   imports = [
@@ -85,7 +85,7 @@ in
 
   # sops-nix configuration
   sops = {
-    defaultSopsFile = "${secretspath}/secrets.yaml";
+    defaultSopsFile = "${secretspath}/sops/secrets.yaml";
     age.keyFile = "${config.user-config.home}/.config/sops/age/keys.txt";
   };
 

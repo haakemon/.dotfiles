@@ -1,58 +1,6 @@
 {
   description = "Home Manager configuration";
 
-  inputs = {
-    nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
-    };
-
-    nixpkgs-unstable-small = {
-      url = "github:NixOS/nixpkgs/nixos-unstable-small";
-    };
-
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    quickshell = {
-      url = "github:outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.quickshell.follows = "quickshell"; # Use same quickshell version
-    };
-
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    dotfiles-private = {
-      url = "git+ssh://git@github.com/haakemon/.dotfiles-private.git?ref=main&shallow=1&dir=nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    dotfiles-private-nonflake = {
-      url = "git+ssh://git@github.com/haakemon/.dotfiles-private.git?ref=main&shallow=1";
-      flake = false;
-    };
-
-  };
-
   outputs =
     { self
     , nixpkgs
@@ -109,4 +57,57 @@
         };
       };
     };
+
+  inputs = {
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+    };
+
+    nixpkgs-unstable-small = {
+      url = "github:NixOS/nixpkgs/nixos-unstable-small";
+    };
+
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    quickshell = {
+      url = "github:outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.quickshell.follows = "quickshell"; # Use same quickshell version
+    };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    dotfiles-private = {
+      url = "git+ssh://git@github.com/haakemon/.dotfiles-private.git?ref=main&shallow=1&dir=nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    dotfiles-private-nonflake = {
+      url = "git+ssh://git@github.com/haakemon/.dotfiles-private.git?ref=main&shallow=1";
+      flake = false;
+    };
+
+  };
+
 }

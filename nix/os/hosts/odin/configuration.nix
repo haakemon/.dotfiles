@@ -17,8 +17,6 @@ in
         ../../modules/niri.nix
         ../../modules/greetd.nix
         ../../modules/seahorse.nix
-        # ../../modules/swayosd.nix
-        # ../../modules/stylix.nix
       ];
     };
 
@@ -30,21 +28,10 @@ in
         ../../modules/sddm.nix
       ];
     };
-
-    # "03-cosmic".configuration = {
-    #   environment.etc."specialisation".text = "03-cosmic";
-    #   system.nixos.tags = [ "cosmic" ];
-    #   imports = [
-    #     ../../modules/cosmic.nix
-    #   ];
-    # };
   };
 
   imports = [
-    ./user-config.nix
     ./hardware-configuration.nix
-
-    # ../../modules/development.nix
 
     ../../modules/base.nix
     ../../modules/base_headfull.nix
@@ -56,31 +43,15 @@ in
     ../../modules/gaming.nix
     ../../modules/grub.nix
     ../../modules/zsh.nix
-    # ../../modules/thunar.nix
     ../../modules/nautilus.nix
     ../../modules/flatpak.nix
     ../../modules/logitech.nix
     ../../modules/openrgb.nix
     ../../modules/fstrim.nix
-    # ../../modules/printing.nix
     ../../modules/nh.nix
-    # ../../modules/git.nix
-    # ../../modules/rbw.nix
-    # ../../modules/3d-printing.nix
-    # ../../modules/obs-studio.nix
     ../../modules/qmk.nix
-    # ../../modules/keybase.nix
     ../../modules/sops.nix
   ];
-
-  # browsers = {
-  #   vivaldi = true;
-  #   firefox = true;
-  #   chromium = true;
-  #   ladybird = true;
-  #   zen = false;
-  #   browsers = false;
-  # };
 
   networking = {
     nameservers = [

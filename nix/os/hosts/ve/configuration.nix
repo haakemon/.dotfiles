@@ -9,7 +9,6 @@
   system.stateVersion = "24.05";
 
   imports = [
-    ./user-config.nix
     ../../modules/sops.nix
   ];
 

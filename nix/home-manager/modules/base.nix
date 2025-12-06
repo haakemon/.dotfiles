@@ -27,8 +27,8 @@ in
     # release notes.
     stateVersion = "24.05"; # Please read the comment before changing.
 
-    username = "${config.user-config.name}";
-    homeDirectory = "${config.user-config.home}";
+    username = config.user-config.name;
+    homeDirectory = config.user-config.home;
 
     sessionVariables = {
       # https://wiki.archlinux.org/title/XDG_Base_Directory

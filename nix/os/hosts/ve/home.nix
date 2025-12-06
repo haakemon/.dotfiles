@@ -3,12 +3,10 @@
 , pkgs
 , ...
 }:
-
+let
+  homeDir = "/data/data/com.termux.nix/files/home";
+in
 {
-  imports = [
-    ./user-config.nix
-  ];
-
   # Read the changelog before changing this value
   home = {
     stateVersion = "24.05";
@@ -18,7 +16,7 @@
 
     file = {
       ".config/fastfetch/config.jsonc".source =
-        config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/fastfetch/config.jsonc";
+        config.lib.file.mkOutOfStoreSymlink "${homeDir}/.dotfiles/fastfetch/config.jsonc";
     };
   };
 

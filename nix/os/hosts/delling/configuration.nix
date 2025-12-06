@@ -16,10 +16,9 @@ in
         ../../modules/niri.nix
         ../../modules/greetd.nix
         ../../modules/seahorse.nix
-        # ../../modules/swayosd.nix
-        # ../../modules/stylix.nix
       ];
     };
+
     "02-plasma".configuration = {
       environment.etc."specialisation".text = "02-plasma";
       system.nixos.tags = [ "plasma" ];
@@ -28,22 +27,11 @@ in
         ../../modules/sddm.nix
       ];
     };
-    "03-cosmic".configuration = {
-      environment.etc."specialisation".text = "03-cosmic";
-      system.nixos.tags = [ "cosmic" ];
-      imports = [
-        ../../modules/cosmic.nix
-      ];
-    };
   };
 
   imports = [
     ./configuration-local.nix
     ./hardware-configuration.nix
-
-    ../../config-options.nix
-    ../../user-options.nix
-    ../../system-options.nix
 
     inputs.nrk-hylla.nixosModules
 
@@ -71,7 +59,6 @@ in
     # ../../modules/obs-studio.nix # https://github.com/NixOS/nixpkgs/pull/436682
     ../../modules/upower.nix
     ../../modules/qmk.nix
-    ../../modules/keybase.nix
     ../../modules/sops.nix
   ];
 

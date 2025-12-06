@@ -8,9 +8,6 @@ let
 in
 {
   imports = [
-    ../../user-options.nix
-    ../../system-options.nix
-
     ../../modules/base.nix
     ../../modules/base_headfull.nix
     ../../modules/browsers.nix

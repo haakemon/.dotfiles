@@ -1,13 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  user-config = {
-    name = "haakemon";
-  };
-
   imports = [
-    ../../user-options.nix
-    ../../system-options.nix
 
     # TODO: Review
     # ../../modules/base.nix

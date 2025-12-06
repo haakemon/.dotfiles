@@ -30,7 +30,6 @@ in
   };
 
   imports = [
-    ./user-config.nix
     ./hardware-configuration.nix
 
     ../../modules/base.nix
@@ -47,7 +46,6 @@ in
     ../../modules/nh.nix
     ../../modules/git.nix
     ../../modules/rbw.nix
-    ../../modules/keybase.nix
     ../../modules/sops.nix
   ];
 

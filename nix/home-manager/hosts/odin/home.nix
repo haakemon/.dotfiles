@@ -1,14 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  user-config = {
-    name = "haakemon";
-  };
-
   imports = [
-    ../../user-options.nix
-    ../../system-options.nix
-
     ../../modules/base.nix
     ../../modules/base_headfull.nix
     ../../modules/browsers.nix
@@ -26,7 +19,7 @@
 
   home = {
     stateVersion = "24.05";
-    username = "haakemon";
+    username = config.user-config.name;
     homeDirectory = config.user-config.home;
 
     packages = [

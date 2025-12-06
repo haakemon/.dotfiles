@@ -14,7 +14,6 @@ in
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
 
-    ./user-config.nix
     ./hardware-configuration.nix
 
     ../../modules/base.nix

@@ -124,6 +124,11 @@ window-rule {
   open-on-output "Sharp Corporation 0x1516 Unknown" // Laptop
 }
 
+// TV in Ullevål meeting room
+output "Sony SONY TV  *00 0x01010101" {
+  scale 2.8
+}
+
 output "Sharp Corporation 0x1516 Unknown" {
   position x=4000 y=950 // Office
   // position x=6140 y=0 // Home

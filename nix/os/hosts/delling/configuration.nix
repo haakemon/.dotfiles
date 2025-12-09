@@ -35,8 +35,6 @@ in
 
     inputs.nrk-hylla.nixosModules
 
-    ../../modules/development.nix
-
     ../../modules/base.nix
     ../../modules/base_headfull.nix
     ../../modules/networking.nix
@@ -49,28 +47,12 @@ in
     ../../modules/logitech.nix
     ../../modules/fstrim.nix
     ../../modules/printing.nix
-    # ../../modules/thunar.nix
     ../../modules/nautilus.nix
-    ../../modules/browsers.nix
-    ../../modules/noctalia.nix
     ../../modules/nh.nix
-    ../../modules/git.nix
-    ../../modules/rbw.nix
-    # ../../modules/obs-studio.nix # https://github.com/NixOS/nixpkgs/pull/436682
     ../../modules/upower.nix
     ../../modules/qmk.nix
     ../../modules/sops.nix
   ];
-
-  browsers = {
-    vivaldi = true;
-    firefox = true;
-    chromium = true;
-    ladybird = true;
-    zen = false;
-    browsers = true;
-    google-chrome = true;
-  };
 
   boot = {
     loader = {

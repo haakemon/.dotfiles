@@ -67,7 +67,6 @@
     zsh = {
       initContent = ''
         #region initContent development.nix
-        source "''${HOME}/.dotfiles/nix/devenv/nix.devenv.zsh"
         source "''${HOME}/.dotfiles/zsh/fnm.zsh"
 
         #endregion initContent development.nix

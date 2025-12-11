@@ -48,4 +48,18 @@
     zen = false;
     browsers = false;
   };
+
+  systemd.user.services.steam-bpm-niri = {
+    Unit = {
+      Description = "Watch for Steam Big Picture Mode and adjust Niri";
+      After = "default.target";
+    };
+    Service = {
+      Type = "exec";
+      ExecStart = "${config.home.homeDirectory}/.dotfiles/niri/steam-bpm-niri";
+      StandardOutput = "journal";
+      Restart = "always";
+    };
+  };
+
 }

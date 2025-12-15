@@ -108,7 +108,7 @@ debug {
 // Dell Inc. DELL U2719D 7N8WTS2 - home side monitor
 // Samsung Electric Company LS49AG95 HNTRA00432 - home primary monitor
 // Dell Inc. DELL U2715H GH85D5290F5L - office side monitor
-// Dell Inc. DELL P2720DC 6DNVMK3 - office primary monitor
+// Lenovo Group Limited P34WD-40 V30F0YP5 - office primary monitor
 
 // window-rule {
 //   match app-id=r#"^Code$"#
@@ -130,7 +130,7 @@ output "Sony SONY TV  *00 0x01010101" {
 }
 
 output "Sharp Corporation 0x1516 Unknown" {
-  position x=4000 y=950 // Office
+  position x=4880 y=950 // Office
   // position x=6140 y=0 // Home
   scale 2
 }
@@ -146,13 +146,13 @@ output "Samsung Electric Company LS49AG95 HNTRA00432" {
   // scale 0.75
 }
 
-output "Dell Inc. DELL U2715H GH85D5290F5L" {
-  transform "90"
-  position x=2560 y=0
+output "Lenovo Group Limited P34WD-40 V30F0YP5" {
+  position x=0 y=625
 }
 
-output "Dell Inc. DELL P2720DC 6DNVMK3" {
-  position x=0 y=625
+output "Dell Inc. DELL U2715H GH85D5290F5L" {
+  transform "90"
+  position x=3440 y=0
 }
 
 window-rule {

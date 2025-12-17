@@ -5,12 +5,12 @@ BPM_OUTPUT="DP-1"
 
 enter_bpm() {
     echo "BPM entered"
-    niri msg output "Dell Inc. DELL U2719D 7N8WTS2" transform normal
+    sleep 2s && niri msg output "Dell Inc. DELL U2719D 7N8WTS2" transform normal
 }
 
 exit_bpm() {
     echo "BPM exited"
-    niri msg output "Dell Inc. DELL U2719D 7N8WTS2" transform 270
+    sleep 2s && niri msg output "Dell Inc. DELL U2719D 7N8WTS2" transform 270
     BPM_WINDOW_ID=""
 }
 

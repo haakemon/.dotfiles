@@ -18,7 +18,6 @@
           modules = [
             ./hosts/odin/configuration.nix
             inputs.chaotic.nixosModules.default
-            inputs.niri.nixosModules.niri
             # inputs.stylix.nixosModules.stylix
             inputs.dotfiles-private.nixosModules.hosts.odin
             (
@@ -38,7 +37,6 @@
           modules = [
             ./hosts/delling/configuration.nix
             inputs.chaotic.nixosModules.default
-            inputs.niri.nixosModules.niri
             # inputs.stylix.nixosModules.stylix
             inputs.dotfiles-private.nixosModules.hosts.delling
             (
@@ -116,12 +114,6 @@
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
     };
 
     # stylix = {

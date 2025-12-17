@@ -52,7 +52,7 @@
   systemd.user.services.steam-bpm-niri = {
     Unit = {
       Description = "Watch for Steam Big Picture Mode and adjust Niri";
-      After = "default.target";
+      After = "network-online.target";
     };
     Service = {
       Type = "exec";

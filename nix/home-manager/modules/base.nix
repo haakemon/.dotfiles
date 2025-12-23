@@ -89,6 +89,7 @@ in
       pkgs.systemctl-tui
       pkgs.lazyjournal # journalctl tool
       pkgs.ugm # user group browser
+      pkgs.brightnessctl
 
       pkgs.filen-cli
 

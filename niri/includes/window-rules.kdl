@@ -1,0 +1,69 @@
+window-rule {
+  match app-id=r#"^slack$"#
+  match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+  match app-id=r#"^org\.gnome\.World\.Secrets$"#
+  match app-id=r#"^org\.telegram\.desktop$"#
+  match app-id=r#"^Bitwarden$"#
+  match app-id=r#"^Proton Pass$"#
+  match title=r#"Mail"#
+
+  block-out-from "screen-capture"
+}
+
+window-rule {
+  geometry-corner-radius 20
+  clip-to-geometry true
+  draw-border-with-background false
+  opacity 0.98
+}
+
+window-rule {
+  match is-window-cast-target=true
+  match is-urgent=true
+
+  focus-ring {
+    off
+  }
+
+  border {
+    on
+    width 8
+    active-color "#ff0000"
+    inactive-color "#ff0000"
+  }
+
+  shadow {
+    on
+    softness 4
+    spread 4
+    offset x=0 y=0
+    draw-behind-window true
+    color "#ff0000"
+  }
+
+  tab-indicator {
+    active-color "#ff0000"
+    inactive-color "#ff0000"
+  }
+}
+
+// Work around WezTerm's initial configure bug
+// by setting an empty default-column-width.
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+window-rule {
+  match app-id=r#"^org.pulseaudio.pavucontrol$"#
+  open-floating true
+}
+
+window-rule {
+  match app-id=r#"^banana\.clipsepaste$"#
+  block-out-from "screen-capture"
+  open-floating true
+}

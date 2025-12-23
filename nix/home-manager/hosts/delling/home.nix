@@ -53,9 +53,6 @@ in
     ];
 
     file = {
-      ".config/niri/config.kdl".source =
-        config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/niri/config-delling.kdl";
-
       ".config/noctalia/colors.json".source =
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/quickshell/noctalia/delling/colors.json";
       ".config/noctalia/gui-settings.json".source =

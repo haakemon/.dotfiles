@@ -1,0 +1,20 @@
+include "./includes/base.kdl"
+include "./includes/input.kdl"
+include "./includes/layout.kdl"
+include "./includes/window-rules.kdl"
+include "./includes/keybinds.kdl"
+
+output "Samsung Electric Company LS49AG95 HNTRA00432" {
+  position x=0 y=0
+}
+
+output "Dell Inc. DELL U2719D 7N8WTS2" {
+  transform "270"
+  position x=5120 y=-220
+}
+
+// See also scripts/steam-bpm-niri
+window-rule {
+  match title="Steam Big Picture Mode"
+  open-on-output "Dell Inc. DELL U2719D 7N8WTS2"
+}

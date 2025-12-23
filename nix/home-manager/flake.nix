@@ -21,6 +21,7 @@
 
           extraSpecialArgs = {
             inherit inputs;
+            hostName = "delling";
           };
 
           modules = [
@@ -41,6 +42,7 @@
 
           extraSpecialArgs = {
             inherit inputs;
+            hostName = "odin";
           };
 
           modules = [

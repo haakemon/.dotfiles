@@ -29,8 +29,6 @@
     ];
 
     file = {
-      ".config/niri/config.kdl".source =
-        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/niri/config.kdl";
       ".config/noctalia/colors.json".source =
         config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/quickshell/noctalia/odin/colors.json";
       ".config/noctalia/gui-settings.json".source =
@@ -52,11 +50,11 @@
   systemd.user.services.steam-bpm-niri = {
     Unit = {
       Description = "Watch for Steam Big Picture Mode and adjust Niri";
-      After = "network-online.target";
+      After = "graphical-session.target";
     };
     Service = {
       Type = "exec";
-      ExecStart = "${config.home.homeDirectory}/.dotfiles/niri/steam-bpm-niri";
+      ExecStart = "${config.home.homeDirectory}/.dotfiles/niri/scripts/steam-bpm-niri";
       StandardOutput = "journal";
       Restart = "always";
     };

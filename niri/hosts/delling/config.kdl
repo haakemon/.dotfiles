@@ -1,0 +1,48 @@
+include "./includes/base.kdl"
+include "./includes/input.kdl"
+include "./includes/layout.kdl"
+include "./includes/window-rules.kdl"
+include "./includes/keybinds.kdl"
+
+// Monitor config
+// Sharp Corporation 0x1516 Unknown - laptop monitor
+// Dell Inc. DELL U2719D 7N8WTS2 - home side monitor
+// Samsung Electric Company LS49AG95 HNTRA00432 - home primary monitor
+// Dell Inc. DELL U2715H GH85D5290F5L - office side monitor
+// Lenovo Group Limited P34WD-40 V30F0YP5 - office primary monitor
+// Sony SONY TV  *00 0x01010101 - TV in Ullevål meeting room
+
+output "Sony SONY TV  *00 0x01010101" {
+  scale 2.8
+}
+
+output "Sharp Corporation 0x1516 Unknown" {
+  position x=4880 y=950 // Office
+  // position x=6140 y=0 // Home
+  scale 2
+}
+
+output "Lenovo Group Limited P34WD-40 V30F0YP5" {
+  position x=0 y=625
+}
+
+output "Dell Inc. DELL U2715H GH85D5290F5L" {
+  transform "90"
+  position x=3440 y=0
+}
+
+output "Dell Inc. DELL U2719D 7N8WTS2" {
+  transform "270"
+  position x=5120 y=-220
+}
+
+output "Samsung Electric Company LS49AG95 HNTRA00432" {
+  mode "5120x1440"
+  position x=0 y=0
+}
+
+window-rule {
+  match app-id=r#"^chromium-browser$"#
+  open-maximized true
+  open-on-output "Sharp Corporation 0x1516 Unknown" // Laptop
+}

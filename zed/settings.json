@@ -7,7 +7,10 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
-  "icon_theme": "VSCode Icons (Dark)",
+  "code_actions_on_format": {
+    "source.fixAll.eslint": true
+  },
+  "icon_theme": "VSCode Icons for Zed (Dark)",
   "ssh_connections": [
     {
       "host": "192.168.2.9",
@@ -41,11 +44,7 @@
     "light": "One Light",
     "dark": "Catppuccin Macchiato"
   },
-  "formatter": {
-    "code_actions": {
-      "source.fixAll.eslint": true
-    }
-  },
+  "formatter": [],
   "auto_install_extensions": {
     "docker-compose": true,
     "dockerfile": true,

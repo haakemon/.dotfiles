@@ -9,6 +9,7 @@ in
 {
   services = {
     gnome.gnome-keyring.enable = true;
+    orca.enable = true;
     xserver = {
       enable = true;
       xkb.layout = "no";

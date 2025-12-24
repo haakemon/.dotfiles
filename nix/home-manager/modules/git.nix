@@ -5,6 +5,7 @@ in
 {
 
   home.packages = [
+    pkgs.prek # pre-commit alternative
     pkgs.pre-commit
     pkgs.gh # github cli
     pkgs.nixpkgs-fmt # formatting .nix files

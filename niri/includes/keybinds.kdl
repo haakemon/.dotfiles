@@ -9,6 +9,7 @@ binds {
     Mod+V { spawn "ghostty" "--class=banana.clipsepaste" "-e" "clipse"; }
 
     Mod+C { close-window; }
+    Mod+E { switch-preset-column-width; }
 
     Print { screenshot; }
     Ctrl+Print { set-dynamic-cast-window; }

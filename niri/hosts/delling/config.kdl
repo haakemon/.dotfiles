@@ -39,6 +39,10 @@ output "Dell Inc. DELL U2719D 7N8WTS2" {
 output "Samsung Electric Company LS49AG95 HNTRA00432" {
   mode "5120x1440"
   position x=0 y=0
+
+  layout {
+    default-column-width { proportion 0.33333; }
+  }
 }
 
 window-rule {

@@ -24,11 +24,11 @@
     pkgs.bat
     pkgs.zsh-powerlevel10k
     pkgs.onefetch
-    pkgs.pre-commit
+    pkgs.prek
     pkgs.nixpkgs-fmt # formatting .nix files
     pkgs.nixfmt-rfc-style # formatting .nix files
-    pkgs.gcc # requirement for pre-commit nixpkgs-fmt
-    pkgs.rustup # requirement for pre-commit nixpkgs-fmt
+    pkgs.gcc # requirement for nixpkgs-fmt in prek
+    pkgs.rustup # requirement for nixpkgs-fmt in prek
     pkgs.zoxide
   ];
 

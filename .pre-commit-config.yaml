@@ -1,4 +1,4 @@
-# https://pre-commit.com/hooks.html
+# https://github.com/j178/prek
 exclude: '\.lock$|pnpm-lock\.ya?ml$'
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks

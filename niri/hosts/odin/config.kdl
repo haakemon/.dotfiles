@@ -15,6 +15,10 @@ output "Samsung Electric Company LS49AG95 HNTRA00432" {
 output "Dell Inc. DELL U2719D 7N8WTS2" {
   transform "270"
   position x=5120 y=-220
+
+  layout {
+    default-column-width { proportion 1.0; }
+  }
 }
 
 // See also scripts/steam-bpm-niri

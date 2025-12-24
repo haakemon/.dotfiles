@@ -29,11 +29,19 @@ output "Lenovo Group Limited P34WD-40 V30F0YP5" {
 output "Dell Inc. DELL U2715H GH85D5290F5L" {
   transform "90"
   position x=3440 y=0
+
+  layout {
+    default-column-width { proportion 1.0; }
+  }
 }
 
 output "Dell Inc. DELL U2719D 7N8WTS2" {
   transform "270"
   position x=5120 y=-220
+
+  layout {
+    default-column-width { proportion 1.0; }
+  }
 }
 
 output "Samsung Electric Company LS49AG95 HNTRA00432" {

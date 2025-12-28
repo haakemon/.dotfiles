@@ -23,7 +23,7 @@ services:
   zigbee2mqtt:
     <<: *common-app-config
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:2.6.3@sha256:3baac2a3b74a9945fbbcb665b3e6e0ace5df2d49b5502e3d26b66a5454316e81
+    image: koenkk/zigbee2mqtt:2.7.1@sha256:163e7351430a95d550d5b1bb958527edc1eff115eb013ca627f3545a192e853f
     network_mode: host
     ports:
       - 127.0.0.1:8089:8089
@@ -38,7 +38,7 @@ services:
   zwavejs2mqtt:
     <<: *common-app-config
     container_name: zwavejs2mqtt
-    image: zwavejs/zwavejs2mqtt:11.7.0@sha256:667d1fdab93ae48775e4ac30ee8393f50b2b33396d67f170920c01d0250eca81
+    image: zwavejs/zwavejs2mqtt:11.8.2@sha256:44b7c28b61cb0515e7aa48f69bbe4ea4d8b5047c583e69189d62f2944dd8fc47
     network_mode: host
     volumes:
       - '$DATADIR/zwavejs2mqtt/store:/usr/src/app/store'

@@ -50,13 +50,14 @@
   systemd.user.services.steam-bpm-niri = {
     Unit = {
       Description = "Watch for Steam Big Picture Mode and adjust Niri";
-      After = "graphical-session.target";
+      After = [ "graphical-session-pre.target" ];
+      PartOf = [ "graphical-session.target" ];
     };
     Service = {
       Type = "exec";
       ExecStart = "${config.home.homeDirectory}/.dotfiles/niri/scripts/steam-bpm-niri";
       StandardOutput = "journal";
-      Restart = "always";
+      Restart = "on-failure";
     };
   };
 

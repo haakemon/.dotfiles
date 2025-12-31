@@ -5,6 +5,7 @@
     "enableClipPreview": true,
     "enableClipboardHistory": false,
     "iconMode": "tabler",
+    "ignoreMouseInput": false,
     "pinnedExecs": [],
     "position": "center",
     "showCategories": true,
@@ -23,6 +24,7 @@
     "volumeStep": 5
   },
   "bar": {
+    "backgroundOpacity": 0,
     "capsuleOpacity": 1,
     "density": "default",
     "exclusive": true,
@@ -34,7 +36,7 @@
     "position": "top",
     "showCapsule": true,
     "showOutline": false,
-    "transparent": true,
+    "useSeparateOpacity": true,
     "widgets": {
       "center": [
         {
@@ -83,18 +85,29 @@
           "colorizeIcons": false,
           "enableScrollWheel": true,
           "followFocusedScreen": false,
+          "groupedBorderOpacity": 1,
           "hideUnoccupied": false,
+          "iconScale": 0.8,
           "id": "Workspace",
           "labelMode": "index",
           "showApplications": false,
-          "showLabelsOnlyWhenOccupied": true
+          "showLabelsOnlyWhenOccupied": true,
+          "unfocusedIconsOpacity": 1
         },
         {
+          "defaultSettings": {
+            "hideBackground": false,
+            "minimumThreshold": 10
+          },
           "id": "plugin:catwalk"
         }
       ],
       "right": [
         {
+          "defaultSettings": {
+            "hideInactive": false,
+            "removeMargins": false
+          },
           "id": "plugin:privacy-indicator"
         },
         {
@@ -123,6 +136,7 @@
           "formatHorizontal": "HH:mm ddd, MMM dd",
           "formatVertical": "HH mm - dd MM",
           "id": "Clock",
+          "tooltipFormat": "HH:mm ddd, MMM dd",
           "useCustomFont": false,
           "usePrimaryColor": true
         },
@@ -267,7 +281,7 @@
     "lockOnSuspend": false,
     "radiusRatio": 1,
     "scaleRatio": 1,
-    "screenRadiusRatio": 0.48,
+    "screenRadiusRatio": 0.9,
     "shadowDirection": "bottom_right",
     "shadowOffsetX": 2,
     "shadowOffsetY": 3,
@@ -319,6 +333,11 @@
     "normalUrgencyDuration": 8,
     "overlayLayer": false,
     "respectExpireTimeout": false,
+    "saveToHistory": {
+      "critical": true,
+      "low": true,
+      "normal": true
+    },
     "sounds": {
       "criticalSoundFile": "",
       "enabled": false,
@@ -342,6 +361,7 @@
     "audioCodec": "opus",
     "audioSource": "default_output",
     "colorRange": "limited",
+    "copyToClipboard": false,
     "directory": "/home/haakemon/Videos",
     "frameRate": 60,
     "quality": "very_high",
@@ -392,18 +412,21 @@
         "enabled": true
       }
     ],
-    "showHeader": true
+    "showHeader": true,
+    "showNumberLabels": true
   },
-  "settingsVersion": 32,
+  "settingsVersion": 36,
   "systemMonitor": {
     "cpuCriticalThreshold": 90,
     "cpuPollingInterval": 3000,
     "cpuWarningThreshold": 80,
     "criticalColor": "",
     "diskCriticalThreshold": 90,
+    "diskPath": "/",
     "diskPollingInterval": 3000,
     "diskWarningThreshold": 80,
     "enableDgpuMonitoring": false,
+    "externalMonitor": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor",
     "gpuCriticalThreshold": 90,
     "gpuPollingInterval": 3000,
     "gpuWarningThreshold": 80,
@@ -475,6 +498,7 @@
     "transitionEdgeSmoothness": 0.05,
     "transitionType": "random",
     "useWallhaven": false,
+    "wallhavenApiKey": "",
     "wallhavenCategories": "111",
     "wallhavenOrder": "desc",
     "wallhavenPurity": "100",
@@ -483,6 +507,7 @@
     "wallhavenResolutionHeight": "",
     "wallhavenResolutionMode": "atleast",
     "wallhavenResolutionWidth": "",
-    "wallhavenSorting": "relevance"
+    "wallhavenSorting": "relevance",
+    "wallpaperChangeMode": "random"
   }
 }

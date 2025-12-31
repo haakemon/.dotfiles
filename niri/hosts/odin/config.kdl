@@ -6,6 +6,7 @@ include "./includes/keybinds.kdl"
 
 output "Samsung Electric Company LS49AG95 HNTRA00432" {
   position x=0 y=0
+  // mode "2560x1440@239.901" // Terraria workaround
 
   layout {
     default-column-width { proportion 0.33333; }

@@ -25,9 +25,8 @@
 
   programs.noctalia-shell = {
     enable = true;
+    systemd.enable = true;
   };
-
-  programs.noctalia-shell.systemd.enable = true;
 
   # home = {
   #   file = {

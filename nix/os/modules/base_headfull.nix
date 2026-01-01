@@ -25,6 +25,13 @@ in
     };
     gvfs.enable = true; # Mount, trash, and other functionalities
     playerctld.enable = true;
+    tuned.enable = true;
+    upower = {
+      enable = true;
+      percentageLow = 15;
+      percentageCritical = 6;
+      percentageAction = 3;
+    };
   };
 
   xdg.icons.enable = true;

@@ -45,11 +45,9 @@ in
     ../../modules/grub.nix
     ../../modules/zsh.nix
     ../../modules/logitech.nix
-    ../../modules/fstrim.nix
     ../../modules/printing.nix
     ../../modules/nautilus.nix
     ../../modules/nh.nix
-    ../../modules/upower.nix
     ../../modules/qmk.nix
     ../../modules/sops.nix
   ];

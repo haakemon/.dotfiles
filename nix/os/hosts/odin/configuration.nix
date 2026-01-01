@@ -47,7 +47,6 @@ in
     ../../modules/flatpak.nix
     ../../modules/logitech.nix
     ../../modules/openrgb.nix
-    ../../modules/fstrim.nix
     ../../modules/nh.nix
     ../../modules/qmk.nix
     ../../modules/sops.nix

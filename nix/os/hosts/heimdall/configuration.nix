@@ -42,7 +42,6 @@ in
     ../../modules/adguard.nix
     ../../modules/grub.nix
     ../../modules/zsh.nix
-    ../../modules/fstrim.nix
     ../../modules/nh.nix
     ../../modules/git.nix
     ../../modules/rbw.nix

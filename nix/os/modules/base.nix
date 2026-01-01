@@ -16,6 +16,10 @@
       collector.enable = true;
       settings.web.listen.port = 8999;
     };
+    fstrim = {
+      enable = true;
+      interval = "weekly";
+    };
   };
 
   console.keyMap = "no";

@@ -6,7 +6,7 @@
 {
   home = {
     packages = [
-      pkgs.qmk
+      # pkgs.qmk # https://github.com/NixOS/nixpkgs/pull/475990
     ];
 
     sessionVariables = {

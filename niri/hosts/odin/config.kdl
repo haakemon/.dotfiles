@@ -27,3 +27,9 @@ window-rule {
   match title="Steam Big Picture Mode"
   open-on-output "Dell Inc. DELL U2719D 7N8WTS2"
 }
+
+window-rule {
+  match title=r#"Terraria"#
+  open-maximized true
+  open-on-output "Samsung Electric Company LS49AG95 HNTRA00432"
+}

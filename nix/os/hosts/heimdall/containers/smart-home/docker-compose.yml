@@ -28,7 +28,8 @@ services:
     ports:
       - 127.0.0.1:8095:8095
     volumes:
-      - '$DATADIR/music-assistant:/data/'
+      - '$DATADIR/music-assistant/data:/data'
+      - '$DATADIR/music-assistant/media:/media'
     cap_add:
       - SYS_ADMIN
       - DAC_READ_SEARCH

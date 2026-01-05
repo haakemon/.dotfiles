@@ -51,7 +51,7 @@ in
       enable = true;
 
       allowed-origins = [
-        "https://cockpit.${config.configOptions.acme.domain}"
+        "https://cockpit.${config.system-config.acme.domain}"
       ];
     };
     hardware.bolt.enable = true;
@@ -76,9 +76,9 @@ in
               certResolver = "letsencrypt";
               domains = [
                 {
-                  main = "${config.configOptions.acme.domain}";
+                  main = "${config.system-config.acme.domain}";
                   sans = [
-                    "*.${config.configOptions.acme.domain}"
+                    "*.${config.system-config.acme.domain}"
                   ];
                 }
               ];
@@ -117,97 +117,97 @@ in
 
         routers = {
           homarr = {
-            rule = "Host(`${config.configOptions.acme.domain}`)";
+            rule = "Host(`${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "homarr";
           };
 
           traefik = {
-            rule = "Host(`traefik.${config.configOptions.acme.domain}`)";
+            rule = "Host(`traefik.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "api@internal";
           };
 
           cockpit = {
-            rule = "Host(`cockpit.${config.configOptions.acme.domain}`)";
+            rule = "Host(`cockpit.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "cockpit";
           };
 
           valetudo = {
-            rule = "Host(`valetudo.${config.configOptions.acme.domain}`)";
+            rule = "Host(`valetudo.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "valetudo";
           };
 
           zigbee2mqtt = {
-            rule = "Host(`zigbee2mqtt.${config.configOptions.acme.domain}`)";
+            rule = "Host(`zigbee2mqtt.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "zigbee2mqtt";
           };
 
           zwavejs2mqtt = {
-            rule = "Host(`zwavejs2mqtt.${config.configOptions.acme.domain}`)";
+            rule = "Host(`zwavejs2mqtt.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "zwavejs2mqtt";
           };
 
           hass = {
-            rule = "Host(`hass.${config.configOptions.acme.domain}`)";
+            rule = "Host(`hass.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "hass";
           };
 
           music = {
-            rule = "Host(`music.${config.configOptions.acme.domain}`)";
+            rule = "Host(`music.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "music";
           };
 
           memories = {
-            rule = "Host(`memories.${config.configOptions.acme.domain}`)";
+            rule = "Host(`memories.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "memories";
           };
 
           teslamate = {
-            rule = "Host(`tesla.${config.configOptions.acme.domain}`)";
+            rule = "Host(`tesla.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "teslamate";
           };
 
           "teslamate-stats" = {
-            rule = "Host(`tesla-stats.${config.configOptions.acme.domain}`)";
+            rule = "Host(`tesla-stats.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "teslamate-stats";
           };
 
           adguard = {
-            rule = "Host(`adguard.${config.configOptions.acme.domain}`)";
+            rule = "Host(`adguard.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "adguard";
           };
 
           status = {
-            rule = "Host(`status.${config.configOptions.acme.domain}`)";
+            rule = "Host(`status.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "status";
           };
 
           scrutiny = {
-            rule = "Host(`scrutiny.${config.configOptions.acme.domain}`)";
+            rule = "Host(`scrutiny.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "scrutiny";
           };
 
           money = {
-            rule = "Host(`money.${config.configOptions.acme.domain}`)";
+            rule = "Host(`money.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "money";
           };
 
           food = {
-            rule = "Host(`food.${config.configOptions.acme.domain}`)";
+            rule = "Host(`food.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "food";
           };

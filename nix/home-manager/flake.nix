@@ -57,6 +57,27 @@
             ./hosts/odin/home.nix
           ];
         };
+
+        heimdall = inputs.home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+
+          extraSpecialArgs = {
+            inherit inputs;
+            hostName = "heimdall";
+          };
+
+          modules = [
+            inputs.sops-nix.homeManagerModules.sops
+            inputs.dotfiles-private.homeManagerModules.hosts.heimdall
+            (
+              { config, ... }:
+              {
+                nixpkgs.overlays = [ (mkOverlays config) ];
+              }
+            )
+            ./hosts/heimdall/home.nix
+          ];
+        };
       };
     };
 

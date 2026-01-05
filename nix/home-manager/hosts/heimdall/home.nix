@@ -2,21 +2,20 @@
 
 {
   imports = [
-
-    # TODO: Review
-    # ../../modules/base.nix
-    # ../../modules/browsers.nix
-    # ../../modules/development.nix
-    # ../../modules/git.nix
-    # ../../modules/hypridle.nix
-    # ../../modules/hyprlock.nix
-    # ../../modules/mitmproxy.nix
-    # ../../modules/noctalia.nix
-    # ../../modules/obs-studio.nix
-    # ../../modules/qmk.nix
-    # ../../modules/zsh.nix
-    # ../../modules/niri.nix
+    ../../modules/base.nix
+    ../../modules/development.nix
+    ../../modules/git.nix
+    ../../modules/mitmproxy.nix
+    ../../modules/qmk.nix
+    ../../modules/zsh.nix
   ];
+
+  home = {
+    stateVersion = "24.05";
+    username = config.user-config.name;
+    homeDirectory = config.user-config.home;
+
+  };
 
   # TODO: Replace this
   # systemd.user.timers."rclone-proton-immich" = {

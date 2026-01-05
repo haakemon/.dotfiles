@@ -8,10 +8,10 @@
       },
       "locked": {
         "dir": "nix",
-        "lastModified": 1767340073,
-        "narHash": "sha256-60eXFsGQSXL66bOqVd04EZkngOOK0qMjbF2zkbjgxh4=",
+        "lastModified": 1767641821,
+        "narHash": "sha256-cXixmOEAnaG69zU+OWj4Pw8FwYZoQn+WMR5iVUR7GZE=",
         "ref": "main",
-        "rev": "4809fa47242c4dc2bf056a9349b0028215a267c9",
+        "rev": "65e20c6b719871739ad6054d28d887c39ae003d9",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/haakemon/.dotfiles-private.git"
@@ -27,10 +27,10 @@
     "dotfiles-private-nonflake": {
       "flake": false,
       "locked": {
-        "lastModified": 1767340073,
-        "narHash": "sha256-60eXFsGQSXL66bOqVd04EZkngOOK0qMjbF2zkbjgxh4=",
+        "lastModified": 1767641821,
+        "narHash": "sha256-cXixmOEAnaG69zU+OWj4Pw8FwYZoQn+WMR5iVUR7GZE=",
         "ref": "main",
-        "rev": "4809fa47242c4dc2bf056a9349b0028215a267c9",
+        "rev": "65e20c6b719871739ad6054d28d887c39ae003d9",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/haakemon/.dotfiles-private.git"

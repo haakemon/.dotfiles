@@ -9,7 +9,6 @@
     ../../modules/base_headfull.nix
     ../../modules/browsers.nix
     ../../modules/development.nix
-    ../../modules/git.nix
     ../../modules/hypridle.nix
     ../../modules/hyprlock.nix
     ../../modules/mitmproxy.nix

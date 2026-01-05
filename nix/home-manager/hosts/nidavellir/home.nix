@@ -3,7 +3,6 @@
 {
   imports = [
     ../../modules/base.nix
-    ../../modules/git.nix
     ../../modules/zsh.nix
   ];
 

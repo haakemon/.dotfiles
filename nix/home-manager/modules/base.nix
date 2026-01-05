@@ -1,18 +1,78 @@
 { config
 , pkgs
 , lib
+, inputs
 , ...
 }:
 let
-  gtkThemeName = "adw-gtk3-dark";
+  secretspath = builtins.toString inputs.dotfiles-private-nonflake;
 in
 {
-  programs.home-manager.enable = true;
+  programs = {
+    home-manager.enable = true;
+    bash = {
+      enable = true;
+      enableCompletion = true;
+      historyFile = "${config.home.sessionVariables.XDG_STATE_HOME}/bash/history";
+    };
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    zsh = {
+      initContent = ''
+        #region initContent base.nix
+        source "''${HOME}/.dotfiles/zsh/fnm.zsh"
 
-  programs.bash = {
+        #endregion initContent base.nix
+      '';
+    };
+    git = {
+      enable = true;
+      includes = [
+        { path = "~/.dotfiles/git/.gitconfig"; }
+      ];
+    };
+  };
+
+  editorconfig = {
     enable = true;
-    enableCompletion = true;
-    historyFile = "${config.home.sessionVariables.XDG_STATE_HOME}/bash/history";
+    settings = {
+      "*" = {
+        charset = "utf-8";
+        end_of_line = "lf";
+        insert_final_newline = true;
+        trim_trailing_whitespace = true;
+        indent_size = 2;
+        max_line_width = 85;
+        indent_style = "space";
+      };
+
+      "*.md" = {
+        trim_trailing_whitespace = false;
+      };
+    };
+  };
+
+  sops = {
+    defaultSopsFile = "${secretspath}/sops/secrets/common.yaml";
+    defaultSopsFormat = "yaml";
+    age.keyFile = "${config.user-config.home}/.config/sops/age/keys.txt";
+
+    secrets = {
+      "ssh/allowed_signers" = {
+        path = "${config.user-config.home}/.ssh/allowed_signers";
+        mode = "0600";
+      };
+      "ssh/id_ed25519--git" = {
+        path = "${config.user-config.home}/.ssh/id_ed25519--git";
+        mode = "0600";
+      };
+      "ssh/id_ed25519--git.pub" = {
+        path = "${config.user-config.home}/.ssh/id_ed25519--git.pub";
+        mode = "0644";
+      };
+    };
   };
 
   services.lorri.enable = true;
@@ -98,12 +158,30 @@ in
       pkgs.television # multi-purpose fuzzy finder
       pkgs.lm_sensors
 
-      pkgs.rclone
       pkgs.unzip
       pkgs.croc
       pkgs.git
       pkgs.curl
       pkgs.nano
+      pkgs.simple-http-server
+      pkgs.nmap
+      pkgs.fnm
+      pkgs.pnpm
+      pkgs.ffmpeg-full
+      pkgs.v4l-utils
+      pkgs.nixd # nix language server
+      pkgs.mqttui
+      pkgs.prek # pre-commit alternative
+      pkgs.gh # github cli
+      pkgs.nixpkgs-fmt # formatting .nix files
+      pkgs.nixfmt-rfc-style # formatting .nix files
+      pkgs.gcc # requirement for nixpkgs-fmt in prek
+      pkgs.rustup # requirement for nixpkgs-fmt in prek
+      pkgs.keychain
+      pkgs.delta
+      pkgs.age
+      pkgs.sops
+
       (
         let
           base = pkgs.appimageTools.defaultFhsEnvArgs;

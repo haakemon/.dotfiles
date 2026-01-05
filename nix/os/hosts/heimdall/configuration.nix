@@ -15,8 +15,6 @@ in
       imports = [
         ../../modules/plasma.nix
         ../../modules/sddm.nix
-        ../../modules/browsers.nix
-        ../../modules/development.nix
       ];
 
       services = {

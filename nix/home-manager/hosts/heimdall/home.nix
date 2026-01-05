@@ -3,7 +3,6 @@
 {
   imports = [
     ../../modules/base.nix
-    ../../modules/development.nix
     ../../modules/mitmproxy.nix
     ../../modules/qmk.nix
     ../../modules/zsh.nix

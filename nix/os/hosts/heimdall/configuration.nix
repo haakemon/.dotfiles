@@ -43,8 +43,6 @@ in
     ../../modules/grub.nix
     ../../modules/zsh.nix
     ../../modules/nh.nix
-    ../../modules/git.nix
-    ../../modules/rbw.nix
     ../../modules/sops.nix
   ];
 

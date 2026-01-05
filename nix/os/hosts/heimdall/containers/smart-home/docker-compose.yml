@@ -20,6 +20,21 @@ services:
     volumes:
       - $DATADIR/homeassistant:/config
 
+  music-assistant-server:
+    <<: *common-app-config
+    image: ghcr.io/music-assistant/server:2.7.3
+    container_name: music-assistant-server
+    network_mode: host
+    ports:
+      - 127.0.0.1:8095:8095
+    volumes:
+      - '$DATADIR/music-assistant:/data/'
+    cap_add:
+      - SYS_ADMIN
+      - DAC_READ_SEARCH
+    security_opt:
+      - apparmor:unconfined
+
   zigbee2mqtt:
     <<: *common-app-config
     container_name: zigbee2mqtt

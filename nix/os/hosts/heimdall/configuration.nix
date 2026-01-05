@@ -114,6 +114,7 @@ in
           scrutiny.loadBalancer.servers = [{ url = "http://127.0.0.1:8999"; }];
           money.loadBalancer.servers = [{ url = "http://127.0.0.1:8182"; }];
           food.loadBalancer.servers = [{ url = "http://127.0.0.1:8255"; }];
+          music.loadBalancer.servers = [{ url = "http://127.0.0.1:8095"; }];
         };
 
         routers = {
@@ -157,6 +158,12 @@ in
             rule = "Host(`hass.${config.configOptions.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "hass";
+          };
+
+          music = {
+            rule = "Host(`music.${config.configOptions.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "music";
           };
 
           memories = {

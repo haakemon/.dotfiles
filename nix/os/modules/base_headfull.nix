@@ -36,6 +36,7 @@ in
 
   xdg.icons.enable = true;
   gtk.iconCache.enable = true;
+  services.gnome.at-spi2-core.enable = true; # requirement for orca screen reader?
 
   hardware = {
     bluetooth.enable = true;
@@ -56,6 +57,7 @@ in
     pkgs.noto-fonts-cjk-serif
     pkgs.material-symbols
     pkgs.material-icons
+    pkgs.orca
   ];
 
   environment.systemPackages = [

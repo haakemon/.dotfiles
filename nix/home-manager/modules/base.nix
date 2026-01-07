@@ -159,7 +159,8 @@ in
       pkgs.lm_sensors
 
       pkgs.unzip
-      pkgs.croc
+      pkgs.croc # Easily and securely send things from one computer to another
+      pkgs.magic-wormhole # Securely transfer data between computers
       pkgs.git
       pkgs.curl
       pkgs.nano
@@ -181,6 +182,12 @@ in
       pkgs.delta
       pkgs.age
       pkgs.sops
+      pkgs.pik # Process Interactive Kill
+      pkgs.sshs # Terminal user interface for SSH config
+      pkgs.sttr # Cross-platform cli tool to perform various operations on string
+      pkgs.pwdsafety # Password utility
+      pkgs.havn # Fast configurable port scanner with reasonable defaults
+      pkgs.gtrash # Trash CLI tool
 
       (
         let

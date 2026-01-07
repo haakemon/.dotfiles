@@ -15,6 +15,7 @@ alias ktx="kubectx"
 alias kns="kubens"
 alias gf="git fuzzy"
 alias g="git"
+alias trash="gtrash"
 alias port-listeners="sudo lsof -i -P -n | grep LISTEN"
 alias ppsa="podman ps -a --format \"table {{.ID}}\t{{.Names}}\t{{.State}}\t{{.Status}}\t{{.Image}}\""
 

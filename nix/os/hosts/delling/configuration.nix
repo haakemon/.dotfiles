@@ -27,6 +27,14 @@ in
         ../../modules/sddm.nix
       ];
     };
+
+    "03-gnome".configuration = {
+      environment.etc."specialisation".text = "03-gnome";
+      system.nixos.tags = [ "gnome" ];
+      imports = [
+        ../../modules/gnome.nix
+      ];
+    };
   };
 
   imports = [

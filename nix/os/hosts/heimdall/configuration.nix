@@ -15,15 +15,8 @@ in
       imports = [
         ../../modules/plasma.nix
         ../../modules/sddm.nix
+        ../../modules/base_headfull.nix
       ];
-
-      services = {
-        xserver = {
-          enable = true;
-          xkb.layout = "no";
-        };
-        gvfs.enable = true; # Mount, trash, and other functionalities
-      };
     };
   };
 

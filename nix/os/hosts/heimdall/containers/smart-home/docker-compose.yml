@@ -15,8 +15,6 @@ services:
     container_name: homeassistant
     image: ghcr.io/home-assistant/home-assistant:2025.12.4@sha256:75ef6851d2e48d366764cdb6b569b7ad8be77dcc8e0d1b9aa508ac90e42d4c58
     network_mode: host
-    ports:
-      - 127.0.0.1:8123:8123
     volumes:
       - $DATADIR/homeassistant:/config
 
@@ -25,8 +23,6 @@ services:
     image: ghcr.io/music-assistant/server:2.7.3
     container_name: music-assistant-server
     network_mode: host
-    ports:
-      - 127.0.0.1:8095:8095
     volumes:
       - '$DATADIR/music-assistant/data:/data'
       - '$DATADIR/music-assistant/media:/media'
@@ -41,8 +37,6 @@ services:
     container_name: zigbee2mqtt
     image: koenkk/zigbee2mqtt:2.7.1@sha256:163e7351430a95d550d5b1bb958527edc1eff115eb013ca627f3545a192e853f
     network_mode: host
-    ports:
-      - 127.0.0.1:8089:8089
     volumes:
       - '$DATADIR/zigbee2mqtt/data:/app/data'
       - /run/udev:/run/udev:ro
@@ -58,9 +52,6 @@ services:
     network_mode: host
     volumes:
       - '$DATADIR/zwavejs2mqtt/store:/usr/src/app/store'
-    ports:
-      - 127.0.0.1:3000:3000 # Home Assistant web socket integration
-      - 127.0.0.1:8091:8091
     devices:
       - /dev/serial/by-id/usb-0658_0200-if00:/dev/ttyACM0
     group_add:

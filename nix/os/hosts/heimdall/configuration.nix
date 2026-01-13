@@ -228,6 +228,7 @@ in
       allowedTCPPorts = [
         1883 # mosquitto
         443 # traefik
+        8095 # music-assistant
       ];
     };
   };

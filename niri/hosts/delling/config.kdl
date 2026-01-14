@@ -57,4 +57,5 @@ window-rule {
   match app-id=r#"^chromium-browser$"#
   open-maximized true
   open-on-output "Sharp Corporation 0x1516 Unknown" // Laptop
+  open-focused false
 }

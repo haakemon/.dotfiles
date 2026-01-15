@@ -40,6 +40,7 @@ in
   imports = [
     # ./configuration-local.nix
     ./hardware-configuration.nix
+    ./disk-config.nix
 
     inputs.nrk-hylla.nixosModules
 

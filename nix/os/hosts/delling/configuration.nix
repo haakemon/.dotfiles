@@ -38,7 +38,7 @@ in
   };
 
   imports = [
-    ./configuration-local.nix
+    # ./configuration-local.nix
     ./hardware-configuration.nix
 
     inputs.nrk-hylla.nixosModules

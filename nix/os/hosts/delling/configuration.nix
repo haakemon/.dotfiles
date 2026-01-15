@@ -63,7 +63,6 @@ in
   boot = {
     loader = {
       grub = {
-        useOSProber = false;
         enableCryptodisk = true;
         default = 1; # this will be 01-niri
       };

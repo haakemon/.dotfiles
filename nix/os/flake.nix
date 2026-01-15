@@ -37,6 +37,7 @@
           modules = [
             ./hosts/delling/configuration.nix
             inputs.chaotic.nixosModules.default
+            inputs.disko.nixosModules.disko
             # inputs.stylix.nixosModules.stylix
             inputs.dotfiles-private.nixosModules.hosts.delling
             (

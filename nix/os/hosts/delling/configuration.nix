@@ -68,13 +68,6 @@ in
         default = 1; # this will be 01-niri
       };
     };
-    initrd = {
-      luks.devices."cryptroot" = {
-        device = "/dev/nvme0n1p2";
-        preLVM = true;
-        allowDiscards = true;
-      };
-    };
   };
 
   # programs.f5vpn = {

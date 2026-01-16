@@ -69,8 +69,8 @@ in
       };
     };
     initrd = {
-      luks.devices."enc-pv" = {
-        device = "/dev/disk/by-uuid/17b53833-98dc-4862-afa6-6bcfa36474ce";
+      luks.devices."cryptroot" = {
+        device = "/dev/nvme0n1p2";
         preLVM = true;
         allowDiscards = true;
       };

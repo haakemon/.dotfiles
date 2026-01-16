@@ -10,6 +10,11 @@
         efiSysMountPoint = "/boot";
       };
       grub = {
+        devices = [ "nodev" ];
+        efiSupport = true;
+        enable = true;
+        useOSProber = lib.mkDefault true;
+        configurationLimit = 20;
         splashImage = ../assets/iamroot.png;
       };
     };

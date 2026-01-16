@@ -27,15 +27,6 @@
       pkgs.telegram-desktop
       pkgs.llama-cpp-vulkan
     ];
-
-    file = {
-      ".config/noctalia/colors.json".source =
-        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/quickshell/noctalia/odin/colors.json";
-      ".config/noctalia/gui-settings.json".source =
-        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/quickshell/noctalia/odin/gui-settings.json";
-      ".config/noctalia/settings.json".source =
-        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/quickshell/noctalia/odin/settings.json";
-    };
   };
 
   browsers = {

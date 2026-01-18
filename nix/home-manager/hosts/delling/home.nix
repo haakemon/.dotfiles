@@ -9,12 +9,9 @@
     ../../modules/base_headfull.nix
     ../../modules/browsers.nix
     ../../modules/development.nix
-    ../../modules/hypridle.nix
     ../../modules/hyprlock.nix
-    ../../modules/mitmproxy.nix
     ../../modules/noctalia.nix
     ../../modules/obs-studio.nix
-    ../../modules/qmk.nix
     ../../modules/zsh.nix
     ../../modules/niri.nix
   ];
@@ -86,4 +83,9 @@
     google-chrome = true;
   };
 
+  services = {
+    hypridle = {
+      enable = true;
+    };
+  };
 }

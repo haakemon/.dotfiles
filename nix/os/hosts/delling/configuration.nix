@@ -58,7 +58,6 @@ in
     ../../modules/printing.nix
     ../../modules/nautilus.nix
     ../../modules/nh.nix
-    ../../modules/qmk.nix
     ../../modules/sops.nix
   ];
 

@@ -27,6 +27,7 @@
 
   hardware = {
     enableRedistributableFirmware = true;
+    keyboard.qmk.enable = true;
   };
 
   nixpkgs.config.allowUnfree = true;

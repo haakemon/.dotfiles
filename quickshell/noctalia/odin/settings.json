@@ -487,7 +487,13 @@
     "fillColor": "#000000",
     "fillMode": "crop",
     "hideWallpaperFilenames": false,
-    "monitorDirectories": [],
+    "monitorDirectories": [
+      {
+        "directory": "/home/haakemon/ProtonDrive/Wallpaper/1440x2560",
+        "name": "DP-2",
+        "wallpaper": ""
+      }
+    ],
     "overviewEnabled": false,
     "panelPosition": "follow_bar",
     "randomEnabled": true,

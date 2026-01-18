@@ -48,7 +48,6 @@ in
     ../../modules/logitech.nix
     ../../modules/openrgb.nix
     ../../modules/nh.nix
-    ../../modules/qmk.nix
     ../../modules/sops.nix
   ];
 

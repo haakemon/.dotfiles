@@ -87,6 +87,7 @@ in
   services = {
     hardware.bolt.enable = true;
     fprintd = {
+      # sudo fprintd-enroll <username>
       enable = true;
     };
   };

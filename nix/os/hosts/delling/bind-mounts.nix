@@ -8,6 +8,7 @@ let
     ".config/vivaldi"
     ".config/nrk8s"
     ".config/nrk-wifi"
+    ".config/npm"
     "Downloads"
     "Pictures"
     "tmp"

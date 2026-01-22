@@ -18,6 +18,12 @@ window-rule {
 }
 
 window-rule {
+  match is-urgent=true
+
+  baba-is-float true
+}
+
+window-rule {
   match is-window-cast-target=true
   match is-urgent=true
 

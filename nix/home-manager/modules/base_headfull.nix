@@ -56,6 +56,8 @@ in
       pkgs.cosmic-files
       pkgs.filen-desktop
 
+      pkgs.signal-desktop
+
       # pkgs.openshot-qt
       # pkgs.shotcut
 

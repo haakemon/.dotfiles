@@ -48,7 +48,7 @@ services:
   zwavejs2mqtt:
     <<: *common-app-config
     container_name: zwavejs2mqtt
-    image: zwavejs/zwavejs2mqtt:11.9.1@sha256:a42abc1f3185f800afe3c9908629efdbcf743cf7e1d8a3795ff5b442cfff3503
+    image: zwavejs/zwavejs2mqtt:11.10.0@sha256:5f68362d953828c910ddb9c3b4005953b62cc265c1f160836a80f04d6acb09f7
     network_mode: host
     volumes:
       - '$DATADIR/zwavejs2mqtt/store:/usr/src/app/store'

@@ -28,9 +28,7 @@ in
     ../../modules/virtualization.nix
     ../../modules/users.nix
     ../../modules/keyd.nix
-    ../../modules/wireguard.nix
     ../../modules/ssh.nix
-    ../../modules/adguard.nix
     ../../modules/grub.nix
     ../../modules/zsh.nix
     ../../modules/nh.nix
@@ -221,15 +219,118 @@ in
         }
       ];
     };
+
+    adguardhome = {
+      enable = true;
+      mutableSettings = false;
+      port = 3050;
+
+      # https://github.com/AdguardTeam/AdGuardHome/wiki/Configuration#configuration-file
+      settings = {
+        dhcp.enabled = false;
+        dns = {
+          bind_host = "0.0.0.0";
+          bind_port = "53";
+          enable_dnssec = true;
+          bootstrap_dns = [
+            "9.9.9.9"
+          ];
+          upstream_dns = [
+            "9.9.9.9"
+          ];
+          fallback_dns = [
+            "1.1.1.1"
+          ];
+        };
+
+        filters = [
+          {
+            enabled = true;
+            name = "AdGuard DNS filter";
+            url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt";
+            id = 1;
+          }
+          {
+            enabled = true;
+            name = "AdAway Default Blocklist";
+            url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt";
+            id = 2;
+          }
+          {
+            enabled = true;
+            name = "Phishing URL Blocklist (AdGuard Home)";
+            url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_30.txt";
+            id = 3;
+          }
+          {
+            enabled = true;
+            name = "Phishing Army";
+            url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_18.txt";
+            id = 4;
+          }
+          {
+            enabled = true;
+            name = "Malicious URL Blocklist (URLHaus)";
+            url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_11.txt";
+            id = 5;
+          }
+          {
+            enabled = true;
+            name = "uBlock filters – Badware risks";
+            url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_50.txt";
+            id = 6;
+          }
+          {
+            enabled = true;
+            name = "The Big List of Hacked Malware Web Sites";
+            url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_9.txt";
+            id = 7;
+          }
+        ];
+      };
+    };
   };
 
   networking = {
     firewall = {
-      allowedTCPPorts = [
-        1883 # mosquitto
-        443 # traefik
-        8095 # music-assistant
+      enable = true;
+      trustedInterfaces = [
+        "enp88s0"
+        "wg0"
       ];
+    };
+
+    nat = {
+      enable = true;
+      externalInterface = "enp88s0";
+      internalInterfaces = [ "wg0" ];
+    };
+
+    wireguard = {
+      enable = true;
+      interfaces.wg0 = {
+        ips = [ "10.100.0.1/24" ];
+        listenPort = 51886;
+
+        postSetup = ''
+          ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o enp88s0 -j MASQUERADE
+        '';
+
+        postShutdown = ''
+          ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o enp88s0 -j MASQUERADE
+        '';
+
+        privateKeyFile = "${config.user-config.home}/data/wireguard/keys/server/private";
+
+        peers = [
+          {
+            name = "haakemob";
+            publicKey = "cgM7ZabyqOrGOkQ1GvIlCNQRNszLKVfS3xQcrdX8cSE=";
+            presharedKeyFile = "${config.user-config.home}/data/wireguard/keys/peers/haakemob.psk";
+            allowedIPs = [ "10.100.0.2/32" ];
+          }
+        ];
+      };
     };
   };
 

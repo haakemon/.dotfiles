@@ -173,6 +173,7 @@ in
       pkgs.nixd # nix language server
       pkgs.mqttui
       pkgs.prek # pre-commit alternative
+      pkgs.neovim
       pkgs.gh # github cli
       pkgs.nixpkgs-fmt # formatting .nix files
       pkgs.nixfmt-rfc-style # formatting .nix files

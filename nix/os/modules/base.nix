@@ -55,11 +55,6 @@
 
   environment.enableAllTerminfo = true;
 
-  system = {
-    autoUpgrade.enable = true;
-    autoUpgrade.allowReboot = false;
-  };
-
   time.timeZone = "Europe/Oslo";
   i18n = {
     defaultLocale = "en_US.UTF-8";

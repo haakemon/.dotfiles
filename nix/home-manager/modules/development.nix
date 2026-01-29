@@ -34,6 +34,10 @@
       ".config/ghostty/config".source =
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/ghostty/config";
     };
+
+    sessionVariables = {
+      QMK_HOME = "${config.home.homeDirectory}/code/qmk_firmware";
+    };
   };
 
   programs = {
@@ -43,9 +47,5 @@
         mitmweb = "mitmweb --set confdir=${config.home.sessionVariables.XDG_CONFIG_HOME}/mitmproxy";
       };
     };
-  };
-
-  sessionVariables = {
-    QMK_HOME = "${config.home.homeDirectory}/code/qmk_firmware";
   };
 }

@@ -20,7 +20,7 @@ services:
 
   music-assistant-server:
     <<: *common-app-config
-    image: ghcr.io/music-assistant/server:2.7.5@sha256:3522e8a7a8f0ad18d790350dc692d3062c4f1df6c9567f838c959e03b251d00d
+    image: ghcr.io/music-assistant/server:2.7.6@sha256:0b71975a411fb497984314de0a498bc6dd8b4094aa034f7cb7b986352a52e128
     container_name: music-assistant-server
     network_mode: host
     volumes:
@@ -48,7 +48,7 @@ services:
   zwavejs2mqtt:
     <<: *common-app-config
     container_name: zwavejs2mqtt
-    image: zwavejs/zwavejs2mqtt:11.9.1@sha256:a42abc1f3185f800afe3c9908629efdbcf743cf7e1d8a3795ff5b442cfff3503
+    image: zwavejs/zwavejs2mqtt:11.10.1@sha256:9f64df38b4ca036fbde9e77fa7eaf0830ab65c4614466a05b3c57117a5131b1f
     network_mode: host
     volumes:
       - '$DATADIR/zwavejs2mqtt/store:/usr/src/app/store'

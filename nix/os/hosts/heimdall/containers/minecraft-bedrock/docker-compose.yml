@@ -1,0 +1,18 @@
+networks:
+  default:
+    driver: bridge
+
+services:
+  bds:
+    container_name: minecraft_bedrock
+    image: itzg/minecraft-bedrock-server
+    environment:
+      TZ: $TZ
+      TIME_ZONE: $TZ
+      EULA: 'TRUE'
+    ports:
+      - '19132:19132/udp'
+    volumes:
+      - '$DATADIR/minecraft-bedrock/data:/data'
+    stdin_open: true
+    tty: true

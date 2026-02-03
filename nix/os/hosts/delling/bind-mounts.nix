@@ -9,6 +9,7 @@ let
     ".config/nrk8s"
     ".config/nrk-wifi"
     ".config/npm"
+    ".config/kube"
     "Downloads"
     "Pictures"
     "tmp"

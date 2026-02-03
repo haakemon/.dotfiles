@@ -110,7 +110,7 @@ in
       NPM_CONFIG_USERCONFIG = "${config.home.sessionVariables.XDG_CONFIG_HOME}/npm/config";
       AZURE_CONFIG_DIR = "${config.home.sessionVariables.XDG_CONFIG_HOME}/azure";
       FLY_CONFIG_DIR = "${config.home.sessionVariables.XDG_CONFIG_HOME}/fly";
-      KUBECONFIG = "${config.home.sessionVariables.XDG_CONFIG_HOME}/kube";
+      KUBECONFIG = "${config.home.sessionVariables.XDG_CONFIG_HOME}/kube/config";
 
       NUGET_PACKAGES = "${config.home.sessionVariables.XDG_CACHE_HOME}/NuGetPackages";
       CARGO_HOME = "${config.home.sessionVariables.XDG_CACHE_HOME}/cargo";

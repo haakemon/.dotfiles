@@ -33,8 +33,8 @@
     };
   };
 
-  programs.noctalia-shell = {
-    enable = true;
-    systemd.enable = true;
-  };
+  # programs.noctalia-shell = {
+  #   enable = true;
+  #   systemd.enable = true;
+  # };
 }

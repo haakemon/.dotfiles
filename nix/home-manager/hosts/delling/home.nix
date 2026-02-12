@@ -9,7 +9,7 @@
     ../../modules/base_headfull.nix
     ../../modules/browsers.nix
     ../../modules/development.nix
-    ../../modules/hyprlock.nix
+    # ../../modules/hyprlock.nix
     ../../modules/noctalia.nix
     ../../modules/obs-studio.nix
     ../../modules/zsh.nix
@@ -64,13 +64,13 @@
       '';
     };
 
-    hyprlock = {
-      settings = {
-        auth = {
-          "fingerprint:enabled" = true;
-        };
-      };
-    };
+    # hyprlock = {
+    #   settings = {
+    #     auth = {
+    #       "fingerprint:enabled" = true;
+    #     };
+    #   };
+    # };
   };
 
   browsers = {
@@ -83,9 +83,9 @@
     google-chrome = true;
   };
 
-  services = {
-    hypridle = {
-      enable = true;
-    };
-  };
+  # services = {
+  #   hypridle = {
+  #     enable = true;
+  #   };
+  # };
 }

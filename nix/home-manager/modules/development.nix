@@ -5,7 +5,7 @@
   home = {
     packages = [
       # Terminals
-      pkgs.alacritty
+      # pkgs.alacritty
       pkgs.cosmic-term
       inputs.ghostty.packages.x86_64-linux.default
       pkgs.vhs # terminal gifs

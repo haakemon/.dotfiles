@@ -159,6 +159,7 @@ in
       pkgs.lm_sensors
 
       pkgs.unzip
+      pkgs.gnumake
       pkgs.croc # Easily and securely send things from one computer to another
       pkgs.magic-wormhole # Securely transfer data between computers
       pkgs.git
@@ -179,7 +180,7 @@ in
       pkgs.nixfmt-rfc-style # formatting .nix files
       pkgs.gcc # requirement for nixpkgs-fmt in prek
       pkgs.rustup # requirement for nixpkgs-fmt in prek
-      pkgs.keychain
+      # pkgs.keychain
       pkgs.delta
       pkgs.age
       pkgs.sops

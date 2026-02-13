@@ -9,7 +9,7 @@ source "${HOME}/.profile"
 
 for var in XDG_STATE_HOME XDG_CACHE_HOME XDG_DATA_HOME; do
   if [[ -z "${(P)var}" ]]; then
-    echo "$var is not set - .zshrc not fully initialized"
+    echo "${var} is not set - .zshrc not fully initialized"
     return
   fi
 done

@@ -124,7 +124,9 @@ in
       ADB_VENDOR_KEYS = "${config.home.sessionVariables.XDG_DATA_HOME}/android";
       RUSTUP_HOME = "${config.home.sessionVariables.XDG_DATA_HOME}/rustup";
       GNUPGHOME = "${config.home.sessionVariables.XDG_DATA_HOME}/gnupg";
+
       BAT_CONFIG_PATH = "${config.home.homeDirectory}/.dotfiles/bat/bat.conf";
+      SSH_AUTH_SOCK = "${config.home.homeDirectory}/.ssh/proton-pass-agent.sock";
 
       DOTNET_CLI_TELEMETRY_OPTOUT = 1;
       NODE_REPL_HISTORY = ""; # Disable node repl persistent history
@@ -146,6 +148,9 @@ in
           nvidia.acceptLicense = true;
         }
       '';
+
+      ".config/systemd/user/proton-pass-agent.service".source =
+        config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/systemd/proton-pass-agent.service";
     };
 
     packages = [

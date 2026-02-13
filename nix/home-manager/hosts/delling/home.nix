@@ -6,14 +6,14 @@
 {
   imports = [
     ../../modules/base.nix
-    ../../modules/base_headfull.nix
+#    ../../modules/base_headfull.nix
     ../../modules/browsers.nix
     ../../modules/development.nix
     # ../../modules/hyprlock.nix
-    ../../modules/noctalia.nix
-    ../../modules/obs-studio.nix
+#    ../../modules/noctalia.nix
+#    ../../modules/obs-studio.nix
     ../../modules/zsh.nix
-    ../../modules/niri.nix
+#    ../../modules/niri.nix
   ];
 
   home = {

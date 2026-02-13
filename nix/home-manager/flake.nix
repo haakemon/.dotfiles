@@ -11,6 +11,7 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+        config.nvidia.acceptLicense = true;
       };
       mkOverlays = config: import ./overlays/nixpkgs-overlays.nix config inputs;
     in

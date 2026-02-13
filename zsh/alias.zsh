@@ -16,6 +16,8 @@ alias g="git"
 alias trash="gtrash"
 alias port-listeners="sudo lsof -i -P -n | grep LISTEN"
 alias ppsa="podman ps -a --format \"table {{.ID}}\t{{.Names}}\t{{.State}}\t{{.Status}}\t{{.Image}}\""
+alias mitmproxy="mitmproxy --set confdir=${XDG_CONFIG_HOME}/mitmproxy";
+alias mitmweb="mitmweb --set confdir=${XDG_CONFIG_HOME}/mitmproxy";
 
 alias ssh-gen-ed="ssh-keygen -t ed25519 -a 100"
 

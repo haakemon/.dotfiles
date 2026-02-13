@@ -3,22 +3,9 @@
 , lib
 , ...
 }:
-let
-  gtkThemeName = "adw-gtk3-dark";
-in
+
 {
-
   home = {
-    sessionVariables = {
-      DISPLAY = ":0";
-#      GTK_THEME = gtkThemeName;
-      XCURSOR_PATH = "${config.home.sessionVariables.XDG_DATA_HOME}/icons";
-
-      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${config.home.homeDirectory}/.steam/root/compatibilitytools.d";
-      # ELECTRON_OZONE_PLATFORM_HINT = "auto"; # or  "wayland" ? # breaks vivaldi even with workaround in plasma?
-      # NIXOS_OZONE_WL = "1"; # do I still need this? # breaks vscode in plasma?
-    };
-
     file = {
       ".config/zed/settings.json".source =
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/zed/settings.json";
@@ -73,42 +60,7 @@ in
       pkgs.marktext
       pkgs.scrcpy
     ];
-
   };
 
-#  dconf.settings = {
-#    "org/gnome/desktop/interface" = {
-#      color-scheme = "prefer-dark";
-#    };
-#  };
-
   fonts.fontconfig.enable = true;
-
-#  gtk = {
-#    enable = true;
-#    theme = {
-#      name = gtkThemeName;
-#      package = pkgs.adw-gtk3;
-#    };
-#    iconTheme = {
-#      name = "Dracula";
-#      package = pkgs.dracula-icon-theme;
-#    };
-#    cursorTheme = {
-#      name = "Banana";
-#      size = 36;
-#      package = pkgs.banana-cursor;
-#    };
-#
-#    # gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
-#    # gtk2.extraConfig = "gtk-application-prefer-dark-theme = 1";
-#
-#    gtk3.extraConfig = {
-#      gtk-application-prefer-dark-theme = 1;
-#    };
-#
-#    gtk4.extraConfig = {
-#      gtk-application-prefer-dark-theme = 1;
-#    };
-#  };
 }

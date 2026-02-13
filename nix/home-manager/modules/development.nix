@@ -7,11 +7,9 @@
       # Terminals
       # pkgs.alacritty
       pkgs.cosmic-term
-      inputs.ghostty.packages.x86_64-linux.default
       pkgs.vhs # terminal gifs
 
       # Tools
-      # inputs.zeditor.packages."x86_64-linux".default
       pkgs.zed-editor
       # pkgs.openapi-tui
 
@@ -41,11 +39,10 @@
   };
 
   programs = {
-    zsh = {
-      shellAliases = {
-        mitmproxy = "mitmproxy --set confdir=${config.home.sessionVariables.XDG_CONFIG_HOME}/mitmproxy";
-        mitmweb = "mitmweb --set confdir=${config.home.sessionVariables.XDG_CONFIG_HOME}/mitmproxy";
-      };
+    ghostty = {
+      enable = true;
+      enableZshIntegration = true;
+      systemd.enable = true;
     };
   };
 }

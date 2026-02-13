@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 # https://github.com/garabik/grc/blob/master/grc.zsh
 
 if ! tty -s || [ ! -n "$TERM" ] || [ "$TERM" = dumb ] || (( ! $+commands[grc] ))

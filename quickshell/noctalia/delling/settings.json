@@ -101,6 +101,13 @@
       ],
       "left": [
         {
+          "defaultSettings": {
+            "hideBackground": false,
+            "minimumThreshold": 10
+          },
+          "id": "plugin:catwalk"
+        },
+        {
           "characterCount": 2,
           "colorizeIcons": false,
           "emptyColor": "secondary",
@@ -122,6 +129,12 @@
         }
       ],
       "right": [
+        {
+          "id": "plugin:keybind-cheatsheet"
+        },
+        {
+          "id": "plugin:privacy-indicator"
+        },
         {
           "displayMode": "alwaysShow",
           "id": "Volume",
@@ -173,10 +186,6 @@
   },
   "calendar": {
     "cards": [
-      {
-        "enabled": true,
-        "id": "timer-card"
-      },
       {
         "enabled": true,
         "id": "weather-card"
@@ -281,16 +290,16 @@
   },
   "general": {
     "allowPanelsOnScreenWithoutBar": true,
-    "allowPasswordWithFprintd": false,
+    "allowPasswordWithFprintd": true,
     "animationDisabled": false,
     "animationSpeed": 1,
-    "autoStartAuth": false,
-    "avatarImage": "/home/haakemon/profile.png",
+    "autoStartAuth": true,
+    "avatarImage": "/home/n652053/.face.icon",
     "boxRadiusRatio": 1,
     "compactLockScreen": false,
     "dimmerOpacity": 0.8,
     "enableLockScreenCountdown": true,
-    "enableShadows": false,
+    "enableShadows": true,
     "forceBlackScreenCorners": true,
     "iRadiusRatio": 1,
     "language": "",
@@ -303,7 +312,7 @@
     "shadowOffsetX": 2,
     "shadowOffsetY": 3,
     "showChangelogOnStartup": true,
-    "showHibernateOnLockScreen": false,
+    "showHibernateOnLockScreen": true,
     "showScreenCorners": true,
     "showSessionButtonsOnLockScreen": true,
     "telemetryEnabled": false
@@ -392,7 +401,7 @@
     "countdownDuration": 10000,
     "enableCountdown": true,
     "largeButtonsLayout": "grid",
-    "largeButtonsStyle": false,
+    "largeButtonsStyle": true,
     "position": "center",
     "powerOptions": [
       {
@@ -470,7 +479,7 @@
   "ui": {
     "bluetoothDetailsViewMode": "grid",
     "bluetoothHideUnnamedDevices": false,
-    "boxBorderEnabled": false,
+    "boxBorderEnabled": true,
     "fontDefault": "Roboto",
     "fontDefaultScale": 1,
     "fontFixed": "DejaVu Sans Mono",

@@ -1,0 +1,16 @@
+[Unit]
+Description=Proton Pass SSH Agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=%h/.nix-profile/bin/pass-cli ssh-agent start
+KillMode=mixed
+KillSignal=SIGINT
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

@@ -11,7 +11,7 @@ in
   home = {
     sessionVariables = {
       DISPLAY = ":0";
-      GTK_THEME = gtkThemeName;
+#      GTK_THEME = gtkThemeName;
       XCURSOR_PATH = "${config.home.sessionVariables.XDG_DATA_HOME}/icons";
 
       STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${config.home.homeDirectory}/.steam/root/compatibilitytools.d";
@@ -76,39 +76,39 @@ in
 
   };
 
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
-  };
+#  dconf.settings = {
+#    "org/gnome/desktop/interface" = {
+#      color-scheme = "prefer-dark";
+#    };
+#  };
 
   fonts.fontconfig.enable = true;
 
-  gtk = {
-    enable = true;
-    theme = {
-      name = gtkThemeName;
-      package = pkgs.adw-gtk3;
-    };
-    iconTheme = {
-      name = "Dracula";
-      package = pkgs.dracula-icon-theme;
-    };
-    cursorTheme = {
-      name = "Banana";
-      size = 36;
-      package = pkgs.banana-cursor;
-    };
-
-    # gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
-    # gtk2.extraConfig = "gtk-application-prefer-dark-theme = 1";
-
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
-    };
-
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
-    };
-  };
+#  gtk = {
+#    enable = true;
+#    theme = {
+#      name = gtkThemeName;
+#      package = pkgs.adw-gtk3;
+#    };
+#    iconTheme = {
+#      name = "Dracula";
+#      package = pkgs.dracula-icon-theme;
+#    };
+#    cursorTheme = {
+#      name = "Banana";
+#      size = 36;
+#      package = pkgs.banana-cursor;
+#    };
+#
+#    # gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+#    # gtk2.extraConfig = "gtk-application-prefer-dark-theme = 1";
+#
+#    gtk3.extraConfig = {
+#      gtk-application-prefer-dark-theme = 1;
+#    };
+#
+#    gtk4.extraConfig = {
+#      gtk-application-prefer-dark-theme = 1;
+#    };
+#  };
 }

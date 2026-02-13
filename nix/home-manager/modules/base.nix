@@ -141,7 +141,10 @@ in
 
     file = {
       ".config/nixpkgs/config.nix".text = ''
-        { allowUnfree = true; }
+        {
+          allowUnfree = true;
+          nvidia.acceptLicense = true;
+        }
       '';
     };
 
@@ -152,6 +155,7 @@ in
       pkgs.brightnessctl
 
       pkgs.filen-cli
+      pkgs.proton-pass-cli
 
       pkgs.bandwhich # network utilization monitor
       pkgs.superfile
@@ -178,6 +182,7 @@ in
       pkgs.gh # github cli
       pkgs.nixpkgs-fmt # formatting .nix files
       pkgs.nixfmt-rfc-style # formatting .nix files
+      pkgs.statix
       pkgs.gcc # requirement for nixpkgs-fmt in prek
       pkgs.rustup # requirement for nixpkgs-fmt in prek
       # pkgs.keychain

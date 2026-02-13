@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 # alias
 alias ,,='cd $(git rev-parse --show-toplevel)' # cd to git root
 alias ..='cd ..'

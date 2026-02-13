@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/key-bindings.zsh
 # Execute "showkey -a" to see key sequence codes
 

@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 function load-ssh-keys {
   echo "${YELLOW_COLOR}loading ssh keys...${RESET_COLOR}"
   ssh-add -t 7d

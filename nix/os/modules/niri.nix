@@ -22,8 +22,6 @@
     pkgs.wf-recorder # screen recording utility
     pkgs.slurp # screen geometry picker utility
     pkgs.wl-clipboard
-    pkgs.clipse
-    pkgs.emote
     pkgs.xdg-utils
   ];
 

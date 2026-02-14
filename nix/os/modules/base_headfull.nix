@@ -3,9 +3,7 @@
 , lib
 , ...
 }:
-let
-  gtkThemeName = "adw-gtk3-dark";
-in
+
 {
   services = {
     gnome.gnome-keyring.enable = true;

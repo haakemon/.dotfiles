@@ -59,7 +59,21 @@
       pkgs.nomacs # image viewer
       pkgs.marktext
       pkgs.scrcpy
+      pkgs.clipse
+      pkgs.emote
+
+      pkgs.victor-mono
+      pkgs.nerd-fonts.victor-mono
+      pkgs.noto-fonts
+      pkgs.noto-fonts-color-emoji
+      pkgs.noto-fonts-cjk-sans
+      pkgs.noto-fonts-cjk-serif
     ];
+  };
+
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
   };
 
   fonts.fontconfig.enable = true;

@@ -5,12 +5,13 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-ExecStart=%h/.nix-profile/bin/pass-cli ssh-agent start
+ExecStart=%h/.dotfiles/systemd/scripts/proton-pass-agent-wrapper.zsh
 KillMode=mixed
 KillSignal=SIGINT
 TimeoutStopSec=10
 Restart=on-failure
-RestartSec=5
+RestartPreventExitStatus=78
+RestartSec=10
 
 [Install]
 WantedBy=default.target

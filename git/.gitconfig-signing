@@ -1,5 +1,5 @@
 [user]
-  signingkey = ~/.ssh/id_ed25519--git.pub
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2FDsSl/yLTtEnr55+N5g3/DLAeptnE0W6MdHylC77v
 [gpg "ssh"]
   allowedSignersFile = ~/.ssh/allowed_signers
 [gpg]

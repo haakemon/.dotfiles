@@ -13,6 +13,6 @@ source "${HOME}/.dotfiles/zsh/alias.zsh"
 source "${HOME}/.dotfiles/zsh/grc.zsh"
 source "${HOME}/.dotfiles/zsh/fnm.zsh"
 source "${HOME}/.dotfiles/zsh/zsh-hooks.zsh"
-# source "${HOME}/.dotfiles/zsh/ssh.zsh"
+source "${HOME}/.dotfiles/zsh/scripts.zsh"
 
 fastfetch

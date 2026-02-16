@@ -1,7 +1,7 @@
 [user]
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2FDsSl/yLTtEnr55+N5g3/DLAeptnE0W6MdHylC77v
 [gpg "ssh"]
-  allowedSignersFile = ~/.ssh/allowed_signers
+  allowedSignersFile = ~/.dotfiles/git/allowed_signers
 [gpg]
   format = ssh
 [commit]

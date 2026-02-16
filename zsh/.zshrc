@@ -16,3 +16,5 @@ source "${HOME}/.dotfiles/zsh/zsh-hooks.zsh"
 source "${HOME}/.dotfiles/zsh/scripts.zsh"
 
 fastfetch
+
+eval "$(direnv hook zsh)"

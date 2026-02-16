@@ -15,24 +15,6 @@ in
       enableCompletion = true;
       historyFile = "${config.home.sessionVariables.XDG_STATE_HOME}/bash/history";
     };
-    direnv = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-    zsh = {
-      initContent = ''
-        #region initContent base.nix
-        source "''${HOME}/.dotfiles/zsh/fnm.zsh"
-
-        #endregion initContent base.nix
-      '';
-    };
-    git = {
-      enable = true;
-      includes = [
-        { path = "~/.dotfiles/git/.gitconfig"; }
-      ];
-    };
   };
 
   editorconfig = {
@@ -50,27 +32,6 @@ in
 
       "*.md" = {
         trim_trailing_whitespace = false;
-      };
-    };
-  };
-
-  sops = {
-    defaultSopsFile = "${secretspath}/sops/secrets/common.yaml";
-    defaultSopsFormat = "yaml";
-    age.keyFile = "${config.user-config.home}/.config/sops/age/keys.txt";
-
-    secrets = {
-      "ssh/allowed_signers" = {
-        path = "${config.user-config.home}/.ssh/allowed_signers";
-        mode = "0600";
-      };
-      "ssh/id_ed25519--git" = {
-        path = "${config.user-config.home}/.ssh/id_ed25519--git";
-        mode = "0600";
-      };
-      "ssh/id_ed25519--git.pub" = {
-        path = "${config.user-config.home}/.ssh/id_ed25519--git.pub";
-        mode = "0644";
       };
     };
   };
@@ -150,6 +111,8 @@ in
 
       ".config/systemd/user/proton-pass-agent.service".source =
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/systemd/proton-pass-agent.service";
+      ".config/git/config".source =
+        config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/git/.gitconfig";
     };
 
     packages = [
@@ -157,6 +120,7 @@ in
       pkgs.lazyjournal # journalctl tool
       pkgs.ugm # user group browser
       pkgs.brightnessctl
+      pkgs.direnv
 
       pkgs.filen-cli
       pkgs.proton-pass-cli

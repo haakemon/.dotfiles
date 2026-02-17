@@ -20,9 +20,9 @@ services:
     ports:
       - '${BOOKLORE_PORT}:${BOOKLORE_PORT}'
     volumes:
-      - ./data:/app/data
-      - ./books:/books
-      - ./bookdrop:/bookdrop
+      - $DATADIR/booklore/data:/app/data
+      - $DATADIR/booklore/books:/books
+      - $DATADIR/booklore/bookdrop:/bookdrop
     restart: unless-stopped
 
   mariadb:
@@ -37,7 +37,7 @@ services:
       - MYSQL_USER=${DB_USER}
       - MYSQL_PASSWORD=${DB_PASSWORD}
     volumes:
-      - ./mariadb/config:/config
+      - $DATADIR/booklore/mariadb/config:/config
     restart: unless-stopped
     healthcheck:
       test: ['CMD', 'mariadb-admin', 'ping', '-h', 'localhost']

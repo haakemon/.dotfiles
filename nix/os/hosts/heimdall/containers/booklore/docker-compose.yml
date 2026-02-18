@@ -4,7 +4,7 @@ networks:
 
 services:
   booklore:
-    image: booklore/booklore:v1.18.5
+    image: booklore/booklore:v1.18.5@sha256:44a39097fcf69e7373b51df0459da052640d07459fb02b429f2c47cceaa32485
     container_name: booklore
     environment:
       - USER_ID=${APP_USER_ID}
@@ -26,7 +26,7 @@ services:
     restart: unless-stopped
 
   mariadb:
-    image: lscr.io/linuxserver/mariadb:11.4.5
+    image: lscr.io/linuxserver/mariadb:11.4.5@sha256:eef506eab5c5e5aaa3ce6d1237dcfa5742a8dafd9054e668c838fad71b0d1547
     container_name: mariadb
     environment:
       - PUID=${DB_USER_ID}

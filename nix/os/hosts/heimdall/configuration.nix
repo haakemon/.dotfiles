@@ -103,6 +103,7 @@ in
           food.loadBalancer.servers = [{ url = "http://127.0.0.1:8255"; }];
           music.loadBalancer.servers = [{ url = "http://127.0.0.1:8095"; }];
           books.loadBalancer.servers = [{ url = "http://127.0.0.1:6060"; }];
+          comics.loadBalancer.servers = [{ url = "http://127.0.0.1:5656"; }];
         };
 
         routers = {
@@ -206,6 +207,12 @@ in
             rule = "Host(`books.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "books";
+          };
+
+          comics = {
+            rule = "Host(`comics.${config.system-config.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "comics";
           };
         };
       };

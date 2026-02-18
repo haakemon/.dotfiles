@@ -1,0 +1,17 @@
+networks:
+  default:
+    driver: bridge
+
+services:
+  kapowarr:
+    container_name: kapowarr
+    image: mrcas/kapowarr:latest
+    environment:
+      TZ: $TZ
+      TIME_ZONE: $TZ
+    volumes:
+      - '$DATADIR/kapowarr/db:/app/db'
+      - '$DATADIR/kapowarr/media/Downloads:/app/temp_downloads'
+      - '$DATADIR/kapowarr/media/Comics:/comics-1'
+    ports:
+      - 5656:5656

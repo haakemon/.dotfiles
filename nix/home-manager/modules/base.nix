@@ -128,6 +128,7 @@ in
       pkgs.ugm # user group browser
       pkgs.brightnessctl
       pkgs.direnv
+      pkgs.nh
 
       pkgs.filen-cli
       pkgs.proton-pass-cli

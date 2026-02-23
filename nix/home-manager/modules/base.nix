@@ -89,6 +89,8 @@ in
       BAT_CONFIG_PATH = "${config.home.homeDirectory}/.dotfiles/bat/bat.conf";
       SSH_AUTH_SOCK = "${config.home.homeDirectory}/.ssh/proton-pass-agent.sock";
 
+      NH_HOME_FLAKE = "path:/home/${config.user-config.name}/.dotfiles/nix/home-manager";
+
       DOTNET_CLI_TELEMETRY_OPTOUT = 1;
       NODE_REPL_HISTORY = ""; # Disable node repl persistent history
       PODMAN_COMPOSE_WARNING_LOGS = "false";

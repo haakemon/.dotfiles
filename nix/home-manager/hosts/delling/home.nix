@@ -9,7 +9,6 @@
     ../../modules/base_headfull.nix
     ../../modules/browsers.nix
     ../../modules/development.nix
-    # ../../modules/hyprlock.nix
     ../../modules/noctalia.nix
     #    ../../modules/obs-studio.nix
     ../../modules/zsh.nix
@@ -54,25 +53,10 @@
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/quickshell/noctalia/delling/gui-settings.json";
       ".config/noctalia/settings.json".source =
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/quickshell/noctalia/delling/settings.json";
-    };
-  };
 
-  programs = {
-    zsh = {
-      initContent = ''
-        #region initContent configuration.nix
-        source "''${HOME}/work/configs/env.zsh"
-        #endregion initContent configuration.nix
-      '';
+      ".config/keyd/default.conf".source =
+        config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/keyd/default.conf";
     };
-
-    # hyprlock = {
-    #   settings = {
-    #     auth = {
-    #       "fingerprint:enabled" = true;
-    #     };
-    #   };
-    # };
   };
 
   browsers = {
@@ -85,9 +69,4 @@
     google-chrome = true;
   };
 
-  # services = {
-  #   hypridle = {
-  #     enable = true;
-  #   };
-  # };
 }

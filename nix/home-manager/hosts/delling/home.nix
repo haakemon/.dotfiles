@@ -13,6 +13,7 @@
     #    ../../modules/obs-studio.nix
     ../../modules/zsh.nix
     ../../modules/niri.nix
+    ../../modules/containers.nix
   ];
 
   targets.genericLinux.enable = true;
@@ -69,4 +70,7 @@
     google-chrome = true;
   };
 
+  containers = {
+    containerd = true;
+  };
 }

@@ -61,7 +61,7 @@ unsetopt BEEP                    # Disable annoying beep
 # setopt AUTO_CD                   # cd by typing directory name if it's not a command
 setopt AUTO_PUSHD                # Make cd push old directory onto directory stack
 setopt PUSHD_IGNORE_DUPS         # Don't push multiple copies of same directory
-setopt EXTENDED_GLOB             # Use extended globbing syntax
+# setopt EXTENDED_GLOB             # Use extended globbing syntax
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # Directory Hashes (Quick Navigation)

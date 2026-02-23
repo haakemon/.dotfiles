@@ -27,7 +27,6 @@ in
     ../../modules/networking.nix
     ../../modules/virtualization.nix
     ../../modules/users.nix
-    ../../modules/keyd.nix
     ../../modules/ssh.nix
     ../../modules/grub.nix
     ../../modules/zsh.nix

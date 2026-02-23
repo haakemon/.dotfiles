@@ -51,7 +51,6 @@ in
     ../../modules/virtualization.nix
     ../../modules/gpu-nvidia.nix
     ../../modules/users.nix
-    ../../modules/keyd.nix
     ../../modules/grub.nix
     ../../modules/zsh.nix
     ../../modules/logitech.nix

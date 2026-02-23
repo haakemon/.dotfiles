@@ -95,6 +95,9 @@ in
 
       QT_QPA_PLATFORM = "wayland";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+
+      EDITOR = "nvim";
+      VISUAL = "nvim";
     };
 
     sessionPath = [

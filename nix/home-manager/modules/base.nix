@@ -118,8 +118,6 @@ in
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/systemd/proton-pass-agent.service";
       ".config/git/config".source =
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/git/.gitconfig";
-      ".config/keyd/default.conf".source =
-        config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/keyd/default.conf";
     };
 
     packages = [

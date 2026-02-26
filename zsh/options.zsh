@@ -33,6 +33,7 @@ export ZSH_COMPDUMP="${XDG_CACHE_HOME}/zsh/.zcompdump-${ZSH_VERSION}"
 
 # Initialize completion system
 autoload -Uz compinit
+# compinit
 
 # Load completion with cache
 if [[ -n ${ZSH_COMPDUMP}(#qNmh+24) ]]; then

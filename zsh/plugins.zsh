@@ -49,10 +49,8 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit ice wait lucid
 zinit light joshskidmore/zsh-fzf-history-search
 
-# zsh-npm-scripts-autocomplete
-# Autocomplete npm scripts from package.json
-zinit ice wait lucid
-zinit light grigorii-zander/zsh-npm-scripts-autocomplete
+# zinit ice atload"zpcdreplay" atclone"./zplug.zsh" atpull"%atclone"
+# zinit light g-plane/pnpm-shell-completion
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # Additional Zinit Features (Optional)

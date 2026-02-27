@@ -32,7 +32,7 @@
       pkgs.freetube
 
       # Devtools
-      pkgs.azure-cli
+      # pkgs.azure-cli
       pkgs.kubectl
       pkgs.kubelogin
       pkgs.kubectx

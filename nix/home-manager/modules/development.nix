@@ -22,7 +22,7 @@
 
       pkgs.mqtt-explorer
       pkgs.posting
-      pkgs.mitmproxy
+      # pkgs.mitmproxy
 
       pkgs.dive # explore docker layers
       pkgs.podman-tui

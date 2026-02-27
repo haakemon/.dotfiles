@@ -57,7 +57,6 @@
       # pkgs.peazip # https://nixpk.gs/pr-tracker.html?pr=374566
       pkgs.nix-tree
       pkgs.nomacs # image viewer
-      pkgs.marktext
       pkgs.scrcpy
       pkgs.clipse
       pkgs.emote

@@ -2,4 +2,4 @@
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
 
-**/secrets/*.yaml diff=sopsdiffer
+# **/secrets/*.yaml diff=sopsdiffer

@@ -1,14 +1,21 @@
 {
   "appLauncher": {
+    "autoPasteClipboard": false,
+    "clipboardWatchImageCommand": "wl-paste --type image --watch cliphist store",
+    "clipboardWatchTextCommand": "wl-paste --type text --watch cliphist store",
+    "clipboardWrapText": true,
     "customLaunchPrefix": "",
     "customLaunchPrefixEnabled": false,
     "enableClipPreview": true,
     "enableClipboardHistory": false,
+    "enableSettingsSearch": true,
     "iconMode": "tabler",
     "ignoreMouseInput": false,
-    "pinnedExecs": [],
+    "pinnedApps": [],
     "position": "center",
+    "screenshotAnnotationTool": "",
     "showCategories": true,
+    "showIconBackground": false,
     "sortByMostUsed": true,
     "terminalCommand": "xterm -e",
     "useApp2Unit": false,
@@ -16,33 +23,41 @@
   },
   "audio": {
     "cavaFrameRate": 60,
-    "externalMixer": "pwvucontrol || pavucontrol",
     "mprisBlacklist": [],
     "preferredPlayer": "",
     "visualizerType": "linear",
+    "volumeFeedback": false,
     "volumeOverdrive": false,
     "volumeStep": 5
   },
   "bar": {
     "backgroundOpacity": 0,
+    "barType": "simple",
     "capsuleOpacity": 1,
     "density": "default",
     "exclusive": true,
     "floating": false,
-    "marginHorizontal": 0.25,
-    "marginVertical": 0.25,
+    "frameRadius": 12,
+    "frameThickness": 8,
+    "hideOnOverview": false,
+    "marginHorizontal": 5,
+    "marginVertical": 5,
     "monitors": [],
     "outerCorners": true,
     "position": "top",
+    "screenOverrides": [],
     "showCapsule": true,
     "showOutline": false,
     "useSeparateOpacity": true,
     "widgets": {
       "center": [
         {
+          "colorizeSystemIcon": "none",
+          "enableColorization": false,
           "hideMode": "alwaysExpanded",
           "icon": "rocket",
           "id": "CustomButton",
+          "ipcIdentifier": "",
           "leftClickExec": "noctalia-shell ipc call launcher toggle",
           "leftClickUpdateText": false,
           "maxTextLength": {
@@ -75,22 +90,29 @@
         },
         {
           "hideWhenZero": true,
+          "hideWhenZeroUnread": false,
           "id": "NotificationHistory",
-          "showUnreadBadge": true
+          "showUnreadBadge": true,
+          "unreadBadgeColor": "primary"
         }
       ],
       "left": [
         {
           "characterCount": 2,
           "colorizeIcons": false,
+          "emptyColor": "secondary",
           "enableScrollWheel": true,
+          "focusedColor": "primary",
           "followFocusedScreen": false,
           "groupedBorderOpacity": 1,
           "hideUnoccupied": false,
           "iconScale": 0.8,
           "id": "Workspace",
           "labelMode": "index",
+          "occupiedColor": "secondary",
+          "reverseScroll": false,
           "showApplications": false,
+          "showBadge": true,
           "showLabelsOnlyWhenOccupied": true,
           "unfocusedIconsOpacity": 1
         },
@@ -112,11 +134,13 @@
         },
         {
           "displayMode": "alwaysShow",
-          "id": "Volume"
+          "id": "Volume",
+          "middleClickCommand": "pwvucontrol || pavucontrol"
         },
         {
           "deviceNativePath": "",
           "displayMode": "onhover",
+          "hideIfIdle": false,
           "hideIfNotDetected": true,
           "id": "Battery",
           "showNoctaliaPerformance": false,
@@ -179,10 +203,10 @@
   },
   "colorSchemes": {
     "darkMode": true,
-    "generateTemplatesForPredefined": false,
+    "generationMethod": "tonal-spot",
     "manualSunrise": "06:30",
     "manualSunset": "18:30",
-    "matugenSchemeType": "scheme-fruit-salad",
+    "monitorForColors": "",
     "predefinedScheme": "Catppuccin",
     "schedulingMode": "off",
     "useWallpaperColors": false
@@ -214,17 +238,15 @@
         "id": "brightness-card"
       }
     ],
+    "diskPath": "/",
     "position": "close_to_bar_button",
     "shortcuts": {
       "left": [
         {
-          "id": "WiFi"
+          "id": "Network"
         },
         {
           "id": "Bluetooth"
-        },
-        {
-          "id": "ScreenRecorder"
         },
         {
           "id": "WallpaperSelector"
@@ -264,30 +286,37 @@
     "onlySameOutput": true,
     "pinnedApps": [],
     "pinnedStatic": false,
+    "position": "bottom",
     "size": 1
   },
   "general": {
     "allowPanelsOnScreenWithoutBar": true,
+    "allowPasswordWithFprintd": false,
     "animationDisabled": false,
     "animationSpeed": 1,
+    "autoStartAuth": false,
     "avatarImage": "/home/haakemon/profile.png",
     "boxRadiusRatio": 1,
     "compactLockScreen": false,
     "dimmerOpacity": 0.8,
+    "enableLockScreenCountdown": true,
     "enableShadows": false,
     "forceBlackScreenCorners": true,
     "iRadiusRatio": 1,
     "language": "",
     "lockOnSuspend": false,
+    "lockScreenCountdownDuration": 10000,
     "radiusRatio": 1,
     "scaleRatio": 1,
     "screenRadiusRatio": 0.9,
     "shadowDirection": "bottom_right",
     "shadowOffsetX": 2,
     "shadowOffsetY": 3,
+    "showChangelogOnStartup": true,
     "showHibernateOnLockScreen": false,
     "showScreenCorners": true,
-    "showSessionButtonsOnLockScreen": true
+    "showSessionButtonsOnLockScreen": true,
+    "telemetryEnabled": false
   },
   "hooks": {
     "darkModeChange": "",
@@ -296,11 +325,15 @@
     "performanceModeEnabled": "",
     "screenLock": "",
     "screenUnlock": "",
+    "session": "",
+    "startup": "",
     "wallpaperChange": ""
   },
   "location": {
     "analogClockInCalendar": false,
     "firstDayOfWeek": -1,
+    "hideWeatherCityName": false,
+    "hideWeatherTimezone": false,
     "name": "Oslo, Norway",
     "showCalendarEvents": true,
     "showCalendarWeather": true,
@@ -311,6 +344,11 @@
     "weatherShowEffects": true
   },
   "network": {
+    "bluetoothDetailsViewMode": "grid",
+    "bluetoothHideUnnamedDevices": false,
+    "bluetoothRssiPollIntervalMs": 10000,
+    "bluetoothRssiPollingEnabled": false,
+    "wifiDetailsViewMode": "grid",
     "wifiEnabled": true
   },
   "nightLight": {
@@ -326,6 +364,7 @@
     "backgroundOpacity": 1,
     "criticalUrgencyDuration": 15,
     "enableKeyboardLayoutToast": true,
+    "enableMediaToast": false,
     "enabled": true,
     "location": "top",
     "lowUrgencyDuration": 3,
@@ -357,21 +396,10 @@
     "monitors": [],
     "overlayLayer": true
   },
-  "screenRecorder": {
-    "audioCodec": "opus",
-    "audioSource": "default_output",
-    "colorRange": "limited",
-    "copyToClipboard": false,
-    "directory": "/home/haakemon/Videos",
-    "frameRate": 60,
-    "quality": "very_high",
-    "showCursor": true,
-    "videoCodec": "h264",
-    "videoSource": "portal"
-  },
   "sessionMenu": {
     "countdownDuration": 10000,
     "enableCountdown": true,
+    "largeButtonsLayout": "grid",
     "largeButtonsStyle": false,
     "position": "center",
     "powerOptions": [
@@ -415,14 +443,13 @@
     "showHeader": true,
     "showNumberLabels": true
   },
-  "settingsVersion": 36,
+  "settingsVersion": 46,
   "systemMonitor": {
     "cpuCriticalThreshold": 90,
     "cpuPollingInterval": 3000,
     "cpuWarningThreshold": 80,
     "criticalColor": "",
     "diskCriticalThreshold": 90,
-    "diskPath": "/",
     "diskPollingInterval": 3000,
     "diskWarningThreshold": 80,
     "enableDgpuMonitoring": false,
@@ -430,10 +457,13 @@
     "gpuCriticalThreshold": 90,
     "gpuPollingInterval": 3000,
     "gpuWarningThreshold": 80,
+    "loadAvgPollingInterval": 3000,
     "memCriticalThreshold": 90,
     "memPollingInterval": 3000,
     "memWarningThreshold": 80,
     "networkPollingInterval": 3000,
+    "swapCriticalThreshold": 90,
+    "swapWarningThreshold": 80,
     "tempCriticalThreshold": 90,
     "tempPollingInterval": 3000,
     "tempWarningThreshold": 80,
@@ -441,39 +471,18 @@
     "warningColor": ""
   },
   "templates": {
-    "alacritty": false,
-    "cava": false,
-    "code": false,
-    "discord": false,
-    "emacs": false,
-    "enableUserTemplates": false,
-    "foot": false,
-    "fuzzel": false,
-    "ghostty": false,
-    "gtk": false,
-    "helix": false,
-    "hyprland": false,
-    "kcolorscheme": false,
-    "kitty": false,
-    "mango": false,
-    "niri": false,
-    "pywalfox": false,
-    "qt": false,
-    "spicetify": false,
-    "telegram": false,
-    "vicinae": false,
-    "walker": false,
-    "wezterm": false,
-    "yazi": false,
-    "zed": false
+    "activeTemplates": [],
+    "enableUserTheming": false
   },
   "ui": {
     "bluetoothDetailsViewMode": "grid",
     "bluetoothHideUnnamedDevices": false,
+    "boxBorderEnabled": false,
     "fontDefault": "Roboto",
     "fontDefaultScale": 1,
     "fontFixed": "DejaVu Sans Mono",
     "fontFixedScale": 1,
+    "networkPanelView": "wifi",
     "panelBackgroundOpacity": 0.8,
     "panelsAttachedToBar": true,
     "settingsPanelMode": "centered",
@@ -481,6 +490,7 @@
     "wifiDetailsViewMode": "grid"
   },
   "wallpaper": {
+    "automationEnabled": true,
     "directory": "/home/haakemon/ProtonDrive/Wallpaper/5120x1440",
     "enableMultiMonitorDirectories": true,
     "enabled": true,
@@ -496,14 +506,16 @@
     ],
     "overviewEnabled": false,
     "panelPosition": "follow_bar",
-    "randomEnabled": true,
     "randomIntervalSec": 300,
-    "recursiveSearch": true,
     "setWallpaperOnAllMonitors": false,
+    "showHiddenFiles": false,
+    "solidColor": "#1a1a2e",
     "transitionDuration": 1500,
     "transitionEdgeSmoothness": 0.05,
     "transitionType": "random",
+    "useSolidColor": false,
     "useWallhaven": false,
+    "viewMode": "recursive",
     "wallhavenApiKey": "",
     "wallhavenCategories": "111",
     "wallhavenOrder": "desc",

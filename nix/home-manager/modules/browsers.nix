@@ -49,7 +49,9 @@
       (lib.optional config.browsers.vivaldi pkgs.vivaldi)
       (lib.optional config.browsers.zen pkgs.zen-browser)
       (lib.optional config.browsers.firefox pkgs.firefox)
-      (lib.optional config.browsers.chromium pkgs.ungoogled-chromium)
+      (lib.optional config.browsers.chromium (
+        pkgs.ungoogled-chromium.override { enableWideVine = true; }
+      ))
       (lib.optional config.browsers.ladybird pkgs.ladybird)
       (lib.optional config.browsers.google-chrome pkgs.google-chrome)
     ];

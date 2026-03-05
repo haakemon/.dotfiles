@@ -118,6 +118,8 @@ in
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/systemd/proton-pass-agent.service";
       ".config/git/config".source =
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/git/.gitconfig";
+      "profile.png".source =
+        config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/profile.png";
     };
 
     packages = [

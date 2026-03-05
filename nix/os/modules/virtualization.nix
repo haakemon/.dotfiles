@@ -8,7 +8,6 @@
   environment.systemPackages =
     [
       pkgs.podman-compose
-      pkgs.distrobox
     ]
     ++ lib.optionals (!config.system-config.headless) [
       pkgs.virt-viewer
@@ -25,9 +24,10 @@
     virt-manager.enable = true;
   };
 
-  services = lib.mkIf (!config.system-config.headless) {
-    spice-vdagentd.enable = true;
-  };
+  # https://github.com/NixOS/nixpkgs/pull/496839
+  # services = lib.mkIf (!config.system-config.headless) {
+  #   spice-vdagentd.enable = true;
+  # };
 
   virtualisation = lib.mkMerge [
     {
@@ -41,15 +41,16 @@
       };
     }
 
-    (lib.mkIf (!config.system-config.headless) {
-      # waydroid.enable = true;
-      libvirtd = {
-        enable = true;
-        qemu = {
-          swtpm.enable = true;
-        };
-      };
-      spiceUSBRedirection.enable = true;
-    })
+    # https://github.com/NixOS/nixpkgs/pull/496839
+    # (lib.mkIf (!config.system-config.headless) {
+    #   # waydroid.enable = true;
+    #   libvirtd = {
+    #     enable = true;
+    #     qemu = {
+    #       swtpm.enable = true;
+    #     };
+    #   };
+    #   spiceUSBRedirection.enable = true;
+    # })
   ];
 }

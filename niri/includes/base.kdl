@@ -1,7 +1,5 @@
 prefer-no-csd
 
-spawn-at-startup "clipse" "-listen"
-
 cursor {
     xcursor-theme "Banana"
     xcursor-size 36
@@ -47,3 +45,6 @@ animations {
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
 }
+
+spawn-at-startup "clipse" "-listen"
+spawn-at-startup "qs" "-c" "noctalia-shell"

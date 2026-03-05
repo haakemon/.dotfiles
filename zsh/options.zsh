@@ -65,16 +65,6 @@ setopt PUSHD_IGNORE_DUPS         # Don't push multiple copies of same directory
 # setopt EXTENDED_GLOB             # Use extended globbing syntax
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# Directory Hashes (Quick Navigation)
-#━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-# Named directories for quick access with ~name
-hash -d code="${HOME}/code"
-hash -d dl="${HOME}/Downloads"
-hash -d dots="${HOME}/.dotfiles"
-hash -d flake="${HOME}/.dotfiles/nix/os"
-
-#━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # Tool Integration
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

@@ -20,9 +20,6 @@
         config.lib.file.mkOutOfStoreSymlink "${pkgs.banana-cursor}/share/icons/Banana";
       "${config.home.sessionVariables.XDG_DATA_HOME}/icons/Dracula".source =
         config.lib.file.mkOutOfStoreSymlink "${pkgs.dracula-icon-theme}/share/icons/Dracula";
-
-      ".face.icon".source =
-        config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/sddm/.face.icon";
     };
 
     packages = [
@@ -30,14 +27,11 @@
       pkgs.pavucontrol # sound
 
       pkgs.proton-pass
-      pkgs.bitwarden-desktop
-      pkgs.keepassxc
       pkgs.protonvpn-gui
+      pkgs.keepassxc
       pkgs.xorg.xwininfo
       pkgs.mission-center # taskmanager
 
-      pkgs.spotify
-      pkgs.spotify-player # tui
       pkgs.vlc
 
       pkgs.cosmic-files

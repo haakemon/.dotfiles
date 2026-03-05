@@ -16,16 +16,15 @@ in
       imports = [
         ../../modules/niri.nix
         ../../modules/greetd.nix
-        ../../modules/seahorse.nix
       ];
     };
 
-    "02-plasma".configuration = {
-      environment.etc."specialisation".text = "02-plasma";
-      system.nixos.tags = [ "plasma" ];
+    "03-gnome".configuration = {
+      environment.etc."specialisation".text = "03-gnome";
+      system.nixos.tags = [ "gnome" ];
       imports = [
-        ../../modules/plasma.nix
-        ../../modules/sddm.nix
+        ../../modules/niri.nix
+        ../../modules/gnome.nix
       ];
     };
   };

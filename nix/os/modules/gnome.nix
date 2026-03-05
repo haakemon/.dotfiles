@@ -10,8 +10,8 @@
       games.enable = false;
     };
   };
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-tour
-    gnome-user-docs
+  environment.gnome.excludePackages = [
+    pkgs.gnome-tour
+    pkgs.gnome-user-docs
   ];
 }

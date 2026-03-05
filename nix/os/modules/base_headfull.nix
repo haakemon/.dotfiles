@@ -32,6 +32,8 @@
     };
   };
 
+  programs.seahorse.enable = true;
+
   xdg.icons.enable = true;
   gtk.iconCache.enable = true;
   services.gnome.at-spi2-core.enable = true; # requirement for orca screen reader?

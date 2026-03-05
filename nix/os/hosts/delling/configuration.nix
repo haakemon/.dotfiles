@@ -15,16 +15,6 @@ in
       imports = [
         ../../modules/niri.nix
         ../../modules/greetd.nix
-        ../../modules/seahorse.nix
-      ];
-    };
-
-    "02-plasma".configuration = {
-      environment.etc."specialisation".text = "02-plasma";
-      system.nixos.tags = [ "plasma" ];
-      imports = [
-        ../../modules/plasma.nix
-        ../../modules/sddm.nix
       ];
     };
 

@@ -1,4 +1,5 @@
 function pass-cli-login {
+  pass-cli logout
   pass-cli login
 
   if pass-cli user info &>/dev/null; then

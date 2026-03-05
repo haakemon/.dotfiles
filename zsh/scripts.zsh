@@ -7,6 +7,5 @@ function pass-cli-login {
     notify-send "Proton Pass" "SSH Agent started successfully"
   else
     notify-send -u critical "Proton Pass" "Login failed - SSH Agent not started"
-    exit 1
   fi
 }

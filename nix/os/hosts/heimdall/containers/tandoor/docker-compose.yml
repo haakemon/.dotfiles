@@ -10,7 +10,7 @@ volumes:
 services:
   db_recipes:
     <<: *common-app-config
-    image: postgres:18.1-alpine3.22@sha256:270579ee277a572fa8cfdbaec0e1ff588bb7247da92d25165c7237c483e565d9
+    image: postgres:18.2-alpine3.22@sha256:cf70b3d7aeb0f399ba29e94ce081380ccade1f4c38e203309068a30f49548417
     volumes:
       - $DATADIR/tandoor/postgresql:/var/lib/postgresql/data
     env_file:
@@ -20,7 +20,7 @@ services:
 
   web_recipes:
     <<: *common-app-config
-    image: vabene1111/recipes:2.4.2@sha256:c1a1d494631955bdb6c200066ee5914adbc378805ac0e4df9aeb795fe25c87aa
+    image: vabene1111/recipes:2.5.3@sha256:7ce6534c9ab0e471fd0f08add67e871b9173fb580c2f86294c3ead025603a3d7
     env_file:
       - ./.env
     volumes:

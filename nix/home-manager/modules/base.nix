@@ -87,7 +87,6 @@ in
       GNUPGHOME = "${config.home.sessionVariables.XDG_DATA_HOME}/gnupg";
 
       BAT_CONFIG_PATH = "${config.home.homeDirectory}/.dotfiles/bat/bat.conf";
-      SSH_AUTH_SOCK = "${config.home.homeDirectory}/.ssh/proton-pass-agent.sock";
 
       NH_HOME_FLAKE = "path:/home/${config.user-config.name}/.dotfiles/nix/home-manager";
 
@@ -97,6 +96,9 @@ in
 
       QT_QPA_PLATFORM = "wayland";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+
+      PROTON_PASS_KEY_PROVIDER = "fs";
+      SSH_AUTH_SOCK = "${config.home.homeDirectory}/.ssh/proton-pass-agent.sock";
 
       EDITOR = "nvim";
       VISUAL = "nvim";
@@ -118,6 +120,8 @@ in
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/systemd/proton-pass-agent.service";
       ".config/git/config".source =
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/git/.gitconfig";
+      ".config/worktrunk/config.toml".source =
+        config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/worktrunk/config.toml";
       "profile.png".source =
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/profile.png";
     };
@@ -143,6 +147,7 @@ in
       pkgs.croc # Easily and securely send things from one computer to another
       pkgs.magic-wormhole # Securely transfer data between computers
       pkgs.git
+      pkgs.worktrunk
       pkgs.curl
       pkgs.nano
       pkgs.simple-http-server
@@ -188,6 +193,11 @@ in
         )
       )
     ];
+  };
+
+  systemd.user.sessionVariables = {
+    PROTON_PASS_KEY_PROVIDER = "fs";
+    SSH_AUTH_SOCK = "${config.home.homeDirectory}/.ssh/proton-pass-agent.sock";
   };
 
 }

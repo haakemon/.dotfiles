@@ -85,3 +85,5 @@ $RECYCLE.BIN/
 !.env*template
 nohup.out
 nohup.*.out
+
+.worktrees

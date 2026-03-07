@@ -47,4 +47,4 @@ animations {
 }
 
 spawn-at-startup "clipse" "-listen"
-spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "noctalia-shell"

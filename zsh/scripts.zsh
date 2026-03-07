@@ -2,7 +2,7 @@ function pass-cli-login {
   pass-cli logout
   pass-cli login
 
-  if pass-cli user info &>/dev/null; then
+  if pass-cli test &>/dev/null; then
     systemctl --user restart proton-pass-agent.service
     notify-send "Proton Pass" "SSH Agent started successfully"
   else

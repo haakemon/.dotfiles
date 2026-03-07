@@ -1,6 +1,8 @@
 config: inputs: final: prev:
 prev
   // {
+  worktrunk = inputs.worktrunk.packages.${prev.system}.default;
+
   vivaldi = import ./vivaldi config inputs final prev;
   firefox = import ./firefox config inputs final prev;
   zen-browser = import ./zen-browser config inputs final prev;

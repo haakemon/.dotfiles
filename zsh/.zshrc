@@ -14,9 +14,9 @@ source "${HOME}/.dotfiles/zsh/grc.zsh"
 source "${HOME}/.dotfiles/zsh/fnm.zsh"
 source "${HOME}/.dotfiles/zsh/zsh-hooks.zsh"
 source "${HOME}/.dotfiles/zsh/scripts.zsh"
+source "${HOME}/.dotfiles/zsh/wt.zsh"
 source "${HOME}/.dotfiles/zsh/plugins/zsh-npm-scripts-autocomplete.zsh"
 
 fastfetch
 
 eval "$(direnv hook zsh)"
-eval "$(wt config shell init zsh)"

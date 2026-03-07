@@ -20,3 +20,4 @@ source "${HOME}/.dotfiles/zsh/plugins/zsh-npm-scripts-autocomplete.zsh"
 fastfetch
 
 eval "$(direnv hook zsh)"
+eval "$(wt config shell init zsh)"

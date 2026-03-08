@@ -122,6 +122,8 @@ in
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/git/.gitconfig";
       ".config/worktrunk/config.toml".source =
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/worktrunk/config.toml";
+      ".config/nvim".source =
+        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/nvim";
       "profile.png".source =
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/profile.png";
     };

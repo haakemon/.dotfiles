@@ -37,6 +37,9 @@ vim.opt.wrap = false -- do not wrap lines by default
 vim.opt.scrolloff = 10 -- keep 10 lines above/below cursor
 vim.opt.sidescrolloff = 10 -- keep 10 lines to left/right of cursor
 
+vim.opt.list = true
+vim.opt.listchars = "tab:» ,lead:•,trail:•"
+
 vim.opt.tabstop = 2 -- tabwidth
 vim.opt.shiftwidth = 2 -- indent width
 vim.opt.softtabstop = 2 -- soft tab stop not tabs on tab/backspace
@@ -94,8 +97,14 @@ vim.opt.clipboard:append("unnamedplus") -- use system clipboard
 vim.opt.modifiable = true -- allow buffer modifications
 vim.opt.encoding = "utf-8" -- set encoding
 
+-- vim.opt.guicursor =
+	-- "n-v-c:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175" -- cursor blinking and settings
+
+-- vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
+
+
 vim.opt.guicursor =
-	"n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175" -- cursor blinking and settings
+	"n-v-c-sm:block-Cursor/lCursor,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175" -- cursor blinking and settings
 
 -- Folding: requires treesitter available at runtime; safe fallback if not
 vim.opt.foldmethod = "expr" -- use expression for folding
@@ -297,13 +306,13 @@ vim.keymap.set("n", "<C-Down>", ":resize -2<CR>", { desc = "Decrease window heig
 vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease window width" })
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase window width" })
 
-vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
-vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
-vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
-vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+vim.keymap.set("n", "<A-Up>", ":m .-2<CR>==", { desc = "Move line up" })
+vim.keymap.set("n", "<A-Down>", ":m .+1<CR>==", { desc = "Move line down" })
+vim.keymap.set("v", "<A-Up>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+vim.keymap.set("v", "<A-Down>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
 
-vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
-vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
+vim.keymap.set("v", "<S-Tab>", "<gv", { desc = "Indent left and reselect" })
+vim.keymap.set("v", "<Tab>", ">gv", { desc = "Indent right and reselect" })
 
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
 
@@ -468,22 +477,47 @@ local setup_treesitter = function()
 		"vim",
 		"vimdoc",
 		"rust",
-		"c",
-		"cpp",
-		"go",
+    "bash",
+    "zsh",
+    "lua",
+    "python",
+
 		"html",
+    "html_tags",
 		"css",
-		"javascript",
+    "scss",
+    "jsx",
+    "tsx",
+    "jsdoc",
+    "javascript",
+    "typescript",
 		"json",
-		"lua",
-		"markdown",
-		"python",
-		"typescript",
-		"vue",
-		"svelte",
-		"bash",
-		"lua",
-		"python",
+    "json5",
+    "yaml",
+    "robots_txt",
+    -- "vue",
+    -- "svelte",
+
+    "dockerfile",
+    "helm",
+    "terraform",
+
+    "kdl",
+    "nix",
+
+    "git_config",
+    "git_rebase",
+    "gitattributes",
+    "gitcommit",
+    "gitignore",
+    "editorconfig",
+    "ssh_config",
+    "regex",
+    "desktop",
+    "udev",
+    "diff",
+    "markdown",
+    "markdown_inline",
 	}
 
 	local config = require("nvim-treesitter.config")
@@ -568,6 +602,17 @@ require("mini.trailspace").setup({})
 require("mini.bufremove").setup({})
 require("mini.notify").setup({})
 require("mini.icons").setup({})
+
+vim.keymap.set('n', '<F12>', function()
+  require("mini.comment").toggle_lines(vim.fn.line('.'), vim.fn.line('.'))
+end, { desc = "Toggle line comment" })
+vim.keymap.set('i', '<F12>', function()
+  vim.cmd('stopinsert')
+  require("mini.comment").toggle_lines(vim.fn.line('.'), vim.fn.line('.'))
+  vim.schedule(function()
+    vim.cmd('startinsert')
+  end)
+end, { desc = "Toggle line comment (insert mode)" })
 
 require("gitsigns").setup({
 	signs = {
@@ -848,93 +893,3 @@ vim.lsp.enable({
 	"clangd",
 	"efm",
 })
-
--- ============================================================================
--- FLOATING TERMINAL
--- ============================================================================
-vim.api.nvim_create_autocmd("TermClose", {
-	group = augroup,
-	callback = function()
-		if vim.v.event.status == 0 then
-			vim.api.nvim_buf_delete(0, {})
-		end
-	end,
-})
-
-vim.api.nvim_create_autocmd("TermOpen", {
-	group = augroup,
-	callback = function()
-		vim.opt_local.number = false
-		vim.opt_local.relativenumber = false
-		vim.opt_local.signcolumn = "no"
-	end,
-})
-
-local terminal_state = { buf = nil, win = nil, is_open = false }
-
-local function FloatingTerminal()
-	if terminal_state.is_open and terminal_state.win and vim.api.nvim_win_is_valid(terminal_state.win) then
-		vim.api.nvim_win_close(terminal_state.win, false)
-		terminal_state.is_open = false
-		return
-	end
-
-	if not terminal_state.buf or not vim.api.nvim_buf_is_valid(terminal_state.buf) then
-		terminal_state.buf = vim.api.nvim_create_buf(false, true)
-		vim.bo[terminal_state.buf].bufhidden = "hide"
-	end
-
-	local width = math.floor(vim.o.columns * 0.8)
-	local height = math.floor(vim.o.lines * 0.8)
-	local row = math.floor((vim.o.lines - height) / 2)
-	local col = math.floor((vim.o.columns - width) / 2)
-
-	terminal_state.win = vim.api.nvim_open_win(terminal_state.buf, true, {
-		relative = "editor",
-		width = width,
-		height = height,
-		row = row,
-		col = col,
-		style = "minimal",
-		border = "rounded",
-	})
-
-	vim.wo[terminal_state.win].winblend = 0
-	vim.wo[terminal_state.win].winhighlight = "Normal:FloatingTermNormal,FloatBorder:FloatingTermBorder"
-	vim.api.nvim_set_hl(0, "FloatingTermNormal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "FloatingTermBorder", { bg = "none" })
-
-	local has_terminal = false
-	local lines = vim.api.nvim_buf_get_lines(terminal_state.buf, 0, -1, false)
-	for _, line in ipairs(lines) do
-		if line ~= "" then
-			has_terminal = true
-			break
-		end
-	end
-	if not has_terminal then
-		vim.fn.termopen(os.getenv("SHELL"))
-	end
-
-	terminal_state.is_open = true
-	vim.cmd("startinsert")
-
-	vim.api.nvim_create_autocmd("BufLeave", {
-		buffer = terminal_state.buf,
-		callback = function()
-			if terminal_state.is_open and terminal_state.win and vim.api.nvim_win_is_valid(terminal_state.win) then
-				vim.api.nvim_win_close(terminal_state.win, false)
-				terminal_state.is_open = false
-			end
-		end,
-		once = true,
-	})
-end
-
-vim.keymap.set("n", "<leader>t", FloatingTerminal, { noremap = true, silent = true, desc = "Toggle floating terminal" })
-vim.keymap.set("t", "<Esc>", function()
-	if terminal_state.is_open and terminal_state.win and vim.api.nvim_win_is_valid(terminal_state.win) then
-		vim.api.nvim_win_close(terminal_state.win, false)
-		terminal_state.is_open = false
-	end
-end, { noremap = true, silent = true, desc = "Close floating terminal" })

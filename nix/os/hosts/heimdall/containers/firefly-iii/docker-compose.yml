@@ -12,7 +12,7 @@ volumes:
 services:
   app:
     <<: *common-app-config
-    image: fireflyiii/core:latest@sha256:6ae1b92eb73b4ae8a8e7e038440b93fba46267e05b5b903c62316b8cb03779af
+    image: fireflyiii/core:latest@sha256:4205437885b52df595e45e5c36381ecea8134c3d249db8c0a74625c86fe9c7a4
     hostname: app
     container_name: firefly_iii_core
     volumes:

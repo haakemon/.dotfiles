@@ -5,7 +5,7 @@ networks:
 services:
   bds:
     container_name: minecraft_bedrock
-    image: itzg/minecraft-bedrock-server@sha256:a1f527cbd8db7ee9b825eb8cfe84ff64d588a91d96cd9d0c1d90196b1d8996e3
+    image: itzg/minecraft-bedrock-server@sha256:389f2e3a0f781762e7ae6f6fbdd0c5899aa20e2849f04f3daae588c6e5de9fee
     environment:
       TZ: $TZ
       TIME_ZONE: $TZ

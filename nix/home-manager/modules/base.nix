@@ -123,7 +123,7 @@ in
       ".config/worktrunk/config.toml".source =
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/worktrunk/config.toml";
       ".config/nvim".source =
-        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/nvim";
+        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/nvim/lazyvim";
       "profile.png".source =
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/profile.png";
     };

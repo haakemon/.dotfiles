@@ -4,7 +4,7 @@ networks:
 
 services:
   booklore:
-    image: ghcr.io/grimmory-tools/grimmory:v2.3.0
+    image: ghcr.io/grimmory-tools/grimmory:v2.3.0@sha256:9014247f591074529894f81115ca40f899db697e89f72c2fe91ec530e3f19597
     container_name: booklore
     environment:
       - USER_ID=${APP_USER_ID}

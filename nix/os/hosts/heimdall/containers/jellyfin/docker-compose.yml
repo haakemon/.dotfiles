@@ -9,7 +9,7 @@ x-common-app-config: &common-app-config
 services:
   jellyfin:
     <<: *common-app-config
-    image: jellyfin/jellyfin
+    image: jellyfin/jellyfin@sha256:17285f9cce63b3519ccad82b84497fc22482c20f8b8bbe0580d51fec5deaa6fd
     container_name: jellyfin
     # Optional - specify the uid and gid you would like Jellyfin to use instead of root
     # user: uid:gid

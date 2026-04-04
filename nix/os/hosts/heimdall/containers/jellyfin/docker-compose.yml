@@ -4,8 +4,6 @@ x-common-app-config: &common-app-config
     TZ: $TZ
     TIME_ZONE: $TZ
 
-
-
 services:
   jellyfin:
     <<: *common-app-config
@@ -23,9 +21,9 @@ services:
         source: $DATADIR/jellyfin/media/movies
         target: /movies
       # - type: bind
-        # source: $DATADIR/jellyfin/media2
-        # target: /media2
-        # read_only: true
+      # source: $DATADIR/jellyfin/media2
+      # target: /media2
+      # read_only: true
       # Optional - extra fonts to be used during transcoding with subtitle burn-in
       # - type: bind
       #   source: $DATADIR/jellyfin/fonts

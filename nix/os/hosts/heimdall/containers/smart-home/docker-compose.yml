@@ -20,7 +20,7 @@ services:
 
   music-assistant-server:
     <<: *common-app-config
-    image: ghcr.io/music-assistant/server:2.9.0b1
+    image: ghcr.io/music-assistant/server:2.9.0b1@sha256:a889d6df8cb3424f022325729f7b313d69ea6875c07c23c04618e96a5d1aed18
     container_name: music-assistant-server
     network_mode: host
     volumes:

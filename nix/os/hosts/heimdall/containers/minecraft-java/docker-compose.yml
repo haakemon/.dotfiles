@@ -4,7 +4,7 @@ networks:
 
 services:
   mc:
-    image: itzg/minecraft-server@sha256:ca02da99646d1d670a591f0694c683b8e81224d27e8430bd058db435a0939382
+    image: itzg/minecraft-server@sha256:39736a3a1252f1ad8ad0e5c23dccc3b85ac2f9ee41dc811ff16db840477010ae
     environment:
       TZ: $TZ
       TIME_ZONE: $TZ

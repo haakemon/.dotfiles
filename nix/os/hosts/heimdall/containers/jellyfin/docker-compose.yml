@@ -1,0 +1,39 @@
+x-common-app-config: &common-app-config
+  restart: unless-stopped
+  environment:
+    TZ: $TZ
+    TIME_ZONE: $TZ
+
+
+
+services:
+  jellyfin:
+    <<: *common-app-config
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    # Optional - specify the uid and gid you would like Jellyfin to use instead of root
+    # user: uid:gid
+    ports:
+      - 8096:8096/tcp
+      - 7359:7359/udp
+    volumes:
+      - $DATADIR/jellyfin/config:/config
+      - $DATADIR/jellyfin/cache:/cache
+      - type: bind
+        source: $DATADIR/jellyfin/media/movies
+        target: /movies
+      # - type: bind
+        # source: $DATADIR/jellyfin/media2
+        # target: /media2
+        # read_only: true
+      # Optional - extra fonts to be used during transcoding with subtitle burn-in
+      # - type: bind
+      #   source: $DATADIR/jellyfin/fonts
+      #   target: /usr/local/share/fonts/custom
+      #   read_only: true
+    # Optional - alternative address used for autodiscovery
+    # environment:
+    #   - JELLYFIN_PublishedServerUrl=http://example.com
+    # Optional - may be necessary for docker healthcheck to pass if running in host network mode
+    # extra_hosts:
+    #   - 'host.docker.internal:host-gateway'

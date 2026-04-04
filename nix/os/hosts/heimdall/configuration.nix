@@ -97,11 +97,10 @@ in
           adguard.loadBalancer.servers = [{ url = "http://127.0.0.1:3050"; }];
           status.loadBalancer.servers = [{ url = "http://127.0.0.1:3001"; }];
           scrutiny.loadBalancer.servers = [{ url = "http://127.0.0.1:8999"; }];
-          money.loadBalancer.servers = [{ url = "http://127.0.0.1:8182"; }];
           food.loadBalancer.servers = [{ url = "http://127.0.0.1:8255"; }];
           music.loadBalancer.servers = [{ url = "http://127.0.0.1:8095"; }];
           books.loadBalancer.servers = [{ url = "http://127.0.0.1:6060"; }];
-          comics.loadBalancer.servers = [{ url = "http://127.0.0.1:5656"; }];
+          tv.loadBalancer.servers = [{ url = "http://127.0.0.1:8096"; }];
         };
 
         routers = {
@@ -189,12 +188,6 @@ in
             service = "scrutiny";
           };
 
-          money = {
-            rule = "Host(`money.${config.system-config.acme.domain}`)";
-            entryPoints = [ "websecure" ];
-            service = "money";
-          };
-
           food = {
             rule = "Host(`food.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
@@ -207,10 +200,10 @@ in
             service = "books";
           };
 
-          comics = {
-            rule = "Host(`comics.${config.system-config.acme.domain}`)";
+          tv = {
+            rule = "Host(`tv.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
-            service = "comics";
+            service = "tv";
           };
         };
       };

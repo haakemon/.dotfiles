@@ -18,7 +18,7 @@ services:
       - $DATADIR/jellyfin/config:/config
       - $DATADIR/jellyfin/cache:/cache
       - type: bind
-        source: $DATADIR/jellyfin/media/movies
+        source: $DATADIR/media/movies
         target: /movies
       # - type: bind
       # source: $DATADIR/jellyfin/media2

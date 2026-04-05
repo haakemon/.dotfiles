@@ -20,6 +20,9 @@ services:
       - type: bind
         source: $DATADIR/media/movies
         target: /movies
+      - type: bind
+        source: $DATADIR/media/tv
+        target: /tv
       # - type: bind
       # source: $DATADIR/jellyfin/media2
       # target: /media2

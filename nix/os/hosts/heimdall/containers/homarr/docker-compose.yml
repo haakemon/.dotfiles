@@ -7,7 +7,7 @@ services:
   homarr:
     restart: unless-stopped
     container_name: homarr
-    image: ghcr.io/homarr-labs/homarr:v1.59.1@sha256:7e6ea6949a6efd9207ddcbcf1208f40adfc98eabe7afbc6f7a3dc77426ac01bd
+    image: ghcr.io/homarr-labs/homarr:v1.59.2@sha256:12d516d624c0ff2df70ba4d6d8ddf4ebd869dfaf74ac88f9863e4783ed376872
     ports:
       - 127.0.0.1:7575:7575
     volumes:

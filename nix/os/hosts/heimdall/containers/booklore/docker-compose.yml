@@ -4,7 +4,7 @@ networks:
 
 services:
   booklore:
-    image: ghcr.io/grimmory-tools/grimmory:v2.3.0@sha256:9014247f591074529894f81115ca40f899db697e89f72c2fe91ec530e3f19597
+    image: ghcr.io/grimmory-tools/grimmory:v2.3.1@sha256:73803e74fca8092bfe5b8c7552905e845bdbcc16f6d0f79251f9a0cb2ba3c459
     container_name: booklore
     environment:
       - USER_ID=${APP_USER_ID}
@@ -26,7 +26,7 @@ services:
     restart: unless-stopped
 
   mariadb:
-    image: lscr.io/linuxserver/mariadb:11.4.9@sha256:8dc302ed6e5933ded61a46b7f559749073632be361942b2a6ca0793c23baa2d0
+    image: lscr.io/linuxserver/mariadb:11.4.10@sha256:c45132cefda1fc6e2034539631fa769070f37d9f673100dba7c0f7077c2e8b8c
     container_name: mariadb
     environment:
       - PUID=${DB_USER_ID}

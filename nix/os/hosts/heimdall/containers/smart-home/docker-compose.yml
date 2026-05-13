@@ -26,6 +26,7 @@ services:
     volumes:
       - '$DATADIR/music-assistant/data:/data'
       - '$DATADIR/music-assistant/media:/media'
+      - '$DATADIR/music-assistant/cache:/cache'
     cap_add:
       - SYS_ADMIN
       - DAC_READ_SEARCH

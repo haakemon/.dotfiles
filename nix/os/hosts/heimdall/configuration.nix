@@ -101,6 +101,7 @@ in
           music.loadBalancer.servers = [{ url = "http://127.0.0.1:8095"; }];
           books.loadBalancer.servers = [{ url = "http://127.0.0.1:6060"; }];
           tv.loadBalancer.servers = [{ url = "http://127.0.0.1:8096"; }];
+          romm.loadBalancer.servers = [{ url = "http://127.0.0.1:8097"; }];
         };
 
         routers = {
@@ -204,6 +205,12 @@ in
             rule = "Host(`tv.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "tv";
+          };
+
+          romm = {
+            rule = "Host(`romm.${config.system-config.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "romm";
           };
         };
       };

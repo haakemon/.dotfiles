@@ -13,7 +13,7 @@ services:
   homeassistant:
     <<: *common-app-config
     container_name: homeassistant
-    image: ghcr.io/home-assistant/home-assistant:2026.4.3@sha256:ae0800c81fea16bc1241ce03bddb9c6260566e90f58b09d3e5a629e4f68bdc0b
+    image: ghcr.io/home-assistant/home-assistant:2026.5.1@sha256:d4fbec16196d5c8bedf32647f0ca7165f654d92a2e81f35a373508d3226cb867
     network_mode: host
     volumes:
       - $DATADIR/homeassistant:/config
@@ -48,7 +48,7 @@ services:
   zwavejs2mqtt:
     <<: *common-app-config
     container_name: zwavejs2mqtt
-    image: zwavejs/zwavejs2mqtt:11.15.1@sha256:ceff8b4f8deda15eab1037abd3c03fcc277c71ebc36c1c958d2e099392940d37
+    image: zwavejs/zwavejs2mqtt:11.16.2@sha256:338fb81ba369ed04edf1a52bedecf486d213c299b9676b11c25b7dca228e9a15
     network_mode: host
     volumes:
       - '$DATADIR/zwavejs2mqtt/store:/usr/src/app/store'

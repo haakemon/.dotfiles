@@ -12,7 +12,7 @@ services:
     <<: *common-app-config
     image: postgres:18.3-alpine3.22@sha256:af27ebd3413839ccfdcdf88e91ca76ad82117e52192067b76de9bb5be7ea6e04
     volumes:
-      - $DATADIR/tandoor/postgresql:/var/lib/postgresql/data
+      - $DATADIR/tandoor/postgresql:/var/lib/postgresql
     env_file:
       - ./.env
     networks:

@@ -101,7 +101,7 @@ in
           music.loadBalancer.servers = [{ url = "http://127.0.0.1:8095"; }];
           books.loadBalancer.servers = [{ url = "http://127.0.0.1:6060"; }];
           tv.loadBalancer.servers = [{ url = "http://127.0.0.1:8096"; }];
-          romm.loadBalancer.servers = [{ url = "http://127.0.0.1:8097"; }];
+          romm.loadBalancer.servers = [{ url = "http://127.0.0.1:8063"; }];
         };
 
         routers = {

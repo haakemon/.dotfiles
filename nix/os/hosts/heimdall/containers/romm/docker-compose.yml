@@ -19,6 +19,7 @@ services:
       - RETROACHIEVEMENTS_API_KEY=${RETROACHIEVEMENTS_API_KEY}
       - STEAMGRIDDB_API_KEY=${STEAMGRIDDB_API_KEY}
       - HASHEOUS_API_ENABLED=true
+      - DISABLE_DOWNLOAD_ENDPOINT_AUTH=true
     volumes:
       - romm_resources:/romm/resources # Resources fetched from IGDB (covers, screenshots, etc.)
       - romm_redis_data:/redis-data # Cached data for background tasks
@@ -26,7 +27,7 @@ services:
       - $DATADIR/romm/assets:/romm/assets # Uploaded saves, states, etc.
       - $DATADIR/romm/config:/romm/config # (Optional) Path where config.yml is stored
     ports:
-      - 8097:8080
+      - 8063:8080
     depends_on:
       romm-db:
         condition: service_healthy

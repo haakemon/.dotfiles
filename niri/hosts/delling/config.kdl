@@ -17,18 +17,18 @@ output "Sony SONY TV  *00 0x01010101" {
 }
 
 output "Sharp Corporation 0x1516 Unknown" {
-  position x=4880 y=950 // Office
+  position x=0 y=950 // Office
   // position x=6140 y=0 // Home
   scale 2
 }
 
 output "Lenovo Group Limited P34WD-40 V30F0YP5" {
-  position x=0 y=625
+  position x=1920 y=625
 }
 
 output "Dell Inc. DELL U2715H GH85D5290F5L" {
   transform "90"
-  position x=3440 y=0
+  position x=5360 y=0
 
   layout {
     default-column-width { proportion 1.0; }

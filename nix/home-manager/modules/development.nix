@@ -26,6 +26,8 @@
 
       pkgs.dive # explore docker layers
       pkgs.podman-tui
+
+      pkgs.opencode
     ];
 
     file = {

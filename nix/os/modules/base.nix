@@ -32,9 +32,13 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  programs.nix-ld.enable = true;
-  programs.appimage.enable = true;
-  programs.appimage.binfmt = true;
+  programs = {
+    nix-ld.enable = true;
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
+  };
 
   nix = {
     package = pkgs.nixVersions.latest;

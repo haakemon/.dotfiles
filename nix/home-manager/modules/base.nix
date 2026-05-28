@@ -116,8 +116,6 @@ in
         }
       '';
 
-      ".config/systemd/user/proton-pass-agent.service".source =
-        config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/systemd/proton-pass-agent.service";
       ".config/git/config".source =
         config.lib.file.mkOutOfStoreSymlink "${config.user-config.home}/.dotfiles/git/.gitconfig";
       ".config/worktrunk/config.toml".source =

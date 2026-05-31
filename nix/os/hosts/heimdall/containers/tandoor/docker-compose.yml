@@ -10,7 +10,7 @@ volumes:
 services:
   db_recipes:
     <<: *common-app-config
-    image: postgres:18.3-alpine3.22@sha256:af27ebd3413839ccfdcdf88e91ca76ad82117e52192067b76de9bb5be7ea6e04
+    image: postgres:18.4-alpine3.22@sha256:774521500f4c22761b25a6bdb772a0a3c2e8dd32468210bdad9231c5752ea398
     volumes:
       - $DATADIR/tandoor/postgresql:/var/lib/postgresql
     env_file:

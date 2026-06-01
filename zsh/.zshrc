@@ -1,5 +1,3 @@
-
-
 source "${HOME}/.dotfiles/zsh/env.zsh"
 
 source "${HOME}/.dotfiles/zsh/options.zsh"

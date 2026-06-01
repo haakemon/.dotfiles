@@ -14,7 +14,7 @@
       # pkgs.openapi-tui
 
       # pkgs.beekeeper-studio
-      pkgs.vscode-fhs
+      # pkgs.vscode-fhs
       pkgs.meld
       pkgs.sublime-merge
       # pkgs.bruno

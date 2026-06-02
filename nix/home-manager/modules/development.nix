@@ -28,6 +28,7 @@
       pkgs.podman-tui
 
       pkgs.opencode
+      pkgs.tree-sitter
     ];
 
     file = {

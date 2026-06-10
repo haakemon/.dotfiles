@@ -2,3 +2,5 @@ font-family = "Victor Mono"
 theme = "Catppuccin Macchiato"
 background-opacity = 0.95
 background-blur = 10
+# 100 MB
+scrollback-limit = 100000000

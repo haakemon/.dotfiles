@@ -125,5 +125,9 @@
       url = "github:max-sixty/worktrunk";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    git-wt = {
+      url = "github:ahmedelgabri/git-wt";
+    };
   };
 }

@@ -147,6 +147,7 @@ in
       pkgs.croc # Easily and securely send things from one computer to another
       pkgs.magic-wormhole # Securely transfer data between computers
       pkgs.git
+      inputs.git-wt.packages.${pkgs.system}.default
       pkgs.worktrunk
       pkgs.curl
       pkgs.nano

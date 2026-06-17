@@ -163,7 +163,7 @@ in
       pkgs.neovim
       pkgs.gh # github cli
       pkgs.nixpkgs-fmt # formatting .nix files
-      pkgs.nixfmt-rfc-style # formatting .nix files
+      pkgs.nixfmt # formatting .nix files
       pkgs.statix
       pkgs.gcc # requirement for nixpkgs-fmt in prek
       pkgs.rustup # requirement for nixpkgs-fmt in prek

@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
+{ config
+, pkgs
+, lib
+, ...
 }:
 
 {
@@ -28,9 +27,9 @@
       pkgs.pavucontrol # sound
 
       pkgs.proton-pass
-      pkgs.protonvpn-gui
+      pkgs.proton-vpn
       pkgs.keepassxc
-      pkgs.xorg.xwininfo
+      pkgs.xwininfo
       pkgs.mission-center # taskmanager
 
       pkgs.vlc

@@ -1,6 +1,6 @@
 config: inputs: final: prev:
 let
-  zen-browser-pkg = inputs.zen-browser.packages.${prev.system}.default;
+  zen-browser-pkg = inputs.zen-browser.packages.${prev.stdenv.hostPlatform.system}.default;
 in
 # avoid .zen folder in ~/
 zen-browser-pkg.overrideAttrs (oldAttrs: {

@@ -1,7 +1,7 @@
 config: inputs: final: prev:
 prev
   // {
-  worktrunk = inputs.worktrunk.packages.${prev.system}.default;
+  worktrunk = inputs.worktrunk.packages.${prev.stdenv.hostPlatform.system}.default;
 
   vivaldi = import ./vivaldi config inputs final prev;
   firefox = import ./firefox config inputs final prev;

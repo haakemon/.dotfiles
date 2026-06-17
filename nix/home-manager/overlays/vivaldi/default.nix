@@ -2,7 +2,7 @@ config: inputs: final: prev:
 let
   # https://github.com/NixOS/nixpkgs/pull/412571
   unstable-small = import inputs.nixpkgs-unstable-small {
-    system = prev.system;
+    system = prev.stdenv.hostPlatform.system;
     config = prev.config;
   };
 in

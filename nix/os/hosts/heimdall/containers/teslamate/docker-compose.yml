@@ -50,7 +50,7 @@ services:
   teslamate_database:
     restart: unless-stopped
     container_name: teslamate-database
-    image: postgres:18.4@sha256:8ff36f3c66371cba71d20ceedccfc3de9669a68737607888c4ef0af93abe8e39
+    image: postgres:18.4@sha256:1a5b3e745bbd82d6deb146505e504da3c2f248cac15e431951b148fbe4f8613a
     environment:
       POSTGRES_USER: $TESLAMATE_DB_USER
       POSTGRES_PASSWORD: $TESLAMATE_DB_PASS

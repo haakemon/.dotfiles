@@ -12,7 +12,7 @@ services:
   teslamate:
     restart: unless-stopped
     container_name: teslamate
-    image: teslamate/teslamate:3.0.0@sha256:6569026b73bd657455bbec05965d07fa30b6d4d70eaab0bd5b343231c0429167
+    image: teslamate/teslamate:3.1.0@sha256:b7b8b21869d789d043f62b404dd689f55c601ef7d02222e92c0f5d596d0b1044
     ports:
       - 127.0.0.1:4000:4000
     environment:
@@ -32,7 +32,7 @@ services:
   teslamate_grafana:
     restart: unless-stopped
     container_name: teslamate-grafana
-    image: teslamate/grafana:3.0.0@sha256:e02d1f036dd10771ea04db2bafc483067a9dbb874d0b5137dda5a6fe539b77dc
+    image: teslamate/grafana:3.1.0@sha256:8d7287f44b1eefb39e649175aa14615df648c04a3162da9461d07c8a9ea1c7e9
     ports:
       - 127.0.0.1:4001:3000
     environment:

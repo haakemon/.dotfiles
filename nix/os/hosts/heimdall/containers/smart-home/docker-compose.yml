@@ -13,14 +13,14 @@ services:
   homeassistant:
     <<: *common-app-config
     container_name: homeassistant
-    image: ghcr.io/home-assistant/home-assistant:2026.6.3@sha256:aed891b8f801072302815b4b0fab5adb714182967e9d2e2d4a2be558241c73ad
+    image: ghcr.io/home-assistant/home-assistant:2026.6.4@sha256:adb3341e31e03e0048e60d8c1cf952e118a381ae258bb921d3da12a3b27bf0c2
     network_mode: host
     volumes:
       - $DATADIR/homeassistant:/config
 
   music-assistant-server:
     <<: *common-app-config
-    image: ghcr.io/music-assistant/server:2.9.1@sha256:d2fc378b591c83943025df64d7d5bfa722075f02a67e71fc157bed893a5fed6e
+    image: ghcr.io/music-assistant/server:2.9.3@sha256:fa04f9187e65362d489034d5b4072e94a7bef741c29c47e2b9a36325730605f2
     container_name: music-assistant-server
     network_mode: host
     volumes:
@@ -36,7 +36,7 @@ services:
   zigbee2mqtt:
     <<: *common-app-config
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:2.10.1@sha256:67c26dcf8346aced02fe1380a6afd1b57268bcef10faae3f6057c13d5d3dfa80
+    image: koenkk/zigbee2mqtt:2.12.0@sha256:1debff565ab6841417bd9f7ce8ad44f8c5f25a8b02a24ce3fd79e4779a4763a5
     network_mode: host
     volumes:
       - '$DATADIR/zigbee2mqtt/data:/app/data'
@@ -49,7 +49,7 @@ services:
   zwavejs2mqtt:
     <<: *common-app-config
     container_name: zwavejs2mqtt
-    image: zwavejs/zwavejs2mqtt:11.19.0@sha256:a4eae18847fe88c07da5b0898c9d983b283c8a8bab712bdf33cbc0cfd67e8b34
+    image: zwavejs/zwavejs2mqtt:11.19.1@sha256:df776db26a5912eb3223f275ba7e29a76f71aed7c0c2d4316774ae572333b1b5
     network_mode: host
     volumes:
       - '$DATADIR/zwavejs2mqtt/store:/usr/src/app/store'

@@ -5,7 +5,7 @@ volumes:
 
 services:
   romm:
-    image: rommapp/romm:latest@sha256:2b7a1714b287f69b081ad2a63bb8c2fa673666a17b2f21322b580b0cd51cb266
+    image: ghcr.io/rommapp/romm:4.8.1-slim@sha256:a956d0a807db2325629acd95af29552cea967897c872b48dc2fe3b413c819c45
     container_name: romm
     restart: unless-stopped
     environment:
@@ -34,7 +34,7 @@ services:
         restart: true
 
   romm-db:
-    image: mariadb:latest@sha256:6a4c4bbf0447c2247801309513fcc0dd17c3f35390368139ce419387fdd1144d
+    image: lscr.io/linuxserver/mariadb:11.4.12@sha256:9f24c5bea49f85077cecba60e198b2c588b13c17f4ca394dd83916a95a58ca70
     container_name: romm-db
     restart: unless-stopped
     environment:

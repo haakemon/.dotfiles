@@ -3,9 +3,9 @@ networks:
     driver: bridge
 
 services:
-  booklore:
+  grimmory:
     image: ghcr.io/grimmory-tools/grimmory:v3.2.2@sha256:c3fc5ed1d30e33fb6c276dfbb438d29eb7b8f082a6b0c8a66d285564ee758246
-    container_name: booklore
+    container_name: grimmory
     environment:
       - USER_ID=${APP_USER_ID}
       - GROUP_ID=${APP_GROUP_ID}
@@ -15,7 +15,7 @@ services:
       - DATABASE_PASSWORD=${DB_PASSWORD}
       - BOOKLORE_PORT=${BOOKLORE_PORT}
     depends_on:
-      mariadb:
+      grimmory-mariadb:
         condition: service_healthy
     ports:
       - '${BOOKLORE_PORT}:${BOOKLORE_PORT}'
@@ -25,9 +25,9 @@ services:
       - $DATADIR/booklore/bookdrop:/bookdrop
     restart: unless-stopped
 
-  mariadb:
+  grimmory-mariadb:
     image: lscr.io/linuxserver/mariadb:11.4.12@sha256:01635e796763aa14466ac54e72d3ea79efda5d4f160f1f5cf527fc70ffa555ef
-    container_name: mariadb
+    container_name: grimmory-mariadb
     environment:
       - PUID=${DB_USER_ID}
       - PGID=${DB_GROUP_ID}

@@ -13,17 +13,8 @@
     # vt = 7; https://github.com/NixOS/nixpkgs/pull/428972
     settings = {
       default_session = {
-        command = ''
-          ${pkgs.tuigreet}/bin/tuigreet \
-            --cmd niri-session \
-            --remember \
-            --remember-session \
-            --time \
-            --asterisks \
-            --power-shutdown shutdown now \
-            --power-reboot reboot \
-            --greeting "Eat some bananas"
-        '';
+        # https://github.com/NixOS/nixpkgs/issues/527565
+        command = "${pkgs.tuigreet}/bin/tuigreet --cmd niri-session --remember --remember-session --time --asterisks --power-shutdown shutdown now --power-reboot reboot";
         # --time-format #strftime format
 
         user = "greeter";

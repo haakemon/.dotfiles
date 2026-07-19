@@ -23,6 +23,7 @@
       pkgs.freetube
       pkgs.telegram-desktop
       pkgs.llama-cpp-vulkan
+      pkgs.orca-slicer
     ];
   };
 

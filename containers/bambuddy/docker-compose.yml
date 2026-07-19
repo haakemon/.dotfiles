@@ -8,6 +8,7 @@ services:
       - $DATADIR/bambuddy/logs:/app/logs
     environment:
       - TZ=$TZ
+      - PORT=8069
     restart: unless-stopped
     # Docker SIGKILLs after 10s by default. Bambuddy stops well inside that,
     # but the headroom means a slow teardown (several virtual printers on a Pi)

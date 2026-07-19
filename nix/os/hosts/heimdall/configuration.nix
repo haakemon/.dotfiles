@@ -1,8 +1,9 @@
-{ inputs
-, config
-, pkgs
-, lib
-, ...
+{
+  inputs,
+  config,
+  pkgs,
+  lib,
+  ...
 }:
 let
   secretspath = builtins.toString inputs.dotfiles-private-nonflake;
@@ -85,23 +86,24 @@ in
       };
       dynamicConfigOptions.http = {
         services = {
-          valetudo.loadBalancer.servers = [{ url = "http://192.168.2.11"; }];
-          homarr.loadBalancer.servers = [{ url = "http://127.0.0.1:7575"; }];
-          cockpit.loadBalancer.servers = [{ url = "http://127.0.0.1:9090"; }];
-          zigbee2mqtt.loadBalancer.servers = [{ url = "http://127.0.0.1:8089"; }];
-          zwavejs2mqtt.loadBalancer.servers = [{ url = "http://127.0.0.1:8091"; }];
-          hass.loadBalancer.servers = [{ url = "http://127.0.0.1:8123"; }];
-          memories.loadBalancer.servers = [{ url = "http://127.0.0.1:2342"; }];
-          teslamate.loadBalancer.servers = [{ url = "http://127.0.0.1:4000"; }];
-          "teslamate-stats".loadBalancer.servers = [{ url = "http://127.0.0.1:4001"; }];
-          adguard.loadBalancer.servers = [{ url = "http://127.0.0.1:3050"; }];
-          status.loadBalancer.servers = [{ url = "http://127.0.0.1:3001"; }];
-          scrutiny.loadBalancer.servers = [{ url = "http://127.0.0.1:8999"; }];
-          food.loadBalancer.servers = [{ url = "http://127.0.0.1:8255"; }];
-          music.loadBalancer.servers = [{ url = "http://127.0.0.1:8095"; }];
-          books.loadBalancer.servers = [{ url = "http://127.0.0.1:6060"; }];
-          tv.loadBalancer.servers = [{ url = "http://127.0.0.1:8096"; }];
-          romm.loadBalancer.servers = [{ url = "http://127.0.0.1:8063"; }];
+          valetudo.loadBalancer.servers = [ { url = "http://192.168.2.11"; } ];
+          homarr.loadBalancer.servers = [ { url = "http://127.0.0.1:7575"; } ];
+          cockpit.loadBalancer.servers = [ { url = "http://127.0.0.1:9090"; } ];
+          zigbee2mqtt.loadBalancer.servers = [ { url = "http://127.0.0.1:8089"; } ];
+          zwavejs2mqtt.loadBalancer.servers = [ { url = "http://127.0.0.1:8091"; } ];
+          hass.loadBalancer.servers = [ { url = "http://127.0.0.1:8123"; } ];
+          memories.loadBalancer.servers = [ { url = "http://127.0.0.1:2342"; } ];
+          teslamate.loadBalancer.servers = [ { url = "http://127.0.0.1:4000"; } ];
+          "teslamate-stats".loadBalancer.servers = [ { url = "http://127.0.0.1:4001"; } ];
+          adguard.loadBalancer.servers = [ { url = "http://127.0.0.1:3050"; } ];
+          status.loadBalancer.servers = [ { url = "http://127.0.0.1:3001"; } ];
+          scrutiny.loadBalancer.servers = [ { url = "http://127.0.0.1:8999"; } ];
+          food.loadBalancer.servers = [ { url = "http://127.0.0.1:8255"; } ];
+          music.loadBalancer.servers = [ { url = "http://127.0.0.1:8095"; } ];
+          books.loadBalancer.servers = [ { url = "http://127.0.0.1:6060"; } ];
+          tv.loadBalancer.servers = [ { url = "http://127.0.0.1:8096"; } ];
+          romm.loadBalancer.servers = [ { url = "http://127.0.0.1:8063"; } ];
+          bambuddy.loadBalancer.servers = [ { url = "http://127.0.0.1:8069"; } ];
         };
 
         routers = {
@@ -211,6 +213,12 @@ in
             rule = "Host(`romm.${config.system-config.acme.domain}`)";
             entryPoints = [ "websecure" ];
             service = "romm";
+          };
+
+          bambuddy = {
+            rule = "Host(`bambuddy.${config.system-config.acme.domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "bambuddy";
           };
         };
       };

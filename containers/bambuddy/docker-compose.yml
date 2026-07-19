@@ -1,7 +1,6 @@
 services:
   bambuddy:
     image: ghcr.io/maziggy/bambuddy:0.2.4.9
-    build: .
     container_name: bambuddy
     network_mode: host # Recommended for automatic printer discovery
     volumes:

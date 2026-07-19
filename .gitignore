@@ -83,6 +83,10 @@ $RECYCLE.BIN/
 .*.env*
 .env*
 !.env*template
+!.env.schema
+
+containers/**/env.d.ts
+
 nohup.out
 nohup.*.out
 

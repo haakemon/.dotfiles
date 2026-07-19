@@ -4,7 +4,7 @@ networks:
 
 services:
   grimmory:
-    image: ghcr.io/grimmory-tools/grimmory:v3.2.2@sha256:c3fc5ed1d30e33fb6c276dfbb438d29eb7b8f082a6b0c8a66d285564ee758246
+    image: ghcr.io/grimmory-tools/grimmory:v3.2.4@sha256:dfa7afdfcf25d649fd664497a62385dd00cd9678c37546e182c172e41c8e80cb
     container_name: grimmory
     environment:
       - USER_ID=${APP_USER_ID}
@@ -26,7 +26,7 @@ services:
     restart: unless-stopped
 
   grimmory-mariadb:
-    image: lscr.io/linuxserver/mariadb:11.4.12@sha256:01635e796763aa14466ac54e72d3ea79efda5d4f160f1f5cf527fc70ffa555ef
+    image: lscr.io/linuxserver/mariadb:11.8.8@sha256:5381fd649df2d8424f744ed703c33c40cfb077187a123a37238d30f2bd80ce8a
     container_name: grimmory-mariadb
     environment:
       - PUID=${DB_USER_ID}

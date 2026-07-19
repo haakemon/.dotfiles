@@ -25,7 +25,7 @@ repos:
   - repo: https://github.com/NixOS/nixfmt
     rev: 3615a72770e72f561ccb80483092ca8190f04982
     hooks:
-      - id: nixfmt
+      - id: nixfmt-nix
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.48.0
     hooks:

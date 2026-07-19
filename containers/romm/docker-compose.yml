@@ -5,7 +5,7 @@ volumes:
 
 services:
   romm:
-    image: ghcr.io/rommapp/romm:4.9.2-slim@sha256:52b9d66662eee65f5d1671fe3b61e14a696c68b8ed2de9391cb29400f62138e7
+    image: ghcr.io/rommapp/romm:5.0.0-slim@sha256:d457e469d51d2d92ed338d25f4c4e2c9f548c573795bb08aa595ab36a7a482c4
     container_name: romm
     restart: unless-stopped
     environment:

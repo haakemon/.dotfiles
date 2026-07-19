@@ -13,16 +13,38 @@ services:
     image: postgres:18.4-alpine3.22@sha256:774521500f4c22761b25a6bdb772a0a3c2e8dd32468210bdad9231c5752ea398
     volumes:
       - $DATADIR/tandoor/postgresql:/var/lib/postgresql
-    env_file:
-      - ./.env
+    environment:
+      - PUID
+      - PGID
+      - DATADIR
+      - SECRET_KEY
+      - TZ
+      - ALLOWED_HOSTS
+      - DB_ENGINE
+      - POSTGRES_HOST
+      - POSTGRES_DB
+      - POSTGRES_PORT
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
     networks:
       - default
 
   web_recipes:
     <<: *common-app-config
     image: vabene1111/recipes:2.6.13@sha256:f6c58afdea7a721d079ebd6ee5483f2c9da77dd1e709e16d60a82c218e80a451
-    env_file:
-      - ./.env
+    environment:
+      - PUID
+      - PGID
+      - DATADIR
+      - SECRET_KEY
+      - TZ
+      - ALLOWED_HOSTS
+      - DB_ENGINE
+      - POSTGRES_HOST
+      - POSTGRES_DB
+      - POSTGRES_PORT
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
     volumes:
       - staticfiles:/opt/recipes/staticfiles
       - $DATADIR/tandoor/mediafiles:/opt/recipes/mediafiles

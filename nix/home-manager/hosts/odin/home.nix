@@ -10,6 +10,7 @@
     ../../modules/obs-studio.nix
     ../../modules/zsh.nix
     ../../modules/niri.nix
+    ../../modules/gaming.nix
   ];
 
   home = {

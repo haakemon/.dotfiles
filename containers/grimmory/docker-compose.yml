@@ -26,7 +26,7 @@ services:
     restart: unless-stopped
 
   grimmory-mariadb:
-    image: lscr.io/linuxserver/mariadb:11.4.12@sha256:01635e796763aa14466ac54e72d3ea79efda5d4f160f1f5cf527fc70ffa555ef
+    image: lscr.io/linuxserver/mariadb:11.4.12@sha256:b68d35ff2da41e568f51e0370a7e1c3ce693fecdacbed061b4b0be5b924f14bb
     container_name: grimmory-mariadb
     environment:
       - PUID=${DB_USER_ID}

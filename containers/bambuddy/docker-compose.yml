@@ -1,6 +1,6 @@
 services:
   bambuddy:
-    image: ghcr.io/maziggy/bambuddy:0.2.4.9
+    image: ghcr.io/maziggy/bambuddy:0.2.4.9@sha256:d68ab4746f18c51a6e22f5cd536533a4ae3c1eb48f4eecccbb68c2be23d0ef52
     container_name: bambuddy
     network_mode: host # Recommended for automatic printer discovery
     volumes:

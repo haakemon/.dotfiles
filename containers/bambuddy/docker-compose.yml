@@ -1,0 +1,16 @@
+services:
+  bambuddy:
+    image: ghcr.io/maziggy/bambuddy:latest
+    build: .
+    container_name: bambuddy
+    network_mode: host # Recommended for automatic printer discovery
+    volumes:
+      - $DATADIR/bambuddy/data:/app/data
+      - $DATADIR/bambuddy/logs:/app/logs
+    environment:
+      - TZ=$TZ
+    restart: unless-stopped
+    # Docker SIGKILLs after 10s by default. Bambuddy stops well inside that,
+    # but the headroom means a slow teardown (several virtual printers on a Pi)
+    # can still checkpoint the database instead of being killed mid-write.
+    stop_grace_period: 30s

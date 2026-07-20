@@ -3,6 +3,8 @@ services:
     image: ghcr.io/maziggy/bambuddy:0.2.4.9
     container_name: bambuddy
     network_mode: host # Recommended for automatic printer discovery
+    cap_add:
+      - NET_BIND_SERVICE # Required for virtual printer proxy
     volumes:
       - $DATADIR/bambuddy/data:/app/data
       - $DATADIR/bambuddy/logs:/app/logs

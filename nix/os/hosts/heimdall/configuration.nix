@@ -326,6 +326,20 @@ in
       internalInterfaces = [ "wg0" ];
     };
 
+    networkmanager.ensureProfiles.profiles = {
+      "enp88s0" = {
+        connection = {
+          id = "enp88s0";
+          type = "ethernet";
+          interface-name = "enp88s0";
+        };
+        ipv4 = {
+          method = "auto"; # keep DHCP for 192.168.2.9
+          addresses = "192.168.2.10/24"; # bambuddy virtual printer
+        };
+      };
+    };
+
     wireguard = {
       enable = true;
       interfaces.wg0 = {

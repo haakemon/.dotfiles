@@ -368,6 +368,8 @@ in
     };
   };
 
+  boot.kernel.sysctl."net.ipv4.ip_unprivileged_port_start" = 300;
+
   sops = {
     secrets = {
       "ssh/authorized_keys" = {
